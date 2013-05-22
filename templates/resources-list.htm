@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="ru"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="ru"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="ru"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="viewport" content="width=device-width" />
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/styles.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv-printshiv.js"></script>
+  <script src="js/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="structure">
+  <header>
+  </header>
+
+  <div id="content" class="nofloat">
+    <aside id="left">
+    </aside>
+
+    <main>
+
+      <div class="breadcrumbs">
+        <a href="/">Главная</a>
+        <span class="breadcrumbs-separator">/</span>
+        <span>Ресурсы по теме</span>
+      </div>
+
+      <section class="resources">
+        <h1>Ресурсы по теме</h1>
+
+        <div class="text-container">
+          <p>В данном разделе сайта размещены интернет-ресурсы, посвященные тематике "Гидроизоляционные материалы".</p>
+        </div>
+
+        <div class="text-container">
+          <div class="l-main">
+            <ul>
+            <li><a href="resources-item.htm">Двери и лестницы</a> (8)</li>
+            <li><a href="resources-item.htm">Строительство зданий</a> (0)</li>
+            <li><a href="resources-item.htm">Ремонт и отделка помещений</a> (0)</li>
+            <li><a href="resources-item.htm">Строительные порталы</a> (1)</li>
+            <li><a href="resources-item.htm">Панели, фасады</a> (5)</li>
+            <li><a href="resources-item.htm">Строительные материалы</a> (1)</li>
+            <li><a href="resources-item.htm">Спецодежда</a> (1)</li>
+            </ul>
+          </div>
+          <div class="r-main">
+            <ul>
+            <li><a href="resources-item.htm">Окна, жалюзи</a> (4)</li>
+            <li><a href="resources-item.htm">Кровля</a> (0)</li>
+            <li><a href="resources-item.htm">Напольные покрытия</a> (1)</li>
+            <li><a href="resources-item.htm">Сантехника и канализация</a> (4)</li>
+            <li><a href="resources-item.htm">Плитка и облицовка</a> (0)</li>
+            <li><a href="resources-item.htm">Ландшафтный дизайн</a> (0)</li>
+            <li><a href="resources-item.htm">Строительное оборудование</a> (0)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hr1">&nbsp;</div>
+
+        <div class="h2">Форма для добавления сайта в каталог</div>
+
+        <div class="text-container">
+          <p>Мы обмениваемся ссылками с сайтами схожей тематики. Если ваш проект может быть интересен посетителям нашего сайта, вы можете заполнить приведенную ниже форму и мы свяжемся с вами в ближайшее время.</p>
+        </div>
+
+        <form action="/" class="form">
+          <div class="text-container">
+            <label for="resources-url">URL сайта <span class="required">*</span></label>
+            <div class="form-pdb"><input type="text" class="input" id="resources-url" /></div>
+          </div>
+          <div class="text-container">
+            <label for="resources-name">Название сайта <span class="required">*</span></label>
+            <div class="form-pdb form-error">
+              <input type="text" class="input" id="resources-name" />
+              <div class="form-error-message">Это поле обязательно нужно заполнить!</div>
+            </div>
+          </div>
+          <div class="text-container">
+            <label for="resources-description">Описание сайта <span class="required">*</span></label>
+            <div class="form-pdb"><textarea rows="5" cols="5" id="resources-description"></textarea></div>
+          </div>
+          <div class="text-container">
+            <label for="resources-category">Категория <span class="required">*</span></label>
+            <div class="form-pdb"><select id="resources-category"><option selected="selected">Строительство домов</option><option>Строительное оборудование</option><option>Кровля</option></select></div>
+          </div>
+          <div class="text-container">
+            <label for="resources-email">Ваш e-mail <span class="required">*</span></label>
+            <div class="form-pdb"><input type="text" class="input" id="resources-email" /></div>
+          </div>
+          <div class="text-container honeypot">
+            <label for="resources-honeypot">HoneyPot</label>
+            <div class="form-pdb"><input type="text" class="inp" id="resources-honeypot" /></div>
+          </div>
+
+          <div class="text-container form-hint">Поля, отмеченные знаком <span class="required">*</span>, обязательны для заполнения.</div>
+
+          <div class="form-submit"><input type="image" src="images/btn-send.png" alt="Отправить" /></div>
+        </form>
+
+        <script data-pack="None">
+        //<![CDATA[
+        $(function() {
+          // Ботоловка
+          $('#resources-honeypot').parents('.honeypot').hide();
+        });
+        //]]>
+        </script>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="counters">
+    <img src="images/hotlog.gif" alt="" />
+    <img src="images/hotlog.gif" alt="" />
+    <img src="images/hotlog.gif" alt="" />
+  </div>
+  <div class="copyright">
+    <div class="m5">&copy; 2013</div>
+    <a href="http://artwist.ru/">Web-дизайн, создание сайта, продвижение сайта</a> - <b><a href="http://artwist.ru/">ArTwist</a></b>
+  </div>
+</footer>
+
+</body>
+</html>
