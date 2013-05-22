@@ -101,15 +101,13 @@ sup {
 sub {
   bottom: -0.25em; }
 ul, ol, ul.default {
-  margin: 5px 0 15px 0; }
+  margin: 0 0 10px 0; }
 ol {
   margin: 5px 0 20px 20px; }
 ol.search {
   margin-bottom: 40px; }
-ul.default {
-  margin-top: 0; }
 ul li, ul.default li {
-  margin: 5px 0;
+  margin: 0 0 10px 0;
   list-style-position: inside;
   list-style-type: square; }
 ul.default li {
@@ -117,7 +115,6 @@ ul.default li {
   list-style-position: outside;
   list-style-type: disc; }
 ol li {
-  margin: 0 0 10px 0;
   list-style-position: outside; }
 ol.search li {
   margin-bottom: 20px; }
@@ -136,7 +133,9 @@ legend {
 .lt-ie8 legend {
   margin-left: -7px; }
 button, input, select, textarea {
-  vertical-align: top; }
+  vertical-align: baseline; }
+.lt-ie8 button, .lt-ie8 input, .lt-ie8 select, .lt-ie8 textarea {
+  vertical-align: middle; }
 button, input {
   line-height: normal; }
 button, select {
@@ -297,7 +296,7 @@ b, strong, .bb {
   font-size: 1px;
   line-height: 1px;
   height: 1px;
-  margin: 10px 0 15px 0; }
+  margin: 10px 0 20px 0; }
 
 .l-main {
   float: left;
@@ -377,15 +376,17 @@ footer {
 
 
 /*   -=========== Blocks ===========-   */
-.breadcrumbs {}
+.breadcrumbs {
+  margin-bottom: 15px; }
 .breadcrumbs * {
   display: inline-block;
   padding-right: 5px; }
 .breadcrumbs span {
   color: #000000; }
-.breadcrumbs-separator {}
+span.breadcrumbs-separator {}
 
-.paginator {}
+.paginator {
+  margin-bottom: 15px; }
 .paginator-header {}
 .paginator-footer {}
 .paginator ul {
@@ -397,12 +398,15 @@ footer {
 .paginator ul li {
   display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 0 5px;
   list-style: none; }
 .lt-ie8 .paginator ul li {
   display: inline;
   zoom: 1; }
-.paginator ul li.page-selected a {}
+.paginator ul li.page-selected a {
+  font-weight: bold;
+  color: #000000;
+  text-decoration: none; }
 .paginator ul li.page-backward a, .paginator ul li.page-forward a {}
 
 footer .counters {
@@ -450,11 +454,11 @@ th.nowrap, td.nowrap {
 .form label {
   float: left;
   width: 160px;
-  padding: 3px 15px 0 0; }
-.form .pdb {
+  padding: 3px 20px 0 0; }
+.form .form-pdb {
   float: left;
-  width: 350px; }
-.form .pdb label {
+  width: 550px; }
+.form .form-pdb label {
   float: none;
   width: 100%;
   padding-right: 0; }
@@ -492,11 +496,11 @@ th.nowrap, td.nowrap {
 .form .form-success-message {
   position: relative;
   background-repeat: no-repeat;
-  background-position: 4px 4px;
+  background-position: 5px 4px;
   font-size: 11px;
   line-height: 120%;
   margin-top: -1px;
-  padding: 5px 10px 5px 23px; }
+  padding: 5px 5px 5px 26px; }
 .form .form-error input,
 .form .form-error select,
 .form .form-error textarea {
