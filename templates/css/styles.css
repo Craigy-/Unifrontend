@@ -271,8 +271,14 @@ footer .copyright a {}
 
 
 /*   -=========== Tables ===========-   */
-th.center, td.center {
-  text-align: center; }
+.zero {
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse; }
+.zero td {
+  padding: 0; }
+.z7 td {
+  padding: 7px 0; }
 th.right, td.right {
   float: none;
   margin: 0;
@@ -283,6 +289,8 @@ th.left, td.left {
   text-align: left; }
 th.nowrap, td.nowrap {
   white-space: nowrap; }
+th.v-top, td.v-top {
+  vertical-align: top; }
 
 .bord {
   width: 100%;
@@ -379,15 +387,6 @@ a.nova, .nova a {
 b, strong, .bb {
   font-weight: bold; }
 
-.zero {
-  border: 0;
-  border-spacing: 0;
-  border-collapse: collapse; }
-.zero td {
-  padding: 0; }
-.z7 td {
-  padding: 7px 0; }
-
 .m3 {
   margin-bottom: 3px; }
 .m5 {
@@ -452,6 +451,8 @@ b, strong, .bb {
 .ib {
   border: 1px solid #7D7D7D;
   padding: 2px; }
+.center {
+  text-align: center; }
 .left {
   float: left;
   margin: 0 15px 10px 0; }
