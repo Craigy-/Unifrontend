@@ -313,21 +313,17 @@ th.nowrap, td.nowrap {
   float: none;
   width: 100%;
   padding-right: 0; }
-.form .input,
-.form select,
-.form textarea {
+.form .input, .form select, .form textarea {
   width: 100%; }
-.lt-ie8 .form .input,
-.lt-ie8 .form select,
-.lt-ie8 .form textarea {
+.lt-ie8 .form .input, .lt-ie8 .form select, .lt-ie8 .form textarea {
   width: 318px; }
-.form .form-size-half {
+.form-size-half {
   width: 48%; }
-.form .form-size-third {
+.form-size-third {
   width: 32%; }
-.form .form-size-quarter {
+.form-size-quarter {
   width: 24%; }
-.form .form-size-auto {
+.form-size-auto {
   width: auto; }
 .form .form-separator {
   display: inline-block;
@@ -339,12 +335,10 @@ th.nowrap, td.nowrap {
   margin: 20px 0; }
 .form .form-submit {
   text-align: center; }
-.form span.required,
-.form .required span {
+.form span.required, .form .required span {
   font-weight: bold;
   color: #950000; }
-.form .form-error-message,
-.form .form-success-message {
+.form-error-message, .form-success-message {
   position: relative;
   background-repeat: no-repeat;
   background-position: 5px 4px;
@@ -352,20 +346,16 @@ th.nowrap, td.nowrap {
   line-height: 120%;
   margin-top: -1px;
   padding: 5px 5px 5px 26px; }
-.form .form-error input,
-.form .form-error select,
-.form .form-error textarea {
+.form .form-error input, .form .form-error select, .form .form-error textarea {
   color: #950000; }
-.form .form-error-message {
+.form-error-message {
   background-image: url(../images/stop-round.png);
   background-color: #FFCACA;
   border: 1px solid #950000;
   color: #950000; }
-.form .form-success input,
-.form .form-success select,
-.form .form-success textarea {
+.form .form-success input, .form .form-success select, .form .form-success textarea {
   color: #5E9010; }
-.form .form-success-message {
+.form-success-message {
   background-image: url(../images/accept-green.png);
   background-color: #CDEAC8;
   border: 1px solid #5E9010;
