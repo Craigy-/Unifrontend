@@ -1,7 +1,7 @@
 {
 "Version": "0.2.7",
 "FileData":{
-".hgignore": {"timestamp": 1369774409.05},
+".hgignore": {"timestamp": 1369774540.72},
 "templates/404.htm": {"timestamp": 1369774084.42},
 "templates/articles-item.htm": {"timestamp": 1369774092.2},
 "templates/articles-list.htm": {"timestamp": 1369774097.53},
@@ -19,6 +19,7 @@
 "templates/info.htm": {"timestamp": 1369774125.73},
 "templates/js/html5shiv-printshiv.js": {"timestamp": 1357069386.92},
 "templates/js/jquery.js": {"timestamp": 1353442163.03},
+"templates/js/plugins/.hgignore": {"timestamp": 1368733685.28},
 "templates/js/respond.js": {"timestamp": 1353444649.09},
 "templates/map.htm": {"timestamp": 1369774130.53},
 "templates/news-item.htm": {"timestamp": 1369774135.22},
