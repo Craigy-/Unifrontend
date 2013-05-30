@@ -30,8 +30,8 @@
 "templates/temp/foto.jpg": {"timestamp": 1259590088.27},
 "templates/temp/map.gif": {"timestamp": 1239601964.44},
 "utilities/files/.hgignore": {"timestamp": 1368733685.28},
-"utilities/optimize-png.bat": {"timestamp": 1368731208.09},
-"utilities/programs/changelog.html": {"timestamp": 1365578450.0},
+"utilities/optimize-png.bat": {"timestamp": 1369944650.68},
+"utilities/programs/changelog.html": {"timestamp": 1369449962.0},
 "utilities/programs/doc/authors.txt": {"timestamp": 1350841260.0},
 "utilities/programs/doc/history.txt": {"timestamp": 1350841260.0},
 "utilities/programs/doc/license.txt": {"timestamp": 1330538940.0},
@@ -43,9 +43,9 @@
 "utilities/programs/license.txt": {"timestamp": 1295816700.0},
 "utilities/programs/optipng.exe": {"timestamp": 1350841260.0},
 "utilities/programs/optipng.url": {"timestamp": 1146387060.0},
-"utilities/programs/pngcrush.exe": {"timestamp": 1368724424.81},
+"utilities/programs/pngcrush.exe": {"timestamp": 1369944303.6},
 "utilities/programs/pngout.exe": {"timestamp": 1368728312.47},
-"utilities/remove-png-colorspace.bat": {"timestamp": 1368731038.58},
+"utilities/remove-png-colorspace.bat": {"timestamp": 1369944655.88},
 "TimestampMod_LastRecord": {"timestamp": 0}
 }
 }
