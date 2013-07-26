@@ -209,8 +209,8 @@ main {
   padding-left: 30px; }
 footer {
   clear: both;
-  background: #FFFFFF;
   position: relative;
+  background: #FFFFFF;
   width: 990px;
   margin: -90px auto 0 auto;
   height: 90px; }
@@ -257,14 +257,14 @@ span.breadcrumbs-separator {}
   float: left;
   margin: 10px 6px 0 6px; }
 
-footer .counters {
+.footer-counters {
   float: left;
   padding: 0 90px 0 20px; }
-footer .counters img {
+.footer-counters img {
   float: left;
   margin-right: 10px; }
-footer .copyright {}
-footer .copyright a {}
+.footer-copyright {}
+.footer-copyright a {}
 
 
 /*   -=========== Tables ===========-   */
