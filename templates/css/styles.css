@@ -9,7 +9,8 @@ body {
   font-size: 11px;
   line-height: 120%;
   color: #000000;
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  min-width: 1004px; }
 * {
   font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
   font-size: 100%;
@@ -193,9 +194,8 @@ label {
 #structure {
   position: relative;
   width: 990px;
-  min-width: 1004px;
-  min-height: 100%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  min-height: 100%; }
 header {}
 nav {}
 #content {
