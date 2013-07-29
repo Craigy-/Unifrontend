@@ -1,4 +1,4 @@
 syntax: glob
 
-templates/js/plugins
+templates/js
 utilities/files
