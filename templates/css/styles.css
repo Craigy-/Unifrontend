@@ -330,15 +330,15 @@ th.v-top, td.v-top {
   width: 24%; }
 .form-size-auto {
   width: auto; }
-.form .form-separator {
+.form-separator {
   display: inline-block;
   text-align: center;
   width: 4%; }
-.form .form-hint {
+.form-hint {
   font-size: 11px;
   line-height: 11px;
   margin: 20px 0; }
-.form .form-submit {
+.form-submit {
   text-align: center; }
 .form span.required, .form .required span {
   font-weight: bold;
