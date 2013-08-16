@@ -6,4 +6,4 @@ rem Use with nodejs scripts (lessc, less-watchr))
 echo Less is watching for changes. Press Ctrl-C to stop.
 echo.
 cd ..
-less-watchr --path css/less/styles.less --outputFilename ../styles.css --options="--yui-compress --strict-math=on"
+less-watchr --path css/less --fileToCompile css/less/styles.less --outputFilename ../styles.css --options="--yui-compress --strict-math=on"
