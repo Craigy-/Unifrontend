@@ -1,0 +1,71 @@
+@import "constants";
+@import "_functions";
+@import "_normalize";
+@import "_constructions";
+@import "_classes";
+
+
+/*   -=========== HTML5 structure ===========-   */
+#structure {
+  position: relative;
+  width: 990px;
+  margin: 0 auto;
+  min-height: 100%; }
+header {}
+nav {}
+#content {
+  padding-bottom: 120px; }
+aside#left {
+  float: left;
+  width: 230px; }
+main {
+  float: left;
+  width: 730px;
+  padding-left: 30px; }
+footer {
+  clear: both;
+  position: relative;
+  background: #FFFFFF;
+  width: 990px;
+  margin: -90px auto 0 auto;
+  height: 90px; }
+
+
+/*   -=========== Settings of pre-installed classes' ===========-   */
+
+
+/*   -=========== Blocks ===========-   */
+.news-date {
+  margin-bottom: 10px; }
+
+.galleries-foto {
+  float: left;
+  margin: 10px 6px 0 6px; }
+
+.footer-counters {
+  float: left;
+  padding: 0 90px 0 20px; }
+.footer-counters img {
+  float: left;
+  margin-right: 10px; }
+.footer-copyright {}
+.footer-copyright a {}
+
+
+/*   -=========== Tables ===========-   */
+.bord {
+  width: 100%;
+  border-top: 1px solid #7D7D7D;
+  border-left: 1px solid #7D7D7D; }
+.bord th, .bord td {
+  padding: 5px 10px;
+  border-right: 1px solid #7D7D7D;
+  border-bottom: 1px solid #7D7D7D; }
+.bord th {
+  background: #7D7D7D;
+  color: #FFFFFF; }
+.bord tr:nth-child(odd) > td {
+  background: #CCCCCC; }
+
+
+@import "_print";
