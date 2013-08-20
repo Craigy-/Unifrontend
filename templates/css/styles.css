@@ -340,7 +340,7 @@ th.v-top, td.v-top {
   margin: 20px 0; }
 .form-submit {
   text-align: center; }
-.form span.required, .form .required span {
+.form span.form-required, .form .form-required span {
   font-weight: bold;
   color: #950000; }
 .form-error-message, .form-success-message {
