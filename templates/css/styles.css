@@ -334,14 +334,18 @@ th.v-top, td.v-top {
   width: 100%; }
 .lt-ie8 .form .input, .lt-ie8 .form select, .lt-ie8 .form textarea {
   width: 318px; }
+.form-size-three-quarter {
+  width: 75%!important; }
+.form-size-two-thirds {
+  width: 66%!important; }
 .form-size-half {
-  width: 48%; }
+  width: 48%!important; }
 .form-size-third {
-  width: 32%; }
+  width: 32%!important; }
 .form-size-quarter {
-  width: 24%; }
+  width: 24%!important; }
 .form-size-auto {
-  width: auto; }
+  width: auto!important; }
 .form-separator {
   display: inline-block;
   text-align: center;
@@ -357,6 +361,9 @@ th.v-top, td.v-top {
   color: #950000; }
 .form-error-message, .form-success-message {
   position: relative;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: 5px 4px;
   font-size: 11px;
