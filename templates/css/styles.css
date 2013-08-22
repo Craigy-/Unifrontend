@@ -170,12 +170,24 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
   border: 1px solid #7D7D7D; }
 textarea {
   line-height: 120%; }
-input:-moz-placeholder {
-  color: #CCCCCC; }
-input:-ms-input-placeholder {
-  color: #CCCCCC; }
+input::-moz-placeholder {
+  color: #CCCCCC;
+  opacity: 1; }
+input::-ms-input-placeholder {
+  color: #CCCCCC;
+  opacity: 1; }
 input::-webkit-input-placeholder {
-  color: #CCCCCC; }
+  color: #CCCCCC;
+  opacity: 1; }
+textarea::-moz-placeholder {
+  color: #CCCCCC;
+  opacity: 1; }
+textarea::-ms-input-placeholder {
+  color: #CCCCCC;
+  opacity: 1; }
+textarea::-webkit-input-placeholder {
+  color: #CCCCCC;
+  opacity: 1; }
 input[disabled], textarea[disabled], select[disabled] {
   border-color: #999999;
   color: #999999; }
