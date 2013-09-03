@@ -577,15 +577,6 @@ ul.block-justify li.justify {
   zoom: 1; }
 
 
-/*   -=========== WYSIWYG styles ===========-   */
-body.mceContentBody {
-  background: #FFFFFF; }
-.cke_panel_listItem {
-  list-style: none; }
-.cke_panel_listItem p {
-  padding: 0; }
-
-
 /*   -=========== Print styles ===========-   */
 @media print {
   * {
