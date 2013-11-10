@@ -1,0 +1,42 @@
+// HTML5 structure
+#structure {
+  position: relative;
+  width: @width-base;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+header {
+}
+nav {
+}
+#content {
+  padding-bottom: @footer-height + 30px;
+}
+aside#left {
+  float: left;
+  width: @width-sidebar-left;
+}
+aside#right {
+  float: left;
+  width: @width-sidebar-right;
+}
+main {
+  float: left;
+  width: @width-base - @width-sidebar-left - @width-sidebar-right;
+  padding: @main-padding;
+}
+footer {
+  position: relative;
+  clear: both;
+  background: @footer-background-color;
+  width: @width-base;
+  margin-top: -@footer-height;
+  margin-left: auto;
+  margin-righst: auto;
+  height: @footer-height;
+}
+
+.wrapper {
+  width: @width-wrapper;
+}
