@@ -2,6 +2,8 @@
 "Version": "0.2.7",
 "FileData":{
 ".hgignore": {"timestamp": 1375092388.48},
+"exclude.txt": {"timestamp": 1376744090.34},
+"template.bat": {"timestamp": 1376744093.31},
 "templates/404.htm": {"timestamp": 1375091617.56},
 "templates/articles-item.htm": {"timestamp": 1375091632.02},
 "templates/articles-list.htm": {"timestamp": 1375091643.22},
@@ -33,7 +35,7 @@
 "templates/news-item.htm": {"timestamp": 1375091712.86},
 "templates/news-list.htm": {"timestamp": 1375091723.02},
 "templates/resources-item.htm": {"timestamp": 1375091730.61},
-"templates/resources-list.htm": {"timestamp": 1375091739.12},
+"templates/resources-list.htm": {"timestamp": 1377171966.28},
 "templates/search-results.htm": {"timestamp": 1375091747.11},
 "templates/temp/foto.jpg": {"timestamp": 1259590088.27},
 "templates/temp/map.gif": {"timestamp": 1239601964.44},
