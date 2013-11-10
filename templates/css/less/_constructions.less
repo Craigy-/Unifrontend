@@ -1,143 +1,201 @@
-/*   -=========== Breadcrumbs ===========-   */
+// Breadcrumbs
 .breadcrumbs {
-  margin-bottom: 15px; }
-.breadcrumbs * {
-  display: inline-block;
-  padding-right: 5px; }
-.breadcrumbs span {
-  color: #000000; }
-span.breadcrumbs-separator {}
+  margin: @breadcrumbs-margin;
 
+  * {
+    display: inline-block;
+    padding: @breadcrumbs-element-padding;
+  }
+  span {
+    color: @breadcrumbs-active-color;
 
-/*   -=========== Pagination ===========-   */
-.paginator {
-  margin-bottom: 15px; }
-.paginator-header {}
-.paginator-footer {}
-.paginator ul {
-  overflow: hidden;
-  margin: 0;
-  padding: 0; }
-.lt-ie8 .paginator ul {
-  zoom: 1; }
-.paginator ul li {
-  display: inline-block;
-  margin: 0;
-  padding: 0 5px;
-  list-style: none; }
-.lt-ie8 .paginator ul li {
-  display: inline;
-  zoom: 1; }
-.paginator ul li.page-selected a {
-  font-weight: bold;
-  color: #000000;
-  text-decoration: none; }
-.paginator ul li.page-backward a, .paginator ul li.page-forward a {}
+    &.breadcrumbs-separator {
+    }
+  }
+}
 
+// Pagination
+.pagination {
+  margin: @pagination-margin;
 
-/*   -=========== Forms ===========-   */
-.form { /* apply to <form> */
-  margin-bottom: 10px; }
-.form label {
-  float: left;
-  width: 160px;
-  padding: 3px 20px 0 0; }
-.form .form-pdb {
-  float: left;
-  width: 550px; }
-.form .form-pdb label {
-  float: none;
-  width: 100%;
-  padding-right: 0; }
-.form .input, .form select, .form textarea {
-  width: 100%; }
-.lt-ie8 .form .input, .lt-ie8 .form select, .lt-ie8 .form textarea {
-  width: 318px; }
+  ul {
+    overflow: hidden;
+
+    .lt-ie8 & {
+      zoom: 1;
+    }
+    > li {
+      display: inline-block;
+      list-style: none;
+      padding: @pagination-element-padding;
+
+      .lt-ie8 & {
+        display: inline;
+        zoom: 1;
+      }
+      &.page-selected a {
+        font-weight: @pagination-selected-font-weight;
+        color: @pagination-selected-color;
+        text-decoration: @pagination-selected-text-decoration;
+      }
+      &.page-backward a {
+      }
+      &.page-forward a {
+      }
+    }
+  }
+}
+.paginator-header {
+}
+.paginator-footer {
+}
+
+// Forms
+form.form {
+  width: @form-width;
+  margin: @form-margin;
+
+  label {
+    float: left;
+    width: @form-width * 0.27;
+    padding-top: 3px;
+    padding-right: @form-width * 0.03;
+  }
+  .form-pdb {
+    float: left;
+    width: @form-width * 0.7;
+
+    label {
+      float: none;
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+  .input,
+  select,
+  textarea {
+    width: 100%;
+
+    .lt-ie8 & {
+      width: (@form-width * 0.7) - (@input-padding * 2);
+    }
+  }
+  .form-error input,
+  .form-error select,
+  .form-error textarea {
+    color: @form-error-color;
+  }
+  .form-success input,
+  .form-success select,
+  .form-success textarea {
+    color: @form-success-color;
+  }
+  span.form-required,
+  .form-required span {
+    font-weight: @form-required-font-bold;
+    color: @form-error-color;
+  }
+}
+.form-size-three-quarter {
+  width: 75% !important;
+}
+.form-size-two-thirds {
+  width: 66% !important;
+}
 .form-size-half {
-  width: 48%; }
+  width: 48% !important;
+}
 .form-size-third {
-  width: 32%; }
+  width: 32% !important;
+}
 .form-size-quarter {
-  width: 24%; }
+  width: 24% !important;
+}
 .form-size-auto {
-  width: auto; }
+  width: auto !important;
+}
 .form-separator {
   display: inline-block;
   text-align: center;
-  width: 4%; }
+  width: 4%;
+}
 .form-hint {
-  font-size: 11px;
-  line-height: 11px;
-  margin: 20px 0; }
+  font-size: @form-hint-font-size;
+  line-height: @form-hint-font-size;
+  margin: @form-hint-margin;
+}
 .form-submit {
-  text-align: center; }
-.form span.required, .form .required span {
-  font-weight: bold;
-  color: #950000; }
-.form-error-message, .form-success-message {
+  text-align: @form-submit-text-align;
+}
+.form-error-message,
+.form-success-message {
   position: relative;
   background-repeat: no-repeat;
   background-position: 5px 4px;
-  font-size: 11px;
-  line-height: 120%;
+  font-size: @form-message-font-size;
+  line-height: @line-height-base;
   margin-top: -1px;
-  padding: 5px 5px 5px 26px; }
-.form .form-error input, .form .form-error select, .form .form-error textarea {
-  color: #950000; }
+  padding: 5px 5px 5px 26px;
+  .box-sizing(border-box);
+}
 .form-error-message {
   background-image: url(../images/stop-round.png);
-  background-color: #FFCACA;
-  border: 1px solid #950000;
-  color: #950000; }
-.form .form-success input, .form .form-success select, .form .form-success textarea {
-  color: #5E9010; }
+  background-color: @form-error-background-color;
+  border: 1px solid @form-error-color;
+  color: @form-error-color;
+}
 .form-success-message {
   background-image: url(../images/accept-green.png);
-  background-color: #CDEAC8;
-  border: 1px solid #5E9010;
-  color: #5E9010; }
+  background-color: @form-success-background-color;
+  border: 1px solid @form-success-color;
+  color: @form-success-color;
+}
 
+// Lists
+ul.list,
+ol.list {
+  margin-bottom: 0;
 
-/*   -=========== Lists ===========-   */
-ul.list, ol.list {
-  margin-bottom: 0; }
+  li {
+    margin-bottom: 5px;
+  }
+}
 ul.list li {
-  list-style: none; }
-ul.list li, ol.list li {
-  margin-bottom: 5px; }
-ul.list-hr li, ol.list-hr li {
-  border-bottom: 1px solid #7D7D7D;
+  list-style: none;
+}
+ul.list-hr li,
+ol.list-hr li {
+  border-bottom: 1px solid @hr1-color;
   padding-bottom: 10px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
+// Tables
+.zero {
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
 
-/*   -=========== Block alignments ===========-   */
-.block-center {
-  overflow: hidden;
-  position: relative;
-  width: 100%; }
-.block-center-div {
-  position: relative;
-  float: left;
-  left: 50%; }
-.block-center-div-div {
-  position: relative;
-  float: left;
-  right: 50%; }
+  td {
+    padding: 0;
+  }
+}
+.bord {
+  width: 100%;
+  border-top: @table-border-width solid @table-border-color;
+  border-left: @table-border-width solid @table-border-color;
 
-ul.block-justify {
-  margin: 0;
-  padding: 0;
-  text-align: justify; }
-ul.block-justify li {
-  display: inline-block;
-  width: 250px;
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-ul.block-justify li.justify {
-  width: 500px; }
-.lt-ie8 ul.block-justify li {
-  display: inline;
-  overflow: hidden;
-  zoom: 1; }
+  th,
+  td {
+    padding: @table-cell-padding;
+    border-right: @table-border-width solid @table-border-color;
+    border-bottom: @table-border-width solid @table-border-color;
+  }
+  th {
+    background: @table-th-background-color;
+    color: @table-th-text-color;
+  }
+  tr:nth-child(odd) > td {
+    background: @table-highlight-color;
+  }
+}
