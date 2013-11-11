@@ -11,7 +11,7 @@ header {
 nav {
 }
 #content {
-  padding-bottom: @footer-height + 30px;
+  padding-bottom: (@footer-height + 30px);
 }
 aside#left {
   float: left;
@@ -23,7 +23,7 @@ aside#right {
 }
 main {
   float: left;
-  width: @width-base - @width-sidebar-left - @width-sidebar-right;
+  width: (@width-base - @width-sidebar-left - @width-sidebar-right);
   padding: @main-padding;
 }
 footer {
@@ -33,7 +33,7 @@ footer {
   width: @width-base;
   margin-top: -@footer-height;
   margin-left: auto;
-  margin-righst: auto;
+  margin-right: auto;
   height: @footer-height;
 }
 

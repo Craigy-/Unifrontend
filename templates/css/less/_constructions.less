@@ -57,13 +57,13 @@ form.form {
 
   label {
     float: left;
-    width: @form-width * 0.27;
+    width: (@form-width * 0.27);
     padding-top: 3px;
-    padding-right: @form-width * 0.03;
+    padding-right: (@form-width * 0.03);
   }
   .form-pdb {
     float: left;
-    width: @form-width * 0.7;
+    width: (@form-width * 0.7);
 
     label {
       float: none;
@@ -77,7 +77,7 @@ form.form {
     width: 100%;
 
     .lt-ie8 & {
-      width: (@form-width * 0.7) - (@input-padding * 2);
+      width: ((@form-width * 0.7) - (@input-padding * 2));
     }
   }
   .form-error input,
