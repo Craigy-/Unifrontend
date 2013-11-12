@@ -1,0 +1,161 @@
+// Classes for manual use in html-files
+
+// Clearfixes
+.nofloat,
+.text-container {
+  .clearfix;
+}
+.text-container {
+  .m(10);
+}
+.float-none {
+  overflow: hidden;
+
+  .lt-ie8 & {
+    zoom: 1;
+  }
+}
+
+// Floatings
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.left {
+  float: left;
+  margin: 0 15px 10px 0;
+}
+.right {
+  float: right;
+  margin: 0 0 10px 15px;
+}
+
+// Images
+.auto {
+  .image-responsive;
+}
+.ib {
+  border: @image-bordered-border;
+  padding: @image-bordered-padding;
+}
+.ic {
+  .border-radius(50%);
+}
+
+// Tables
+.nowrap {
+  white-space: nowrap;
+}
+.vt {
+  vertical-align: top;
+}
+.z3 td {
+  padding: 3px 10px;
+}
+.z7 td {
+  padding: 7px 10px;
+}
+
+// Links
+a.hover,
+.hover > a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+a.unhover,
+.unhover > a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+a.none,
+.none > a {
+  text-decoration: none !important;
+}
+
+// Font-weights
+.nn {
+  font-weight: normal;
+}
+b,
+strong,
+.bb {
+  font-weight: bold;
+}
+
+// Tables
+td.left,
+td.right {
+  float: none;
+  margin: 0;
+}
+td.left {
+  text-align: left;
+}
+td.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+
+// Markers
+.mrk1 {
+  .marker('../images/mrk1.gif'; 4px; 0 0 0 12px);
+}
+
+// Horizontal lines
+.hr1 {
+  .hr(@hr1-color; 10px 0 20px 0);
+}
+
+// Columns
+.l-main {
+  float: left;
+  width: 49%;
+  margin-right: 2%; }
+.r-main {
+  float: left;
+  width: 49%; }
+
+// Margins
+.loop(@index; @step) when (@index > 0) {
+  .m@{index} {
+    .m(@index);
+  }
+  .loop((@index - @step); @step);
+}
+.loop(0) {}
+
+.loop(7; 2);
+.loop(50; 5);
+
+// Paddings
+.loop(@index; @step) when (@index > 0) {
+  .p@{index} {
+    .p(@index);
+  }
+  .loop((@index - @step); @step);
+}
+.loop(0) {}
+
+.loop(7; 2);
+.loop(50; 5);
+
+// Font sizes
+.loop(@index; @step) when (@index > 0) {
+  .s@{index} {
+    .s(@index);
+  }
+  .loop((@index - @step); @step);
+}
+.loop(0) {}
+
+.loop(20; 1);

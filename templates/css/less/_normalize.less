@@ -171,7 +171,7 @@ h6,
 
 p {
   padding-bottom: 10px;
-  line-height: 130%;
+  line-height: @paragraph-line-height;
 }
 hr {
   -moz-box-sizing: content-box;
@@ -303,7 +303,7 @@ select {
   padding-right: @input-padding;
   height: @input-height;
   .box-sizing(border-box);
-  .placeholder();
+  .placeholder;
 }
 textarea {
   line-height: @line-height-base;

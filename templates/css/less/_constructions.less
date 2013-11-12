@@ -8,6 +8,7 @@
   }
   span {
     color: @breadcrumbs-active-color;
+    font-weight: @breadcrumbs-active-font-weight;
 
     &.breadcrumbs-separator {
     }
@@ -20,6 +21,7 @@
 
   ul {
     overflow: hidden;
+    margin: 0;
 
     .lt-ie8 & {
       zoom: 1;
@@ -27,6 +29,7 @@
     > li {
       display: inline-block;
       list-style: none;
+      margin: 0;
       padding: @pagination-element-padding;
 
       .lt-ie8 & {
@@ -45,13 +48,13 @@
     }
   }
 }
-.paginator-header {
+.pagination-header {
 }
-.paginator-footer {
+.pagination-footer {
 }
 
 // Forms
-form.form {
+.form { // apply for <form>
   width: @form-width;
   margin: @form-margin;
 
@@ -140,13 +143,13 @@ form.form {
 }
 .form-error-message {
   background-image: url(../images/stop-round.png);
-  background-color: @form-error-background-color;
+  background-color: #FFCACA;
   border: 1px solid @form-error-color;
   color: @form-error-color;
 }
 .form-success-message {
   background-image: url(../images/accept-green.png);
-  background-color: @form-success-background-color;
+  background-color: #CDEAC8;
   border: 1px solid @form-success-color;
   color: @form-success-color;
 }
@@ -171,31 +174,38 @@ ol.list-hr li {
 }
 
 // Tables
-.zero {
+table {
   border: 0;
   border-spacing: 0;
   border-collapse: collapse;
 
+  th {
+    text-align: left;
+  }
   td {
     padding: 0;
   }
 }
-.bord {
+.bordered {
   width: 100%;
-  border-top: @table-border-width solid @table-border-color;
-  border-left: @table-border-width solid @table-border-color;
+  color: @table-bordered-text-color;
+  border-top: @table-bordered-border;
+  border-left: @table-bordered-border;
 
   th,
   td {
-    padding: @table-cell-padding;
-    border-right: @table-border-width solid @table-border-color;
-    border-bottom: @table-border-width solid @table-border-color;
+    padding: @table-bordered-padding;
+    border-right: @table-bordered-border;
+    border-bottom: @table-bordered-border;
   }
   th {
-    background: @table-th-background-color;
-    color: @table-th-text-color;
+    padding: @table-bordered-th-padding;
+    background: @table-bordered-th-background-color;
+    color: @table-bordered-th-text-color;
   }
+}
+.striped {
   tr:nth-child(odd) > td {
-    background: @table-highlight-color;
+    background: @table-striped-highlight-color;
   }
 }
