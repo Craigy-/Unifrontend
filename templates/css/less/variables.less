@@ -1,3 +1,5 @@
+// Variables
+
 // Fonts
 @font-family-base: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 @font-family-monospace: Courier, 'Courier New', monospace;
@@ -10,6 +12,7 @@
 @link-color: #02A3AA;
 @link-color-hover: @link-color;
 @link-color-visited: @link-color;
+@hr-color-base: #7D7D7D;
 
 @black-10: darken(#FFFFFF, 10%);
 @black-20: darken(#FFFFFF, 20%);
@@ -75,14 +78,14 @@
 @table-bordered-text-color: @text-color;
 @table-bordered-padding: 5px 10px;
 @table-bordered-th-padding: @table-bordered-padding;
-@table-bordered-th-background-color: #7D7D7D;
+@table-bordered-th-background-color: @hr-color-base;
 @table-bordered-th-text-color: #FFFFFF;
 @table-bordered-border: 1px solid @table-bordered-th-background-color;
 
 @table-striped-highlight-color: #CCCCCC;
 
 // Images
-@image-bordered-border: 1px solid #7D7D7D;
+@image-bordered-border: 1px solid @hr-color-base;
 @image-bordered-padding: 2px;
 
 // Forms
@@ -97,11 +100,11 @@
 @form-success-color: @green;
 
 // Inputs
-@input-color-text: #7D7D7D;
+@input-color-text: @hr-color-base;
 @input-color-placeholder: #CCCCCC;
 @input-color-disabled: #999999;
 @input-background: #FFFFFF;
-@input-border: 1px solid #7D7D7D;
+@input-border: 1px solid @hr-color-base;
 @input-height: 17px;
 @input-padding: 5px;
 
@@ -121,6 +124,6 @@
 // Lists
 @list-margin: 0;
 @list-element-margin: 0 0 5px 0;
-@list-hr-element-divider: 1px solid #7D7D7D;
+@list-hr-element-divider: 1px solid @hr-color-base;
 @list-hr-element-padding: 0 0 10px 0;
 @list-hr-element-margin: 0 0 20px 0;
