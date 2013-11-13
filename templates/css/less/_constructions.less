@@ -157,10 +157,10 @@
 // Lists
 ul.list,
 ol.list {
-  margin-bottom: 0;
+  margin: @list-margin;
 
   li {
-    margin-bottom: 5px;
+    margin: @list-element-margin;
   }
 }
 ul.list li {
@@ -168,9 +168,9 @@ ul.list li {
 }
 ul.list-hr li,
 ol.list-hr li {
-  border-bottom: 1px solid @hr1-color;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  border-bottom: @list-hr-element-divider;
+  padding: @list-hr-element-padding;
+  margin: @list-hr-element-margin;
 }
 
 // Tables
@@ -180,10 +180,10 @@ table {
   border-collapse: collapse;
 
   th {
-    text-align: left;
+    text-align: @table-th-text-align;
   }
   td {
-    padding: 0;
+    padding: @table-padding;
   }
 }
 .bordered {
