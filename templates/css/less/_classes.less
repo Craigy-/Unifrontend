@@ -1,63 +1,5 @@
 // Classes for manual use in html-files
 
-// Clearfixes
-.nofloat,
-.text-container {
-  .clearfix;
-}
-.text-container {
-  .m(10);
-}
-.float-none {
-  overflow: hidden;
-
-  .lt-ie8 & {
-    zoom: 1;
-  }
-}
-
-// Floatings
-.fl {
-  float: left;
-}
-.fr {
-  float: right;
-}
-.left {
-  float: left;
-  margin: 0 15px 10px 0;
-}
-.right {
-  float: right;
-  margin: 0 0 10px 15px;
-}
-
-// Images
-.auto {
-  .image-responsive;
-}
-.ib {
-  border: @image-bordered-border;
-  padding: @image-bordered-padding;
-}
-.ic {
-  .border-radius(50%);
-}
-
-// Tables
-.nowrap {
-  white-space: nowrap;
-}
-.vt {
-  vertical-align: top;
-}
-.z3 td {
-  padding: 3px 10px;
-}
-.z7 td {
-  padding: 7px 10px;
-}
-
 // Links
 a.hover,
 .hover > a {
@@ -80,40 +22,79 @@ a.none,
   text-decoration: none !important;
 }
 
-// Font-weights
-.nn {
+// Font weights
+.normal {
   font-weight: normal;
 }
-b,
-strong,
-.bb {
+.bold {
   font-weight: bold;
 }
 
+// Text aligns
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+
+// Clearfixes
+.nofloat,
+.text-container {
+  .clearfix;
+}
+.text-container {
+  .margin-bottom(10);
+}
+.float-none {
+  overflow: hidden;
+
+  .lt-ie8 & {
+    zoom: 1;
+  }
+}
+
+// Floatings
+.pull-left {
+  float: left;
+  margin: 0 15px 10px 0;
+
+  table & {
+    float: none;
+    margin: 0;
+  }
+}
+.pull-right {
+  float: right;
+  margin: 0 0 10px 15px;
+
+  table & {
+    float: none;
+    margin: 0;
+  }
+}
+
+// Images
+.image-responsive {
+  .image-responsive;
+}
+.image-bordered {
+  border: @image-bordered-border;
+  padding: @image-bordered-padding;
+}
+.image-circle {
+  .border-radius(50%);
+}
+
 // Tables
-td.left,
-td.right {
-  float: none;
-  margin: 0;
+.nowrap {
+  white-space: nowrap;
 }
-td.left {
-  text-align: left;
-}
-td.right {
-  text-align: right;
-}
-.center {
-  text-align: center;
-}
-
-// Markers
-.mrk1 {
-  .marker('../images/mrk1.gif'; 4px; 0 0 0 12px);
-}
-
-// Horizontal lines
-.hr1 {
-  .hr(@hr1-color; 10px 0 20px 0);
+.valign-top {
+  vertical-align: top;
 }
 
 // Columns
@@ -126,36 +107,23 @@ td.right {
   width: 49%; }
 
 // Margins
-.loop(@index; @step) when (@index > 0) {
-  .m@{index} {
-    .m(@index);
-  }
-  .loop((@index - @step); @step);
+.generator('margin-bottom', @index) {
+  .margin-bottom(@index);
 }
-.loop(0) {}
-
-.loop(7; 2);
-.loop(50; 5);
+.generate-classes(m; 'margin-bottom'; 3; 3; 1);
+.generate-classes(m; 'margin-bottom'; 7; 7; 1);
+.generate-classes(m; 'margin-bottom'; 5; 50; 5);
 
 // Paddings
-.loop(@index; @step) when (@index > 0) {
-  .p@{index} {
-    .p(@index);
-  }
-  .loop((@index - @step); @step);
+.generator('padding-bottom', @index) {
+  .padding-bottom(@index);
 }
-.loop(0) {}
-
-.loop(7; 2);
-.loop(50; 5);
+.generate-classes(p; 'padding-bottom'; 3; 3; 1);
+.generate-classes(p; 'padding-bottom'; 7; 7; 1);
+.generate-classes(p; 'padding-bottom'; 5; 50; 5);
 
 // Font sizes
-.loop(@index; @step) when (@index > 0) {
-  .s@{index} {
-    .s(@index);
-  }
-  .loop((@index - @step); @step);
+.generator('font-size', @index) {
+  .font-size(@index; @line-height-base);
 }
-.loop(0) {}
-
-.loop(20; 1);
+.generate-classes(s; 'font-size'; 8; 30; 1);
