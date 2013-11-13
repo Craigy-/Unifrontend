@@ -54,7 +54,7 @@ aside#left{float:left;width:230px}
 aside#right{float:left;width:0}
 main{float:left;width:760px;padding:0 0 0 30px}
 footer{position:relative;clear:both;background:#fff;width:990px;margin-top:-90px;margin-left:auto;margin-right:auto;height:90px}
-.wrapper{width:990px}
+.wrapper{width:990px;margin:0 auto}
 .breadcrumbs{margin:0 0 15px 0}.breadcrumbs *{display:inline-block;padding:0 5px 0 0}
 .breadcrumbs span{color:#000;font-weight:normal}
 .pagination{margin:0 0 15px 0}.pagination ul{overflow:hidden;margin:0}.lt-ie8 .pagination ul{zoom:1}
@@ -78,9 +78,9 @@ footer{position:relative;clear:both;background:#fff;width:990px;margin-top:-90px
 .form-error-message,.form-success-message{position:relative;background-repeat:no-repeat;background-position:5px 4px;font-size:11px;line-height:120%;margin-top:-1px;padding:5px 5px 5px 26px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
 .form-error-message{background-image:url(../images/stop-round.png);background-color:#ffcaca;border:1px solid #950000;color:#950000}
 .form-success-message{background-image:url(../images/accept-green.png);background-color:#cdeac8;border:1px solid #5e9010;color:#5e9010}
-ul.list,ol.list{margin-bottom:0}ul.list li,ol.list li{margin-bottom:5px}
+ul.list,ol.list{margin:0}ul.list li,ol.list li{margin:0 0 5px 0}
 ul.list li{list-style:none}
-ul.list-hr li,ol.list-hr li{border-bottom:1px solid #7d7d7d;padding-bottom:10px;margin-bottom:20px}
+ul.list-hr li,ol.list-hr li{border-bottom:1px solid #7d7d7d;padding:0 0 10px 0;margin:0 0 20px 0}
 table{border:0;border-spacing:0;border-collapse:collapse}table th{text-align:left}
 table td{padding:0}
 .bordered{width:100%;color:#000;border-top:1px solid #7d7d7d;border-left:1px solid #7d7d7d}.bordered th,.bordered td{padding:5px 10px;border-right:1px solid #7d7d7d;border-bottom:1px solid #7d7d7d}
@@ -88,53 +88,46 @@ table td{padding:0}
 .striped tr:nth-child(odd)>td{background:#ccc}
 .news-date{margin-bottom:10px}
 .galleries-foto{float:left;margin:10px 6px 0 6px}
+.marker1{background:url('../images/mrk1.gif') no-repeat 0 4px;padding:0 0 0 12px}
+.hr1{background-color:#7d7d7d;height:1px;margin:10px 0 20px 0}
 .footer-counters{float:left;padding:0 90px 0 20px}.footer-counters img{float:left;margin-right:10px}
-.nofloat:before,.text-container:before,.nofloat:after,.text-container:after{content:" ";display:table}
-.nofloat:after,.text-container:after{clear:both}
-.lt-ie8 .nofloat,.lt-ie8 .text-container{zoom:1}
-.text-container{margin-bottom:10 px}
-.float-none{overflow:hidden}.lt-ie8 .float-none{zoom:1}
-.fl{float:left}
-.fr{float:right}
-.left{float:left;margin:0 15px 10px 0}
-.right{float:right;margin:0 0 10px 15px}
-.auto{display:block;max-width:100%;height:auto}
-.ib{border:1px solid #7d7d7d;padding:2px}
-.ic{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}
-.nowrap{white-space:nowrap}
-.vt{vertical-align:top}
-.z3 td{padding:3px 10px}
-.z7 td{padding:7px 10px}
 a.hover,.hover>a{text-decoration:none}a.hover:hover,.hover>a:hover{text-decoration:underline}
 a.unhover,.unhover>a{text-decoration:underline}a.unhover:hover,.unhover>a:hover{text-decoration:none}
 a.none,.none>a{text-decoration:none !important}
-.nn{font-weight:normal}
-b,strong,.bb{font-weight:bold}
-td.left,td.right{float:none;margin:0}
-td.left{text-align:left}
-td.right{text-align:right}
-.center{text-align:center}
-.mrk1{background:url('../images/mrk1.gif') no-repeat 0 4px;padding:0 0 0 12px}
-.hr1{background-color:#7d7d7d;height:1px;margin:10px 0 20px 0}
+.normal{font-weight:normal}
+.bold{font-weight:bold}
+.text-left{text-align:left !important}
+.text-right{text-align:right !important}
+.text-center{text-align:center !important}
+.nofloat:before,.text-container:before,.nofloat:after,.text-container:after{content:" ";display:table}
+.nofloat:after,.text-container:after{clear:both}
+.lt-ie8 .nofloat,.lt-ie8 .text-container{zoom:1}
+.text-container{margin-bottom:10px}
+.float-none{overflow:hidden}.lt-ie8 .float-none{zoom:1}
+.pull-left{float:left;margin:0 15px 10px 0}table .pull-left{float:none;margin:0}
+.pull-right{float:right;margin:0 0 10px 15px}table .pull-right{float:none;margin:0}
+.image-responsive{display:block;max-width:100%;height:auto}
+.image-bordered{border:1px solid #7d7d7d;padding:2px}
+.image-circle{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}
+.nowrap{white-space:nowrap}
+.valign-top{vertical-align:top}
 .l-main{float:left;width:49%;margin-right:2%}
 .r-main{float:left;width:49%}
-.m7{margin-bottom:7 px}
-.m5{margin-bottom:5 px}
-.m3{margin-bottom:3 px}
-.m1{margin-bottom:1 px}
-.m50{margin-bottom:50 px}
-.m45{margin-bottom:45 px}
-.m40{margin-bottom:40 px}
-.m35{margin-bottom:35 px}
-.m30{margin-bottom:30 px}
-.m25{margin-bottom:25 px}
-.m20{margin-bottom:20 px}
-.m15{margin-bottom:15 px}
-.m10{margin-bottom:10 px}
-.m5{margin-bottom:5 px}
+.m3{margin-bottom:3px}
+.m7{margin-bottom:7px}
+.m5{margin-bottom:5px}
+.m10{margin-bottom:10px}
+.m15{margin-bottom:15px}
+.m20{margin-bottom:20px}
+.m25{margin-bottom:25px}
+.m30{margin-bottom:30px}
+.m35{margin-bottom:35px}
+.m40{margin-bottom:40px}
+.m45{margin-bottom:45px}
+.m50{margin-bottom:50px}
 .p3{padding-bottom:3px}
-.p5{padding-bottom:5px}
 .p7{padding-bottom:7px}
+.p5{padding-bottom:5px}
 .p10{padding-bottom:10px}
 .p15{padding-bottom:15px}
 .p20{padding-bottom:20px}
@@ -144,6 +137,7 @@ td.right{text-align:right}
 .p40{padding-bottom:40px}
 .p45{padding-bottom:45px}
 .p50{padding-bottom:50px}
+.s8{font-size:8px;line-height:120%}
 .s9{font-size:9px;line-height:120%}
 .s10{font-size:10px;line-height:120%}
 .s11{font-size:11px;line-height:120%}
@@ -156,3 +150,13 @@ td.right{text-align:right}
 .s18{font-size:18px;line-height:120%}
 .s19{font-size:19px;line-height:120%}
 .s20{font-size:20px;line-height:120%}
+.s21{font-size:21px;line-height:120%}
+.s22{font-size:22px;line-height:120%}
+.s23{font-size:23px;line-height:120%}
+.s24{font-size:24px;line-height:120%}
+.s25{font-size:25px;line-height:120%}
+.s26{font-size:26px;line-height:120%}
+.s27{font-size:27px;line-height:120%}
+.s28{font-size:28px;line-height:120%}
+.s29{font-size:29px;line-height:120%}
+.s30{font-size:30px;line-height:120%}
