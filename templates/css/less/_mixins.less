@@ -1,3 +1,4 @@
+// Mixins
 // Some sources from: https://github.com/mdo/preboot/blob/master/less/preboot.less
 
 // Clearfix
@@ -74,10 +75,10 @@
 }
 
 // Bottom indents
-.m(@value) {
+.margin-bottom(@value) {
   margin-bottom: unit(@value, px);
 }
-.p(@value) {
+.padding-bottom(@value) {
   padding-bottom: unit(@value, px);
 }
 
@@ -105,7 +106,7 @@
 }
 
 // Font sizes shortcuts
-.s(@font-size; @line-height) {
+.font-size(@font-size; @line-height) {
   font-size: unit(@font-size, px);
   line-height: @line-height;
 }
@@ -224,7 +225,6 @@
        -moz-border-radius: @finalRad;
             border-radius: @finalRad;
   }
-
   .set-radius(@rad) {}
   .set-radius(@rad);
 }
@@ -397,4 +397,18 @@
 // Reset filters for IE
 .reset-filter() {
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
+}
+
+// Classes generation
+.generate-classes(@class; @generator; @start; @end; @step) {
+  .loop(@index; @start; @end; @step) when (@index >= @start) and not (@index > @end) {
+    .@{class}@{index} {
+      .generator(@generator; @index);
+    }
+    .loop((@index + @step); @start; @end; @step);
+  }
+  .loop(@index; @start; @end; @step) when (@index < @start) {
+    .loop((@index + @step); @start; @end; @step);
+  }
+  .loop(0; @start; @end; @step); // start looping!
 }
