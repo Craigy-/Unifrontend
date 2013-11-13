@@ -22,6 +22,12 @@ a.none,
   text-decoration: none !important;
 }
 
+// Font sizes
+.generator('font-size', @index) {
+  .font-size(@index; @line-height-base);
+}
+.generate-classes(s; 'font-size'; 8; 30; 1);
+
 // Font weights
 .normal {
   font-weight: normal;
@@ -39,22 +45,6 @@ a.none,
 }
 .text-center {
   text-align: center !important;
-}
-
-// Clearfixes
-.nofloat,
-.text-container {
-  .clearfix;
-}
-.text-container {
-  .margin-bottom(10);
-}
-.float-none {
-  overflow: hidden;
-
-  .lt-ie8 & {
-    zoom: 1;
-  }
 }
 
 // Floatings
@@ -77,6 +67,43 @@ a.none,
   }
 }
 
+// Margins
+.generator('margin-bottom', @index) {
+  .margin-bottom(@index);
+}
+.generate-classes(m; 'margin-bottom'; 3; 3; 1);
+.generate-classes(m; 'margin-bottom'; 7; 7; 1);
+.generate-classes(m; 'margin-bottom'; 5; 50; 5);
+
+// Paddings
+.generator('padding-bottom', @index) {
+  .padding-bottom(@index);
+}
+.generate-classes(p; 'padding-bottom'; 3; 3; 1);
+.generate-classes(p; 'padding-bottom'; 7; 7; 1);
+.generate-classes(p; 'padding-bottom'; 5; 50; 5);
+
+// Clearfixes
+.nofloat,
+.text-container {
+  .clearfix;
+}
+.text-container {
+  .margin-bottom(10);
+}
+.float-none {
+  overflow: hidden;
+
+  .lt-ie8 & {
+    zoom: 1;
+  }
+}
+
+// Simple grid system with two equal columns
+.row {
+  .equal-grid(100%; 2; 20px);
+}
+
 // Images
 .image-responsive {
   .image-responsive;
@@ -96,34 +123,3 @@ a.none,
 .valign-top {
   vertical-align: top;
 }
-
-// Columns
-.l-main {
-  float: left;
-  width: 49%;
-  margin-right: 2%; }
-.r-main {
-  float: left;
-  width: 49%; }
-
-// Margins
-.generator('margin-bottom', @index) {
-  .margin-bottom(@index);
-}
-.generate-classes(m; 'margin-bottom'; 3; 3; 1);
-.generate-classes(m; 'margin-bottom'; 7; 7; 1);
-.generate-classes(m; 'margin-bottom'; 5; 50; 5);
-
-// Paddings
-.generator('padding-bottom', @index) {
-  .padding-bottom(@index);
-}
-.generate-classes(p; 'padding-bottom'; 3; 3; 1);
-.generate-classes(p; 'padding-bottom'; 7; 7; 1);
-.generate-classes(p; 'padding-bottom'; 5; 50; 5);
-
-// Font sizes
-.generator('font-size', @index) {
-  .font-size(@index; @line-height-base);
-}
-.generate-classes(s; 'font-size'; 8; 30; 1);
