@@ -75,15 +75,15 @@
 
 // Bottom indents
 .m(@value) {
-  margin-bottom: @value px;
+  margin-bottom: unit(@value, px);
 }
 .p(@value) {
-  padding-bottom: @value px;
+  padding-bottom: unit(@value, px);
 }
 
 // Retina images
 .image-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
-  background-image: url(@{file-1x});
+  background-image: url(@file-1x);
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -92,7 +92,7 @@
   only screen and (        min-device-pixel-ratio: 2),
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
-    background-image: url(@{file-2x});
+    background-image: url(@file-2x);
     background-size: @width-1x @height-1x;
   }
 }
@@ -106,7 +106,7 @@
 
 // Font sizes shortcuts
 .s(@font-size; @line-height) {
-  font-size: @font-size px;
+  font-size: unit(@font-size, px);
   line-height: @line-height;
 }
 
