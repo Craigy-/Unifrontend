@@ -94,25 +94,36 @@ table td{padding:0}
 a.hover,.hover>a{text-decoration:none}a.hover:hover,.hover>a:hover{text-decoration:underline}
 a.unhover,.unhover>a{text-decoration:underline}a.unhover:hover,.unhover>a:hover{text-decoration:none}
 a.none,.none>a{text-decoration:none !important}
+.s8{font-size:8px;line-height:120%}
+.s9{font-size:9px;line-height:120%}
+.s10{font-size:10px;line-height:120%}
+.s11{font-size:11px;line-height:120%}
+.s12{font-size:12px;line-height:120%}
+.s13{font-size:13px;line-height:120%}
+.s14{font-size:14px;line-height:120%}
+.s15{font-size:15px;line-height:120%}
+.s16{font-size:16px;line-height:120%}
+.s17{font-size:17px;line-height:120%}
+.s18{font-size:18px;line-height:120%}
+.s19{font-size:19px;line-height:120%}
+.s20{font-size:20px;line-height:120%}
+.s21{font-size:21px;line-height:120%}
+.s22{font-size:22px;line-height:120%}
+.s23{font-size:23px;line-height:120%}
+.s24{font-size:24px;line-height:120%}
+.s25{font-size:25px;line-height:120%}
+.s26{font-size:26px;line-height:120%}
+.s27{font-size:27px;line-height:120%}
+.s28{font-size:28px;line-height:120%}
+.s29{font-size:29px;line-height:120%}
+.s30{font-size:30px;line-height:120%}
 .normal{font-weight:normal}
 .bold{font-weight:bold}
 .text-left{text-align:left !important}
 .text-right{text-align:right !important}
 .text-center{text-align:center !important}
-.nofloat:before,.text-container:before,.nofloat:after,.text-container:after{content:" ";display:table}
-.nofloat:after,.text-container:after{clear:both}
-.lt-ie8 .nofloat,.lt-ie8 .text-container{zoom:1}
-.text-container{margin-bottom:10px}
-.float-none{overflow:hidden}.lt-ie8 .float-none{zoom:1}
 .pull-left{float:left;margin:0 15px 10px 0}table .pull-left{float:none;margin:0}
 .pull-right{float:right;margin:0 0 10px 15px}table .pull-right{float:none;margin:0}
-.image-responsive{display:block;max-width:100%;height:auto}
-.image-bordered{border:1px solid #7d7d7d;padding:2px}
-.image-circle{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}
-.nowrap{white-space:nowrap}
-.valign-top{vertical-align:top}
-.l-main{float:left;width:49%;margin-right:2%}
-.r-main{float:left;width:49%}
 .m3{margin-bottom:3px}
 .m7{margin-bottom:7px}
 .m5{margin-bottom:5px}
@@ -137,26 +148,17 @@ a.none,.none>a{text-decoration:none !important}
 .p40{padding-bottom:40px}
 .p45{padding-bottom:45px}
 .p50{padding-bottom:50px}
-.s8{font-size:8px;line-height:120%}
-.s9{font-size:9px;line-height:120%}
-.s10{font-size:10px;line-height:120%}
-.s11{font-size:11px;line-height:120%}
-.s12{font-size:12px;line-height:120%}
-.s13{font-size:13px;line-height:120%}
-.s14{font-size:14px;line-height:120%}
-.s15{font-size:15px;line-height:120%}
-.s16{font-size:16px;line-height:120%}
-.s17{font-size:17px;line-height:120%}
-.s18{font-size:18px;line-height:120%}
-.s19{font-size:19px;line-height:120%}
-.s20{font-size:20px;line-height:120%}
-.s21{font-size:21px;line-height:120%}
-.s22{font-size:22px;line-height:120%}
-.s23{font-size:23px;line-height:120%}
-.s24{font-size:24px;line-height:120%}
-.s25{font-size:25px;line-height:120%}
-.s26{font-size:26px;line-height:120%}
-.s27{font-size:27px;line-height:120%}
-.s28{font-size:28px;line-height:120%}
-.s29{font-size:29px;line-height:120%}
-.s30{font-size:30px;line-height:120%}
+.nofloat:before,.text-container:before,.nofloat:after,.text-container:after{content:" ";display:table}
+.nofloat:after,.text-container:after{clear:both}
+.lt-ie8 .nofloat,.lt-ie8 .text-container{zoom:1}
+.text-container{margin-bottom:10px}
+.float-none{overflow:hidden}.lt-ie8 .float-none{zoom:1}
+.row{width:100%;margin-left:-10px;margin-right:-10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.row:before,.row:after{content:" ";display:table}
+.row:after{clear:both}
+.lt-ie8 .row{zoom:1}
+.row .col{position:relative;float:left;min-height:1px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:50%;padding:0 10px}
+.image-responsive{display:block;max-width:100%;height:auto}
+.image-bordered{border:1px solid #7d7d7d;padding:2px}
+.image-circle{-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%}
+.nowrap{white-space:nowrap}
+.valign-top{vertical-align:top}

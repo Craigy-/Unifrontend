@@ -1,5 +1,5 @@
 // Mixins
-// Some sources from: https://github.com/mdo/preboot/blob/master/less/preboot.less
+// Some sources from: https://github.com/twbs/bootstrap/blob/master/less/mixins.less
 
 // Clearfix
 .clearfix() {
@@ -18,49 +18,19 @@
 
 // Center-align a block level element
 .center-block() {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 
-// Blocks aligns
-#block-align {
-  .center() {
+  > div {
     position: relative;
-    width: 100%;
-    overflow: hidden;
+    float: left;
+    left: 50%;
 
     > div {
       position: relative;
       float: left;
-      left: 50%;
-
-      > div {
-        position: relative;
-        float: left;
-        right: 50%;
-      }
-    }
-  }
-  .justify(@block-width: 250px) { // apply for <ul>
-    text-align: justify;
-    margin: 0;
-
-    li {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      width: @block-width;
-
-      .lt-ie8 & {
-        display: inline;
-        zoom: 1;
-        overflow: hidden;
-      }
-    }
-    li.justify {
-      width: (@block-width * 2);
+      right: 50%;
     }
   }
 }
@@ -80,6 +50,24 @@
 }
 .padding-bottom(@value) {
   padding-bottom: unit(@value, px);
+}
+
+// Simple equal grid system
+.equal-grid(@row-width; @col-number; @col-padding) {
+  width: @row-width;
+  margin-left: (@col-padding / -2);
+  margin-right: (@col-padding / -2);
+  .clearfix();
+  .box-sizing(border-box);
+
+  .col {
+    position: relative;
+    float: left;
+    min-height: 1px;
+    .box-sizing(border-box);
+    width: (@row-width / @col-number);
+    padding: 0 (@col-padding / 2);
+  }
 }
 
 // Retina images
