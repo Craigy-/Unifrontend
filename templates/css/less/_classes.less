@@ -1,5 +1,19 @@
 // Classes for manual use in html-files
 
+// Font sizes
+.generator('font-size'; @index) {
+  .font-size(@index);
+}
+.generate-classes(s; 'font-size'; 8; 40; 1);
+
+// Font weights
+.normal {
+  font-weight: normal;
+}
+.bold {
+  font-weight: bold;
+}
+
 // Links
 a.hover,
 .hover > a {
@@ -22,20 +36,6 @@ a.none,
   text-decoration: none !important;
 }
 
-// Font sizes
-.generator('font-size', @index) {
-  .font-size(@index; @line-height-base);
-}
-.generate-classes(s; 'font-size'; 8; 30; 1);
-
-// Font weights
-.normal {
-  font-weight: normal;
-}
-.bold {
-  font-weight: bold;
-}
-
 // Text aligns
 .text-left {
   text-align: left !important;
@@ -46,6 +46,42 @@ a.none,
 .text-center {
   text-align: center !important;
 }
+.text-justify {
+  text-align: justify !important;
+}
+
+// Images
+.image-responsive {
+  .image-responsive;
+}
+.image-bordered {
+  border: @image-bordered-border;
+  padding: @image-bordered-padding;
+}
+.image-circle {
+  .border-radius(50%);
+}
+
+// Simple grid systems
+.row-2 {
+  .equal-grid(100%; 2; 20px);
+}
+.row-3 {
+  .equal-grid(100%; 3; 20px);
+}
+
+// Tables
+.nowrap {
+  white-space: nowrap;
+}
+.valign-top {
+  vertical-align: top;
+}
+
+// Blocks
+.center-block {
+  .center-block;
+}
 
 // Floatings
 .pull-left {
@@ -55,6 +91,7 @@ a.none,
   table & {
     float: none;
     margin: 0;
+    &:extend(.text-left);
   }
 }
 .pull-right {
@@ -64,11 +101,12 @@ a.none,
   table & {
     float: none;
     margin: 0;
+    &:extend(.text-right);
   }
 }
 
 // Margins
-.generator('margin-bottom', @index) {
+.generator('margin-bottom'; @index) {
   .margin-bottom(@index);
 }
 .generate-classes(m; 'margin-bottom'; 3; 3; 1);
@@ -76,7 +114,7 @@ a.none,
 .generate-classes(m; 'margin-bottom'; 5; 50; 5);
 
 // Paddings
-.generator('padding-bottom', @index) {
+.generator('padding-bottom'; @index) {
   .padding-bottom(@index);
 }
 .generate-classes(p; 'padding-bottom'; 3; 3; 1);
@@ -97,29 +135,4 @@ a.none,
   .lt-ie8 & {
     zoom: 1;
   }
-}
-
-// Simple grid system with two equal columns
-.row {
-  .equal-grid(100%; 2; 20px);
-}
-
-// Images
-.image-responsive {
-  .image-responsive;
-}
-.image-bordered {
-  border: @image-bordered-border;
-  padding: @image-bordered-padding;
-}
-.image-circle {
-  .border-radius(50%);
-}
-
-// Tables
-.nowrap {
-  white-space: nowrap;
-}
-.valign-top {
-  vertical-align: top;
 }
