@@ -315,11 +315,14 @@ select {
   font-size: @input-font-size;
   line-height: @input-height;
   color: @input-color-text;
+  text-shadow: @input-text-shadow;
   background: @input-background;
   border: @input-border;
+  .border-radius(@input-border-radius);
   padding-left: @input-padding;
   padding-right: @input-padding;
   height: @input-height;
+  .box-shadow(@input-box-shadow);
   .box-sizing(border-box);
   .placeholder;
 }
@@ -327,14 +330,14 @@ textarea {
   line-height: @line-height-base;
   .resizable(vertical);
 }
-input:focus,
+.input:focus,
 textarea:focus,
 select:focus {
   color: @input-color-focus;
   background-color: lighten(@input-background, 5%);
   border-color: @input-border-color-focus;
 }
-input[disabled],
+.input[disabled],
 textarea[disabled],
 select[disabled] {
   color: @input-color-disabled;
