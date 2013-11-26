@@ -1,7 +1,7 @@
 @echo off
 
 rem Starts a simple file watcher for less files
-rem Use with nodejs scripts (lessc, less-watchr)
+rem Use with nodejs components (less, less-watchr)
 
 echo Less is watching for changes. Press Ctrl-C to stop.
 echo.
