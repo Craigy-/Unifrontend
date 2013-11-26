@@ -50,23 +50,41 @@
     }
   }
 }
-.pagination-header {
-}
-.pagination-footer {
-}
 
 // Forms
-.form { // apply for <form>
+.form { // apply to <form>
+  border: @form-border;
+  .border-radius(@form-border-radius);
   width: @form-width;
   margin: @form-margin;
+  padding: @form-padding;
+  .box-sizing(border-box);
 
+  & when not (@form-background = none) {
+    background: @form-background;
+  }
+
+  .form-header {
+    padding: @form-header-padding;
+
+    & when not (@form-header-background = none) {
+      background: @form-header-background;
+    }
+  }
+  .form-body {
+    padding: @form-body-padding;
+
+    & when not (@form-body-background = none) {
+      background: @form-body-background;
+    }
+  }
   label {
     float: left;
     width: (@form-width * 0.27);
     padding-top: 3px;
     padding-right: (@form-width * 0.03);
   }
-  .form-pdb {
+  .form-field {
     float: left;
     width: (@form-width * 0.7);
 
@@ -85,20 +103,34 @@
       width: ((@form-width * 0.7) - (@input-padding * 2));
     }
   }
-  .form-error input,
+  .form-error .input,
   .form-error select,
   .form-error textarea {
-    color: @form-error-color;
+    background: @form-error-background @form-error-background-color;
+    border-color: @form-error-border-color;
+    padding: @form-statuses-padding;
+    .placeholder(@form-error-color-text);
+
+    &:focus {
+      background-color: lighten(@form-error-background-color, 5%);
+    }
   }
-  .form-success input,
+  .form-success .input,
   .form-success select,
   .form-success textarea {
-    color: @form-success-color;
+    color: @form-success-color-text;
+    background: @form-success-background @form-success-background-color;
+    border-color: @form-success-border-color;
+    padding: @form-statuses-padding;
+
+    &:focus {
+      background-color: lighten(@form-success-background-color, 5%);
+    }
   }
   span.form-required,
   .form-required span {
-    font-weight: @form-required-font-bold;
-    color: @form-error-color;
+    color: @form-required-color;
+    font-weight: @form-required-font-weight;
   }
 }
 .form-size-three-quarter {
@@ -126,34 +158,31 @@
 }
 .form-hint {
   font-size: @form-hint-font-size;
-  line-height: @form-hint-font-size;
-  margin: @form-hint-margin;
+  line-height: @line-height-base;
+  padding: @form-hint-padding;
 }
 .form-submit {
   text-align: @form-submit-text-align;
+  padding: @form-submit-padding;
 }
 .form-error-message,
 .form-success-message {
-  position: relative;
-  background-repeat: no-repeat;
-  background-position: 5px 4px;
-  font-size: @form-message-font-size;
+  font-size: @form-messages-font-size;
   line-height: @line-height-base;
-  margin-top: -1px;
-  padding: 5px 5px 5px 26px;
+  position: relative;
+  margin: @form-messages-margin;
+  padding: @form-messages-padding;
   .box-sizing(border-box);
 }
 .form-error-message {
-  background-image: url(../images/stop-round.png);
-  background-color: #FFCACA;
-  border: 1px solid @form-error-color;
-  color: @form-error-color;
+  color: @form-messages-error-color-text;
+  background: @form-messages-error-background;
+  border-color: @form-error-border-color;
 }
 .form-success-message {
-  background-image: url(../images/accept-green.png);
-  background-color: #CDEAC8;
-  border: 1px solid @form-success-color;
-  color: @form-success-color;
+  color: @form-messages-success-color-text;
+  background: @form-messages-success-background;
+  border-color: @form-success-border-color;
 }
 
 // Lists
@@ -185,7 +214,7 @@ table {
     text-align: @table-th-text-align;
   }
   td {
-    padding: @table-padding;
+    padding: @table-cells-padding;
   }
 }
 .bordered {
@@ -196,14 +225,14 @@ table {
 
   th,
   td {
-    padding: @table-bordered-padding;
     border-right: @table-bordered-border;
     border-bottom: @table-bordered-border;
+    padding: @table-bordered-cells-padding;
   }
   th {
-    padding: @table-bordered-th-padding;
-    background: @table-bordered-th-background-color;
+    background: @table-bordered-th-background;
     color: @table-bordered-th-text-color;
+    padding: @table-bordered-th-padding;
   }
 }
 .striped {

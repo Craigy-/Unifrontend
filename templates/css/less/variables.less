@@ -98,14 +98,14 @@
 
 // Tables
 @table-th-text-align: left;
-@table-padding: 0;
+@table-cells-padding: 0;
 
 @table-bordered-text-color: @text-color;
-@table-bordered-padding: 5px 10px;
-@table-bordered-th-padding: @table-bordered-padding;
-@table-bordered-th-background-color: @hr-color-base;
-@table-bordered-th-text-color: #FFFFFF;
-@table-bordered-border: 1px solid @table-bordered-th-background-color;
+@table-bordered-border: 1px solid @table-bordered-th-background;
+@table-bordered-cells-padding: 5px 10px;
+@table-bordered-th-text-color: @white;
+@table-bordered-th-background: @hr-color-base;
+@table-bordered-th-padding: @table-bordered-cells-padding;
 
 @table-striped-highlight-color: #CCCCCC;
 
@@ -131,25 +131,57 @@
 @input-box-shadow: none;
 
 // Forms
+@form-background: none;
+@form-border: 0;
+@form-border-radius: 0;
 @form-width: 750px;
 @form-margin: 0 0 10px 0;
+@form-padding: 0;
+
+@form-header-background: none;
+@form-header-padding: 0;
+
+@form-body-background: none;
+@form-body-padding: 0;
+
 @form-hint-font-size: @font-size-base;
-@form-hint-margin: 20px 0;
+@form-hint-padding: 20px 0;
+
 @form-submit-text-align: center;
-@form-required-font-bold: bold;
-@form-message-font-size: @font-size-base;
-@form-error-color: @red;
-@form-success-color: @green;
+@form-submit-padding: 0;
+
+@form-required-color: @red;
+@form-required-font-weight: bold;
+
+@form-error-color-text: @red;
+@form-error-background: url(../images/stop-round.png) no-repeat 95% 50%;
+@form-error-background-color: #FFCACA;
+@form-error-border-color: @form-error-color-text;
+@form-success-color-text: @green;
+@form-success-background: url(../images/accept-green.png) no-repeat 95% 50%;
+@form-success-background-color: #CDEAC8;
+@form-success-border-color: @form-success-color-text;
+@form-statuses-padding: 0 38px 0 @input-padding;
+
+@form-messages-font-size: @font-size-base;
+@form-messages-margin: -1px 0 0 0;
+@form-messages-padding: 5px 5px 5px 26px;
+@form-messages-error-color-text: @form-error-color-text;
+@form-messages-error-background: @form-error-background @form-error-background-color;
+@form-messages-success-color-text: @form-success-color-text;
+@form-messages-success-background: @form-success-background @form-success-background-color;
 
 // Breadcrumbs
 @breadcrumbs-margin: 0 0 15px 0;
 @breadcrumbs-element-padding: 0 5px 0 0;
+
 @breadcrumbs-active-color: @text-color;
 @breadcrumbs-active-font-weight: normal;
 
 // Pagination
 @pagination-margin: 0 0 15px 0;
 @pagination-element-padding: 0 5px;
+
 @pagination-selected-color: @text-color;
 @pagination-selected-font-weight: bold;
 @pagination-selected-text-decoration: none;
@@ -157,6 +189,7 @@
 // Lists
 @list-margin: 0;
 @list-element-margin: 0 0 5px 0;
+
 @list-hr-element-divider: 1px solid @hr-color-base;
 @list-hr-element-padding: 0 0 10px 0;
 @list-hr-element-margin: 0 0 20px 0;
