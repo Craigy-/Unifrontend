@@ -1,43 +1,83 @@
 // HTML5 structure
 #structure {
   position: relative;
-  width: @width-base;
-  min-height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-header {
-}
-nav {
+  margin: 0 auto;
+
+  & when not (@structure-background = none) {
+    background: @structure-background;
+  }
+  & when (@move-max-width-to-structure) {
+    max-width: @max-width-base;
+  }
+  & when (@footer-to-bottom) {
+    min-height: 100%;
+  }
 }
 #content {
-  padding-bottom: (@footer-height + 30px);
+  .clearfix;
+
+  & when not (@content-background = none) {
+    background: @content-background;
+  }
+
+  @this-padding-bottom: @content-padding-bottom;
+  & when (@footer-to-bottom) {
+    @this-padding-bottom: (@footer-height + @content-padding-bottom);
+  }
+  padding-bottom: @this-padding-bottom;
+
+  > .wrapper when not (@content-wrapper-background = none) {
+    background: @content-wrapper-background;
+  }
 }
-aside#left {
-  float: left;
-  width: @width-sidebar-left;
-}
-aside#right {
-  float: left;
-  width: @width-sidebar-right;
-}
+aside,
 main {
   float: left;
-  width: (@width-base - @width-sidebar-left - @width-sidebar-right);
+  .box-sizing(border-box);
+}
+aside#left {
+  width: @sidebar-left-width;
+  padding: @sidebar-left-padding;
+}
+aside#right {
+  width: @sidebar-right-width;
+  padding: @sidebar-right-padding;
+}
+main {
+  width: (@max-width-base - @sidebar-left-width - @sidebar-right-width);
   padding: @main-padding;
 }
 footer {
   position: relative;
-  clear: both;
-  background: @footer-background;
-  width: @footer-width;
-  margin-top: -@footer-height;
-  margin-left: auto;
-  margin-right: auto;
   height: @footer-height;
+  margin: 0 auto;
+
+  & when (@apply-max-width-to-footer) {
+    max-width: @max-width-base;
+  }
+  & when not (@footer-background = none) {
+    background: @footer-background;
+  }
+  & when (@footer-to-bottom) {
+    margin-top: -@footer-height;
+  }
+
+  > .wrapper when not (@footer-wrapper-background = none) {
+    background: @footer-wrapper-background;
+  }
 }
 
 .wrapper {
-  width: @width-wrapper;
   margin: 0 auto;
+
+  & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
+    width: @max-width-base;
+  }
+  & when (@wrapper-fixed) and (@move-max-width-to-structure) {
+    width: @min-width-base;
+  }
+  & when not (@wrapper-fixed) {
+    min-width: @min-width-base;
+    max-width: @max-width-base;
+  }
 }

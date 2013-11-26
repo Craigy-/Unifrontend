@@ -1,11 +1,11 @@
 // CSS reset by defaults
-html,
-body {
-  height: 100%;
-}
 html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
+  & when (@footer-to-bottom) {
+    height: 100%;
+  }
 }
 body {
   font-family: @font-family-base;
@@ -13,7 +13,11 @@ body {
   line-height: @line-height-base;
   color: @text-color;
   background: @body-background;
-  min-width: @width-wrapper;
+  min-width: @min-width-base;
+
+  & when (@footer-to-bottom) {
+    height: 100%;
+  }
 }
 * {
   font-family: @font-family-base;

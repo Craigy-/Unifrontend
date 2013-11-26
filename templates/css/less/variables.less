@@ -6,14 +6,21 @@
 @font-size-base: 11px;
 @line-height-base: 120%;
 
-// Colors
-@body-background: #FFFFFF;
+// Colors and structure backgrounds
+@body-background: @white;
+@structure-background: none;
+@content-background: none;
+@content-wrapper-background: none;
+@footer-background: @body-background;
+@footer-wrapper-background: none;
+
 @text-color: @black;
 @link-color: #02A3AA;
 @link-color-hover: @link-color;
 @link-color-visited: @link-color;
 @hr-color-base: #7D7D7D;
 
+@black: #000000;
 @black-10: darken(#FFFFFF, 10%);
 @black-20: darken(#FFFFFF, 20%);
 @black-30: darken(#FFFFFF, 30%);
@@ -23,19 +30,24 @@
 @black-70: darken(#FFFFFF, 70%);
 @black-80: darken(#FFFFFF, 80%);
 @black-90: darken(#FFFFFF, 90%);
-@black: #000000;
 
+@white: #FFFFFF;
 @red: #950000;
 @green: #5E9010;
 
-// Dimensions
-@width-base: 990px;
-@width-wrapper: @width-base;
-@width-sidebar-left: 230px;
-@width-sidebar-right: 0;
+// Structure
+@min-width-base: 900px;
+@max-width-base: @min-width-base;
+@wrapper-fixed: true;
+@move-max-width-to-structure: false;
+@apply-max-width-to-footer: false;
+@content-padding-bottom: 30px;
+@sidebar-left-width: 230px;
+@sidebar-left-padding: 0;
+@sidebar-right-width: 0;
+@sidebar-right-padding: 0;
 @main-padding: 0 0 0 30px;
-@footer-background: @body-background;
-@footer-width: @width-base;
+@footer-to-bottom: true;
 @footer-height: 90px;
 
 // Headings
@@ -102,8 +114,9 @@
 
 // Inputs
 @input-color-text: @hr-color-base;
-@input-color-placeholder: #CCCCCC;
 @input-color-disabled: #999999;
+@input-color-placeholder: #CCCCCC;
+@input-font-style-placeholder: normal;
 @input-background: #FFFFFF;
 @input-border: 1px solid @hr-color-base;
 @input-height: 17px;
