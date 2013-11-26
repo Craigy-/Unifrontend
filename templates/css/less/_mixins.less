@@ -18,6 +18,13 @@
 
 // Center-align a block level element
 .center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Center-align a block level content
+.center-block-content() {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -37,8 +44,8 @@
 
 // Sizing shortcuts
 .size(@width; @height) {
-  width: @width;
-  height: @height;
+  width: unit(@width, px);
+  height: unit(@height, px);
 }
 .square(@size) {
   .size(@size; @size);
@@ -57,7 +64,7 @@
   width: @row-width;
   margin-left: (@col-padding / -2);
   margin-right: (@col-padding / -2);
-  .clearfix();
+  .clearfix;
   .box-sizing(border-box);
 
   .col {
@@ -70,7 +77,7 @@
   }
 }
 
-// Retina images
+// Retina image
 .image-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
   background-image: url(@file-1x);
 
@@ -94,9 +101,15 @@
 }
 
 // Font sizes shortcuts
-.font-size(@font-size; @line-height) {
+.font-size(@font-size; @line-height: @line-height-base) {
   font-size: unit(@font-size, px);
   line-height: @line-height;
+}
+
+// Stroke text
+.text-stroke(@color; @size) {
+  @s: unit(@size, px);
+  text-shadow: 1px 0 @color, 1px 1px @color, 0 1px @color, -1px 1px @color, -1px 0 @color, -1px -1px @color, 0 -1px @color, 1px -1px @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color;
 }
 
 // Text overflow (requires inline-block or block for proper styling)
@@ -127,26 +140,30 @@
 // Opacity
 .opacity(@opacity) {
   opacity: @opacity;
-  @opacity-ie: @opacity * 100;
+  @opacity-ie: (@opacity * 100);
   filter: ~"alpha(opacity=@{opacity-ie})";
 }
 
 // Placeholder text
-.placeholder(@color: @input-color-placeholder) {
+.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder) {
   &:-moz-placeholder {
     color: @color;
+    font-style: @font-style;
     .opacity(1);
   }
   &::-moz-placeholder {
     color: @color;
+    font-style: @font-style;
     .opacity(1);
   }
   &:-ms-input-placeholder {
     color: @color;
+    font-style: @font-style;
     .opacity(1);
   }
   &::-webkit-input-placeholder {
     color: @color;
+    font-style: @font-style;
     .opacity(1);
   }
 }
@@ -188,7 +205,7 @@
 }
 
 // Marker
-.marker(@image; @valign; @padding) {
+.marker(@image; @padding; @valign: 50%) {
   background: url(@image) no-repeat 0 @valign;
   padding: @padding;
 }
@@ -200,14 +217,14 @@
           box-sizing: @box-model;
 }
 
-// Border-radius
+// Border radius
 .border-radius(@radius) {
   .check-no(@radius) {
     @rad: `'@{radius}'.replace(/no/gi, 0).replace(/\b0px|\b0%|\b0em/gi, 0).replace(/[,\[\]]/g, '')`;
   }
   .check-no(@radius);
 
-  .set-radius(@rad) when not (@rad = "0") and not (@rad = "0 0") and not (@rad = "0 0 0") and not (@rad = "0 0 0 0") {
+  .set-radius(@rad) when not (@rad = 0) {
     @finalRad: e(@rad);
     -webkit-border-radius: @finalRad;
        -moz-border-radius: @finalRad;
@@ -306,8 +323,8 @@
           animation: @animation;
 }
 
-// Backface visibility (prevent browsers from flickering when using CSS 3D transforms)
-// Default value is `visible`, but can be changed to `hidden`
+// Backface visibility (visible, hidden)
+// Prevent browsers from flickering when using CSS 3D transforms
 .backface-visibility(@visibility){
   -webkit-backface-visibility: @visibility;
      -moz-backface-visibility: @visibility;
@@ -382,7 +399,7 @@
   }
 }
 
-// Reset filters for IE
+// Reset gradient filter for IE
 .reset-filter() {
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
