@@ -69,13 +69,21 @@ svg:not(:root) {
 
 a {
   color: @link-color;
+  text-decoration: @link-text-decoration;
 
-  &:hover,
-  &:focus {
+  &:hover when not (@link-color-hover = @link-color) {
     color: @link-color-hover;
+
+    & when not (@link-text-decoration-hover = @link-text-decoration) {
+      text-decoration: @link-text-decoration-hover;
+    }
   }
-  &:visited {
+  &:visited when not (@link-color-visited = @link-color) {
     color: @link-color-visited;
+
+    & when not (@link-text-decoration-visited = @link-text-decoration) {
+      text-decoration: @link-text-decoration-visited;
+    }
   }
 }
 a:focus,
@@ -96,9 +104,7 @@ h5,
 h6,
 .h6,
 {
-  line-height: @line-height-base;
-
-  & a {
+  a {
     text-decoration: none;
 
     &:hover {
@@ -109,73 +115,79 @@ h6,
 h1,
 .h1 {
   font-size: @h1-font-size;
+  line-height: @h1-line-height;
   color: @h1-color-text;
   font-weight: @h1-font-bold;
   margin: @h1-margin;
 
-  & a {
+  a {
     color: @h1-color-text;
   }
 }
 h2,
 .h2 {
   font-size: @h2-font-size;
+  line-height: @h2-line-height;  
   color: @h2-color-text;
   font-weight: @h2-font-bold;
   margin: @h2-margin;
 
-  & a {
+  a {
     color: @h2-color-text;
   }
 }
 h3,
 .h3 {
   font-size: @h3-font-size;
+  line-height: @h3-line-height;  
   color: @h3-color-text;
   font-weight: @h3-font-bold;
   margin: @h3-margin;
 
-  & a {
+  a {
     color: @h3-color-text;
   }
 }
 h4,
 .h4 {
   font-size: @h4-font-size;
+  line-height: @h4-line-height;
   color: @h4-color-text;
   font-weight: @h4-font-bold;
   margin: @h4-margin;
 
-  & a {
+  a {
     color: @h4-color-text;
   }
 }
 h5,
 .h5 {
   font-size: @h5-font-size;
+  line-height: @h5-line-height;
   color: @h5-color-text;
   font-weight: @h5-font-bold;
   margin: @h5-margin;
 
-  & a {
+  a {
     color: @h5-color-text;
   }
 }
 h6,
 .h6 {
   font-size: @h6-font-size;
+  line-height: @h6-line-height;
   color: @h6-color-text;
   font-weight: @h6-font-bold;
   margin: @h6-margin;
 
-  & a {
+  a {
     color: @h6-color-text;
   }
 }
 
 p {
-  padding-bottom: 10px;
   line-height: @paragraph-line-height;
+  padding: @paragraph-padding;
 }
 hr {
   -moz-box-sizing: content-box;
@@ -219,7 +231,7 @@ ul,
 ul.default {
   margin: 0 0 10px 0;
 
-  & li {
+  li {
     margin: 0 0 10px 0;
     list-style-position: inside;
     list-style-type: square;
@@ -231,7 +243,7 @@ ul.default li {
   list-style-type: disc;
 }
 ol {
-  margin: 5px 0 20px 20px;
+  margin: 5px 0 20px 25px;
 
   li {
     list-style-position: outside;
@@ -241,7 +253,7 @@ nav ul,
 nav ol {
   margin: 0;
 
-  & li {
+  li {
     list-style: none;
     margin: 0;
   }
