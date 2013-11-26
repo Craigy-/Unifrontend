@@ -53,6 +53,7 @@
 
 // Forms
 .form { // apply to <form>
+  background: @form-background;
   border: @form-border;
   .border-radius(@form-border-radius);
   width: @form-width;
@@ -60,23 +61,13 @@
   margin: @form-margin;
   .box-sizing(border-box);
 
-  & when not (@form-background = none) {
-    background: @form-background;
-  }
-
   .form-header {
+    background: @form-header-background;
     padding: @form-header-padding;
-
-    & when not (@form-header-background = none) {
-      background: @form-header-background;
-    }
   }
   .form-body {
+    background: @form-body-background;
     padding: @form-body-padding;
-
-    & when not (@form-body-background = none) {
-      background: @form-body-background;
-    }
   }
   label {
     float: left;

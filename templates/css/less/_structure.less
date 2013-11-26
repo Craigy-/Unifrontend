@@ -1,11 +1,9 @@
 // HTML5 structure
 #structure {
   position: relative;
+  background: @structure-background;
   margin: 0 auto;
 
-  & when not (@structure-background = none) {
-    background: @structure-background;
-  }
   & when (@move-max-width-to-structure) {
     max-width: @max-width-base;
   }
@@ -15,10 +13,7 @@
 }
 #content {
   .clearfix;
-
-  & when not (@content-background = none) {
-    background: @content-background;
-  }
+  background: @content-background;
 
   @this-padding-bottom: @content-padding-bottom;
   & when (@footer-to-bottom) {
@@ -49,14 +44,12 @@ main {
 }
 footer {
   position: relative;
+  background: @footer-background;
   height: @footer-height;
   margin: 0 auto;
 
   & when (@apply-max-width-to-footer) {
     max-width: @max-width-base;
-  }
-  & when not (@footer-background = none) {
-    background: @footer-background;
   }
   & when (@footer-to-bottom) {
     margin-top: -@footer-height;
