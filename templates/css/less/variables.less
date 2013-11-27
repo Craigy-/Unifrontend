@@ -47,11 +47,11 @@
 @move-max-width-to-structure: false;
 @apply-max-width-to-footer: false;
 @content-padding-bottom: 30px;
-@sidebar-left-width: 230px;
+@sidebar-left-width: 0;
 @sidebar-left-padding: 0;
 @sidebar-right-width: 0;
 @sidebar-right-padding: 0;
-@main-padding: 0 0 0 30px;
+@main-padding: 0;
 @footer-to-bottom: true;
 @footer-height: 90px;
 
@@ -157,7 +157,7 @@
 @form-body-padding: 0;
 
 @form-hint-font-size: @font-size-base;
-@form-hint-padding: 20px 0;
+@form-hint-padding: 10px 0;
 
 @form-submit-text-align: center;
 @form-submit-padding: 0;
@@ -178,10 +178,13 @@
 @form-messages-font-size: @font-size-base;
 @form-messages-margin: -1px 0 0 0;
 @form-messages-padding: 5px 5px 5px 26px;
+@form-messages-background-position: 5px 50%;
 @form-messages-error-color-text: @form-error-color-text;
 @form-messages-error-background: @form-error-background @form-error-background-color;
+@form-messages-error-border: 1px solid @form-error-border-color;
 @form-messages-success-color-text: @form-success-color-text;
 @form-messages-success-background: @form-success-background @form-success-background-color;
+@form-messages-success-border: 1px solid @form-success-border-color;
 
 // Breadcrumbs
 @breadcrumbs-margin: 0 0 15px 0;
