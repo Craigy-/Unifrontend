@@ -146,25 +146,25 @@
 }
 
 // Placeholder text
-.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder) {
+.placeholder(@color: @input-color-placeholder; @font: @input-font-placeholder) {
   &:-moz-placeholder {
+    font: @font;
     color: @color;
-    font-style: @font-style;
     .opacity(1);
   }
   &::-moz-placeholder {
+    font: @font;
     color: @color;
-    font-style: @font-style;
     .opacity(1);
   }
   &:-ms-input-placeholder {
+    font: @font;
     color: @color;
-    font-style: @font-style;
     .opacity(1);
   }
   &::-webkit-input-placeholder {
+    font: @font;
     color: @color;
-    font-style: @font-style;
     .opacity(1);
   }
 }
