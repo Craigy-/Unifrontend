@@ -57,60 +57,42 @@
 
 // Headings
 @h1-background: none;
-@h1-font-family: @font-family-base;
-@h1-font-size: 16px;
-@h1-line-height: @line-height-base;
-@h1-font-weight: bold;
+@h1-font: bold 16px/@line-height-base @font-family-base;
 @h1-color-text: @text-color;
 @h1-text-transform: none;
 @h1-padding: 0;
 @h1-margin: 0 0 15px 0;
 
 @h2-background: none;
-@h2-font-family: @font-family-base;
-@h2-font-size: 15px;
-@h2-line-height: @line-height-base;
-@h2-font-weight: bold;
+@h2-font: bold 15px/@line-height-base @font-family-base;
 @h2-color-text: @text-color;
 @h2-text-transform: none;
 @h2-padding: 0;
 @h2-margin: 0 0 10px 0;
 
 @h3-background: none;
-@h3-font-family: @font-family-base;
-@h3-font-size: 14px;
-@h3-line-height: @line-height-base;
-@h3-font-weight: bold;
+@h3-font: bold 14px/@line-height-base @font-family-base;
 @h3-color-text: @text-color;
 @h3-text-transform: none;
 @h3-padding: 0;
 @h3-margin: 0 0 15px 0;
 
 @h4-background: none;
-@h4-font-family: @font-family-base;
-@h4-font-size: 13px;
-@h4-line-height: @line-height-base;
-@h4-font-weight: bold;
+@h4-font: bold 13px/@line-height-base @font-family-base;
 @h4-color-text: @text-color;
 @h4-text-transform: none;
 @h4-padding: 0;
 @h4-margin: 0 0 10px 0;
 
 @h5-background: none;
-@h5-font-family: @font-family-base;
-@h5-font-size: 12px;
-@h5-line-height: @line-height-base;
-@h5-font-weight: bold;
+@h5-font: bold 12px/@line-height-base @font-family-base;
 @h5-color-text: @text-color;
 @h5-text-transform: none;
 @h5-padding: 0;
 @h5-margin: 0 0 10px 0;
 
 @h6-background: none;
-@h6-font-family: @font-family-base;
-@h6-font-size: 11px;
-@h6-line-height: @line-height-base;
-@h6-font-weight: bold;
+@h6-font: bold 11px/@line-height-base @font-family-base;
 @h6-color-text: @text-color;
 @h6-text-transform: none;
 @h6-padding: 0;
@@ -138,19 +120,19 @@
 @image-bordered-padding: 2px;
 
 // Inputs
-@input-font-size: @font-size-base;
+@input-font: @font-size-base/@input-height @font-family-base;
+@input-font-placeholder: @input-font;
 @input-color-text: @hr-color-base;
 @input-color-focus: @input-color-text;
 @input-color-disabled: #999999;
 @input-color-placeholder: #CCCCCC;
-@input-font-style-placeholder: normal;
 @input-text-shadow: none;
 @input-background: @body-background;
 @input-border: 1px solid @hr-color-base;
 @input-border-radius: 0;
 @input-border-color-focus: @input-color-focus;
 @input-border-color-disabled: @input-color-disabled;
-@input-height: 17px;
+@input-height: 20px;
 @input-padding: 5px;
 @input-box-shadow: none;
 
@@ -178,11 +160,11 @@
 @form-required-font-weight: bold;
 
 @form-error-color-text: @red;
-@form-error-background: url(../images/stop-round.png) no-repeat 95% 50%;
+@form-error-background: url(../images/stop-round.png) no-repeat 98% 50%;
 @form-error-background-color: #FFCACA;
 @form-error-border-color: @form-error-color-text;
 @form-success-color-text: @green;
-@form-success-background: url(../images/accept-green.png) no-repeat 95% 50%;
+@form-success-background: url(../images/accept-green.png) no-repeat 98% 50%;
 @form-success-background-color: #CDEAC8;
 @form-success-border-color: @form-success-color-text;
 @form-statuses-padding: 0 38px 0 @input-padding;
