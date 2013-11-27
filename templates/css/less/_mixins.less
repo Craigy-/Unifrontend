@@ -199,9 +199,9 @@
 }
 
 // Horizontal line
-.hr(@color; @margin) {
+.hr(@color; @margin; @size: 1) {
   background-color: @color;
-  height: 1px;
+  height: unit(@size, px);
   margin: @margin;
 }
 

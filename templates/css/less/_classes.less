@@ -2,7 +2,7 @@
 
 // Font sizes
 .generator('font-size'; @index) {
-  .font-size(@index);
+  .font-size(@index) !important;
 }
 .generate-classes(s; 'font-size'; 8; 40; 1);
 
@@ -82,6 +82,9 @@ a.none,
 .center-block {
   .center-block;
 }
+.center-block-content {
+  .center-block-content;
+}
 
 // Floatings
 .pull-left {
@@ -107,7 +110,7 @@ a.none,
 
 // Margins
 .generator('margin-bottom'; @index) {
-  .margin-bottom(@index);
+  .margin-bottom(@index) !important;
 }
 .generate-classes(m; 'margin-bottom'; 3; 3; 1);
 .generate-classes(m; 'margin-bottom'; 7; 7; 1);
@@ -115,7 +118,7 @@ a.none,
 
 // Paddings
 .generator('padding-bottom'; @index) {
-  .padding-bottom(@index);
+  .padding-bottom(@index) !important;
 }
 .generate-classes(p; 'padding-bottom'; 3; 3; 1);
 .generate-classes(p; 'padding-bottom'; 7; 7; 1);
