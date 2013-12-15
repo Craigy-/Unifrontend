@@ -1,5 +1,5 @@
 {
-"Version": "0.2.7",
+"Version": "0.2.8",
 "FileData":{
 ".hgignore": {"timestamp": 1375092388.48},
 "exclude.txt": {"timestamp": 1376744090.34},
@@ -9,7 +9,7 @@
 "templates/articles-list.htm": {"timestamp": 1375091643.22},
 "templates/contacts.htm": {"timestamp": 1375091658.3},
 "templates/css/less-watch.bat": {"timestamp": 1384352454.86},
-"templates/css/less/_classes.less": {"timestamp": 1385585051.62},
+"templates/css/less/_classes.less": {"timestamp": 1387066705.11},
 "templates/css/less/_constructions.less": {"timestamp": 1385501665.12},
 "templates/css/less/_mixins.less": {"timestamp": 1385728852.36},
 "templates/css/less/_normalize.less": {"timestamp": 1385588814.14},

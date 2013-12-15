@@ -79,6 +79,9 @@ a.none,
 }
 
 // Blocks
+.relative {
+  position: relative;
+}
 .center-block {
   .center-block;
 }
@@ -91,7 +94,8 @@ a.none,
   float: left;
   margin: 0 15px 10px 0;
 
-  table & {
+  table &,
+  table& {
     float: none;
     margin: 0;
     &:extend(.text-left);
@@ -101,7 +105,8 @@ a.none,
   float: right;
   margin: 0 0 10px 15px;
 
-  table & {
+  table &,
+  table& {
     float: none;
     margin: 0;
     &:extend(.text-right);
