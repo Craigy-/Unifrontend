@@ -10,25 +10,25 @@
   }
   * {
     float: left;
+    padding: @breadcrumbs-element-padding;
     font: @breadcrumbs-element-font;
     color: @breadcrumbs-element-color;
     text-decoration: @breadcrumbs-element-text-decoration;
-    padding: @breadcrumbs-element-padding;
 
     &:hover {
       text-decoration: @breadcrumbs-element-text-decoration-hover;
     }
   }
   span {
+    padding: @breadcrumbs-active-padding;
     font: @breadcrumbs-active-font;
     color: @breadcrumbs-active-color;
     text-decoration: none !important;
-    padding: @breadcrumbs-active-padding;
 
     &.breadcrumbs-separator {
+      padding: @breadcrumbs-separator-padding;
       font: @breadcrumbs-separator-font;
       color: @breadcrumbs-separator-color;
-      padding: @breadcrumbs-separator-padding;
     }
   }
 }
@@ -110,22 +110,22 @@
 
 // Forms
 .form { // apply to <form>
+  .box-sizing(border-box);
   background: @form-background;
   border: @form-border;
   .border-radius(@form-border-radius);
   width: @form-width;
+  .box-shadow(@form-box-shadow);
   padding: @form-padding;
   margin: @form-margin;
-  .box-shadow(@form-box-shadow);
-  .box-sizing(border-box);
 
   .form-header {
     background: @form-header-background;
     border: @form-header-border;
     .border-radius(@form-header-border-radius);
+    padding: @form-header-padding;
     color: @form-header-color;
     text-align: @form-header-text-align;
-    padding: @form-header-padding;
 
     &,
     & * {
@@ -140,12 +140,12 @@
   }
   label {
     float: left;
-    font: @form-title-font;
-    color: @form-title-color;
-    text-transform: @form-title-text-transform;
     width: (@form-width * 0.27);
     padding-top: 3px;
     padding-right: (@form-width * 0.03);
+    font: @form-title-font;
+    color: @form-title-color;
+    text-transform: @form-title-text-transform;
   }
   .form-field {
     float: left;
@@ -181,10 +181,10 @@
   .form-success .input,
   .form-success select,
   .form-success textarea {
-    color: @form-success-color-text;
     background: @form-success-background @form-success-background-color;
     border-color: @form-success-border-color;
     padding: @form-statuses-padding;
+    color: @form-success-color-text;
 
     &:focus {
       background-color: lighten(@form-success-background-color, 5%);
@@ -216,39 +216,37 @@
 }
 .form-separator {
   display: inline-block;
-  text-align: center;
   width: 4%;
+  text-align: center;
 }
 .form-hint {
-  font-size: @form-hint-font-size;
-  line-height: @line-height-base;
   padding: @form-hint-padding;
+  font: @form-hint-font;
 }
 .form-submit {
-  text-align: @form-submit-text-align;
   padding: @form-submit-padding;
+  text-align: @form-submit-text-align;
 }
 .form-error-message,
 .form-success-message {
-  font-size: @form-messages-font-size;
-  line-height: @line-height-base;
+  .box-sizing(border-box);
   position: relative;
   background-position: @form-messages-background-position !important;
   .border-radius(@form-messages-border-radius);
+  .box-shadow(@form-messages-box-shadow);
   padding: @form-messages-padding;
   margin: @form-messages-margin;
-  .box-shadow(@form-messages-box-shadow);
-  .box-sizing(border-box);
+  font: @form-messages-font;
 }
 .form-error-message {
-  color: @form-messages-error-color-text;
   background: @form-messages-error-background;
   border: @form-messages-error-border;
+  color: @form-messages-error-color-text;
 }
 .form-success-message {
-  color: @form-messages-success-color-text;
   background: @form-messages-success-background;
   border: @form-messages-success-border;
+  color: @form-messages-success-color-text;
 }
 
 // Lists
@@ -291,9 +289,9 @@ table {
   }
 }
 .bordered {
-  color: @table-bordered-text-color;
   border-top: @table-bordered-border;
   border-left: @table-bordered-border;
+  color: @table-bordered-text-color;
 
   th,
   td {
@@ -303,8 +301,8 @@ table {
   }
   th {
     background: @table-bordered-th-background;
-    color: @table-bordered-th-text-color;
     padding: @table-bordered-th-padding;
+    color: @table-bordered-th-text-color;
   }
 }
 .striped {
@@ -320,28 +318,28 @@ table {
   top: 0;
   left: 0;
   z-index: @popup-zIndex;
-  text-align: left;
-  white-space: normal;
   .size(@popup-width; @popup-height);
   background: @popup-background;
   border: @popup-border;
   .border-radius(@popup-border-radius);
   .box-shadow(@popup-box-shadow);
+  text-align: left;
+  white-space: normal;
 
   .popup-header,
   .popup-body,
   .popup-footer {
-    width: 100%;
     .box-sizing(border-box);
+    width: 100%;
   }
   .popup-header {
     background: @popup-header-background;
     border: @popup-header-border;
     .border-radius(@popup-header-border-radius);
     height: @popup-header-height;
+    padding: @popup-header-padding;
     color: @popup-header-color;
     text-align: @popup-header-text-align;
-    padding: @popup-header-padding;
 
     &,
     & * {
@@ -355,9 +353,9 @@ table {
     border: @popup-body-border;
     .border-radius(@popup-body-border-radius);
     height: @popup-body-height;
+    padding: @popup-body-padding;
     color: @popup-body-color;
     text-align: @popup-body-text-align;
-    padding: @popup-body-padding;
 
     &,
     & * {
@@ -369,9 +367,9 @@ table {
     border: @popup-footer-border;
     .border-radius(@popup-footer-border-radius);
     height: @popup-footer-height;
+    padding: @popup-footer-padding;
     color: @popup-footer-color;
     text-align: @popup-footer-text-align;
-    padding: @popup-footer-padding;
 
     &,
     & * {
