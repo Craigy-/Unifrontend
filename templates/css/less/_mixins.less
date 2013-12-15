@@ -31,11 +31,13 @@
   overflow: hidden;
 
   > div {
+    display: @display;
     position: relative;
     float: left;
     left: 50%;
 
     > div {
+      display: @display;
       position: relative;
       float: left;
       right: 50%;
@@ -44,9 +46,16 @@
 }
 
 // Sizing shortcuts
-.size(@width; @height) {
-  width: unit(@width, px);
-  height: unit(@height, px);
+.size(@width: auto; @height: auto) {
+  .set-width(@size) when (isnumber(@size)) {
+    width: unit(@size, px);
+  }
+  .set-height(@size) when (isnumber(@size)) {
+    height: unit(@size, px);
+  }
+
+  .set-width(@width);
+  .set-height(@height);
 }
 .square(@size) {
   .size(@size; @size);
@@ -121,7 +130,7 @@
 
 // CSS image replacement
 .text-hide() {
-  font: ~"0/0" a;
+  font: 0/0 a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
