@@ -250,27 +250,28 @@
 }
 
 // Lists
-ul.list,
-ol.list {
+.list { // apply to <ul> or <ol>
   margin: @list-margin;
 
   li {
     margin: @list-element-margin;
-  }
-}
-ul.list li {
-  list-style: none;
-}
-ul.list-hr li,
-ol.list-hr li {
-  padding: @list-hr-element-padding;
-  margin: @list-hr-element-margin;
 
-  & when (@list-hr-element-divider-position = top) {
-    border-top: @list-hr-element-divider;
+    ul& {
+      list-style: none;
+    }
   }
-  & when (@list-hr-element-divider-position = bottom) {
-    border-bottom: @list-hr-element-divider;
+}
+.list-hr {
+  li {
+    padding: @list-hr-element-padding;
+    margin: @list-hr-element-margin;
+
+    & when (@list-hr-element-divider-position = top) {
+      border-top: @list-hr-element-divider;
+    }
+    & when (@list-hr-element-divider-position = bottom) {
+      border-bottom: @list-hr-element-divider;
+    }
   }
 }
 
