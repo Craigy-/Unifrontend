@@ -44,11 +44,18 @@ aside#right {
 main {
   width: (@max-width-base - @sidebar-left-width - @sidebar-right-width);
   padding: @main-padding;
+
+  &.full {
+    width: @max-width-base;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }
 footer {
   position: relative;
   background: @footer-background;
   margin: 0 auto;
+  text-align: @footer-text-align;
 
   & when (@apply-max-width-to-footer) {
     max-width: @max-width-base;
