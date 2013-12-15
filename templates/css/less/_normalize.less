@@ -192,7 +192,7 @@ h6,
 }
 
 p {
-  line-height: @paragraph-line-height;
+  line-height: @paragraph-line-height !important;
   padding: @paragraph-padding;
 }
 hr {
@@ -213,10 +213,10 @@ pre {
 }
 sub,
 sup {
-  font-size: 9px;
-  line-height: 0;
   position: relative;
   vertical-align: baseline;
+  font-size: 9px !important;
+  line-height: 0 !important;
 }
 sup {
   top: -0.5em;
