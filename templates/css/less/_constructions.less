@@ -2,17 +2,33 @@
 
 // Breadcrumbs
 .breadcrumbs {
+  overflow: hidden;
   margin: @breadcrumbs-margin;
 
+  .lt-ie8 & {
+    zoom: 1;
+  }
   * {
-    display: inline-block;
+    float: left;
+    font: @breadcrumbs-element-font;
+    color: @breadcrumbs-element-color;
+    text-decoration: @breadcrumbs-element-text-decoration;
     padding: @breadcrumbs-element-padding;
+
+    &:hover {
+      text-decoration: @breadcrumbs-element-text-decoration-hover;
+    }
   }
   span {
+    font: @breadcrumbs-active-font;
     color: @breadcrumbs-active-color;
-    font-weight: @breadcrumbs-active-font-weight;
+    text-decoration: none !important;
+    padding: @breadcrumbs-active-padding;
 
     &.breadcrumbs-separator {
+      font: @breadcrumbs-separator-font;
+      color: @breadcrumbs-separator-color;
+      padding: @breadcrumbs-separator-padding;
     }
   }
 }
@@ -29,23 +45,64 @@
       zoom: 1;
     }
     > li {
-      display: inline-block;
+      float: left;
       list-style: none;
       padding: @pagination-element-padding;
       margin: 0;
 
-      .lt-ie8 & {
-        display: inline;
-        zoom: 1;
+      * {
+        display: block;
+        font: @pagination-element-font;
+        color: @pagination-element-color;
+        text-decoration: @pagination-element-text-decoration;
+
+        &:hover {
+          text-decoration: @pagination-element-text-decoration-hover;
+        }
       }
-      &.page-selected a {
-        font-weight: @pagination-selected-font-weight;
-        color: @pagination-selected-color;
-        text-decoration: @pagination-selected-text-decoration;
+      &.page-selected {
+        padding: @pagination-selected-padding;
+
+        * {
+          font: @pagination-selected-font;
+          color: @pagination-selected-color;
+        }
       }
-      &.page-backward a {
+      &.page-backward {
+        padding: @pagination-backward-padding;
+
+        * {
+          font: @pagination-backward-font;
+          color: @pagination-backward-color;
+
+          & when not (@pagination-backward-background = none) {
+            background: @pagination-backward-background;
+            .size(@pagination-backward-width; @pagination-backward-height);
+            .text-hide;
+
+            &:hover {
+              background-position: 0 -@pagination-backward-height;
+            }
+          }
+        }
       }
-      &.page-forward a {
+      &.page-forward {
+        padding: @pagination-forward-padding;
+
+        * {
+          font: @pagination-forward-font;
+          color: @pagination-forward-color;
+
+          & when not (@pagination-forward-background = none) {
+            background: @pagination-forward-background;
+            .size(@pagination-forward-width; @pagination-forward-height);
+            .text-hide;
+
+            &:hover {
+              background-position: -@pagination-backward-width -@pagination-forward-height;
+            }
+          }
+        }
       }
     }
   }
@@ -59,18 +116,33 @@
   width: @form-width;
   padding: @form-padding;
   margin: @form-margin;
+  .box-shadow(@form-box-shadow);
   .box-sizing(border-box);
 
   .form-header {
     background: @form-header-background;
+    border: @form-header-border;
+    .border-radius(@form-header-border-radius);
+    color: @form-header-color;
+    text-align: @form-header-text-align;
     padding: @form-header-padding;
+
+    &,
+    & * {
+      font: @form-header-font;
+    }
   }
   .form-body {
     background: @form-body-background;
+    border: @form-body-border;
+    .border-radius(@form-body-border-radius);
     padding: @form-body-padding;
   }
   label {
     float: left;
+    font: @form-title-font;
+    color: @form-title-color;
+    text-transform: @form-title-text-transform;
     width: (@form-width * 0.27);
     padding-top: 3px;
     padding-right: (@form-width * 0.03);
@@ -160,10 +232,12 @@
 .form-success-message {
   font-size: @form-messages-font-size;
   line-height: @line-height-base;
-  background-position: @form-messages-background-position !important;
   position: relative;
+  background-position: @form-messages-background-position !important;
+  .border-radius(@form-messages-border-radius);
   padding: @form-messages-padding;
   margin: @form-messages-margin;
+  .box-shadow(@form-messages-box-shadow);
   .box-sizing(border-box);
 }
 .form-error-message {
@@ -191,13 +265,20 @@ ul.list li {
 }
 ul.list-hr li,
 ol.list-hr li {
-  border-bottom: @list-hr-element-divider;
   padding: @list-hr-element-padding;
   margin: @list-hr-element-margin;
+
+  & when (@list-hr-element-divider-position = top) {
+    border-top: @list-hr-element-divider;
+  }
+  & when (@list-hr-element-divider-position = bottom) {
+    border-bottom: @list-hr-element-divider;
+  }
 }
 
 // Tables
 table {
+  width: 100%;
   border: 0;
   border-spacing: 0;
   border-collapse: collapse;
@@ -210,7 +291,6 @@ table {
   }
 }
 .bordered {
-  width: 100%;
   color: @table-bordered-text-color;
   border-top: @table-bordered-border;
   border-left: @table-bordered-border;
@@ -230,5 +310,80 @@ table {
 .striped {
   tr:nth-child(odd) > td {
     background: @table-striped-highlight-color;
+  }
+}
+
+// Popups
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @popup-zIndex;
+  text-align: left;
+  white-space: normal;
+  .size(@popup-width; @popup-height);
+  background: @popup-background;
+  border: @popup-border;
+  .border-radius(@popup-border-radius);
+  .box-shadow(@popup-box-shadow);
+
+  .popup-header,
+  .popup-body,
+  .popup-footer {
+    width: 100%;
+    .box-sizing(border-box);
+  }
+  .popup-header {
+    background: @popup-header-background;
+    border: @popup-header-border;
+    .border-radius(@popup-header-border-radius);
+    height: @popup-header-height;
+    color: @popup-header-color;
+    text-align: @popup-header-text-align;
+    padding: @popup-header-padding;
+
+    &,
+    & * {
+      font: @popup-header-font;
+    }
+  }
+  .popup-body {
+    overflow: hidden;
+    overflow-y: auto;
+    background: @popup-body-background;
+    border: @popup-body-border;
+    .border-radius(@popup-body-border-radius);
+    height: @popup-body-height;
+    color: @popup-body-color;
+    text-align: @popup-body-text-align;
+    padding: @popup-body-padding;
+
+    &,
+    & * {
+      font: @popup-body-font;
+    }
+  }
+  .popup-footer {
+    background: @popup-footer-background;
+    border: @popup-footer-border;
+    .border-radius(@popup-footer-border-radius);
+    height: @popup-footer-height;
+    color: @popup-footer-color;
+    text-align: @popup-footer-text-align;
+    padding: @popup-footer-padding;
+
+    &,
+    & * {
+      font: @popup-footer-font;
+    }
+  }
+  .popup-close {
+    display: block;
+    position: absolute;
+    top: @popup-close-position-top;
+    right: @popup-close-position-right;
+    background: @popup-close-background;
+    .size(@popup-close-width; @popup-close-height);
   }
 }

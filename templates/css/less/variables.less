@@ -105,7 +105,7 @@
 
 // Tables
 @table-th-text-align: left;
-@table-cells-padding: 0;
+@table-cells-padding: 0 10px 10px 10px;
 
 @table-bordered-text-color: @text-color;
 @table-bordered-border: 1px solid @table-bordered-th-background;
@@ -141,14 +141,26 @@
 @form-background: none;
 @form-border: 0;
 @form-border-radius: 0;
-@form-width: 750px;
-@form-margin: 0 0 10px 0;
+@form-width: 100%;
 @form-padding: 0;
+@form-margin: 0 0 10px 0;
+@form-box-shadow: none;
+
+@form-title-font: @font-size-base/@line-height-base @font-family-base;
+@form-title-color: @text-color;
+@form-title-text-transform: none;
 
 @form-header-background: none;
+@form-header-border: 0;
+@form-header-border-radius: 0;
+@form-header-font: @form-title-font;
+@form-header-color: @form-title-color;
+@form-header-text-align: left;
 @form-header-padding: 0;
 
 @form-body-background: none;
+@form-body-border: 0;
+@form-body-border-radius: 0;
 @form-body-padding: 0;
 
 @form-hint-font-size: @font-size-base;
@@ -162,18 +174,20 @@
 
 @form-error-color-text: @red;
 @form-error-background: url(../images/stop-round.png) no-repeat 98% 50%;
-@form-error-background-color: #FFCACA;
+@form-error-background-color: lighten(@red, 60%);
 @form-error-border-color: @form-error-color-text;
 @form-success-color-text: @green;
 @form-success-background: url(../images/accept-green.png) no-repeat 98% 50%;
-@form-success-background-color: #CDEAC8;
+@form-success-background-color: lighten(@green, 60%);
 @form-success-border-color: @form-success-color-text;
 @form-statuses-padding: 0 38px 0 @input-padding;
 
 @form-messages-font-size: @font-size-base;
-@form-messages-margin: -1px 0 0 0;
-@form-messages-padding: 5px 5px 5px 26px;
 @form-messages-background-position: 5px 50%;
+@form-messages-border-radius: 0;
+@form-messages-box-shadow: none;
+@form-messages-padding: 5px 5px 5px 26px;
+@form-messages-margin: -1px 0 0 0;
 @form-messages-error-color-text: @form-error-color-text;
 @form-messages-error-background: @form-error-background @form-error-background-color;
 @form-messages-error-border: 1px solid @form-error-border-color;
@@ -183,23 +197,93 @@
 
 // Breadcrumbs
 @breadcrumbs-margin: 0 0 15px 0;
+@breadcrumbs-element-font: @font-size-base/@line-height-base @font-family-base;
+@breadcrumbs-element-color: @link-color;
+@breadcrumbs-element-text-decoration: underline;
+@breadcrumbs-element-text-decoration-hover: none;
 @breadcrumbs-element-padding: 0 5px 0 0;
 
+@breadcrumbs-active-font: @breadcrumbs-element-font;
 @breadcrumbs-active-color: @text-color;
-@breadcrumbs-active-font-weight: normal;
+@breadcrumbs-active-padding: @breadcrumbs-element-padding;
+
+@breadcrumbs-separator-font: @breadcrumbs-element-font;
+@breadcrumbs-separator-color: @text-color;
+@breadcrumbs-separator-padding: @breadcrumbs-element-padding;
 
 // Pagination
 @pagination-margin: 0 0 15px 0;
+@pagination-element-font: @font-size-base/@line-height-base @font-family-base;
+@pagination-element-color: @link-color;
+@pagination-element-text-decoration: underline;
+@pagination-element-text-decoration-hover: none;
 @pagination-element-padding: 0 5px;
 
+@pagination-selected-font: @pagination-element-font;
 @pagination-selected-color: @text-color;
-@pagination-selected-font-weight: bold;
-@pagination-selected-text-decoration: none;
+@pagination-selected-padding: @pagination-element-padding;
+
+@pagination-backward-background: none;
+@pagination-backward-width: 13px;
+@pagination-backward-height: 13px;
+@pagination-backward-font: @pagination-element-font;
+@pagination-backward-color: @pagination-element-color;
+@pagination-backward-padding: @pagination-element-padding;
+
+@pagination-forward-background: none;
+@pagination-forward-width: 13px;
+@pagination-forward-height: 13px;
+@pagination-forward-font: @pagination-element-font;
+@pagination-forward-color: @pagination-element-color;
+@pagination-forward-padding: @pagination-element-padding;
 
 // Lists
 @list-margin: 0;
 @list-element-margin: 0 0 5px 0;
 
+@list-hr-element-divider-position: bottom;
 @list-hr-element-divider: 1px solid @hr-color-base;
 @list-hr-element-padding: 0 0 10px 0;
 @list-hr-element-margin: 0 0 20px 0;
+
+// Popups
+@popup-zIndex: 1002;
+@popup-width: 300px;
+@popup-height: auto;
+@popup-background: @white;
+@popup-border: 0;
+@popup-border-radius: 0;
+@popup-box-shadow: none;
+
+@popup-header-background: none;
+@popup-header-border: 0;
+@popup-header-border-radius: 0;
+@popup-header-height: 70px;
+@popup-header-font: @popup-body-font;
+@popup-header-color: @popup-body-color;
+@popup-header-text-align: center;
+@popup-header-padding: 20px 0;
+
+@popup-body-background: none;
+@popup-body-border: 0;
+@popup-body-border-radius: 0;
+@popup-body-height: auto;
+@popup-body-font: @font-size-base/@line-height-base @font-family-base;
+@popup-body-color: @text-color;
+@popup-body-text-align: left;
+@popup-body-padding: 0;
+
+@popup-footer-background: none;
+@popup-footer-border: 0;
+@popup-footer-border-radius: 0;
+@popup-footer-height: 70px;
+@popup-footer-font: @popup-body-font;
+@popup-footer-color: @popup-body-color;
+@popup-footer-text-align: center;
+@popup-footer-padding: 20px 0;
+
+@popup-close-position-top: 0;
+@popup-close-position-right: 0;
+@popup-close-background: url(../images/button-close.png) no-repeat 0 0;
+@popup-close-width: 35px;
+@popup-close-height: @popup-close-width;
