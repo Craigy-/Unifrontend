@@ -1,0 +1,4 @@
+syntax: glob
+
+templates/js
+utilities/files
