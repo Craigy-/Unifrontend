@@ -7,4 +7,3 @@ echo Less is watching for changes. Press Ctrl-C to stop.
 echo.
 cd ..
 less-watchr --path css/less --fileToCompile css/less/_styles.less --outputFilename ../styles.css --options="-x --strict-math=on"
-exit
