@@ -5,7 +5,7 @@ rem Usage: template X:\dummy.ru\html\total
 
 if "%1" EQU "" goto error
 xcopy "templates" "%~1" /i /s /e /y /exclude:exclude.txt
-copy "templates\index.htm" "%1" /y
+copy "templates\index.htm" "%~1" /y
 exit
 
 :error
