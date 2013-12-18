@@ -1,7 +1,6 @@
 @echo off
 
-rem Compiles all less files to single css (simple or minified)
+rem Compiles all less files to a single css (simple or minified)
 rem Use with nodejs component (less)
 
-cd ..
-less css/less/_styles.less %~1 > ../styles.css
+lessc less/_styles.less %~1 > styles.css
