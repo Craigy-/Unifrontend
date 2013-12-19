@@ -47,11 +47,17 @@
 
 // Sizing shortcuts
 .size(@width: auto; @height: auto) {
-  .set-width(@size) when (isnumber(@size)) {
+  .set-width(@size) when (isnumber(@size)) and not (ispercentage(@size)) {
     width: unit(@size, px);
   }
-  .set-height(@size) when (isnumber(@size)) {
+  .set-width(@size) when (ispercentage(@size)) {
+    width: @size;
+  }
+  .set-height(@size) when (isnumber(@size)) and not (ispercentage(@size)) {
     height: unit(@size, px);
+  }
+  .set-height(@size) when (ispercentage(@size)) {
+    height: @size;
   }
 
   .set-width(@width);
