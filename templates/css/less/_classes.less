@@ -1,0 +1,146 @@
+// Classes for manual use in html-files
+
+// Font sizes
+.generator('font-size'; @index) {
+  .font-size(@index) !important;
+}
+.generate-classes(s; 'font-size'; 8; 40; 1);
+
+// Font weights
+.normal {
+  font-weight: normal;
+}
+.bold {
+  font-weight: bold;
+}
+
+// Links
+a.hover,
+.hover > a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+a.unhover,
+.unhover > a {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+a.none,
+.none > a {
+  text-decoration: none !important;
+}
+
+// Text aligns
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-justify {
+  text-align: justify !important;
+}
+
+// Images
+.image-responsive {
+  .image-responsive;
+}
+.image-bordered {
+  border: @image-bordered-border;
+  padding: @image-bordered-padding;
+}
+.image-circle {
+  .border-radius(50%);
+}
+
+// Simple grid systems
+.row-2 {
+  .equal-grid(100%; 2; 20px);
+}
+.row-3 {
+  .equal-grid(100%; 3; 20px);
+}
+
+// Tables
+.nowrap {
+  white-space: nowrap;
+}
+.valign-top {
+  vertical-align: top;
+}
+
+// Blocks
+.relative {
+  position: relative;
+}
+.center-block {
+  .center-block;
+}
+.center-block-content {
+  .center-block-content;
+}
+
+// Floatings
+.pull-left {
+  float: left;
+  margin: 0 15px 10px 0;
+
+  table &,
+  table& {
+    float: none;
+    margin: 0;
+    &:extend(.text-left);
+  }
+}
+.pull-right {
+  float: right;
+  margin: 0 0 10px 15px;
+
+  table &,
+  table& {
+    float: none;
+    margin: 0;
+    &:extend(.text-right);
+  }
+}
+
+// Margins
+.generator('margin-bottom'; @index) {
+  .margin-bottom(@index) !important;
+}
+.generate-classes(m; 'margin-bottom'; 3; 3; 1);
+.generate-classes(m; 'margin-bottom'; 7; 7; 1);
+.generate-classes(m; 'margin-bottom'; 5; 50; 5);
+
+// Paddings
+.generator('padding-bottom'; @index) {
+  .padding-bottom(@index) !important;
+}
+.generate-classes(p; 'padding-bottom'; 3; 3; 1);
+.generate-classes(p; 'padding-bottom'; 7; 7; 1);
+.generate-classes(p; 'padding-bottom'; 5; 50; 5);
+
+// Clearfixes
+.nofloat,
+.text-container {
+  .clearfix;
+}
+.text-container {
+  .margin-bottom(10);
+}
+.float-none {
+  overflow: hidden;
+
+  .lt-ie8 & {
+    zoom: 1;
+  }
+}
