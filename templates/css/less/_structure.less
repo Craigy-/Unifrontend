@@ -1,0 +1,88 @@
+// HTML5 structure
+#structure {
+  position: relative;
+  background: @structure-background;
+  margin: 0 auto;
+
+  & when (@move-max-width-to-structure) {
+    max-width: @max-width-base;
+  }
+  & when (@footer-to-bottom) {
+    min-height: 100%;
+  }
+}
+#content {
+  background: @content-background;
+
+  & when (@footer-to-bottom) {
+    padding-bottom: (@footer-height + @content-padding-bottom);
+  }
+  & when not (@footer-to-bottom) {
+    padding-bottom: @content-padding-bottom;
+  }
+
+  > .wrapper when not (@content-wrapper-background = none) {
+    background: @content-wrapper-background;
+  }
+  > .wrapper {
+    .clearfix;
+  }
+}
+aside,
+main {
+  .box-sizing(border-box);
+  float: left;
+}
+aside#left {
+  width: @sidebar-left-width;
+  padding: @sidebar-left-padding;
+}
+aside#right {
+  width: @sidebar-right-width;
+  padding: @sidebar-right-padding;
+}
+main {
+  width: (@max-width-base - @sidebar-left-width - @sidebar-right-width);
+  padding: @main-padding;
+
+  &.full {
+    width: @max-width-base;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+footer {
+  position: relative;
+  background: @footer-background;
+  margin: 0 auto;
+  text-align: @footer-text-align;
+
+  & when (@apply-max-width-to-footer) {
+    max-width: @max-width-base;
+  }
+  & when (@footer-to-bottom) {
+    margin-top: -@footer-height;
+  }
+
+  > .wrapper when not (@footer-wrapper-background = none) {
+    background: @footer-wrapper-background;
+  }
+  > .wrapper {
+    height: @footer-height;
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+
+  & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
+    width: @max-width-base;
+  }
+  & when (@wrapper-fixed) and (@move-max-width-to-structure) {
+    width: @min-width-base;
+  }
+  & when not (@wrapper-fixed) {
+    min-width: @min-width-base;
+    max-width: @max-width-base;
+  }
+}

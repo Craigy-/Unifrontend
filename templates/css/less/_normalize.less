@@ -1,0 +1,364 @@
+// CSS reset by defaults
+html {
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+
+  & when (@footer-to-bottom) {
+    height: 100%;
+  }
+}
+body {
+  background: @body-background;
+  min-width: @min-width-base;
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+
+  & when (@footer-to-bottom) {
+    height: 100%;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  font-family: @font-family-base;
+  font-size: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+audio,
+canvas,
+video {
+  display: inline-block;
+  vertical-align: middle;
+
+  .lt-ie8 & {
+    display: inline;
+    zoom: 1;
+  }
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden] {
+  display: none;
+}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+a {
+  color: @link-color;
+  text-decoration: @link-text-decoration;
+
+  &:hover when not (@link-color-hover = @link-color) {
+    color: @link-color-hover;
+
+    & when not (@link-text-decoration-hover = @link-text-decoration) {
+      text-decoration: @link-text-decoration-hover;
+    }
+  }
+  &:visited when not (@link-color-visited = @link-color) {
+    color: @link-color-visited;
+
+    & when not (@link-text-decoration-visited = @link-text-decoration) {
+      text-decoration: @link-text-decoration-visited;
+    }
+  }
+}
+a:focus,
+input:focus {
+  outline: none;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6,
+{
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+h1,
+.h1 {
+  background: @h1-background;
+  padding: @h1-padding;
+  margin: @h1-margin;
+  text-transform: @h1-text-transform;
+
+  &,
+  & a {
+    font: @h1-font;
+    color: @h1-color-text;
+  }
+}
+h2,
+.h2 {
+  background: @h2-background;
+  padding: @h2-padding;
+  margin: @h2-margin;
+  text-transform: @h2-text-transform;
+
+  &,
+  & a {
+    font: @h2-font;
+    color: @h2-color-text;
+  }
+}
+h3,
+.h3 {
+  background: @h3-background;
+  padding: @h3-padding;
+  margin: @h3-margin;
+  text-transform: @h3-text-transform;
+
+  &,
+  & a {
+    font: @h3-font;
+    color: @h3-color-text;
+  }
+}
+h4,
+.h4 {
+  background: @h4-background;
+  padding: @h4-padding;
+  margin: @h4-margin;
+  text-transform: @h4-text-transform;
+
+  &,
+  & a {
+    font: @h4-font;
+    color: @h4-color-text;
+  }
+}
+h5,
+.h5 {
+  background: @h5-background;
+  padding: @h5-padding;
+  margin: @h5-margin;
+  text-transform: @h5-text-transform;
+
+  &,
+  & a {
+    font: @h5-font;
+    color: @h5-color-text;
+  }
+}
+h6,
+.h6 {
+  background: @h6-background;
+  padding: @h6-padding;
+  margin: @h6-margin;
+  text-transform: @h6-text-transform;
+
+  &,
+  & a {
+    font: @h6-font;
+    color: @h6-color-text;
+  }
+}
+
+p {
+  padding: @paragraph-padding;
+  line-height: @paragraph-line-height !important;
+}
+hr {
+  -moz-box-sizing: content-box;
+       box-sizing: content-box;
+  height: 0;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: @font-family-monospace;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  font-size: 9px !important;
+  line-height: 0 !important;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+legend {
+  border: 0;
+  white-space: normal;
+
+  .lt-ie8 & {
+    margin-left: -7px;
+  }
+}
+
+ul,
+ul.default,
+ol {
+  margin: 0 0 10px 0;
+
+  li {
+    list-style-position: inside;
+    list-style-type: square;
+    margin: 0 0 10px 0;
+  }
+}
+ul.default li {
+  list-style-position: outside;
+  list-style-type: disc;
+  margin: 0 0 5px 20px;
+}
+ol {
+  margin-left: 25px !important;
+
+  li {
+    list-style-type: decimal;
+    list-style-position: outside;
+  }
+}
+nav ul,
+nav ol {
+  margin: 0;
+
+  li {
+    list-style: none;
+    margin: 0;
+  }
+}
+
+button,
+input,
+select,
+textarea {
+  vertical-align: middle;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+
+  .lt-ie8 & {
+    overflow: visible;
+  }
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+
+  .lt-ie8 & {
+    width: 13px;
+    height: 13px;
+  }
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+}
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.input,
+textarea,
+select {
+  .box-sizing(border-box);
+  background: @input-background;
+  border: @input-border;
+  .border-radius(@input-border-radius);
+  height: @input-height;
+  .box-shadow(@input-box-shadow);
+  padding-left: @input-padding;
+  padding-right: @input-padding;
+  font: @input-font !important;
+  color: @input-color-text;
+  text-shadow: @input-text-shadow;
+  .placeholder;
+}
+textarea {
+  height: auto;
+  padding: @input-padding;
+  line-height: @line-height-base;
+  .resizable(vertical);
+}
+.input:focus,
+textarea:focus,
+select:focus {
+  background-color: lighten(@input-background, 5%);
+  border-color: @input-border-color-focus;
+  color: @input-color-focus;
+}
+.input[disabled],
+textarea[disabled],
+select[disabled] {
+  background-color: lighten(@input-background, 50%);
+  border-color: @input-border-color-disabled;
+  color: @input-color-disabled;
+}
+select {
+  padding-right: 0;
+
+  option {
+    padding-right: @input-padding;
+  }
+}
+label {
+  cursor: pointer;
+}
