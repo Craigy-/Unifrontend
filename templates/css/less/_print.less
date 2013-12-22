@@ -1,0 +1,61 @@
+// Print styles
+@media print {
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+  pre,
+  blockquote,
+  tr,
+  img,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-inside: avoid;
+  }
+  thead {
+    display: table-header-group;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  [hidden] {
+    display: none;
+  }
+  @page {
+    margin: 0.5cm;
+  }
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    orphans: 3;
+    widows: 3;
+  }
+  #awst-panel-wrapper,
+  .noprint {
+    display: none !important;
+  }
+}
