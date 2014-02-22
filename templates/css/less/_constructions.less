@@ -5,9 +5,6 @@
   overflow: hidden;
   margin: @breadcrumbs-margin;
 
-  .lt-ie8 & {
-    zoom: 1;
-  }
   * {
     float: left;
     padding: @breadcrumbs-element-padding;
@@ -41,9 +38,6 @@
     overflow: hidden;
     margin: 0;
 
-    .lt-ie8 & {
-      zoom: 1;
-    }
     > li {
       float: left;
       list-style: none;
@@ -160,10 +154,6 @@
   select,
   textarea {
     width: 100%;
-
-    .lt-ie8 & {
-      width: ((@form-width * 0.7) - (@input-padding * 2));
-    }
   }
   .form-error .input,
   .form-error select,
