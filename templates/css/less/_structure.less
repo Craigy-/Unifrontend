@@ -31,24 +31,29 @@
 aside,
 main {
   .box-sizing(border-box);
-  float: left;
 }
 aside#left {
+  float: left;
+  background: @sidebar-left-background;
   width: @sidebar-left-width;
   padding: @sidebar-left-padding;
 }
 aside#right {
+  float: right;
+  background: @sidebar-right-background;
   width: @sidebar-right-width;
   padding: @sidebar-right-padding;
 }
 main {
-  width: (@max-width-base - @sidebar-left-width - @sidebar-right-width);
+  background: @main-background;
   padding: @main-padding;
+  margin: 0 @sidebar-right-width 0 @sidebar-left-width;
 
   &.full {
     width: 100%;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin: 0 !important;
   }
 }
 footer {
