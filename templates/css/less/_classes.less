@@ -82,8 +82,12 @@ a.none,
 .relative {
   position: relative;
 }
+.fixed {
+  position: fixed;
+}
 .hidden {
-  display: none;
+  display: none !important;
+  visibility: hidden !important;
 }
 .center-block {
   .center-block;
@@ -135,10 +139,10 @@ a.none,
 .generate-classes(p; 'padding-bottom'; 5; 50; 5);
 
 // Clearfixes
-.nofloat,
-.text-container,
 .clear,
-.clearfix {
+.clearfix,
+.nofloat,
+.text-container {
   .clearfix;
 }
 .text-container {
