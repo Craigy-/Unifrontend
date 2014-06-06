@@ -5,16 +5,16 @@
   overflow: hidden;
   margin: @breadcrumbs-margin;
 
-  * {
+  a,
+  span {
     float: left;
     padding: @breadcrumbs-element-padding;
     font: @breadcrumbs-element-font;
     color: @breadcrumbs-element-color;
     text-decoration: @breadcrumbs-element-text-decoration;
-
-    &:hover {
-      text-decoration: @breadcrumbs-element-text-decoration-hover;
-    }
+  }
+  a:hover {
+    text-decoration: @breadcrumbs-element-text-decoration-hover;
   }
   span {
     padding: @breadcrumbs-active-padding;
