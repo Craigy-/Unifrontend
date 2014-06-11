@@ -148,10 +148,7 @@
 @form-padding: 0;
 @form-margin: 0 0 10px 0;
 
-@form-title-font: @font-size-base/@line-height-base @font-family-base;
-@form-title-color: @text-color;
-@form-title-text-transform: none;
-
+@form-header-display: inline-block;
 @form-header-background: none;
 @form-header-border: 0;
 @form-header-border-radius: 0;
@@ -164,6 +161,16 @@
 @form-body-border: 0;
 @form-body-border-radius: 0;
 @form-body-padding: 0;
+
+@form-title-width: (@form-width * 0.27);
+@form-title-padding: 3px (@form-width * 0.03) 0 0;
+@form-title-font: @font-size-base/@line-height-base @font-family-base;
+@form-title-color: @text-color;
+@form-title-text-transform: none;
+@form-title-text-align: left;
+
+@form-field-width: (@form-width * 0.7);
+@form-field-padding: 0;
 
 @form-hint-padding: 10px 0;
 @form-hint-font: @font-size-base/@line-height-base @font-family-base;
