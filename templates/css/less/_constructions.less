@@ -119,6 +119,7 @@
   margin: @form-margin;
 
   .form-header {
+    display: @form-header-display;
     background: @form-header-background;
     border: @form-header-border;
     .border-radius(@form-header-border-radius);
@@ -137,25 +138,19 @@
     .border-radius(@form-body-border-radius);
     padding: @form-body-padding;
   }
-  label,
   .form-title {
     float: left;
-    width: (@form-width * 0.27);
-    padding-top: 3px;
-    padding-right: (@form-width * 0.03);
+    width: @form-title-width;
+    padding: @form-title-padding;
     font: @form-title-font;
     color: @form-title-color;
     text-transform: @form-title-text-transform;
+    text-align: @form-title-text-align;
   }
   .form-field {
     float: left;
-    width: (@form-width * 0.7);
-
-    label {
-      float: none;
-      width: 100%;
-      padding-right: 0;
-    }
+    width: @form-field-width;
+    padding: @form-field-padding;
   }
   .input,
   select,
