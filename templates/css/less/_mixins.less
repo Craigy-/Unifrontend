@@ -239,7 +239,7 @@
   }
   .check-no(@radius);
 
-  .set-radius(@rad) when not (@rad = 0) {
+  .set-radius(@rad) when not (@rad = "0") {
     @finalRad: e(@rad);
     -webkit-border-radius: @finalRad;
        -moz-border-radius: @finalRad;
@@ -250,9 +250,11 @@
 }
 
 // Drop shadows
-.box-shadow(@shadow) {
-  -webkit-box-shadow: @shadow;
-          box-shadow: @shadow;
+.box-shadow(@shadow: none) {
+  & when not(@shadow = none) {
+    -webkit-box-shadow: @shadow;
+            box-shadow: @shadow;
+  }
 }
 
 // Transitions
