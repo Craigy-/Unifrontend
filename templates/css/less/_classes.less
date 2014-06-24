@@ -85,6 +85,12 @@ a.none,
 .fixed {
   position: fixed;
 }
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
 .hidden {
   display: none !important;
   visibility: hidden !important;
@@ -97,8 +103,14 @@ a.none,
 }
 
 // Floatings
-.pull-left {
+.left {
   float: left;
+}
+.right {
+  float: right;
+}
+.pull-left {
+  .left;
   margin: 0 15px 10px 0;
 
   table &,
@@ -109,7 +121,7 @@ a.none,
   }
 }
 .pull-right {
-  float: right;
+  .right;
   margin: 0 0 10px 15px;
 
   table &,
@@ -139,7 +151,6 @@ a.none,
 .generate-classes(p; 'padding-bottom'; 5; 50; 5);
 
 // Clearfixes
-.clear,
 .clearfix,
 .nofloat,
 .text-container {
@@ -147,6 +158,9 @@ a.none,
 }
 .text-container {
   .margin-bottom(10);
+}
+.clear {
+  clear: both;
 }
 .float-none {
   overflow: hidden;
