@@ -3,9 +3,10 @@
   * {
     background: transparent !important;
     box-shadow: none !important;
-    color: #000000 !important;
+    color: @black !important;
     text-shadow: none !important;
   }
+
   a,
   a:visited {
     text-decoration: underline;
@@ -20,16 +21,17 @@
   a[href^="javascript:"]:after {
     content: "";
   }
-  pre,
+
   blockquote,
-  tr,
-  img,
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  img,
+  pre,
+  tr {
     page-break-inside: avoid;
   }
   thead {
@@ -38,24 +40,29 @@
   img {
     max-width: 100% !important;
   }
-  [hidden] {
-    display: none;
-  }
-  @page {
-    margin: 0.5cm;
-  }
-  p,
   h1,
   h2,
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     orphans: 3;
     widows: 3;
   }
+
+  aside,
+  footer,
+  header,
+  nav,
   #awst-panel-wrapper,
   .noprint {
     display: none !important;
+  }
+  main {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
   }
 }
