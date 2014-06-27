@@ -257,11 +257,8 @@
       list-style: none;
     }
     &.list-element-last {
-      .margin-bottom(0) !important;
-
-      p {
-        .padding-bottom(0) !important;
-      }
+      .padding-bottom(0);
+      .margin-bottom(0);
     }
   }
 }
@@ -275,6 +272,10 @@
     }
     & when (@list-hr-element-divider-position = bottom) {
       border-bottom: @list-hr-element-divider;
+    }
+
+    &.list-element-last {
+      border: 0;
     }
   }
 }
