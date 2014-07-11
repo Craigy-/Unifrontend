@@ -290,6 +290,7 @@ table {
   th {
     text-align: @table-th-text-align;
   }
+  th,
   td {
     padding: @table-cells-padding;
   }
@@ -387,6 +388,7 @@ table {
     position: @popup-close-position;
     top: @popup-close-position-top;
     right: @popup-close-position-right;
+    z-index: 1;
     background: @popup-close-background;
     .size(@popup-close-width; @popup-close-height);
     vertical-align: top;
