@@ -75,23 +75,23 @@ a {
 
   &:hover when not (@link-color-hover = @link-color) {
     color: @link-color-hover;
-
-    & when not (@link-text-decoration-hover = @link-text-decoration) {
-      text-decoration: @link-text-decoration-hover;
-    }
   }
+  &:hover when not (@link-text-decoration-hover = @link-text-decoration) {
+    text-decoration: @link-text-decoration-hover;
+  }
+
   &:visited when not (@link-color-visited = @link-color) {
     color: @link-color-visited;
-
-    & when not (@link-text-decoration-visited = @link-text-decoration) {
-      text-decoration: @link-text-decoration-visited;
-    }
+  }
+  &:visited when not (@link-text-decoration-visited = @link-text-decoration) {
+    text-decoration: @link-text-decoration-visited;
   }
 }
 a:active,
 a:focus,
 a:hover,
-input:focus {
+input:focus,
+button:focus {
   outline: 0;
 }
 
@@ -118,10 +118,10 @@ h6,
 .h6,
 {
   a {
-    text-decoration: none;
+    text-decoration: @link-text-decoration;
 
-    &:hover {
-      text-decoration: underline;
+    &:hover when not (@link-text-decoration-hover = @link-text-decoration) {
+      text-decoration: @link-text-decoration-hover;
     }
   }
 }
@@ -329,6 +329,7 @@ textarea {
   color: @input-color-text;
   text-shadow: @input-text-shadow;
   .placeholder;
+  .transition(border .3s);
 }
 textarea {
   overflow: auto;
