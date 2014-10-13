@@ -298,14 +298,15 @@ table {
     border-bottom: @table-bordered-border;
     padding: @table-bordered-cells-padding;
   }
-  th {
+  th,
+  thead td {
     background: @table-bordered-th-background;
     padding: @table-bordered-th-padding;
     color: @table-bordered-th-text-color;
   }
 }
 .striped {
-  tr:nth-child(odd) > td {
+  tr:nth-child(even) > td {
     background: @table-striped-highlight-color;
   }
 }
