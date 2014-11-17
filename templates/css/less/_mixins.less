@@ -162,23 +162,35 @@
 }
 
 // Placeholder text
-.placeholder(@color: @input-color-placeholder; @font: @input-font-placeholder) {
+.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder; @font-weight: @input-font-weight-placeholder; @font-family: @input-font-family-placeholder; @font-size: @input-font-size-placeholder) {
   &:-moz-placeholder {
     opacity: 1;
-    font: @font;
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
     color: @color;
   }
   &::-moz-placeholder {
     opacity: 1;
-    font: @font;
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
     color: @color;
   }
   &:-ms-input-placeholder {
-    font: @font;
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
     color: @color;
   }
   &::-webkit-input-placeholder {
-    font: @font;
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+    font-style: @font-style;
     color: @color;
   }
 }
