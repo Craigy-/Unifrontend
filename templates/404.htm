@@ -80,6 +80,10 @@
 //<![CDATA[
 $(function() {
   $('html').removeClass('no-js');
+
+  if('ontouchend' in document) {
+    $('html').addClass('isTouchscreen');
+  }
 });
 //]]>
 </script>
