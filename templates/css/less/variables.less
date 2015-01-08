@@ -108,16 +108,22 @@
 @paragraph-line-height: 140%;
 
 // Tables
-@table-th-text-align: left;
 @table-cells-padding: 0 10px 10px 10px;
+@table-font: @font-size-base/@line-height-base @font-family-base;
+@table-th-font: @table-font;
+@table-th-color: @text-color;
+@table-th-text-align: left;
 
 @table-bordered-background: @body-background;
 @table-bordered-border: 1px solid @table-bordered-th-background;
 @table-bordered-cells-padding: 5px 10px;
+@table-bordered-font: @table-font;
 @table-bordered-text-color: @text-color;
 @table-bordered-th-background: @hr-color-base;
 @table-bordered-th-padding: @table-bordered-cells-padding;
+@table-bordered-th-font: @table-font;
 @table-bordered-th-text-color: @white;
+@table-bordered-th-text-align: @table-th-text-align;
 
 @table-striped-highlight-color: #CCCCCC;
 
