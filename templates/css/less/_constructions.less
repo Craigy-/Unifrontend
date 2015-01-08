@@ -280,19 +280,23 @@ table {
   border: 0;
   border-spacing: 0;
   border-collapse: collapse;
+  font: @table-font;
 
-  th {
-    text-align: @table-th-text-align;
-  }
   th,
   td {
     padding: @table-cells-padding;
+  }
+  th {
+    font: @table-th-font;
+    color: @table-th-color;
+    text-align: @table-th-text-align;
   }
 }
 .bordered {
   background: @table-bordered-background;
   border-top: @table-bordered-border;
   border-left: @table-bordered-border;
+  font: @table-bordered-font;
   color: @table-bordered-text-color;
 
   th,
@@ -305,11 +309,13 @@ table {
   thead td {
     background: @table-bordered-th-background;
     padding: @table-bordered-th-padding;
+    font: @table-bordered-th-font;
     color: @table-bordered-th-text-color;
+    text-align: @table-bordered-th-text-align;
   }
 }
 .striped {
-  tr:nth-child(even) > td {
+  tr:nth-child(odd) > td {
     background: @table-striped-highlight-color;
   }
 }
