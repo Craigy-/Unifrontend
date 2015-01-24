@@ -96,7 +96,7 @@
 $(function() {
   $('html').removeClass('no-js');
 
-  if('ontouchend' in document) {
+  if('ontouchend' in document || window.navigator.msPointerEnabled) {
     $('html').addClass('isTouchscreen');
   }  
 });
