@@ -245,35 +245,33 @@ sub {
 }
 
 ul,
-ul.default,
 ol {
-  margin: 0 0 10px 0;
-
-  nav & {
-    margin: 0;
-  }
+  margin: @primary-list-margin;
 
   li {
-    list-style-position: inside;
-    list-style-type: square;
-    margin: 0 0 10px 0;
+    list-style: @primary-list-element-list-style;
+    margin: @primary-list-element-margin;
+    line-height: @paragraph-line-height;
   }
-}
-ul.default li {
-  list-style-position: outside;
-  list-style-type: disc;
-  margin: 0 0 5px 20px;
 }
 nav li {
   list-style: none;
   margin: 0;
+  line-height: inherit;
+}
+ul.default {
+  margin: 0 0 10px 0;
+
+  li {
+    list-style: disc outside;
+    margin: 0 0 5px 20px;
+  }
 }
 ol {
   margin-left: 25px;
 
   li {
-    list-style-type: decimal;
-    list-style-position: outside;
+    list-style: decimal outside;
   }
 }
 
