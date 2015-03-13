@@ -6,7 +6,14 @@
 <title></title>
 <meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" href="css/styles.css" />
-<script src="http://js.awst.ru/jquery.js"></script>
+<script data-pack="None">
+//<![CDATA[
+window.$queue = [];
+window.$ = function(f) {
+  $queue.push(f);
+};
+//]]>
+</script>
 <!--[if lt IE 9]>
   <script src="http://js.awst.ru/html5shiv-printshiv.js"></script>
   <script src="http://js.awst.ru/respond.js"></script>
@@ -91,6 +98,8 @@
   </div>
 </footer>
 
+<script src="http://js.awst.ru/jquery.js"></script>
+<script src="js/main.js"></script>
 <script data-pack="None">
 //<![CDATA[
 $(function() {
@@ -98,11 +107,14 @@ $(function() {
 
   if('ontouchend' in document || window.navigator.msPointerEnabled) {
     $('html').addClass('isTouchscreen');
-  }  
+  }
 });
+$.each($queue, function(index, callback) {
+  $(callback);
+});
+delete $queue;
 //]]>
 </script>
-<script src="js/main.js"></script>
 
 </body>
 </html>
