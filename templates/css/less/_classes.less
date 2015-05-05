@@ -156,7 +156,13 @@ a.none,
   .clearfix;
 }
 .text-container {
-  .margin-bottom(10);
+  padding: @paragraph-padding;
+  line-height: @paragraph-line-height;
+
+  p:last-child {
+    padding: 0;
+    line-height: inherit;
+  }
 }
 .clear {
   clear: both;
