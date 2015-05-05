@@ -2,6 +2,7 @@
 "Version": "0.2.8",
 "FileData":{
 ".hgignore": {"timestamp": 1375092388.48},
+".hgtags": {"timestamp": 1430839795.04},
 "exclude.txt": {"timestamp": 1376744090.34},
 "template.bat": {"timestamp": 1387396543.36},
 "templates/404.htm": {"timestamp": 1426264129.08},
