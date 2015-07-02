@@ -118,6 +118,35 @@
   height: auto;
 }
 
+// Responsive embeds (by Nicolas Gallagher and SUIT CSS)
+.embed-responsive(@display: block) {
+  position: relative;
+  display: @display;
+  overflow: hidden;
+  height: 0;
+  padding: 0;
+
+  &.embed-responsive-16by9 { // modifier class for 16:9 aspect ratio
+    padding-bottom: 56.25%;
+  }
+  &.embed-responsive-4by3 { // modifier class for 4:3 aspect ratio
+    padding-bottom: 75%;
+  }
+
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border: 0;
+    .square(100%);
+  }
+}
+
 // Font sizes shortcuts
 .font-size(@font-size; @line-height: @line-height-base) {
   font-size: unit(@font-size, px);
