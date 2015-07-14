@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="css/styles.css" />
 <script data-pack="None">
 //<![CDATA[
+window.isTouchscreen = false;
+if('ontouchend' in document || !!(navigator.msMaxTouchPoints) || !!(navigator.maxTouchPoints)) {
+  window.isTouchscreen = true;
+}
+
 window.$queue = [];
 window.$ = function(f) {
   $queue.push(f);
@@ -122,7 +127,7 @@ window.$ = function(f) {
 $(function() {
   $('html').removeClass('no-js');
 
-  if('ontouchend' in document || window.navigator.msPointerEnabled) {
+  if(isTouchscreen) {
     $('html').addClass('isTouchscreen');
   }
 });
