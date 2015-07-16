@@ -9,7 +9,7 @@
 <script data-pack="None">
 //<![CDATA[
 window.isTouchscreen = false;
-if('ontouchend' in document || !!(navigator.msMaxTouchPoints) || !!(navigator.maxTouchPoints)) {
+if('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
   window.isTouchscreen = true;
 }
 
