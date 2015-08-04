@@ -58,8 +58,7 @@ a.none,
   .image-responsive;
 }
 .image-bordered {
-  border: @image-bordered-border;
-  padding: @image-bordered-padding;
+  .set-value(border; @image-bordered-border; padding; @image-bordered-padding);
 }
 .image-circle {
   .border-radius(50%);
@@ -79,10 +78,10 @@ a.none,
 
 // Simple grid systems
 .row-2 {
-  .equal-grid(100%; 2; 20px);
+  .equal-grid(100%; 2; 20);
 }
 .row-3 {
-  .equal-grid(100%; 3; 20px);
+  .equal-grid(100%; 3; 20);
 }
 
 // Tables
@@ -125,7 +124,7 @@ a.none,
 }
 .pull-left {
   .left;
-  margin: 0 15px 10px 0;
+  .set-value(margin; 0 15 10 0);
 
   table &,
   table& {
@@ -136,7 +135,7 @@ a.none,
 }
 .pull-right {
   .right;
-  margin: 0 0 10px 15px;
+  .set-value(margin; 0 0 10 15);
 
   table &,
   table& {
@@ -190,8 +189,8 @@ a.none,
   .clearfix;
 }
 .text-container {
-  padding: @paragraph-padding;
-  line-height: @paragraph-line-height;
+  .set-value(padding; @paragraph-padding);
+  .font-size(@font-size-base; @paragraph-line-height);
 
   p:last-child {
     padding: 0;

@@ -3,13 +3,12 @@
 // Breadcrumbs
 .breadcrumbs {
   overflow: hidden;
-  margin: @breadcrumbs-margin;
+  .set-value(margin; @breadcrumbs-margin);
 
   a,
   span {
     float: left;
-    padding: @breadcrumbs-element-padding;
-    font: @breadcrumbs-element-font;
+    .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
     color: @breadcrumbs-element-color;
     text-decoration: @breadcrumbs-element-text-decoration;
   }
@@ -17,14 +16,12 @@
     text-decoration: @breadcrumbs-element-text-decoration-hover;
   }
   span {
-    padding: @breadcrumbs-active-padding;
-    font: @breadcrumbs-active-font;
+    .set-value(padding; @breadcrumbs-active-padding; font; @breadcrumbs-active-font);
     color: @breadcrumbs-active-color;
     text-decoration: none !important;
 
     &.breadcrumbs-separator {
-      padding: @breadcrumbs-separator-padding;
-      font: @breadcrumbs-separator-font;
+      .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
       color: @breadcrumbs-separator-color;
     }
   }
@@ -32,7 +29,7 @@
 
 // Pagination
 .pagination {
-  margin: @pagination-margin;
+  .set-value(margin; @pagination-margin);
 
   ul {
     overflow: hidden;
@@ -41,12 +38,11 @@
     > li {
       float: left;
       list-style: none;
-      padding: @pagination-element-padding;
-      margin: 0;
+      .set-value(padding; @pagination-element-padding; margin; 0);
 
       * {
         display: block;
-        font: @pagination-element-font;
+        .set-value(font; @pagination-element-font);
         color: @pagination-element-color;
         text-decoration: @pagination-element-text-decoration;
 
@@ -55,10 +51,10 @@
         }
       }
       &.page-selected {
-        padding: @pagination-selected-padding;
+        .set-value(padding; @pagination-selected-padding);
 
         * {
-          font: @pagination-selected-font;
+          .set-value(font; @pagination-selected-font);
           color: @pagination-selected-color;
 
           & when not (@pagination-selected-text-decoration = @pagination-element-text-decoration) {
@@ -68,10 +64,10 @@
       }
       &.page-backward,
       &.page-forward {
-        padding: @pagination-navigation-padding;
+        .set-value(padding; @pagination-navigation-padding);
 
         * {
-          font: @pagination-navigation-font;
+          .set-value(font; @pagination-navigation-font);
           color: @pagination-navigation-color;
 
           & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
@@ -90,16 +86,16 @@
           background-position: 0 0;
 
           &:hover {
-            background-position: 0 -@pagination-navigation-height;
+            .set-value(background-position; 0 -@pagination-navigation-height);
           }
         }
       }
       &.page-forward when not (@pagination-navigation-image = none) {
         * {
-          background-position: -@pagination-navigation-width 0;
+          .set-value(background-position; -@pagination-navigation-width 0);
 
           &:hover {
-            background-position: -@pagination-navigation-width -@pagination-navigation-height;
+            .set-value(background-position; -@pagination-navigation-width -@pagination-navigation-height);
           }
         }
       }
@@ -113,18 +109,15 @@
   background: @form-background;
   border: @form-border;
   .border-radius(@form-border-radius);
-  width: @form-width;
   .box-shadow(@form-box-shadow);
-  padding: @form-padding;
-  margin: @form-margin;
+  .set-value(width; @form-width; padding; @form-padding; margin; @form-margin);
 
   .form-header {
     display: @form-header-display;
     background: @form-header-background;
     border: @form-header-border;
     .border-radius(@form-header-border-radius);
-    padding: @form-header-padding;
-    font: @form-header-font;
+    .set-value(padding; @form-header-padding; font; @form-header-font);
     color: @form-header-color;
     text-align: @form-header-text-align;
   }
@@ -132,21 +125,18 @@
     background: @form-body-background;
     border: @form-body-border;
     .border-radius(@form-body-border-radius);
-    padding: @form-body-padding;
+    .set-value(padding; @form-body-padding);
   }
   .form-title {
     float: left;
-    width: @form-title-width;
-    padding: @form-title-padding;
-    font: @form-title-font;
+    .set-value(width; @form-title-width; padding; @form-title-padding; font; @form-title-font);
     color: @form-title-color;
     text-transform: @form-title-text-transform;
     text-align: @form-title-text-align;
   }
   .form-field {
     float: left;
-    width: @form-field-width;
-    padding: @form-field-padding;
+    .set-value(width; @form-field-width; padding; @form-field-padding);
   }
   .input,
   select,
@@ -158,8 +148,7 @@
   .form-error textarea {
     background: @form-error-background @form-error-background-color;
     border-color: @form-error-border-color;
-    padding-left: @input-padding;
-    padding-right: @form-statuses-padding;
+    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding);
     color: @form-error-color-text;
     .placeholder(@form-error-color-text);
 
@@ -172,8 +161,7 @@
   .form-success textarea {
     background: @form-success-background @form-success-background-color;
     border-color: @form-success-border-color;
-    padding-left: @input-padding;
-    padding-right: @form-statuses-padding;
+    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding);
     color: @form-success-color-text;
 
     &:focus {
@@ -210,11 +198,10 @@
   text-align: center;
 }
 .form-hint {
-  padding: @form-hint-padding;
-  font: @form-hint-font;
+  .set-value(padding; @form-hint-padding; font; @form-hint-font);
 }
 .form-submit {
-  padding: @form-submit-padding;
+  .set-value(padding; @form-submit-padding);
   text-align: @form-submit-text-align;
 }
 .form-error-message,
@@ -224,9 +211,7 @@
   background-position: @form-messages-background-position !important;
   .border-radius(@form-messages-border-radius);
   .box-shadow(@form-messages-box-shadow);
-  padding: @form-messages-padding;
-  margin: @form-messages-margin;
-  font: @form-messages-font;
+  .set-value(padding; @form-messages-padding; margin; @form-messages-margin; font; @form-messages-font);
 }
 .form-error-message {
   background: @form-messages-error-background;
@@ -242,10 +227,10 @@
 // Lists
 .list,
 .list-hr { // apply to <ul> or <ol>
-  margin: @list-margin;
+  .set-value(margin; @list-margin);
 
   li {
-    margin: @list-element-margin;
+    .set-value(margin; @list-element-margin);
 
     ul& {
       list-style: none;
@@ -262,8 +247,7 @@
 }
 .list-hr {
   li {
-    padding: @list-hr-element-padding;
-    margin: @list-hr-element-margin;
+    .set-value(padding; @list-hr-element-padding; margin; @list-hr-element-margin);
 
     & when (@list-hr-element-divider-position = top) {
       border-top: @list-hr-element-divider;
@@ -284,18 +268,18 @@ table {
   border: 0;
   border-spacing: 0;
   border-collapse: collapse;
-  font: @table-font;
+  .set-value(font; @table-font);
 
   th,
   td {
-    padding: @table-cells-padding;
+    .set-value(padding; @table-cells-padding);
 
     p:last-child {
       padding: 0;
     }
   }
   th {
-    font: @table-th-font;
+    .set-value(font; @table-th-font);
     color: @table-th-color;
     text-align: @table-th-text-align;
   }
@@ -304,20 +288,19 @@ table {
   background: @table-bordered-background;
   border-top: @table-bordered-border;
   border-left: @table-bordered-border;
-  font: @table-bordered-font;
+  .set-value(font; @table-bordered-font);
   color: @table-bordered-text-color;
 
   th,
   td {
     border-right: @table-bordered-border;
     border-bottom: @table-bordered-border;
-    padding: @table-bordered-cells-padding;
+    .set-value(padding; @table-bordered-cells-padding);
   }
   th,
   thead td {
     background: @table-bordered-th-background;
-    padding: @table-bordered-th-padding;
-    font: @table-bordered-th-font;
+    .set-value(padding; @table-bordered-th-padding; font; @table-bordered-th-font);
     color: @table-bordered-th-text-color;
     text-align: @table-bordered-th-text-align;
   }
@@ -353,9 +336,7 @@ table {
     background: @popup-header-background;
     border: @popup-header-border;
     .border-radius(@popup-header-border-radius);
-    height: @popup-header-height;
-    padding: @popup-header-padding;
-    font: @popup-header-font;
+    .set-value(height; @popup-header-height; padding; @popup-header-padding; font; @popup-header-font);
     color: @popup-header-color;
     text-align: @popup-header-text-align;
   }
@@ -365,9 +346,7 @@ table {
     background: @popup-body-background;
     border: @popup-body-border;
     .border-radius(@popup-body-border-radius);
-    height: @popup-body-height;
-    padding: @popup-body-padding;
-    font: @popup-body-font;
+    .set-value(height; @popup-body-height; padding; @popup-body-padding; font; @popup-body-font);
     color: @popup-body-color;
     text-align: @popup-body-text-align;
   }
@@ -375,9 +354,7 @@ table {
     background: @popup-footer-background;
     border: @popup-footer-border;
     .border-radius(@popup-footer-border-radius);
-    height: @popup-footer-height;
-    padding: @popup-footer-padding;
-    font: @popup-footer-font;
+    .set-value(height; @popup-footer-height; padding; @popup-footer-padding; font; @popup-footer-font);
     color: @popup-footer-color;
     text-align: @popup-footer-text-align;
   }
@@ -389,8 +366,7 @@ table {
     z-index: 1;
     background: @popup-close-background;
     .size(@popup-close-width; @popup-close-height);
-    padding: @popup-close-padding;
-    font: @popup-close-font;
+    .set-value(padding; @popup-close-padding; font; @popup-close-font);
     color: @popup-close-color;
     text-decoration: @popup-close-text-decoration;
     vertical-align: top;

@@ -42,56 +42,99 @@
   }
 }
 
-// Sizing shortcuts
-.size(@width: auto; @height: auto) {
-  .set-width(@size) when (ispercentage(@size)) {
-    width: @size;
+// Universal value setter
+.set-value_(@property; @value; @responsive: @isresponsive) when not (@value = true) and not (@value = false) {
+  // Convert some absolute values (pt, pc, in) to pixels
+  .converter(@v) when (isunit(@value, pt)), (isunit(@value, pc)), (isunit(@value, in)) {
+    @fixed-value: convert(@v, px);
   }
-  .set-width(@size) when (isnumber(@size)) and not (ispercentage(@size)) {
-    width: unit(@size, px);
+  .converter(@v) when (default()) {
+    @fixed-value: @v;
   }
-  .set-width(@size) when not (isnumber(@size)) and not (ispercentage(@size)) {
-    width: auto;
+  .converter(@value);
+
+  // Set non-unit and pixel values
+  .setter(@p; @v) when (isnumber(@v)) and (~'' = get-unit(@v)), (ispixel(@v)) {
+    & when (@responsive) {
+      @{p}+_: unit((@v / @font-size-base), rem);
+    }
+    & when not (@responsive) {
+      @{p}+_: unit(@v, px);
+    }
   }
-  .set-height(@size) when (ispercentage(@size)) {
-    height: @size;
+  // Set all other values
+  .setter(@p; @v) when (default()) {
+    @{p}+_: @v;
   }
-  .set-height(@size) when (isnumber(@size)) and not (ispercentage(@size)) {
-    height: unit(@size, px);
+  .setter(@property; @fixed-value);
+
+  // Font support
+  & when (@property = font) {
+    @check: ~`function(){var v="@{value}";return !!v.match(/\//)}()`;
+    & when (@check) {
+      @v1-value: ~`function(){var v="@{value}";return parseFloat(v=v.replace(/^(\d+).*\/(\d+).*$/, '$1'))}()`;
+      @v1-unit: ~`function(){var v="@{value}";return v=v.replace(/^\d+(.*)\/\d+(.*)$/, '$1')}()`;
+      @v2-value: ~`function(){var v="@{value}";return parseFloat(v=v.replace(/^(\d+).*\/(\d+).*$/, '$2'))}()`;
+      @v2-unit: ~`function(){var v="@{value}";return v=v.replace(/^\d+(.*)\/\d+(.*)$/, '$2')}()`;
+      .font-size(unit(@v1-value, @v1-unit) @responsive; unit(@v2-value, @v2-unit) @responsive); // such record will not convert a number of values (like '0 0 10 0')
+    }
   }
-  .set-height(@size) when not (isnumber(@size)) and not (ispercentage(@size)) {
-    height: auto;
+}
+.set-value(@args...) {
+  .set-responsive(@p; @v) when (extract(@v, length(@v)) = true), (extract(@v, length(@v)) = false) {
+    @responsive: extract(@v, length(@v));
+  }
+  .set-responsive(@p; @v) when (default()) {
+    .set-responsive-default(@p) when (@p = font), (@p = font-size), (@p = line-height) {
+      @responsive: @isfontsresponsive;
+    }
+    .set-responsive-default(@p) when (default()) {
+      @responsive: @isresponsive;
+    }
+    .set-responsive-default(@p);
   }
 
-  .set-width(@width);
-  .set-height(@height);
+  .i; .i(@i: length(@args)) when (@i > 1) {
+    .set-responsive(@property; @values);
+    .i((@i - 2));
+    @property: extract(@args, (@i - 1));
+    @values: extract(@args, @i);
+    .j(@property; @values; @responsive);
+  }
+  .j(@p; @v; @r; @j: length(@v)) when (@j > 0) {
+    .j(@p; @v; @r; (@j - 1));
+    .set-value_(@p; extract(@v, @j); @r);
+  }
 }
-.square(@size) {
-  .size(@size; @size);
+
+// Sizing shortcuts
+.size(@width; @height: auto) {
+  .set-value(width; @width; height; @height);
+}
+.square(@size; @responsive: @isresponsive) {
+  .size(@size @responsive; @size @responsive); // such record will not convert a number of values (like '0 0 10 0')
 }
 
 // Bottom indents
-.margin-bottom(@value) {
-  margin-bottom: unit(@value, px);
+.margin-bottom(@value; @responsive: @isresponsive) {
+  .set-value_(margin-bottom; @value; @responsive);
 }
-.padding-bottom(@value) {
-  padding-bottom: unit(@value, px);
+.padding-bottom(@value; @responsive: @isresponsive) {
+  .set-value_(padding-bottom; @value; @responsive);
 }
 
 // Simple equal grid system
-.equal-grid(@row-width; @col-number; @col-padding) {
-  .box-sizing(border-box);
-  margin-left: (@col-padding / -2);
-  margin-right: (@col-padding / -2);
+.equal-grid(@row-width; @col-number; @col-padding; @responsive: @isresponsive) {
   .clearfix;
+  .box-sizing(border-box);
+  .set-value(margin; 0 (@col-padding / -2) @responsive);
 
   .col {
     .box-sizing(border-box);
     position: relative;
     float: left;
     min-height: 1px;
-    width: (@row-width / @col-number);
-    padding: 0 (@col-padding / 2);
+    .set-value(width; (@row-width / @col-number) @responsive; padding; 0 (@col-padding / 2) @responsive);
   }
 }
 
@@ -142,8 +185,7 @@
 
 // Font sizes shortcut
 .font-size(@font-size; @line-height: @line-height-base) {
-  font-size: unit(@font-size, px);
-  line-height: @line-height;
+  .set-value(font-size; @font-size; line-height; @line-height);
 }
 
 // Stroke text
@@ -184,11 +226,11 @@
 }
 
 // Placeholder text
-.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder; @font-weight: @input-font-weight-placeholder; @font-family: @input-font-family-placeholder; @font-size: @input-font-size-placeholder) {
+.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder; @font-weight: @input-font-weight-placeholder; @font-family: @input-font-family-placeholder; @font-size: @input-font-size-placeholder; @responsive: @isfontsresponsive) {
   &:-moz-placeholder {
     opacity: 1;
     font-family: @font-family;
-    font-size: @font-size;
+    .set-value_(font-size; @font-size; @responsive);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
@@ -196,21 +238,21 @@
   &::-moz-placeholder {
     opacity: 1;
     font-family: @font-family;
-    font-size: @font-size;
+    .set-value_(font-size; @font-size; @responsive);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
   }
   &:-ms-input-placeholder {
     font-family: @font-family;
-    font-size: @font-size;
+    .set-value_(font-size; @font-size; @responsive);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
   }
   &::-webkit-input-placeholder {
     font-family: @font-family;
-    font-size: @font-size;
+    .set-value_(font-size; @font-size; @responsive);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
@@ -249,14 +291,13 @@
 // Horizontal line
 .hr(@background; @margin; @size: 1) {
   background: @background;
-  height: unit(@size, px);
-  margin: @margin;
+  .set-value(height; @size; margin; @margin);
 }
 
 // Marker
 .marker(@image; @padding; @position: 0 50%) {
   background: url(@image) no-repeat @position;
-  padding: @padding;
+  .set-value(padding; @padding);
 }
 
 // Box sizing
@@ -268,9 +309,7 @@
 
 // Border radius
 .border-radius(@radius) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-          border-radius: @radius;
+  .set-value(-webkit-border-radius; @radius; -moz-border-radius; @radius; border-radius; @radius);
 }
 
 // Drop shadows

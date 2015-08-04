@@ -19,11 +19,11 @@ nav {
 footer {
   .footer-counters {
     float: left;
-    padding: 0 90px 0 20px;
+    .set-value(padding; 0 90 0 20);
 
     img {
       float: left;
-      margin-right: 10px;
+      .set-value_(margin-right; 10);
     }
   }
   .footer-copyright {
@@ -35,7 +35,7 @@ footer {
 // Blocks
 .articles-list {
   .list-hr;
-  padding-top: 5px;
+  .set-value_(padding-top; 5);
 
   .articles-title {
     .h4;
@@ -59,16 +59,16 @@ footer {
   .bold;
 }
 .contacts-value {
-  padding-left: 10px;
+  .set-value_(padding-left; 10);
 
   &.contacts-several-values {
-    padding: 3px 0 5px 10px;
+    .set-value(padding; 3 0 5 10);
   }
 }
 
 .galleries-list {
   .list-hr;
-  padding-top: 5px;
+  .set-value_(padding-top; 5);
 
   .galleries-title-container {
     .clearfix;
@@ -87,7 +87,7 @@ footer {
 
   .galleries-foto {
     float: left;
-    margin: 10px 5px 0 5px;
+    .set-value(margin; 10 5 0 5);
 
     img {
       .size(164);
@@ -99,8 +99,7 @@ footer {
 .info-list {
   .list-hr;
   border-top: 1px solid @hr-color-base;
-  padding-top: 20px;
-  margin-top: 10px;
+  .set-value(padding-top; 20; margin-top; 10);
 
   .info-title {
     .h4;
@@ -109,7 +108,7 @@ footer {
 
 .news-list {
   .list-hr;
-  padding-top: 5px;
+  .set-value_(padding-top; 5);
 
   .news-title {
     .h4;
@@ -123,12 +122,11 @@ footer {
 .resources-form-title {
   .h3;
   border-top: 1px solid @hr-color-base;
-  padding-top: 20px;
-  margin-top: 10px;
+  .set-value(padding-top; 20; margin-top; 10);
 }
 .resources-list {
   .list-hr;
-  padding-top: 5px;
+  .set-value_(padding-top; 5);
 
   .resources-title {
     .margin-bottom(5);
@@ -143,13 +141,13 @@ footer {
     .padding-bottom(10);
 
     a {
-      padding-right: 10px;
+      .set-value_(padding-right; 10);
     }
   }
 }
 
 .search-results-list {
-  padding-top: 5px;
+  .set-value_(padding-top; 5);
 
   .search-results-title {
     .margin-bottom(5);
@@ -197,10 +195,10 @@ footer {
 
 // Markers
 .marker1 {
-  .marker('../images/marker1.gif'; 0 0 0 12px; 0 4px);
+  .marker('../images/marker1.gif'; 0 0 0 12; 0 4px);
 }
 
 // Horizontal lines
 .hr1 {
-  .hr(@hr-color-base; 10px 0 20px 0);
+  .hr(@hr-color-base; 10 0 20 0);
 }
