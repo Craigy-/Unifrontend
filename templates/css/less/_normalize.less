@@ -1,5 +1,9 @@
 // CSS reset by defaults
 html {
+  font-family: @font-family-base;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 
@@ -9,16 +13,11 @@ html {
 }
 body {
   background: @body-background;
-  min-width: @min-width-base;
-  font-family: @font-family-base;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
-  color: @text-color;
+  .set-value_(min-width; @min-width-base);
 }
 * {
   padding: 0;
   margin: 0;
-  font-size: 100%;
 }
 
 article,
@@ -125,9 +124,7 @@ h6,
 h1,
 .h1 {
   background: @h1-background;
-  padding: @h1-padding;
-  margin: @h1-margin;
-  font: @h1-font;
+  .set-value(padding; @h1-padding; margin; @h1-margin; font; @h1-font);
   text-transform: @h1-text-transform;
 
   &,
@@ -138,9 +135,7 @@ h1,
 h2,
 .h2 {
   background: @h2-background;
-  padding: @h2-padding;
-  margin: @h2-margin;
-  font: @h2-font;
+  .set-value(padding; @h2-padding; margin; @h2-margin; font; @h2-font);
   text-transform: @h2-text-transform;
 
   &,
@@ -151,9 +146,7 @@ h2,
 h3,
 .h3 {
   background: @h3-background;
-  padding: @h3-padding;
-  margin: @h3-margin;
-  font: @h3-font;
+  .set-value(padding; @h3-padding; margin; @h3-margin; font; @h3-font);
   text-transform: @h3-text-transform;
 
   &,
@@ -164,9 +157,7 @@ h3,
 h4,
 .h4 {
   background: @h4-background;
-  padding: @h4-padding;
-  margin: @h4-margin;
-  font: @h4-font;
+  .set-value(padding; @h4-padding; margin; @h4-margin; font; @h4-font);
   text-transform: @h4-text-transform;
 
   &,
@@ -177,9 +168,7 @@ h4,
 h5,
 .h5 {
   background: @h5-background;
-  padding: @h5-padding;
-  margin: @h5-margin;
-  font: @h5-font;
+  .set-value(padding; @h5-padding; margin; @h5-margin; font; @h5-font);
   text-transform: @h5-text-transform;
 
   &,
@@ -190,9 +179,7 @@ h5,
 h6,
 .h6 {
   background: @h6-background;
-  padding: @h6-padding;
-  margin: @h6-margin;
-  font: @h6-font;
+  .set-value(padding; @h6-padding; margin; @h6-margin; font; @h6-font);
   text-transform: @h6-text-transform;
 
   &,
@@ -215,8 +202,7 @@ legend {
   border: 0;
 }
 p {
-  padding: @paragraph-padding;
-  line-height: @paragraph-line-height;
+  .set-value(padding; @paragraph-padding; line-height; @paragraph-line-height);
 }
 pre {
   overflow: auto;
@@ -228,8 +214,7 @@ sub,
 sup {
   position: relative;
   vertical-align: baseline;
-  font-size: 75%;
-  line-height: 0;
+  .font-size(75%; 0);
 }
 sup {
   top: -0.5em;
@@ -240,14 +225,14 @@ sub {
 
 ul,
 ol {
-  margin: @primary-list-margin;
+  .set-value(margin; @primary-list-margin);
 
   li {
     list-style: @primary-list-element-list-style;
-    margin: @primary-list-element-margin;
+    .set-value(margin; @primary-list-element-margin);
 
     main & {
-      line-height: @primary-list-element-line-height;
+      .set-value_(line-height; @primary-list-element-line-height);
     }
   }
 }
@@ -260,15 +245,15 @@ nav li {
   line-height: inherit;
 }
 ul.default {
-  margin: 0 0 10px 0;
+  .set-value(margin; 0 0 10 0);
 
   li {
     list-style: disc outside;
-    margin: 0 0 5px 20px;
+    .set-value(margin; 0 0 5 20);
   }
 }
 ol {
-  margin-left: 25px;
+  .set-value_(margin-left; 25);
 
   li {
     list-style: decimal outside;
@@ -326,12 +311,10 @@ textarea {
   background: @input-background;
   border: @input-border;
   .border-radius(@input-border-radius);
-  height: @input-height;
   .box-shadow(@input-box-shadow);
-  padding-left: @input-padding;
-  padding-right: @input-padding;
+  .set-value(height; @input-height; padding-left; @input-padding; padding-right; @input-padding);
   font-family: @input-font-family;
-  font-size: @input-font-size;
+  .set-value_(font-size; @input-font-size);
   font-weight: @input-font-weight;
   font-style: @input-font-style;
   color: @input-color-text;
@@ -358,9 +341,7 @@ textarea {
 }
 textarea {
   overflow: auto;
-  height: auto;
-  padding: @input-padding;
-  line-height: @paragraph-line-height;
+  .set-value(height; auto; padding; @input-padding; line-height; @paragraph-line-height);
   .resizable(vertical);
 }
 select {
@@ -370,7 +351,7 @@ select {
     font-weight: bold;
   }
   option {
-    padding: 0 @input-padding;
+    .set-value(padding; 0 @input-padding);
   }
 }
 label {

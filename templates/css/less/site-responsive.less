@@ -1,17 +1,35 @@
 // Site responsive stylesheets
 
-// Width >=1382px (wide screen)
+// Retina
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+}
+
+// 1382px and more
 @media only all and (min-width: 1382px) {
 }
 
-// Width <=768px (tablet)
+// 769-992px
+@media only all and (max-width: 992px) {
+}
+
+// 601-768px
 @media only all and (max-width: 768px) {
 }
 
-// Width <=480px (smartphone)
+// 481-600px
+@media only all and (max-width: 600px) {
+}
+
+// 321-480px
 @media only all and (max-width: 480px) {
 }
 
-// Width ==320px (phone)
+// 320px
 @media only all and (max-width: 320px) {
 }
