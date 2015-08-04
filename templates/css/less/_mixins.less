@@ -469,16 +469,13 @@
   filter: e(%("progid:DXImageTransform.Microsoft.gradient(enabled = false)"));
 }
 
-// Classes generation
-.generate-classes(@class; @generator; @start; @end; @step) {
-  .loop(@index; @start; @end; @step) when (@index >= @start) and not (@index > @end) {
-    .@{class}@{index} {
-      .generator(@generator; @index);
-    }
-    .loop((@index + @step); @start; @end; @step);
-  }
-  .loop(@index; @start; @end; @step) when (@index < @start) {
-    .loop((@index + @step); @start; @end; @step);
-  }
-  .loop(0; @start; @end; @step); // start looping!
+// Loops (by seven-phases-max in less.curious)
+.for(@i; @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1; @n)}
+.for(@i; @n) when not (@i = @n)  {
+  .for((@i + (@n - @i) / abs(@n - @i)); @n);
 }
+
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
