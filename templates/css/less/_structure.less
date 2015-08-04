@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   & when (@move-max-width-to-structure) {
-    max-width: @max-width-base;
+    .set-value_(max-width; @max-width-base);
   }
   & when (@footer-to-bottom) {
     min-height: 100%;
@@ -15,10 +15,10 @@
   background: @content-background;
 
   & when (@footer-to-bottom) {
-    padding-bottom: (@footer-height + @content-padding-bottom);
+    .set-value_(padding-bottom; (@footer-height + @content-padding-bottom));
   }
   & when not (@footer-to-bottom) {
-    padding-bottom: @content-padding-bottom;
+    .set-value_(padding-bottom; @content-padding-bottom);
   }
 
   > .wrapper when not (@content-wrapper-background = none) {
@@ -35,19 +35,16 @@ main {
 aside#left {
   float: left;
   background: @sidebar-left-background;
-  width: @sidebar-left-width;
-  padding: @sidebar-left-padding;
+  .set-value(width; @sidebar-left-width; padding; @sidebar-left-padding);
 }
 aside#right {
   float: right;
   background: @sidebar-right-background;
-  width: @sidebar-right-width;
-  padding: @sidebar-right-padding;
+  .set-value(width; @sidebar-right-width; padding; @sidebar-right-padding);
 }
 main {
   background: @main-background;
-  padding: @main-padding;
-  margin: 0 @sidebar-right-width 0 @sidebar-left-width;
+  .set-value(padding; @main-padding; margin; 0 @sidebar-right-width 0 @sidebar-left-width);
 
   &.full {
     width: 100%;
@@ -63,33 +60,31 @@ footer {
   text-align: @footer-text-align;
 
   & when (@apply-max-width-to-footer) {
-    max-width: @max-width-base;
+    .set-value_(max-width; @max-width-base);
   }
   & when (@footer-to-bottom) {
-    margin-top: -@footer-height;
+    .set-value(height; @footer-height; margin-top; (@footer-height * -1));
   }
 
   > .wrapper when not (@footer-wrapper-background = none) {
     background: @footer-wrapper-background;
   }
   > .wrapper {
-    height: @footer-height;
+    .set-value_(height; @footer-height);
   }
 }
 
 .wrapper {
   .box-sizing(border-box);
-  padding: @wrapper-padding;
-  margin: 0 auto;
+  .set-value(padding; 0 @wrapper-padding; margin; 0 auto);
 
   & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
-    width: @max-width-base;
+    .set-value_(width; @max-width-base);
   }
   & when (@wrapper-fixed) and (@move-max-width-to-structure) {
-    width: @min-width-base;
+    .set-value_(width; @min-width-base);
   }
   & when not (@wrapper-fixed) {
-    min-width: @min-width-base;
-    max-width: @max-width-base;
+    .set-value(min-width; @min-width-base; max-width; @max-width-base);
   }
 }
