@@ -118,11 +118,11 @@
   height: auto;
 }
 
-// Responsive embeds (by Nicolas Gallagher and SUIT CSS)
+// Responsive embeds (by Nicolas Gallagher in SUIT CSS)
 .embed-responsive(@display: block) {
-  position: relative;
   display: @display;
   overflow: hidden;
+  position: relative;
   height: 0;
   padding: 0;
 
@@ -140,7 +140,7 @@
   }
 }
 
-// Font sizes shortcuts
+// Font sizes shortcut
 .font-size(@font-size; @line-height: @line-height-base) {
   font-size: unit(@font-size, px);
   line-height: @line-height;
@@ -268,27 +268,15 @@
 
 // Border radius
 .border-radius(@radius) {
-  .check-no(@radius) {
-    @rad: `'@{radius}'.replace(/no/gi, 0).replace(/\b0px|\b0%|\b0em/gi, 0).replace(/[,\[\]]/g, '')`;
-  }
-  .check-no(@radius);
-
-  .set-radius(@rad) when not (@rad = "0") {
-    @finalRad: e(@rad);
-    -webkit-border-radius: @finalRad;
-       -moz-border-radius: @finalRad;
-            border-radius: @finalRad;
-  }
-  .set-radius(@rad) {}
-  .set-radius(@rad);
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
 }
 
 // Drop shadows
 .box-shadow(@shadow: none) {
-  & when not(@shadow = none) {
-    -webkit-box-shadow: @shadow;
-            box-shadow: @shadow;
-  }
+  -webkit-box-shadow: @shadow;
+          box-shadow: @shadow;
 }
 
 // Transitions

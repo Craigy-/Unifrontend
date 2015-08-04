@@ -14,10 +14,6 @@ body {
   font-size: @font-size-base;
   line-height: @line-height-base;
   color: @text-color;
-
-  & when (@footer-to-bottom) {
-    height: 100%;
-  }
 }
 * {
   padding: 0;
@@ -79,7 +75,6 @@ a {
   &:hover when not (@link-text-decoration-hover = @link-text-decoration) {
     text-decoration: @link-text-decoration-hover;
   }
-
   &:visited when not (@link-color-visited = @link-color) {
     color: @link-color-visited;
   }
@@ -250,7 +245,10 @@ ol {
   li {
     list-style: @primary-list-element-list-style;
     margin: @primary-list-element-margin;
-    line-height: @paragraph-line-height;
+
+    main & {
+      line-height: @primary-list-element-line-height;
+    }
   }
 }
 nav ul {
