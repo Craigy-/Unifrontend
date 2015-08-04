@@ -1,10 +1,13 @@
 // Classes for manual use in html-files
 
 // Font sizes
-.generator('font-size'; @index) {
-  .font-size(@index) !important;
+.s {
+  .for(8; 40); .-each(@i) {
+    &@{i} {
+      .font-size(@i) !important;
+    }
+  }
 }
-.generate-classes(s; 'font-size'; 8; 40; 1);
 
 // Font weights
 .normal {
@@ -144,22 +147,42 @@ a.none,
 }
 
 // Margins
-.generator('margin-bottom'; @index) {
-  .margin-bottom(@index) !important;
+.m {
+  .for(0; 9); .-each(@i) {
+    &@{i} {
+      .margin-bottom(@i) !important;
+    }
+  }
 }
-.generate-classes(m; 'margin-bottom'; 0; 0; 1);
-.generate-classes(m; 'margin-bottom'; 3; 3; 1);
-.generate-classes(m; 'margin-bottom'; 7; 7; 1);
-.generate-classes(m; 'margin-bottom'; 5; 50; 5);
+.m {
+  .for(10; 50); .-each(@i) {
+    @step: (@i / 5);
+    & when (@step = floor(@step)) { // emulate (@i % 5)
+      &@{i} {
+        .margin-bottom(@i) !important;
+      }
+    }
+  }
+}
 
 // Paddings
-.generator('padding-bottom'; @index) {
-  .padding-bottom(@index) !important;
+.p {
+  .for(0; 9); .-each(@i) {
+    &@{i} {
+      .padding-bottom(@i) !important;
+    }
+  }
 }
-.generate-classes(p; 'padding-bottom'; 0; 0; 1);
-.generate-classes(p; 'padding-bottom'; 3; 3; 1);
-.generate-classes(p; 'padding-bottom'; 7; 7; 1);
-.generate-classes(p; 'padding-bottom'; 5; 50; 5);
+.p {
+  .for(10; 50); .-each(@i) {
+    @step: (@i / 5);
+    & when (@step = floor(@step)) { // emulate (@i % 5)
+      &@{i} {
+        .padding-bottom(@i) !important;
+      }
+    }
+  }
+}
 
 // Clearfixes
 .clearfix,
