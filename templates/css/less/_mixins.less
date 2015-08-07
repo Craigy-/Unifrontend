@@ -85,7 +85,7 @@
     @responsive: extract(@v, length(@v));
   }
   .set-responsive(@p; @v) when (default()) {
-    .set-responsive-default(@p) when (@p = font), (@p = font-size), (@p = line-height) {
+    .set-responsive-default(@p) when (@p = font), (@p = font-size), (@p = line-height), (@p = letter-spacing) {
       @responsive: @isfontsresponsive;
     }
     .set-responsive-default(@p) when (default()) {
