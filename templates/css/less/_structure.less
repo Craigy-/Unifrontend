@@ -76,7 +76,7 @@ footer {
 
 .wrapper {
   .box-sizing(border-box);
-  .set-value(padding; 0 @wrapper-padding; margin; 0 auto);
+  .set-value(padding; @wrapper-padding; margin; 0 auto);
 
   & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
     .set-value_(width; @max-width-base);
