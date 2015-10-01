@@ -14,6 +14,10 @@ html {
 body {
   background: @body-background;
   .set-value_(min-width; @min-width-base);
+
+  & when (@footer-to-bottom) {
+    height: 100%;
+  }
 }
 * {
   padding: 0;
