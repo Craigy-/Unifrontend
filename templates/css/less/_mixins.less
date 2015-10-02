@@ -42,6 +42,23 @@
   }
 }
 
+// Justify-align a block level content
+.justify-block-content(@width: 25%) {
+  text-align: justify;
+
+  &:after {
+    display: inline-block;
+    width: 100%;
+    visibility: hidden;
+    content: '.';
+  }
+
+  > * {
+    display: inline-block;
+    .set-value(width; @width);
+  }
+}
+
 // Universal value setter
 .set-value_(@property; @value; @responsive: @isresponsive) when not (@value = true) and not (@value = false) {
   // Convert some absolute values (pt, pc, in) to pixels
