@@ -330,16 +330,22 @@ textarea {
     border-color: @input-border-color-focus;
     color: @input-color-focus;
 
-    & when (iscolor(@input-background)) {
+    & when (iscolor(@input-background)) and (@input-background-focus = @input-background) {
       background-color: lighten(@input-background, 5%);
+    }
+    & when not (@input-background-focus = @input-background) {
+      background-color: @input-background-focus;
     }
   }
   &[disabled] {
     border-color: @input-border-color-disabled;
     color: @input-color-disabled;
 
-    & when (iscolor(@input-background)) {
+    & when (iscolor(@input-background)) and (@input-background-disabled = @input-background) {
       background-color: lighten(@input-background, 50%);
+    }
+    & when not (@input-background-disabled = @input-background) {
+      background-color: @input-background-disabled;
     }
   }
 }
