@@ -43,14 +43,14 @@
 }
 
 // Justify-align a block level content
-.justify-block-content(@width: 25%) {
+.justify-block-content(@width: auto) {
   text-align: justify;
 
   &:after {
     display: inline-block;
     visibility: hidden;
     width: 100%;
-    content: '.';
+    content: ".";
   }
 
   > * {
@@ -128,16 +128,16 @@
 .size(@width; @height: auto) {
   .set-value(width; @width; height; @height);
 }
-.square(@size; @responsive: @isresponsive) {
-  .size(@size @responsive; @size @responsive); // such record will not convert a number of values (like '0 0 10 0')
+.square(@size) {
+  .size(@size; @size);
 }
 
 // Bottom indents
-.margin-bottom(@value; @responsive: @isresponsive) {
-  .set-value_(margin-bottom; @value; @responsive);
+.margin-bottom(@value) {
+  .set-value_(margin-bottom; @value);
 }
-.padding-bottom(@value; @responsive: @isresponsive) {
-  .set-value_(padding-bottom; @value; @responsive);
+.padding-bottom(@value) {
+  .set-value_(padding-bottom; @value);
 }
 
 // Simple equal grid system
@@ -243,11 +243,11 @@
 }
 
 // Placeholder text
-.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder; @font-weight: @input-font-weight-placeholder; @font-family: @input-font-family-placeholder; @font-size: @input-font-size-placeholder; @responsive: @isfontsresponsive) {
+.placeholder(@color: @input-color-placeholder; @font-style: @input-font-style-placeholder; @font-weight: @input-font-weight-placeholder; @font-family: @input-font-family-placeholder; @font-size: @input-font-size-placeholder) {
   &:-moz-placeholder {
     opacity: 1;
     font-family: @font-family;
-    .set-value_(font-size; @font-size; @responsive);
+    .set-value(font-size; @font-size);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
@@ -255,21 +255,21 @@
   &::-moz-placeholder {
     opacity: 1;
     font-family: @font-family;
-    .set-value_(font-size; @font-size; @responsive);
+    .set-value(font-size; @font-size);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
   }
   &:-ms-input-placeholder {
     font-family: @font-family;
-    .set-value_(font-size; @font-size; @responsive);
+    .set-value(font-size; @font-size);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
   }
   &::-webkit-input-placeholder {
     font-family: @font-family;
-    .set-value_(font-size; @font-size; @responsive);
+    .set-value(font-size; @font-size);
     font-weight: @font-weight;
     font-style: @font-style;
     color: @color;
