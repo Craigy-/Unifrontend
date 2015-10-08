@@ -2,7 +2,7 @@
 // Some sources from: https://github.com/twbs/bootstrap/blob/master/less/mixins.less
 
 // Clearfix
-.clearfix() {
+.clearfix() when (default()) {
   &:before,
   &:after {
     content: " ";
@@ -14,14 +14,14 @@
 }
 
 // Center-align a block level element
-.center-block(@display: block) {
+.center-block(@display: block) when (default()) {
   display: @display;
   margin-left: auto;
   margin-right: auto;
 }
 
 // Center-align a block level content
-.center-block-content(@display: block) {
+.center-block-content(@display: block) when (default()) {
   display: @display;
   overflow: hidden;
   position: relative;
@@ -43,7 +43,7 @@
 }
 
 // Justify-align a block level content
-.justify-block-content(@width: auto) {
+.justify-block-content(@width: auto) when (default()) {
   text-align: justify;
 
   &:after {
@@ -172,14 +172,14 @@
 }
 
 // Responsive image
-.image-responsive(@display: block) {
+.image-responsive(@display: block) when (default()) {
   display: @display;
   max-width: 100%;
   height: auto;
 }
 
 // Responsive embeds (by Nicolas Gallagher in SUIT CSS)
-.embed-responsive(@display: block) {
+.embed-responsive(@display: block) when (default()) {
   display: @display;
   overflow: hidden;
   position: relative;
