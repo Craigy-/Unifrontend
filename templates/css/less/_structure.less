@@ -63,14 +63,19 @@ footer {
     .set-value_(max-width; @max-width-base);
   }
   & when (@footer-to-bottom) {
-    .set-value(height; @footer-height; margin-top; (@footer-height * -1));
+    .set-value(margin-top; -@footer-height);
   }
 
   > .wrapper when not (@footer-wrapper-background = none) {
     background: @footer-wrapper-background;
   }
   > .wrapper {
-    .set-value_(height; @footer-height);
+    & when (@footer-to-bottom) {
+      .set-value_(height; @footer-height);
+    }
+    & when not (@footer-to-bottom) {
+      .set-value_(min-height; @footer-height);
+    }
   }
 }
 
