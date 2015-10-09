@@ -353,6 +353,10 @@ textarea {
   overflow: auto;
   .set-value(height; auto; padding; @input-padding; line-height; @paragraph-line-height);
   .resizable(vertical);
+
+  &[disabled] {
+    .resizable(none);
+  }
 }
 select {
   padding-right: 0;
