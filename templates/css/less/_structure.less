@@ -67,7 +67,7 @@ footer {
     .set-value_(max-width; @max-width-base);
   }
   & when (@footer-to-bottom) {
-    .set-value(margin-top; -@footer-height);
+    .set-value(margin-top; (@footer-height * -1));
   }
 
   > .wrapper when not (@footer-wrapper-background = none) {
