@@ -338,6 +338,7 @@ textarea {
       background-color: @input-background-focus !important;
     }
   }
+  &[readonly],
   &[disabled] {
     border-color: @input-border-color-disabled !important;
     color: @input-color-disabled !important;
@@ -355,6 +356,7 @@ textarea {
   .set-value(height; auto; padding; @input-padding; line-height; @paragraph-line-height);
   .resizable(vertical);
 
+  &[readonly],
   &[disabled] {
     .resizable(none);
   }
