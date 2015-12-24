@@ -1,5 +1,50 @@
 // Site responsive stylesheets
 
+// Local variables
+
+// Built-in responsiveness
+& when (@isresponsive) {
+  // Structure
+  & when (@sidebar-left-width > 0) {
+    @media only all and (max-width: 768px) {
+      aside#left {
+        float: none;
+        padding: 0;
+      }
+      & when (@sidebar-right-width > 0) {
+        aside#right {
+          float: none;
+          padding: 0;
+        }
+      }
+      main {
+        margin-left: 0;
+        & when (@sidebar-right-width > 0) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  @media only all and (max-width: @max-width-base) {
+    .wrapper {
+      width: 100%;
+      min-width: @min-width-base;
+    }
+  }
+
+  // Constructions
+  & when (@popup-width > 0) {
+    @media only all and (max-width: @popup-width) {
+      .modal {
+        width: 100%;
+        .border-radius(0);
+      }
+    }
+  }
+}
+
+
+// Responsive rules for...
 // Retina
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -10,12 +55,15 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 }
 
-// >=1382px
-@media only all and (min-width: 1382px) {
+// >=(max-site-width)px
+@media only all and (min-width: @max-width-base) {
 }
 
-// <=992px
-@media only all and (max-width: 992px) {
+// <(max-site-width)px
+@media only all and (max-width: (@max-width-base - 1)) {
+  /*html {
+    font-size: (@font-size-base * .7);
+  }*/
 }
 
 // <=768px
@@ -30,6 +78,6 @@ only screen and (                min-resolution: 2dppx) {
 @media only all and (max-width: 480px) {
 }
 
-// <=320px
-@media only all and (max-width: 320px) {
+// <=380px
+@media only all and (max-width: 380px) {
 }
