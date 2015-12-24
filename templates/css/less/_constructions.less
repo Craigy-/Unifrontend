@@ -76,7 +76,7 @@
           & when not (@pagination-navigation-image = none) {
             background-image: @pagination-navigation-image;
             background-repeat: no-repeat;
-            .size(@pagination-navigation-width; @pagination-navigation-height);
+            .size(@pagination-navigation-width false; @pagination-navigation-height false);
             .text-hide;
           }
         }
@@ -149,7 +149,7 @@
   .form-error textarea {
     background: @form-error-background @form-error-background-color;
     border-color: @form-error-border-color;
-    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding);
+    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding false);
     color: @form-error-color-text;
     .placeholder(@form-error-color-text);
 
@@ -162,7 +162,7 @@
   .form-success textarea {
     background: @form-success-background @form-success-background-color;
     border-color: @form-success-border-color;
-    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding);
+    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding false);
     color: @form-success-color-text;
 
     &:focus {
@@ -212,7 +212,7 @@
   background-position: @form-messages-background-position !important;
   .border-radius(@form-messages-border-radius);
   .box-shadow(@form-messages-box-shadow);
-  .set-value(padding; @form-messages-padding; margin; @form-messages-margin; font; @form-messages-font);
+  .set-value(padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
 }
 .form-error-message {
   background: @form-messages-error-background;
@@ -320,7 +320,7 @@ table {
   top: 0;
   left: 0;
   z-index: @popup-zIndex;
-  .size(@popup-width; @popup-height);
+  .size(@popup-width false; @popup-height false);
   background: @popup-background;
   border: @popup-border;
   .border-radius(@popup-border-radius);
@@ -338,17 +338,15 @@ table {
     background: @popup-header-background;
     border: @popup-header-border;
     .border-radius(@popup-header-border-radius);
-    .set-value(height; @popup-header-height; padding; @popup-header-padding; font; @popup-header-font);
+    .set-value(height; @popup-header-height false; padding; @popup-header-padding; font; @popup-header-font);
     color: @popup-header-color;
     text-align: @popup-header-text-align;
   }
   .popup-body {
-    overflow: hidden;
-    overflow-y: auto;
     background: @popup-body-background;
     border: @popup-body-border;
     .border-radius(@popup-body-border-radius);
-    .set-value(height; @popup-body-height; padding; @popup-body-padding; font; @popup-body-font);
+    .set-value(height; @popup-body-height false; padding; @popup-body-padding; font; @popup-body-font);
     color: @popup-body-color;
     text-align: @popup-body-text-align;
   }
@@ -356,7 +354,7 @@ table {
     background: @popup-footer-background;
     border: @popup-footer-border;
     .border-radius(@popup-footer-border-radius);
-    .set-value(height; @popup-footer-height; padding; @popup-footer-padding; font; @popup-footer-font);
+    .set-value(height; @popup-footer-height false; padding; @popup-footer-padding; font; @popup-footer-font);
     color: @popup-footer-color;
     text-align: @popup-footer-text-align;
   }
@@ -367,7 +365,7 @@ table {
     right: @popup-close-position-right;
     z-index: 1;
     background: @popup-close-background;
-    .size(@popup-close-width; @popup-close-height);
+    .size(@popup-close-width false; @popup-close-height false);
     .set-value(padding; @popup-close-padding; font; @popup-close-font);
     color: @popup-close-color;
     text-decoration: @popup-close-text-decoration;
