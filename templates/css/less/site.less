@@ -41,10 +41,12 @@ nav {
 }
 .contacts-title {
   .margin-bottom(5);
+  .font-size(@font-size-base);
   .bold;
 }
 .contacts-value {
   .set-value(padding-left; 10);
+  .font-size(@font-size-base);
 
   &.contacts-several-values {
     .set-value(padding; 3 0 5 10);
@@ -89,6 +91,9 @@ nav {
   .info-title {
     .h4;
   }
+  .info-announce {
+    .text-container;
+  }
 }
 
 .news-list {
@@ -97,6 +102,9 @@ nav {
 
   .news-title {
     .h4;
+  }
+  .news-announce {
+    .text-container;
   }
 }
 .news-date {
@@ -118,8 +126,16 @@ nav {
     .bold;
   }
   .resources-announce {
+    .set-value(margin-bottom; 5);
+    line-height: @paragraph-line-height;
+
     p {
       .padding-bottom(5);
+      line-height: inherit;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
   .resources-link {
@@ -133,14 +149,23 @@ nav {
 
 .search-results-list {
   .set-value(padding-top; 5);
+  .font-size(@font-size-base);
 
   .search-results-title {
     .margin-bottom(5);
     .bold;
   }
   .search-results-announce {
+    .set-value(margin-bottom; 5);
+    line-height: @paragraph-line-height;
+
     p {
       .padding-bottom(5);
+      line-height: inherit;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
   .search-results-link {
@@ -150,6 +175,7 @@ nav {
 
 .sitemap-item {
   .margin-bottom(5);
+  .font-size(@font-size-base);
 }
 .sitemap-title {
   .h4;
@@ -176,6 +202,8 @@ footer {
 .modal {
   .popup;
 }
+
+// Forms
 
 // Colors
 .black,

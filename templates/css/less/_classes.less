@@ -94,7 +94,7 @@ a.none,
   overflow-x: auto;
 
   table {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
   }
 }
 .nowrap {
@@ -210,9 +210,12 @@ a.none,
   .set-value(padding; @paragraph-padding);
   .font-size(@font-size-base; @paragraph-line-height);
 
-  p:last-child {
-    padding-bottom: 0;
+  p {
     line-height: inherit;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
   }
 }
 .clear {
