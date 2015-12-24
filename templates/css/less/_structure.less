@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   & when (@move-max-width-to-structure) {
-    .set-value_(max-width; @max-width-base);
+    max-width: @max-width-base;
   }
   & when (@footer-to-bottom) {
     min-height: 100%;
@@ -64,7 +64,7 @@ footer {
   text-align: @footer-text-align;
 
   & when (@apply-max-width-to-footer) {
-    .set-value_(max-width; @max-width-base);
+    max-width: @max-width-base;
   }
   & when (@footer-to-bottom) {
     .set-value(margin-top; (@footer-height * -1));
@@ -94,6 +94,7 @@ footer {
     .set-value_(width; @min-width-base);
   }
   & when not (@wrapper-fixed) {
-    .set-value(min-width; @min-width-base; max-width; @max-width-base);
+    min-width: @min-width-base;
+    max-width: @max-width-base;
   }
 }
