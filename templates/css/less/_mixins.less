@@ -314,8 +314,8 @@
 
 // Marker
 .marker(@image; @padding; @position: 0 50%) {
-  background: url(@image) no-repeat @position;
-  .set-value(padding; @padding);
+  background: url(@image) no-repeat;
+  .set-value(background-position; @position; padding; @padding);
 }
 
 // Box sizing
