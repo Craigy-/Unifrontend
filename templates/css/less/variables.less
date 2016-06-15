@@ -209,12 +209,12 @@
 @form-required-font: bold @form-title-font;
 @form-required-color: @red;
 
-@form-statuses-padding: 38px;
-@form-error-background: url(../images/stop-round.png) no-repeat 98% 50%;
+@form-statuses-padding: (@input-padding + 24px);
+@form-error-background: url(../images/stop-round.png) no-repeat @input-padding 50%;
 @form-error-background-color: lighten(@red, 60%);
 @form-error-border-color: @form-error-color-text;
 @form-error-color-text: @red;
-@form-success-background: url(../images/accept-green.png) no-repeat 98% 50%;
+@form-success-background: url(../images/accept-green.png) no-repeat @input-padding 50%;
 @form-success-background-color: lighten(@green, 60%);
 @form-success-border-color: @form-success-color-text;
 @form-success-color-text: @green;
