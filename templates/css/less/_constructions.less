@@ -149,7 +149,7 @@
   .form-error textarea {
     background: @form-error-background @form-error-background-color;
     border-color: @form-error-border-color;
-    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding false);
+    .set-value(padding-left; @form-statuses-padding false; padding-right; @input-padding);
     color: @form-error-color-text;
     .placeholder(@form-error-color-text);
 
@@ -162,12 +162,16 @@
   .form-success textarea {
     background: @form-success-background @form-success-background-color;
     border-color: @form-success-border-color;
-    .set-value(padding-left; @input-padding; padding-right; @form-statuses-padding false);
+    .set-value(padding-left; @form-statuses-padding false; padding-right; @input-padding);
     color: @form-success-color-text;
 
     &:focus {
       background-color: lighten(@form-success-background-color, 5%);
     }
+  }
+  .form-error select,
+  .form-success select {
+    .set-value(padding-left; (@form-statuses-padding - @input-padding) false);
   }
   span.form-required,
   .form-required span {
