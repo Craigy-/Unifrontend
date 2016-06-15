@@ -43,7 +43,10 @@
 }
 
 // Justify-align a block level content
-.justify-block-content(@width: auto) when (default()) {
+.justify-block-content(@width: auto; @font-size: @font-size-base; @line-height: @line-height-base) when (default()) {
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: -1px;
   text-align: justify;
 
   &:after {
@@ -56,6 +59,8 @@
   > * {
     display: inline-block;
     .set-value(width; @width);
+    .font-size(@font-size; @line-height);
+    letter-spacing: normal;
     vertical-align: top;
   }
 }
