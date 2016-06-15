@@ -1,5 +1,5 @@
 {
-"Version": "0.2.8",
+"Version": "0.2.9",
 "FileData":{
 ".hgignore": {"timestamp": 1375092388.48},
 ".hgtags": {"timestamp": 1430839795.04},
@@ -33,7 +33,7 @@
 "templates/images/stop-round.png": {"timestamp": 1368827514.41},
 "templates/index.htm": {"timestamp": 1437834612.26},
 "templates/info.htm": {"timestamp": 1453194450.89},
-"templates/js/main.js": {"timestamp": 1453720552.69},
+"templates/js/main.js": {"timestamp": 1466026578.0},
 "templates/js/plugins/.hgignore": {"timestamp": 1368733685.28},
 "templates/map.htm": {"timestamp": 1437834637.63},
 "templates/news-item.htm": {"timestamp": 1437834649.81},
