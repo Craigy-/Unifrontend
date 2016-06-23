@@ -64,6 +64,20 @@
   }
 }
 
+// Vertical center-align a block level content
+.middle-block-content(@display: block) when (default()) {
+  display: @display;
+  position: relative;
+
+  > * {
+    display: @display;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    .translate(0, -50%);
+  }
+}
+
 // Universal value setter
 .set-value_(@property; @value; @responsive: @isresponsive) when not (@value = true) and not (@value = false) {
   // Convert some absolute values (pt, pc, in) to pixels
