@@ -1,5 +1,5 @@
 $(function () {
-  // Обработка ошибок в формах
+  // Визуальная обработка ошибок в формах
   var inputs = '.input, select, textarea, .SSContainerDivWrapper',
       defaultValues = ['', 0];
 
