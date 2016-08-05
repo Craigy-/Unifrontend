@@ -294,7 +294,6 @@ table {
   }
 }
 .bordered {
-  background: @table-bordered-background;
   border-top: @table-bordered-border;
   border-left: @table-bordered-border;
   .set-value(font; @table-bordered-font);
@@ -312,6 +311,9 @@ table {
     .set-value(padding; @table-bordered-th-padding; font; @table-bordered-th-font);
     color: @table-bordered-th-text-color;
     text-align: @table-bordered-th-text-align;
+  }
+  td {
+    background: @table-bordered-background;
   }
 }
 .striped {
