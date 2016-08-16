@@ -71,6 +71,7 @@ a {
   background: transparent;
   color: @link-color;
   text-decoration: @link-text-decoration;
+  .transition(color .3s);
 
   &:hover when not (@link-color-hover = @link-color) {
     color: @link-color-hover;
