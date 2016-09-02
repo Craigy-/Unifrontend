@@ -71,7 +71,7 @@ a {
   background: transparent;
   color: @link-color;
   text-decoration: @link-text-decoration;
-  .transition(color .3s);
+  .transition(~'color .3s, border .3s, background-color .3s');
 
   &:hover when not (@link-color-hover = @link-color) {
     color: @link-color-hover;
@@ -237,8 +237,13 @@ ol {
     .set-value(margin; @primary-list-element-margin);
 
     main & {
-      .set-value(line-height; @primary-list-element-line-height);
+      .set-value(font; @primary-list-element-font);
     }
+  }
+}
+ol {
+  li {
+    list-style: decimal outside;
   }
 }
 nav ul {
@@ -256,13 +261,6 @@ ul.default {
   li {
     list-style: disc outside;
     .set-value(margin; 0 0 5 20);
-  }
-}
-ol {
-  .set-value_(margin-left; 25);
-
-  li {
-    list-style: decimal outside;
   }
 }
 

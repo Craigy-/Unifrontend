@@ -240,10 +240,8 @@
 
   li {
     .set-value(margin; @list-element-margin);
+    list-style: none;
 
-    ul& {
-      list-style: none;
-    }
     &.list-element-last {
       .padding-bottom(0);
       .margin-bottom(0);
@@ -329,11 +327,11 @@ table {
   top: 0;
   left: 0;
   z-index: @popup-zIndex;
-  .size(@popup-width false; @popup-height false);
   background: @popup-background;
   border: @popup-border;
   .border-radius(@popup-border-radius);
   .box-shadow(@popup-box-shadow);
+  .size(@popup-width false; @popup-height false);
   text-align: left;
   white-space: normal;
 
