@@ -8,12 +8,12 @@
 <script data-pack="None">
 //<![CDATA[
 window.isTouchscreen = false;
-if('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
   window.isTouchscreen = true;
 }
 
 window.$queue = [];
-window.$ = function(f) {
+window.$ = function (f) {
   $queue.push(f);
 };
 //]]>
@@ -31,10 +31,10 @@ window.$ = function(f) {
   <nav>
     <div class="wrapper">
       <ul>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
       </ul>
     </div>
   </nav>
@@ -65,24 +65,24 @@ window.$ = function(f) {
           <div class="row-2">
             <div class="col">
               <ul>
-              <li><a href="resources-item.htm">Двери и лестницы</a> (8)</li>
-              <li><a href="resources-item.htm">Строительство зданий</a> (0)</li>
-              <li><a href="resources-item.htm">Ремонт и отделка помещений</a> (0)</li>
-              <li><a href="resources-item.htm">Строительные порталы</a> (1)</li>
-              <li><a href="resources-item.htm">Панели, фасады</a> (5)</li>
-              <li><a href="resources-item.htm">Строительные материалы</a> (1)</li>
-              <li><a href="resources-item.htm">Спецодежда</a> (1)</li>
+                <li><a href="resources-item.htm">Двери и лестницы</a> (8)</li>
+                <li><a href="resources-item.htm">Строительство зданий</a> (0)</li>
+                <li><a href="resources-item.htm">Ремонт и отделка помещений</a> (0)</li>
+                <li><a href="resources-item.htm">Строительные порталы</a> (1)</li>
+                <li><a href="resources-item.htm">Панели, фасады</a> (5)</li>
+                <li><a href="resources-item.htm">Строительные материалы</a> (1)</li>
+                <li><a href="resources-item.htm">Спецодежда</a> (1)</li>
               </ul>
             </div>
             <div class="col">
               <ul>
-              <li><a href="resources-item.htm">Окна, жалюзи</a> (4)</li>
-              <li><a href="resources-item.htm">Кровля</a> (0)</li>
-              <li><a href="resources-item.htm">Напольные покрытия</a> (1)</li>
-              <li><a href="resources-item.htm">Сантехника и канализация</a> (4)</li>
-              <li><a href="resources-item.htm">Плитка и облицовка</a> (0)</li>
-              <li><a href="resources-item.htm">Ландшафтный дизайн</a> (0)</li>
-              <li><a href="resources-item.htm">Строительное оборудование</a> (0)</li>
+                <li><a href="resources-item.htm">Окна, жалюзи</a> (4)</li>
+                <li><a href="resources-item.htm">Кровля</a> (0)</li>
+                <li><a href="resources-item.htm">Напольные покрытия</a> (1)</li>
+                <li><a href="resources-item.htm">Сантехника и канализация</a> (4)</li>
+                <li><a href="resources-item.htm">Плитка и облицовка</a> (0)</li>
+                <li><a href="resources-item.htm">Ландшафтный дизайн</a> (0)</li>
+                <li><a href="resources-item.htm">Строительное оборудование</a> (0)</li>
               </ul>
             </div>
           </div>
@@ -129,7 +129,7 @@ window.$ = function(f) {
 
           <script data-pack="None">
           //<![CDATA[
-          $(function() {
+          $(function () {
             // Простейшая ботоловка
             $('#resources-honeypot').parents('.honeypot').hide();
           });
@@ -160,14 +160,14 @@ window.$ = function(f) {
 <script src="js/main.js"></script>
 <script data-pack="None">
 //<![CDATA[
-$(function() {
+$(function () {
   $('html').removeClass('no-js');
 
-  if(isTouchscreen) {
+  if (isTouchscreen) {
     $('html').addClass('isTouchscreen');
   }
 });
-$.each($queue, function(index, callback) {
+$.each($queue, function (index, callback) {
   $(callback);
 });
 delete $queue;

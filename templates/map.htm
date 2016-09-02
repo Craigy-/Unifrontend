@@ -8,12 +8,12 @@
 <script data-pack="None">
 //<![CDATA[
 window.isTouchscreen = false;
-if('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
   window.isTouchscreen = true;
 }
 
 window.$queue = [];
-window.$ = function(f) {
+window.$ = function (f) {
   $queue.push(f);
 };
 //]]>
@@ -31,10 +31,10 @@ window.$ = function(f) {
   <nav>
     <div class="wrapper">
       <ul>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
       </ul>
     </div>
   </nav>
@@ -71,22 +71,22 @@ window.$ = function(f) {
             <div class="col">
               <div class="sitemap-title"><a href="">Терапия</a></div>
               <ul class="default">
-              <li><a href="">Общая терапия</a></li>
-              <li><a href="">Гастроэнтерология</a></li>
-              <li><a href="">Дерматовенерология</a></li>
-              <li><a href="">Кардиология</a></li>
-              <li><a href="">Неврология</a></li>
-              <li><a href="">Пульмонология</a></li>
+                <li><a href="">Общая терапия</a></li>
+                <li><a href="">Гастроэнтерология</a></li>
+                <li><a href="">Дерматовенерология</a></li>
+                <li><a href="">Кардиология</a></li>
+                <li><a href="">Неврология</a></li>
+                <li><a href="">Пульмонология</a></li>
               </ul>
 
               <div class="sitemap-title"><a href="">Хирургия</a></div>
               <ul class="default">
-              <li><a href="">Общая хирургия</a></li>
-              <li><a href="">Гинекология</a></li>
-              <li><a href="">Маммология</a></li>
-              <li><a href="">Отоларингология</a></li>
-              <li><a href="">Офтальмология</a></li>
-              <li><a href="">Травматология, ортопедия</a></li>
+                <li><a href="">Общая хирургия</a></li>
+                <li><a href="">Гинекология</a></li>
+                <li><a href="">Маммология</a></li>
+                <li><a href="">Отоларингология</a></li>
+                <li><a href="">Офтальмология</a></li>
+                <li><a href="">Травматология, ортопедия</a></li>
               </ul>
             </div>
           </div>
@@ -115,14 +115,14 @@ window.$ = function(f) {
 <script src="js/main.js"></script>
 <script data-pack="None">
 //<![CDATA[
-$(function() {
+$(function () {
   $('html').removeClass('no-js');
 
-  if(isTouchscreen) {
+  if (isTouchscreen) {
     $('html').addClass('isTouchscreen');
   }
 });
-$.each($queue, function(index, callback) {
+$.each($queue, function (index, callback) {
   $(callback);
 });
 delete $queue;
