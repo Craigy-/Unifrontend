@@ -8,12 +8,12 @@
 <script data-pack="None">
 //<![CDATA[
 window.isTouchscreen = false;
-if('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
   window.isTouchscreen = true;
 }
 
 window.$queue = [];
-window.$ = function(f) {
+window.$ = function (f) {
   $queue.push(f);
 };
 //]]>
@@ -31,10 +31,10 @@ window.$ = function(f) {
   <nav>
     <div class="wrapper">
       <ul>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
       </ul>
     </div>
   </nav>
@@ -74,7 +74,7 @@ window.$ = function(f) {
           <div class="hr1">&nbsp;</div>
 
           <ul class="default">
-          <li><a href="articles-list.htm">Все статьи</a></li>
+            <li><a href="articles-list.htm">Все статьи</a></li>
           </ul>
         </section>
 
@@ -101,14 +101,14 @@ window.$ = function(f) {
 <script src="js/main.js"></script>
 <script data-pack="None">
 //<![CDATA[
-$(function() {
+$(function () {
   $('html').removeClass('no-js');
 
-  if(isTouchscreen) {
+  if (isTouchscreen) {
     $('html').addClass('isTouchscreen');
   }
 });
-$.each($queue, function(index, callback) {
+$.each($queue, function (index, callback) {
   $(callback);
 });
 delete $queue;
