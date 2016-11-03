@@ -7,14 +7,15 @@
 <link rel="stylesheet" href="css/styles.css" />
 <script data-pack="None">
 //<![CDATA[
-window.isTouchscreen = false;
+window.GLOBAL = {};
+GLOBAL.isTouchscreen = false;
 if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
-  window.isTouchscreen = true;
+  GLOBAL.isTouchscreen = true;
 }
 
-window.$queue = [];
+GLOBAL.$queue = [];
 window.$ = function (f) {
-  $queue.push(f);
+  GLOBAL.$queue.push(f);
 };
 //]]>
 </script>
@@ -123,14 +124,14 @@ window.$ = function (f) {
 $(function () {
   $('html').removeClass('no-js');
 
-  if (isTouchscreen) {
+  if (GLOBAL.isTouchscreen) {
     $('html').addClass('isTouchscreen');
   }
 });
-$.each($queue, function (index, callback) {
+$.each(GLOBAL.$queue, function (index, callback) {
   $(callback);
 });
-delete $queue;
+delete GLOBAL.$queue;
 //]]>
 </script>
 

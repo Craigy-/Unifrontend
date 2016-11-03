@@ -1,5 +1,5 @@
 // Supported plugins configuration
-var CONFIG = {
+GLOBAL.config = {
 
   // Replace checkboxes and radio buttons
   inputs: $(),
