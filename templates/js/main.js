@@ -65,10 +65,10 @@ $(function () {
 
   // Modal windows
   // Required: /js/plugins/jquery.uniloader.js
-  var modalInit = function (activator) {
-    var options = $(activator).data('modal-options');
+  var modalInit = function (activator, options) {
+    var options = options || $(activator).data('modal-options');
     $.overlayLoader(true, {
-      node: $('#' + options.node),
+      node: $('#' + ($(activator).data('modal-node') || options.node)),
       hideSelector: options.hideSelector,
       effectSpeed: options.effectSpeed,
       onStart: options.onStart,
@@ -87,8 +87,8 @@ $(function () {
 
   // Popups
   // Required: /js/plugins/jquery.unifloat.js
-  var popupHandler = function (activator) {
-    var options = $(activator).data('popup-options');
+  var popupHandler = function (activator, options) {
+    var options = options || $(activator).data('popup-options');
     var target = options.rel || '#' + $(activator).attr('id') + '-content',
         self = activator;
     if (options.manipulation && !$(target).data('unifloat')) {
