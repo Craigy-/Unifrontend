@@ -1,20 +1,20 @@
 $(function () {
   // Replace checkboxes and radio buttons
-  // Required: js/plugins/jquery.inputs.js
-  if (CONFIG.inputs.length) {
-    CONFIG.inputs.inputs();
+  // Required: /js/plugins/jquery.inputs.js
+  if (GLOBAL.config.inputs.length) {
+    GLOBAL.config.inputs.inputs();
   }
 
 
   // Replace selectors
-  // Required: js/plugins/jquery.stylish-select.js
-  if (CONFIG.selectors.length) {
-    CONFIG.selectors.sSelect();
+  // Required: /js/plugins/jquery.stylish-select.js
+  if (GLOBAL.config.selectors.length) {
+    GLOBAL.config.selectors.sSelect();
   }
 
 
   // Carousels
-  // Required: js/plugins/jquery.jcarousel.js, js/plugins/jquery.jcarousel-swipe.js
+  // Required: /js/plugins/jquery.jcarousel.js, /js/plugins/jquery.jcarousel-swipe.js
   var carouselInit = function (container, options) {
     var $carousel = $('.jcarousel-wrapper', container).jcarousel({
       wrap: options.wrap
@@ -52,7 +52,7 @@ $(function () {
     }
   };
 
-  $.each(CONFIG.carousels, function (selector, options) {
+  $.each(GLOBAL.config.carousels, function (selector, options) {
     if ($(selector).length > 1) {
       $(selector).each(function () {
         carouselInit(this, options);
@@ -64,7 +64,7 @@ $(function () {
 
 
   // Modal windows
-  // Required: js/plugins/jquery.uniloader.js
+  // Required: /js/plugins/jquery.uniloader.js
   var modalInit = function (activator) {
     var options = $(activator).data('modal-options');
     $.overlayLoader(true, {
@@ -77,8 +77,8 @@ $(function () {
     });
   };
 
-  for (var i in CONFIG.modals) {
-    $(i).data('modal-options', CONFIG.modals[i]).on('click', function (e) {
+  for (var i in GLOBAL.config.modals) {
+    $(i).data('modal-options', GLOBAL.config.modals[i]).on('click', function (e) {
       e.preventDefault();
       modalInit(this);
     });
@@ -86,7 +86,7 @@ $(function () {
 
 
   // Popups
-  // Required: js/plugins/jquery.unifloat.js
+  // Required: /js/plugins/jquery.unifloat.js
   var popupHandler = function (activator) {
     var options = $(activator).data('popup-options');
     var target = options.rel || '#' + $(activator).attr('id') + '-content',
@@ -104,8 +104,8 @@ $(function () {
     }
   };
 
-  for (var i in CONFIG.popups) {
-    $(i).data('popup-options', CONFIG.popups[i]).on('click', function (e) {
+  for (var i in GLOBAL.config.popups) {
+    $(i).data('popup-options', GLOBAL.config.popups[i]).on('click', function (e) {
       e.preventDefault();
       popupHandler(this);
     });
@@ -139,8 +139,8 @@ $(function () {
 
 
   // Tabs
-  // Required: js/plugins/jquery.easytabs.js
-  $.each(CONFIG.tabs, function (selector, options) {
+  // Required: /js/plugins/jquery.easytabs.js
+  $.each(GLOBAL.config.tabs, function (selector, options) {
     $(selector).easytabs(options);
   });
 
