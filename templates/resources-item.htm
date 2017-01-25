@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <title></title>
 <meta name="viewport" content="width=device-width" />
+<!--meta name="viewport" content="width=device-width, initial-scale=1" /-->
 <link rel="stylesheet" href="css/styles.css" />
 <script data-pack="None">
 //<![CDATA[
@@ -131,11 +132,7 @@ window.$ = function (f) {
 <script data-pack="None">
 //<![CDATA[
 $(function () {
-  $('html').removeClass('no-js');
-
-  if (GLOBAL.isTouchscreen) {
-    $('html').addClass('isTouchscreen');
-  }
+  $('html').removeClass('no-js').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
 });
 $.each(GLOBAL.$queue, function (index, callback) {
   $(callback);

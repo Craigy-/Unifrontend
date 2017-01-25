@@ -6,7 +6,7 @@
 & when (@isresponsive) {
   // Structure
   & when (@sidebar-left-width > 0) {
-    @media only all and (max-width: 768px) {
+    @media only all and (max-width: 767px) {
       aside#left {
         float: none;
         padding: 0;
@@ -25,7 +25,7 @@
       }
     }
   }
-  @media only all and (max-width: @max-width-base) {
+  @media only all and (max-width: (@max-width-base - 1)) {
     .wrapper {
       width: 100%;
       min-width: @min-width-base;
@@ -34,10 +34,74 @@
 
   // Constructions
   & when (@modal-width > 0) {
-    @media only all and (max-width: @modal-width) {
+    @media only all and (max-width: (@modal-width - 1)) {
       .modal {
         width: 100%;
         .border-radius(0);
+      }
+    }
+  }
+
+  // Helpers
+  // Mobile menu link
+  .mobile-menu-link {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    .translate(0, -50%);
+    .square(35 false);
+
+    a {
+      display: block;
+      .square(100%);
+    }
+    .bars {
+      .set-value(top; 50%; left; 50%);
+      .translate(-50%, -50%);
+
+      &,
+      &:after,
+      &:before {
+        display: block;
+        position: absolute;
+        background: @text-color;
+        .size(14 false; 2 false);
+      }
+      &:after,
+      &:before {
+        position: absolute;
+        left: 0;
+        content: "";
+      }
+      &:before {
+        top: 4px;
+      }
+      &:after {
+        bottom: 4px;
+      }
+    }
+  }
+
+  // Devices display
+  .only-touch {
+    .isDesktop & {
+      display: none !important;
+    }
+  }
+  .only-desktop {
+    .isTouchscreen & {
+      display: none !important;
+    }
+  }
+  .only-mobile {
+    @media only all and (min-width: 768px) {
+      & {
+        display: none !important;
+      }
+    }
+    @media only all and (max-width: 767px) {
+      .isDesktop & {
+        display: none !important;
       }
     }
   }
@@ -66,8 +130,8 @@ only screen and (                min-resolution: 2dppx) {
   }*/
 }
 
-// <=768px
-@media only all and (max-width: 768px) {
+// <768px
+@media only all and (max-width: 767px) {
 }
 
 // <=600px
