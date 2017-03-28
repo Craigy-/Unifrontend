@@ -2,14 +2,16 @@
 
 // Breadcrumbs
 .breadcrumbs {
-  overflow: hidden;
   .set-value(margin; @breadcrumbs-margin);
+  line-height: 0;
+  letter-spacing: -1px;
 
   a,
   span {
-    float: left;
+    display: inline-block;
     .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
     color: @breadcrumbs-element-color;
+    letter-spacing: normal;
     text-decoration: @breadcrumbs-element-text-decoration;
   }
   a:hover {
@@ -24,6 +26,9 @@
       .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
       color: @breadcrumbs-separator-color;
     }
+  }
+  img {
+    vertical-align: baseline;
   }
 }
 
