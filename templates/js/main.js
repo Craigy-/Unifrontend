@@ -1,4 +1,33 @@
 $(function () {
+  // Responsive
+  function responsiveFixes() {
+    var ww = $(window)[0].innerWidth || $(window).width(),
+        wh = $(window)[0].innerHeight || $(window).height();
+
+    // Responsive menu
+    // Required: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
+    $('.mobile-menu-link').off('click.ht');
+    $('nav').off('.ht');
+    if (ww < 768) {
+      $('.mobile-menu-link').on('click.ht', function (e) {
+        e.preventDefault();
+        $(document.body).toggleClass('nav-opened');
+      });
+      $('nav').on('swipeleft.ht swiperight.ht', function () {
+        $('.mobile-menu-link').trigger('click');
+      }).on('movestart.ht', function (e) {
+        if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
+          e.preventDefault();
+        }
+      });
+    }
+  }
+  responsiveFixes();
+  $(window).on('throttledresize' in jQuery.event.special ? 'throttledresize' : 'resize', responsiveFixes);
+
+
+
+
   // Replace checkboxes and radio buttons
   // Required: /js/plugins/jquery.inputs.js
   if (GLOBAL.config.inputs.length) {
@@ -170,35 +199,6 @@ $(function () {
       });
     }, 111);
   }
-
-
-
-
-  // Responsive
-  function responsiveFixes() {
-    var ww = $(window)[0].innerWidth || $(window).width(),
-        wh = $(window)[0].innerHeight || $(window).height();
-
-    // Responsive menu
-    // Required: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
-    $('.mobile-menu-link').off('click.ht');
-    $('nav').off('.ht');
-    if (ww < 768) {
-      $('.mobile-menu-link').on('click.ht', function (e) {
-        e.preventDefault();
-        $(document.body).toggleClass('nav-opened');
-      });
-      $('nav').on('swipeleft.ht swiperight.ht', function () {
-        $('.mobile-menu-link').trigger('click');
-      }).on('movestart.ht', function (e) {
-        if ((e.distX > e.distY && e.distX < -e.distY) || (e.distX < e.distY && e.distX > -e.distY)) {
-          e.preventDefault();
-        }
-      });
-    }
-  }
-  responsiveFixes();
-  $(window).on('throttledresize' in jQuery.event.special ? 'throttledresize' : 'resize', responsiveFixes);
 
 
 

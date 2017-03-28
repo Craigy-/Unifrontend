@@ -5,23 +5,30 @@
 // Built-in responsiveness
 & when (@isresponsive) {
   // Structure
-  & when (@sidebar-left-width > 0) {
-    @media only all and (max-width: 767px) {
+  @media only all and (max-width: 767px) {
+    main {
+      width: 100%;
+    }
+    & when (@sidebar-left-width > 0) {
       aside#left {
         float: none;
+        width: 100%;
         padding: 0;
       }
-      & when (@sidebar-right-width > 0) {
-        aside#right {
-          float: none;
-          padding: 0;
-        }
+      main {
+        padding-left: 0;
+        margin-left: 0;
+      }
+    }
+    & when (@sidebar-right-width > 0) {
+      aside#right {
+        float: none;
+        width: 100%;
+        padding: 0;
       }
       main {
-        margin-left: 0;
-        & when (@sidebar-right-width > 0) {
-          margin-right: 0;
-        }
+        padding-right: 0;
+        margin-right: 0;
       }
     }
   }
@@ -29,6 +36,8 @@
     .wrapper {
       width: 100%;
       min-width: @min-width-base;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 
@@ -36,13 +45,68 @@
   & when (@modal-width > 0) {
     @media only all and (max-width: (@modal-width - 1)) {
       .modal {
-        width: 100%;
         .border-radius(0);
+        width: 100% !important;
+        margin: 0;
+      }
+    }
+  }
+  @media only all and (max-width: 767px) {
+    .form {
+      .form-title {
+        float: none;
+        .set-value(width; 100%; padding; @paragraph-padding);
+      }
+      .form-field {
+        float: none;
+        .set-value(width; 100%);
+      }
+    }
+  }
+
+  // Classes
+  @media only all and (max-width: 767px) {
+    .row-2,
+    .row-3 {
+      margin: 0 !important;
+
+      .col {
+        float: none;
+        .set-value(width; 100%; padding; 0; margin; @paragraph-padding);
       }
     }
   }
 
   // Helpers
+  // Hidden/visible
+  @media only all and (max-width: 767px) {
+    .hidden-768 {
+      display: none !important;
+    }
+    .visible-768 {
+      th&,
+      td& {
+        display: table-cell !important;
+      }
+      div& {
+        display: block !important;
+      }
+    }
+  }
+  @media only all and (max-width: 600px) {
+    .hidden-600 {
+      display: none !important;
+    }
+    .visible-600 {
+      th&,
+      td& {
+        display: table-cell !important;
+      }
+      div& {
+        display: block !important;
+      }
+    }
+  }
   // Mobile menu link
   .mobile-menu-link {
     position: absolute;
