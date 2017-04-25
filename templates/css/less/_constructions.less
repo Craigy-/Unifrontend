@@ -225,6 +225,10 @@
   .border-radius(@form-messages-border-radius);
   .box-shadow(@form-messages-box-shadow);
   .set-value(padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
+
+  .form-field & {
+    .set-value(top; -1; margin; 0);
+  }
 }
 .form-error-message {
   background: @form-messages-error-background;
