@@ -28,11 +28,17 @@
 
   blockquote,
   h1,
+  .h1,
   h2,
+  .h2,
   h3,
+  .h3,
   h4,
+  .h4,
   h5,
+  .h5,
   h6,
+  .h6,
   img,
   pre,
   tr {
@@ -42,14 +48,26 @@
     display: table-header-group;
   }
   h1,
+  .h1,
   h2,
+  .h2,
   h3,
+  .h3,
   h4,
+  .h4,
   h5,
+  .h5,
   h6,
+  .h6,
   p {
     orphans: 3;
     widows: 3;
+  }
+
+  .input,
+  select,
+  textarea {
+    border-color: @black;
   }
 
   aside,
@@ -57,6 +75,8 @@
   header,
   nav,
   #awst-panel-wrapper,
+  .breadcrumbs,
+  .pagination,
   .noprint {
     display: none !important;
   }
