@@ -7,6 +7,7 @@
   // Structure
   @media only all and (max-width: 767px) {
     main {
+      float: none;
       width: 100%;
     }
     & when (@sidebar-left-width > 0) {
@@ -17,7 +18,6 @@
       }
       main {
         padding-left: 0;
-        margin-left: 0;
       }
     }
     & when (@sidebar-right-width > 0) {
@@ -28,7 +28,6 @@
       }
       main {
         padding-right: 0;
-        margin-right: 0;
       }
     }
   }
