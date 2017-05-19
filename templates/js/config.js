@@ -14,7 +14,7 @@ GLOBAL.config = {
       scrollableItems: 1,
       autoscrollInterval: 0, // ms
       pagination: true,
-      touchable: window.isTouchscreen
+      touchable: GLOBAL.isTouchscreen
     }*/
   },
 
