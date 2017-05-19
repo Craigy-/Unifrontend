@@ -1,8 +1,11 @@
 $(function () {
   // Responsive
+  GLOBAL.actualResizer = 'throttledresize' in jQuery.event.special ? 'throttledresize' : 'resize';
   function responsiveFixes() {
     var ww = $(window)[0].innerWidth || $(window).width(),
         wh = $(window)[0].innerHeight || $(window).height();
+
+    GLOBAL.windowSize = [ww, wh];
 
     // Responsive menu
     // Required: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
@@ -23,7 +26,7 @@ $(function () {
     }
   }
   responsiveFixes();
-  $(window).on('throttledresize' in jQuery.event.special ? 'throttledresize' : 'resize', responsiveFixes);
+  $(window).on(GLOBAL.actualResizer, responsiveFixes);
 
 
 

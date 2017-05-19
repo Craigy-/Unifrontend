@@ -1,6 +1,8 @@
 // Site responsive stylesheets
 
 // Local variables
+@mobile-menu-link-lines-width: 15px;
+@mobile-menu-link-lines-height: 2px;
 
 // Built-in responsiveness
 & when (@isresponsive) {
@@ -8,7 +10,7 @@
   @media only all and (max-width: 767px) {
     main {
       float: none;
-      width: 100%;
+      width: 100% !important;
     }
     & when (@sidebar-left-width > 0) {
       aside#left {
@@ -83,12 +85,11 @@
       display: none !important;
     }
     .visible-768 {
+      display: block !important;
+
       th&,
       td& {
         display: table-cell !important;
-      }
-      div& {
-        display: block !important;
       }
     }
   }
@@ -97,12 +98,11 @@
       display: none !important;
     }
     .visible-600 {
+      display: block !important;
+
       th&,
       td& {
         display: table-cell !important;
-      }
-      div& {
-        display: block !important;
       }
     }
   }
@@ -112,11 +112,12 @@
     top: 50%;
     left: -10px;
     .translate(0, -50%);
-    .square(35 false);
+    .square((@mobile-menu-link-lines-width * 2) false);
 
     a {
       display: block;
       .square(100%);
+      text-decoration: none;
     }
     .bars {
       .set-value(top; 50%; left; 50%);
@@ -128,7 +129,7 @@
         display: block;
         position: absolute;
         background: @text-color;
-        .size(14 false; 2 false);
+        .size(@mobile-menu-link-lines-width false; @mobile-menu-link-lines-height false);
       }
       &:after,
       &:before {
@@ -137,14 +138,13 @@
         content: "";
       }
       &:before {
-        top: 4px;
+        top: (@mobile-menu-link-lines-height * 2);
       }
       &:after {
-        bottom: 4px;
+        bottom: (@mobile-menu-link-lines-height * 2);
       }
     }
   }
-
   // Devices display
   .only-touch {
     .isDesktop & {
