@@ -45,18 +45,19 @@ main {
   background: @main-background;
   .set-value(width; calc(100% - @sidebar-left-width - @sidebar-right-width); padding; @main-padding);
 
-  &.full {
-    float: none;
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-  }
   &.no-aside-left {
     width: calc(100% - @sidebar-right-width);
     padding-left: 0;
   }
   &.no-aside-right {
     width: calc(100% - @sidebar-left-width);
+    padding-right: 0;
+  }
+  &.full,
+  &.no-aside-left.no-aside-right {
+    float: none;
+    width: 100%;
+    padding-left: 0;
     padding-right: 0;
   }
 }
