@@ -1,4 +1,12 @@
 // HTML5 structure
+header {
+  background: @header-background;
+  .set-value_(height; @header-height);
+
+  > .wrapper when not (@header-wrapper-background = none) {
+    background: @header-wrapper-background;
+  }
+}
 #structure {
   position: relative;
   background: @structure-background;
