@@ -16,6 +16,9 @@ header {
 
 // Main navigation
 nav {
+  li {
+    list-style: none;
+  }
 }
 
 // Blocks
@@ -149,7 +152,7 @@ nav {
 }
 
 .search-results-list {
-  .set-value(padding-top; 5);
+  .set-value(margin; 10 0 10 25);
   .font-size(@font-size-base);
 
   .search-results-title {
@@ -170,7 +173,7 @@ nav {
     }
   }
   .search-results-link {
-    .padding-bottom(10);
+    .set-value(margin; @paragraph-padding);
   }
 }
 
@@ -180,6 +183,9 @@ nav {
 }
 .sitemap-title {
   .h4;
+}
+.sitemap-list {
+  .primary-list;
 }
 
 // Footer

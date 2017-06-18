@@ -167,6 +167,16 @@ a.none,
   }
 }
 
+// Lists
+.primary-list {
+  .set-value(margin; @primary-list-margin);
+
+  li {
+    .set-value(margin; @primary-list-element-margin);
+    list-style: @primary-list-element-list-style;
+  }
+}
+
 // Margins
 .m {
   .for(0; 9); .-each(@i) {
@@ -212,7 +222,7 @@ a.none,
   .clearfix;
 }
 .text-container {
-  .set-value(padding; @paragraph-padding);
+  .set-value(margin; @paragraph-padding);
   .font-size(@font-size-base; @paragraph-line-height);
 
   p {
@@ -220,6 +230,18 @@ a.none,
 
     &:last-child {
       padding-bottom: 0;
+    }
+  }
+  ul,
+  ol {
+    .primary-list;
+
+    &:last-child {
+      margin-bottom: 0;
+
+      li:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
