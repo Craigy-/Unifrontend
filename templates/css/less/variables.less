@@ -4,6 +4,25 @@
 @isresponsive: false;
 @isfontsresponsive: false;
 
+// Structure
+@min-width-base: 980px;
+@max-width-base: @min-width-base;
+@wrapper-fixed: true;
+@move-max-width-to-structure: false;
+@apply-max-width-to-footer: false;
+@wrapper-padding-one: 10px;
+@wrapper-padding: 0 @wrapper-padding-one;
+@header-height: 90px;
+@content-padding-bottom: 30px;
+@sidebar-left-width: 0px;
+@sidebar-left-padding: 0;
+@sidebar-right-width: 0px;
+@sidebar-right-padding: 0;
+@main-padding: 0;
+@footer-to-bottom: true;
+@footer-height: 90px;
+@footer-text-align: left;
+
 // Fonts
 @font-family-base: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 @font-family-monospace: Courier, 'Courier New', monospace;
@@ -12,6 +31,8 @@
 
 // Colors and structure backgrounds
 @body-background: @white;
+@header-background: none;
+@header-wrapper-background: none;
 @structure-background: none;
 @content-background: none;
 @content-wrapper-background: none;
@@ -46,24 +67,6 @@
 @link-text-decoration: underline;
 @link-text-decoration-hover: @link-text-decoration;
 @link-text-decoration-visited: @link-text-decoration;
-
-// Structure
-@min-width-base: 900px;
-@max-width-base: @min-width-base;
-@wrapper-fixed: true;
-@move-max-width-to-structure: false;
-@apply-max-width-to-footer: false;
-@wrapper-padding-one: 0;
-@wrapper-padding: 0 @wrapper-padding-one;
-@content-padding-bottom: 30px;
-@sidebar-left-width: 0;
-@sidebar-left-padding: 0;
-@sidebar-right-width: 0;
-@sidebar-right-padding: 0;
-@main-padding: 0;
-@footer-to-bottom: true;
-@footer-height: 90px;
-@footer-text-align: left;
 
 // Headings
 @h1-background: none;
