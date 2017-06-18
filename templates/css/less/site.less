@@ -24,7 +24,6 @@ nav {
 // Blocks
 .articles-list {
   .list-hr;
-  .set-value(padding-top; 5);
 
   .articles-title {
     .h4;
@@ -35,17 +34,20 @@ nav {
   .pull-right;
   .square(400);
 
-  > a > img,
   > * {
     display: block;
     .box-sizing(border-box);
     .image-bordered;
-    .square(100%) !important;
+
+    &,
+    & img {
+      .square(100%) !important;
+    }
   }
 }
 .contacts-title {
   .margin-bottom(5);
-  .font-size(@font-size-base);
+  .font-size(@font-size-base; @paragraph-line-height);
   .bold;
 }
 .contacts-value {
@@ -53,13 +55,19 @@ nav {
   .font-size(@font-size-base);
 
   &.contacts-several-values {
-    .set-value(padding; 3 0 5 10);
+    > * {
+      &:not(p) {
+        .set-value(padding; @paragraph-padding);
+      }
+      &:not(:last-child) {
+        .set-value(padding-bottom; 5);
+      }
+    }
   }
 }
 
 .galleries-list {
   .list-hr;
-  .set-value(padding-top; 5);
 
   .galleries-title-container {
     .clearfix;
@@ -72,17 +80,16 @@ nav {
     }
   }
 }
-.galleries-foto-container {
+.galleries-foto {
   .clearfix;
-  .margin-bottom(20);
+  .set-value(margin; 0 0 -8 -8);
 
-  .galleries-foto {
+  .galleries-foto-item {
     float: left;
-    .set-value(margin; 10 5 0 5);
+    .set-value(margin; 0 0 8 8);
 
     img {
       .image-bordered;
-      .size(164);
     }
   }
 }
@@ -90,7 +97,7 @@ nav {
 .info-list {
   .list-hr;
   border-top: 1px solid @hr-color-base;
-  .set-value(padding-top; 20; margin-top; 10);
+  .set-value(padding-top; 20);
 
   .info-title {
     .h4;
@@ -102,7 +109,6 @@ nav {
 
 .news-list {
   .list-hr;
-  .set-value(padding-top; 5);
 
   .news-title {
     .h4;
@@ -119,11 +125,10 @@ nav {
 .resources-form-title {
   .h3;
   border-top: 1px solid @hr-color-base;
-  .set-value(padding-top; 20; margin-top; 10);
+  .set-value(padding-top; 20);
 }
 .resources-list {
   .list-hr;
-  .set-value(padding-top; 5);
 
   .resources-title {
     .margin-bottom(5);
@@ -143,8 +148,6 @@ nav {
     }
   }
   .resources-link {
-    .padding-bottom(10);
-
     a {
       .set-value(padding-right; 10);
     }
@@ -152,7 +155,7 @@ nav {
 }
 
 .search-results-list {
-  .set-value(margin; 10 0 10 25);
+  .set-value(margin; 0 0 0 25);
   .font-size(@font-size-base);
 
   .search-results-title {
@@ -178,7 +181,7 @@ nav {
 }
 
 .sitemap-item {
-  .margin-bottom(5);
+  .margin-bottom(10);
   .font-size(@font-size-base);
 }
 .sitemap-title {
@@ -205,6 +208,8 @@ footer {
   }
 }
 
+
+// Tables
 
 // Forms
 
@@ -240,5 +245,5 @@ footer {
 
 // Horizontal lines
 .hr1 {
-  .hr(@hr-color-base; 10 0 20 0);
+  .hr(@hr-color-base; 20 0);
 }
