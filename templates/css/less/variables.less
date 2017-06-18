@@ -26,7 +26,7 @@
 // Fonts
 @font-family-base: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 @font-family-monospace: Courier, 'Courier New', monospace;
-@font-size-base: 11px;
+@font-size-base: 12px;
 @line-height-base: 120%;
 
 // Colors and structure backgrounds
@@ -71,54 +71,54 @@
 // Headings
 @h1-background: none;
 @h1-padding: 0;
-@h1-margin: 0 0 15px 0;
-@h1-font: bold 16px/@line-height-base @font-family-base;
+@h1-margin: @paragraph-padding;
+@h1-font: bold 17px/@line-height-base @font-family-base;
 @h1-color-text: @text-color;
 @h1-text-transform: none;
 
 @h2-background: none;
 @h2-padding: 0;
-@h2-margin: 0 0 10px 0;
-@h2-font: bold 15px/@line-height-base @font-family-base;
+@h2-margin: @paragraph-padding;
+@h2-font: bold 16px/@line-height-base @font-family-base;
 @h2-color-text: @text-color;
 @h2-text-transform: none;
 
 @h3-background: none;
 @h3-padding: 0;
-@h3-margin: 0 0 15px 0;
-@h3-font: bold 14px/@line-height-base @font-family-base;
+@h3-margin: @paragraph-padding;
+@h3-font: bold 15px/@line-height-base @font-family-base;
 @h3-color-text: @text-color;
 @h3-text-transform: none;
 
 @h4-background: none;
 @h4-padding: 0;
-@h4-margin: 0 0 10px 0;
-@h4-font: bold 13px/@line-height-base @font-family-base;
+@h4-margin: @paragraph-padding;
+@h4-font: bold 14px/@line-height-base @font-family-base;
 @h4-color-text: @text-color;
 @h4-text-transform: none;
 
 @h5-background: none;
 @h5-padding: 0;
-@h5-margin: 0 0 10px 0;
-@h5-font: bold 12px/@line-height-base @font-family-base;
+@h5-margin: @paragraph-padding;
+@h5-font: bold 13px/@line-height-base @font-family-base;
 @h5-color-text: @text-color;
 @h5-text-transform: none;
 
 @h6-background: none;
 @h6-padding: 0;
-@h6-margin: 0 0 10px 0;
-@h6-font: bold 11px/@line-height-base @font-family-base;
+@h6-margin: @paragraph-padding;
+@h6-font: bold 12px/@line-height-base @font-family-base;
 @h6-color-text: @text-color;
 @h6-text-transform: none;
 
 // Paragraphs
-@paragraph-padding: 0 0 10px 0;
+@paragraph-padding: 0 0 20px 0;
 @paragraph-line-height: 140%;
 
 // Primary ULs and OLs
 @primary-list-margin: @paragraph-padding;
 @primary-list-element-list-style: disc inside;
-@primary-list-element-margin: 0 0 5px 10px;
+@primary-list-element-margin: 0 0 10px 10px;
 
 // Tables
 @table-cells-padding: 0 10px 10px 10px;
@@ -129,7 +129,7 @@
 
 @table-bordered-background: @body-background;
 @table-bordered-border: 1px solid @table-bordered-th-background;
-@table-bordered-cells-padding: 5px 10px;
+@table-bordered-cells-padding: 10px;
 @table-bordered-font: @table-font;
 @table-bordered-text-color: @text-color;
 @table-bordered-th-background: @hr-color-base;
@@ -176,7 +176,7 @@
 @form-width: 100%;
 @form-box-shadow: none;
 @form-padding: 0;
-@form-margin: 0 0 10px 0;
+@form-margin: @paragraph-padding;
 
 @form-header-display: inline-block;
 @form-header-background: none;
@@ -212,30 +212,30 @@
 @form-required-color: @red;
 
 @form-statuses-padding: (@input-padding + 24px);
-@form-error-background: url(../images/stop-round.png) no-repeat @input-padding 50%;
-@form-error-background-color: lighten(@red, 60%);
+@form-error-background: url(../images/stop-round.png) no-repeat @form-messages-background-position;
+@form-error-background-color: lighten(@red, 50%);
 @form-error-border-color: @form-error-color-text;
 @form-error-color-text: @red;
-@form-success-background: url(../images/accept-green.png) no-repeat @input-padding 50%;
-@form-success-background-color: lighten(@green, 60%);
+@form-success-background: url(../images/accept-green.png) no-repeat @form-messages-background-position;
+@form-success-background-color: lighten(@green, 50%);
 @form-success-border-color: @form-success-color-text;
 @form-success-color-text: @green;
 
-@form-messages-background-position: 5px 50%;
+@form-messages-background-position: @input-padding 50%;
 @form-messages-border-radius: 0;
 @form-messages-box-shadow: none;
-@form-messages-padding: 5px 5px 5px 26px;
+@form-messages-padding: 5px 5px 5px @form-statuses-padding;
 @form-messages-margin: @paragraph-padding;
 @form-messages-font: @font-size-base/@line-height-base @font-family-base;
 @form-messages-error-background: @form-error-background @form-error-background-color;
 @form-messages-error-border: 1px solid @form-error-border-color;
 @form-messages-error-color-text: @form-error-color-text;
-@form-messages-success-background: @form-success-background @form-success-background-color;
-@form-messages-success-border: 1px solid @form-success-border-color;
+@form-messages-success-background: none;
+@form-messages-success-border: 0;
 @form-messages-success-color-text: @form-success-color-text;
 
 // Breadcrumbs
-@breadcrumbs-margin: 0 0 15px 0;
+@breadcrumbs-margin: @paragraph-padding;
 @breadcrumbs-element-padding: 0 5px 0 0;
 @breadcrumbs-element-font: @font-size-base/@line-height-base @font-family-base;
 @breadcrumbs-element-color: @link-color;
@@ -251,7 +251,7 @@
 @breadcrumbs-separator-color: @text-color;
 
 // Pagination
-@pagination-margin: 0 0 10px 0;
+@pagination-margin: @paragraph-padding;
 @pagination-element-padding: 0 5px;
 @pagination-element-font: @font-size-base/@line-height-base @font-family-base;
 @pagination-element-color: @link-color;
@@ -261,7 +261,7 @@
 @pagination-selected-padding: @pagination-element-padding;
 @pagination-selected-font: @pagination-element-font;
 @pagination-selected-color: @text-color;
-@pagination-selected-text-decoration: @pagination-element-text-decoration;
+@pagination-selected-text-decoration: none;
 
 @pagination-navigation-image: none;
 @pagination-navigation-width: 13px;
