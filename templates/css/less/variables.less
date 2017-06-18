@@ -114,9 +114,8 @@
 
 // Primary ULs and OLs
 @primary-list-margin: @paragraph-padding;
-@primary-list-element-list-style: square inside;
-@primary-list-element-margin: 0 0 5px 0;
-@primary-list-element-font: @font-size-base/@paragraph-line-height @font-family-base;
+@primary-list-element-list-style: disc inside;
+@primary-list-element-margin: 0 0 5px 10px;
 
 // Tables
 @table-cells-padding: 0 10px 10px 10px;
@@ -270,14 +269,14 @@
 @pagination-navigation-text-decoration: @pagination-element-text-decoration;
 
 // Lists
-@list-margin: 0 0 0 25px;
+@list-margin: 0;
 @list-font: @font-size-base/@line-height-base @font-family-base;
 @list-element-margin: @paragraph-padding;
 
 @list-hr-element-divider-position: bottom;
 @list-hr-element-divider: 1px solid @hr-color-base;
-@list-hr-element-padding: 0 0 10px 0;
-@list-hr-element-margin: 0 0 20px 0;
+@list-hr-element-padding: @list-element-margin;
+@list-hr-element-margin: @list-element-margin;
 
 // Popups
 @popup-zIndex: 1002;
