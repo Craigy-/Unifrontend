@@ -177,6 +177,10 @@
   .form-success select {
     .set-value(padding-left; (@form-statuses-padding - @input-padding) false);
   }
+  .form-error textarea,
+  .form-success textarea {
+    background-position: @input-padding (@input-padding * (unit(@paragraph-line-height) / 100));
+  }
   span.form-required,
   .form-required span {
     font: @form-required-font;
