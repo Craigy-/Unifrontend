@@ -1,5 +1,32 @@
 // Classes for manual use in html-files
 
+// Normalize text within container
+.text-container {
+  .set-value(margin; @paragraph-padding);
+  .font-size(@font-size-base; @paragraph-line-height);
+
+  p {
+    line-height: inherit;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  ul {
+    .primary-list;
+  }
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 // Font sizes
 .s {
   .for(8; 40); .-each(@i) {
@@ -59,6 +86,29 @@ a.none,
 // Other text classes
 .nobr {
   white-space: nowrap;
+}
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  .square(1 false);
+  .set-value(padding; 0; margin; -1);
+  white-space: nowrap;
+
+  &.focusable:active,
+  &.focusable:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    .square(auto);
+    margin: 0;
+    white-space: inherit;
+  }
 }
 
 // Images
@@ -220,31 +270,6 @@ a.none,
 .nofloat,
 .text-container {
   .clearfix;
-}
-.text-container {
-  .set-value(margin; @paragraph-padding);
-  .font-size(@font-size-base; @paragraph-line-height);
-
-  p {
-    line-height: inherit;
-
-    &:last-child {
-      padding-bottom: 0;
-    }
-  }
-  ul {
-    .primary-list;
-  }
-  ul,
-  ol {
-    &:last-child {
-      margin-bottom: 0;
-
-      li:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
 }
 .clear {
   clear: both;
