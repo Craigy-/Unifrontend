@@ -7,6 +7,12 @@ $(function () {
 
     GLOBAL.windowSize = [ww, wh];
 
+    // Prevent fixes if changed only window height
+    if ($(document.body).data('originalWW') && $(document.body).data('originalWW') == ww) {
+      return;
+    }
+    $(document.body).data('originalWW', ww);
+
     // Responsive menu
     // Required: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
     $('.mobile-menu-link').off('click.ht');
