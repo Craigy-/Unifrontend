@@ -88,23 +88,18 @@ a.none,
   white-space: nowrap;
 }
 .visuallyhidden {
-  position: absolute;
+  display: inline-block;
   overflow: hidden;
   border: 0;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   .square(1 false);
   .set-value(margin; -1 false);
   white-space: nowrap;
 
   &.focusable:active,
   &.focusable:focus {
-    position: static;
     overflow: visible;
-    clip: auto;
-    -webkit-clip-path: none;
-            clip-path: none;
+    clip-path: none;
     .square(auto);
     margin: 0;
     white-space: inherit;
