@@ -7,7 +7,7 @@
 // Built-in responsiveness
 & when (@isresponsive) {
   // Structure
-  @media only all and (max-width: 767px) {
+  @media only all and (max-width: (767px * @reduction-ratio)) {
     main {
       float: none;
       width: 100% !important;
@@ -33,7 +33,7 @@
       }
     }
   }
-  @media only all and (max-width: (@max-width-base - 1)) {
+  @media only all and (max-width: ((@max-width-base - 1) * @reduction-ratio)) {
     .wrapper {
       width: 100%;
       min-width: @min-width-base;
@@ -44,7 +44,7 @@
 
   // Constructions
   & when (@modal-width > 0) {
-    @media only all and (max-width: (@modal-width - 1)) {
+    @media only all and (max-width: ((@modal-width - 1) * @reduction-ratio)) {
       .modal {
         .border-radius(0);
         width: 100% !important;
@@ -52,7 +52,7 @@
       }
     }
   }
-  @media only all and (max-width: 767px) {
+  @media only all and (max-width: (767px * @reduction-ratio)) {
     .form {
       .form-title {
         float: none;
@@ -60,13 +60,13 @@
       }
       .form-field {
         float: none;
-        .set-value(width; 100%);
+        width: 100%;
       }
     }
   }
 
   // Classes
-  @media only all and (max-width: 767px) {
+  @media only all and (max-width: (767px * @reduction-ratio)) {
     .row-2,
     .row-3 {
       margin: 0 !important;
@@ -80,7 +80,7 @@
 
   // Helpers
   // Hidden/visible
-  @media only all and (max-width: 767px) {
+  @media only all and (max-width: (767px * @reduction-ratio)) {
     .hidden-768 {
       display: none !important;
     }
@@ -96,7 +96,7 @@
       }
     }
   }
-  @media only all and (max-width: 600px) {
+  @media only all and (max-width: (599px * @reduction-ratio)) {
     .hidden-600 {
       display: none !important;
     }
@@ -163,12 +163,12 @@
     }
   }
   .only-mobile {
-    @media only all and (min-width: 768px) {
+    @media only all and (min-width: (768px * @reduction-ratio)) {
       & {
         display: none !important;
       }
     }
-    @media only all and (max-width: 767px) {
+    @media only all and (max-width: (767px * @reduction-ratio)) {
       .isDesktop & {
         display: none !important;
       }
@@ -194,23 +194,23 @@ only screen and (                min-resolution: 2dppx) {
 
 // <@{max-width-base}px
 @media only all and (max-width: (@max-width-base - 1)) {
-  /*html {
-    font-size: (@font-size-base * .7);
-  }*/
+  html {
+    font-size: (@font-size-base * @reduction-ratio);
+  }
 }
 
 // <768px
-@media only all and (max-width: 767px) {
+@media only all and (max-width: (767px * @reduction-ratio)) {
 }
 
 // <=600px
-@media only all and (max-width: 600px) {
+@media only all and (max-width: (600px * @reduction-ratio)) {
 }
 
 // <=480px
-@media only all and (max-width: 480px) {
+@media only all and (max-width: (480px * @reduction-ratio)) {
 }
 
 // <=380px
-@media only all and (max-width: 380px) {
+@media only all and (max-width: (380px * @reduction-ratio)) {
 }
