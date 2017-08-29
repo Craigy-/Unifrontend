@@ -48,25 +48,42 @@
 }
 
 // Links
-a.hover,
+.hover,
 .hover a {
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-a.unhover,
-.unhover a {
-  text-decoration: underline;
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-a.none,
-.none a {
   text-decoration: none !important;
+
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+.unhover,
+.unhover a {
+  text-decoration: underline !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+.none,
+.none a {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+}
+.underline,
+.underline a {
+  border-bottom: 1px solid;
+  text-decoration: none !important;
+
+  .hover& {
+    border-bottom: 0;
+
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+  .unhover&:hover {
+    border-bottom: 0;
+  }
 }
 
 // Text aligns
