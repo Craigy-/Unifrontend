@@ -12,7 +12,7 @@
 "templates/css/less-compile-minified.bat": {"timestamp": 1437834475.54},
 "templates/css/less-compile.bat": {"timestamp": 1430839395.28},
 "templates/css/less-watch.bat": {"timestamp": 1437834468.96},
-"templates/css/less/_classes.less": {"timestamp": 1503861873.0},
+"templates/css/less/_classes.less": {"timestamp": 1504470647.0},
 "templates/css/less/_constructions.less": {"timestamp": 1497905683.0},
 "templates/css/less/_mixins.less": {"timestamp": 1501595078.0},
 "templates/css/less/_normalize.less": {"timestamp": 1500114369.0},
