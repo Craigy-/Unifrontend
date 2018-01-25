@@ -5,14 +5,14 @@
   "repository": "https://bitbucket.org/artwist/html-templates",
   "author": "Grigory Zarubin (http://craigy.ru)",
   "devDependencies": {
+    "chokidar": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
     "gulp-concat": "^2.6.1",
     "gulp-less": "^3.3.2",
     "gulp-less-reporter": "0.0.3",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-uglify": "^3.0.0",
-    "path": "^0.12.7"
+    "gulp-uglify": "^3.0.0"
   },
   "license": "(MIT OR GPL-3.0+)"
 }

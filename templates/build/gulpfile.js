@@ -10,8 +10,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    path = require('path'),
     concat = require('gulp-concat'),
+    chokidar = require('chokidar'),
     less = require('gulp-less'),
     lessReporter = require('gulp-less-reporter'),
     cleanCSS = require('gulp-clean-css'),
@@ -19,7 +19,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
 
 
-var rootPath = path.join(__dirname, '../');
+var rootPath = '../';
 
 
 // Compile LESS
@@ -50,7 +50,17 @@ gulp.task('less', function (done) {
 // Pack JS
 
 
+// Optimize images
+
+
+// Live reload
+
+
 // Watch and build for production
 gulp.task('watch', function () {
-  gulp.watch(rootPath + 'css/**/*.less', ['less']);
+  chokidar.watch('css/**/*.less', {
+    cwd: rootPath
+  }).on('all', function () {
+    gulp.start('less');
+  });
 });
