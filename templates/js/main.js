@@ -78,11 +78,17 @@ $(function () {
     });
 
     if (options.pagination && $carousel.jcarousel('items').length > options.scrollableItems) {
-      $('.jcarousel-pagination', container).on('jcarouselpagination:active', 'a', function () {
+      $('.jcarousel-pagination', container).on('click', function (e) {
+        e.preventDefault();
+      }).on('jcarouselpagination:active', 'a', function () {
         $(this).addClass('jcarousel-pagination-active');
       }).on('jcarouselpagination:inactive', 'a', function () {
         $(this).removeClass('jcarousel-pagination-active');
-      }).jcarouselPagination();
+      }).jcarouselPagination({
+        'item': function (page, carouselItems) {
+          return '<a href="">' + page + '</a>';
+        }
+      });
     }
 
     if (options.touchable) {
