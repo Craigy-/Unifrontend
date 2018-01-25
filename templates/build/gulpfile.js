@@ -11,6 +11,7 @@
 
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
+    plumber = require('gulp-plumber'),
     chokidar = require('chokidar'),
     less = require('gulp-less'),
     lessReporter = require('gulp-less-reporter'),
@@ -26,6 +27,7 @@ var rootPath = '../';
 gulp.task('less', function (done) {
   gulp
     .src(rootPath + 'css/less/_styles.less')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(less({
       // All calculations within brackets only

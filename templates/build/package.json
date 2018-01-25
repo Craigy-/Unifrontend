@@ -11,6 +11,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-less": "^3.3.2",
     "gulp-less-reporter": "0.0.3",
+    "gulp-plumber": "^1.2.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0"
   },
