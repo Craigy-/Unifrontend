@@ -11,14 +11,12 @@
 
 // Includes
 var gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    plumber = require('gulp-plumber'),
     chokidar = require('chokidar'),
-    less = require('gulp-less'),
-    lessReporter = require('gulp-less-reporter'),
-    cleanCSS = require('gulp-clean-css'),
-    sourcemaps = require('gulp-sourcemaps'),
-    uglify = require('gulp-uglify');
+    gp = require('gulp-load-plugins')({
+      rename: {
+        'gulp-clean-css': 'cleanCSS'
+      }
+    });
 
 // File paths
 var paths = {
@@ -53,13 +51,13 @@ gulp.task('less', function (done) {
     .src(paths.css.src, {
       cwd: paths.rootPath
     })
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(less({
+    .pipe(gp.plumber())
+    .pipe(gp.sourcemaps.init())
+    .pipe(gp.less({
       // All calculations within brackets only
       strictMath: 'on'
-    })).on('error', lessReporter)
-    .pipe(cleanCSS({
+    })).on('error', gp.lessReporter)
+    .pipe(gp.cleanCSS({
       // Reorganize different-selector different-rules rulesets
       level: {
         2: {
@@ -67,8 +65,8 @@ gulp.task('less', function (done) {
         }
       }
     }))
-    .pipe(concat(paths.css.result))
-    .pipe(sourcemaps.write('.'))
+    .pipe(gp.concat(paths.css.result))
+    .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
       done();
@@ -82,14 +80,14 @@ gulp.task('js', function (done) {
     .src(paths.js.src, {
       cwd: paths.rootPath
     })
-    .pipe(plumber())
-    .pipe(sourcemaps.init())
-    .pipe(concat(paths.js.result))
-    .pipe(uglify()
+    .pipe(gp.plumber())
+    .pipe(gp.sourcemaps.init())
+    .pipe(gp.concat(paths.js.result))
+    .pipe(gp.uglify()
       .on('error', function (error) {
         done(error);
       }))
-    .pipe(sourcemaps.write('.'))
+    .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
       done();
