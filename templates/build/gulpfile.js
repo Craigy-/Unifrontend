@@ -20,13 +20,37 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
 
 
-var rootPath = '../';
+var paths = {
+  rootPath: '../',
+
+  css: {
+    watch: 'css/**/*.less',
+    src: 'css/less/_styles.less',
+    dest: 'css',
+    result: 'styles.css'
+  },
+
+  js: {
+    watch: 'js/**/*.js',
+    src: [
+      'js/jquery.js',
+      'js/*/*.js',
+      'js/config.js',
+      'js/!(main|scripts)*.js',
+      'js/main.js'
+    ],
+    dest: 'js',
+    result: 'scripts.js'
+  }
+};
 
 
 // Compile LESS
 gulp.task('less', function (done) {
   gulp
-    .src(rootPath + 'css/less/_styles.less')
+    .src(paths.css.src, {
+      cwd: paths.rootPath
+    })
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(less({
@@ -41,9 +65,9 @@ gulp.task('less', function (done) {
         }
       }
     }))
-    .pipe(concat('styles.css'))
+    .pipe(concat(paths.css.result))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(rootPath + 'css'))
+    .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
       done();
     });
@@ -54,22 +78,18 @@ gulp.task('less', function (done) {
 gulp.task('js', function (done) {
   // Follow a certain order of files
   gulp
-    .src([
-      rootPath + 'js/jquery.js',
-      rootPath + 'js/*/*.js',
-      rootPath + 'js/config.js',
-      rootPath + 'js/!(main|scripts)*.js',
-      rootPath + 'js/main.js'
-    ])
+    .src(paths.js.src, {
+      cwd: paths.rootPath
+    })
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(concat('scripts.js'))
+    .pipe(concat(paths.js.result))
     .pipe(uglify()
       .on('error', function (error) {
         done(error);
       }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(rootPath + 'js'))
+    .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
       done();
     });
@@ -92,6 +112,6 @@ gulp.task('watch', function () {
     });
   }
 
-  watcher('css/**/*.less', 'less');
-  watcher('js/**/*.js', 'js');
+  watcher(paths.css.watch, 'less');
+  watcher(paths.js.watch, 'js');
 });
