@@ -46,7 +46,7 @@
   & when (@modal-width > 0) {
     @media only all and (max-width: ((@modal-width - 1) * @reduction-ratio)) {
       .modal {
-        .border-radius(0);
+        border-radius: 0;
         width: 100% !important;
         margin: 0;
       }
@@ -180,12 +180,9 @@
 // Responsive rules for...
 // Retina
 @media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1),
-only screen and (        min-device-pixel-ratio: 2),
-only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) {
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
 }
 
 // >=@{max-width-base}px

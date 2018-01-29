@@ -109,27 +109,24 @@
 
 // Forms
 .form { // apply to <form>
-  .box-sizing(border-box);
+  box-sizing: border-box;
   background: @form-background;
   border: @form-border;
-  .border-radius(@form-border-radius);
-  .box-shadow(@form-box-shadow);
-  .set-value(width; @form-width; padding; @form-padding; margin; @form-margin);
+  box-shadow: @form-box-shadow;
+  .set-value(border-radius; @form-border-radius; width; @form-width; padding; @form-padding; margin; @form-margin);
 
   .form-header {
     display: @form-header-display;
     background: @form-header-background;
     border: @form-header-border;
-    .border-radius(@form-header-border-radius);
-    .set-value(padding; @form-header-padding; font; @form-header-font);
+    .set-value(border-radius; @form-header-border-radius; padding; @form-header-padding; font; @form-header-font);
     color: @form-header-color;
     text-align: @form-header-text-align;
   }
   .form-body {
     background: @form-body-background;
     border: @form-body-border;
-    .border-radius(@form-body-border-radius);
-    .set-value(padding; @form-body-padding);
+    .set-value(border-radius; @form-body-border-radius; padding; @form-body-padding);
   }
   .form-title {
     display: block;
@@ -222,12 +219,11 @@
 }
 .form-error-message,
 .form-success-message {
-  .box-sizing(border-box);
+  box-sizing: border-box;
   position: relative;
   background-position: @form-messages-background-position !important;
-  .border-radius(@form-messages-border-radius);
-  .box-shadow(@form-messages-box-shadow);
-  .set-value(padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
+  box-shadow: @form-messages-box-shadow;
+  .set-value(border-radius; @form-messages-border-radius; padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
 
   .form-field & {
     .set-value(top; -1; margin; 0);
@@ -341,39 +337,35 @@ table {
   z-index: @popup-zIndex;
   background: @popup-background;
   border: @popup-border;
-  .border-radius(@popup-border-radius);
-  .box-shadow(@popup-box-shadow);
-  .size(@popup-width false; @popup-height false);
+  box-shadow: @popup-box-shadow;
+  .set-value(border-radius; @popup-border-radius; width; @popup-width false; height; @popup-height false);
   text-align: left;
   white-space: normal;
 
   .popup-header,
   .popup-body,
   .popup-footer {
-    .box-sizing(border-box);
+    box-sizing: border-box;
     width: 100%;
   }
   .popup-header {
     background: @popup-header-background;
     border: @popup-header-border;
-    .border-radius(@popup-header-border-radius);
-    .set-value(height; @popup-header-height false; padding; @popup-header-padding; font; @popup-header-font);
+    .set-value(border-radius; @popup-header-border-radius; height; @popup-header-height false; padding; @popup-header-padding; font; @popup-header-font);
     color: @popup-header-color;
     text-align: @popup-header-text-align;
   }
   .popup-body {
     background: @popup-body-background;
     border: @popup-body-border;
-    .border-radius(@popup-body-border-radius);
-    .set-value(height; @popup-body-height false; padding; @popup-body-padding; font; @popup-body-font);
+    .set-value(border-radius; @popup-body-border-radius; height; @popup-body-height false; padding; @popup-body-padding; font; @popup-body-font);
     color: @popup-body-color;
     text-align: @popup-body-text-align;
   }
   .popup-footer {
     background: @popup-footer-background;
     border: @popup-footer-border;
-    .border-radius(@popup-footer-border-radius);
-    .set-value(height; @popup-footer-height false; padding; @popup-footer-padding; font; @popup-footer-font);
+    .set-value(border-radius; @popup-footer-border-radius; height; @popup-footer-height false; padding; @popup-footer-padding; font; @popup-footer-font);
     color: @popup-footer-color;
     text-align: @popup-footer-text-align;
   }

@@ -84,7 +84,7 @@ a {
   color: @link-color;
   text-decoration: @link-text-decoration;
   -webkit-text-decoration-skip: objects;
-  .transition(~'color .3s, border .3s, background-color .3s');
+  transition: color .3s, border .3s, background-color .3s;
 
   &:hover when not (@link-color-hover = @link-color) {
     color: @link-color-hover;
@@ -208,6 +208,7 @@ h6,
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
+  /* autoprefixer: off */
   text-decoration: underline dotted;
 }
 code,
@@ -221,12 +222,14 @@ dfn {
   font-style: italic;
 }
 hr {
+  /* autoprefixer: off */
   box-sizing: content-box;
   border: 0;
   height: 0;
   overflow: visible;
 }
 legend {
+  /* autoprefixer: off */
   box-sizing: border-box;
   display: table;
   max-width: 100%;
@@ -289,6 +292,7 @@ button:-moz-focusring,
 }
 [type="checkbox"],
 [type="radio"] {
+  /* autoprefixer: off */
   box-sizing: border-box;
 }
 [type="number"]::-webkit-inner-spin-button,
@@ -310,12 +314,11 @@ button:-moz-focusring,
 .input,
 select,
 textarea {
-  .box-sizing(border-box);
+  box-sizing: border-box;
   background: @input-background;
   border: @input-border;
-  .border-radius(@input-border-radius);
-  .box-shadow(@input-box-shadow);
-  .set-value(height; @input-height; padding-left; @input-padding; padding-right; @input-padding);
+  box-shadow: @input-box-shadow;
+  .set-value(border-radius; @input-border-radius; height; @input-height; padding-left; @input-padding; padding-right; @input-padding);
   font-family: @input-font-family;
   .set-value(font-size; @input-font-size);
   font-weight: @input-font-weight;
@@ -323,7 +326,7 @@ textarea {
   color: @input-color-text;
   text-shadow: @input-text-shadow;
   .placeholder;
-  .transition(~'border .3s, background .3s');
+  transition: border .3s, background .3s;
 
   &:focus {
     border-color: @input-border-color-focus !important;
