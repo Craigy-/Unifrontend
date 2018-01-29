@@ -38,7 +38,7 @@ header {
 }
 aside,
 main {
-  .box-sizing(border-box);
+  box-sizing: border-box;
   float: left;
 }
 aside#left {
@@ -96,7 +96,7 @@ footer {
 }
 
 .wrapper {
-  .box-sizing(border-box);
+  box-sizing: border-box;
   .set-value(padding; @wrapper-padding; margin; 0 auto);
 
   & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
