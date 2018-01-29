@@ -9,6 +9,7 @@
 
 'use strict';
 
+// Includes
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     plumber = require('gulp-plumber'),
@@ -19,7 +20,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify');
 
-
+// File paths
 var paths = {
   rootPath: '../',
 
@@ -32,6 +33,7 @@ var paths = {
 
   js: {
     watch: 'js/**/*.js',
+    // Follow a certain order of files
     src: [
       'js/jquery.js',
       'js/*/*.js',
@@ -76,7 +78,6 @@ gulp.task('less', function (done) {
 
 // Pack JS
 gulp.task('js', function (done) {
-  // Follow a certain order of files
   gulp
     .src(paths.js.src, {
       cwd: paths.rootPath
