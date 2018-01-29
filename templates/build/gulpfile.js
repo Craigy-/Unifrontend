@@ -84,14 +84,14 @@ gulp.task('js', function (done) {
 
 // Watch and build for production
 gulp.task('watch', function () {
-  chokidar.watch('css/**/*.less', {
-    cwd: rootPath
-  }).on('all', function () {
-    gulp.start('less');
-  });
-  chokidar.watch('js/**/*.js', {
-    cwd: rootPath
-  }).on('all', function () {
-    gulp.start('js');
-  });
+  function watcher(pathToWatch, task) {
+    chokidar.watch(pathToWatch, {
+      cwd: paths.rootPath
+    }).on('all', function () {
+      gulp.start(task);
+    });
+  }
+
+  watcher('css/**/*.less', 'less');
+  watcher('js/**/*.js', 'js');
 });
