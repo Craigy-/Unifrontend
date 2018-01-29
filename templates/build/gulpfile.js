@@ -57,6 +57,7 @@ gulp.task('less', function (done) {
       // All calculations within brackets only
       strictMath: 'on'
     })).on('error', gp.lessReporter)
+    .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
       // Reorganize different-selector different-rules rulesets
       level: {
@@ -101,7 +102,7 @@ gulp.task('js', function (done) {
 // Live reload
 
 
-// Watch and build for production
+// Tasks
 gulp.task('watch', function () {
   function watcher(pathToWatch, task) {
     chokidar.watch(pathToWatch, {

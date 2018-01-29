@@ -73,7 +73,7 @@
 .underline a {
   border-bottom: 1px solid;
   text-decoration: none !important;
-  .transition(border .3s);
+  transition: border .3s;
 
   .hover& {
     border-bottom: 0;
@@ -110,8 +110,7 @@
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   .square(1 false);
   .set-value(margin; -1 false);
   white-space: nowrap;
@@ -121,8 +120,7 @@
     position: static;
     overflow: visible;
     clip: auto;
-    -webkit-clip-path: none;
-            clip-path: none;
+    clip-path: none;
     .square(auto);
     margin: 0;
     white-space: inherit;
@@ -137,7 +135,7 @@
   .set-value(border; @image-bordered-border; padding; @image-bordered-padding);
 }
 .image-circle {
-  .border-radius(50%);
+  border-radius: 50%;
 }
 
 // Embeds
