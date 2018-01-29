@@ -50,6 +50,29 @@ gulp.task('less', function (done) {
 
 
 // Pack JS
+gulp.task('js', function (done) {
+  // Follow a certain order of files
+  gulp
+    .src([
+      rootPath + 'js/jquery.js',
+      rootPath + 'js/*/*.js',
+      rootPath + 'js/config.js',
+      rootPath + 'js/!(main|scripts)*.js',
+      rootPath + 'js/main.js'
+    ])
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(concat('scripts.js'))
+    .pipe(uglify()
+      .on('error', function (error) {
+        done(error);
+      }))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(rootPath + 'js'))
+    .on('end', function () {
+      done();
+    });
+});
 
 
 // Optimize images
@@ -64,5 +87,10 @@ gulp.task('watch', function () {
     cwd: rootPath
   }).on('all', function () {
     gulp.start('less');
+  });
+  chokidar.watch('js/**/*.js', {
+    cwd: rootPath
+  }).on('all', function () {
+    gulp.start('js');
   });
 });
