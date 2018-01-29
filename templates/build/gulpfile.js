@@ -1,5 +1,5 @@
 /*!
- * HTML5 Templates
+ * HTML Templates
  * CSS Adaptive Framework and HTML5 Basic Templates
  *
  * Dual licensed under the MIT or GPL licenses:
@@ -34,6 +34,7 @@ gulp.task('less', function (done) {
       strictMath: 'on'
     })).on('error', lessReporter)
     .pipe(cleanCSS({
+      // Reorganize different-selector different-rules rulesets
       level: {
         2: {
           restructureRules: true
