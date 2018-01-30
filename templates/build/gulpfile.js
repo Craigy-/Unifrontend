@@ -12,13 +12,13 @@
 // Includes
 var gulp = require('gulp'),
     watch = require('gulp-chokidar')(gulp),
-    browserSync = require('browser-sync'),
-    bsReload = browserSync.reload,
     cache = require('gulp-cache'),
-    imagemin = require('gulp-imagemin'),
-    jpegoptim = require('imagemin-jpegoptim'),
-    pngquant = require('imagemin-pngquant'),
     gp = require('gulp-load-plugins')({
+      overridePattern: false,
+      pattern: [
+        'browser-*',
+        'imagemin-*',
+      ],
       rename: {
         'gulp-clean-css': 'cleanCSS'
       }
@@ -85,7 +85,7 @@ gulp.task('less', function (done) {
     .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
-      bsReload();
+      gp.browserSync.reload();
       done();
     });
 });
@@ -107,7 +107,7 @@ gulp.task('js', function (done) {
     .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
-      bsReload();
+      gp.browserSync.reload();
       done();
     });
 });
@@ -116,7 +116,7 @@ gulp.task('js', function (done) {
 // Tasks
 // Live reload init
 gulp.task('bs', function () {
-  browserSync({
+  gp.browserSync({
     notify: false,
     server: {
       baseDir: paths.rootPath,
@@ -130,22 +130,22 @@ gulp.task('imagemin', function () {
   return gulp.src(paths.images.src, {
     cwd: paths.rootPath
     })
-    .pipe(cache(imagemin([
-      imagemin.gifsicle({
+    .pipe(cache(gp.imagemin([
+      gp.imagemin.gifsicle({
         interlaced: true
       }),
-      imagemin.svgo({
+      gp.imagemin.svgo({
         plugins: [{
           removeViewBox: false
         }]
       })], {
         use: [
-          jpegoptim({
+          gp.imageminJpegoptim({
             progressive: true,
             max: 85,
             stripAll: true
           }),
-          pngquant({
+          gp.imageminPngquant({
             quality: '65-80',
             speed: 5
           })
@@ -169,5 +169,5 @@ gulp.task('watch', ['bs', 'less', 'js'], function () {
   }, 'js');
   watch(paths.html.watch, {
     cwd: paths.rootPath
-  }).on('change', bsReload);
+  }).on('change', gp.browserSync.reload);
 });
