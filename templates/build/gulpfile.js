@@ -14,6 +14,10 @@ var gulp = require('gulp'),
     watch = require('gulp-chokidar')(gulp),
     browserSync = require('browser-sync'),
     bsReload = browserSync.reload,
+    cache = require('gulp-cache'),
+    imagemin = require('gulp-imagemin'),
+    jpegoptim = require('imagemin-jpegoptim'),
+    pngquant = require('imagemin-pngquant'),
     gp = require('gulp-load-plugins')({
       rename: {
         'gulp-clean-css': 'cleanCSS'
@@ -43,6 +47,11 @@ var paths = {
     ],
     dest: 'js',
     result: 'scripts.js'
+  },
+
+  images: {
+    src: 'images/**/*',
+    dest: 'images'
   },
 
   html: {
@@ -104,10 +113,8 @@ gulp.task('js', function (done) {
 });
 
 
-// Optimize images
-
-
 // Tasks
+// Live reload init
 gulp.task('bs', function () {
   browserSync({
     notify: false,
@@ -118,6 +125,41 @@ gulp.task('bs', function () {
   });
 });
 
+// Optimize images
+gulp.task('imagemin', function () {
+  return gulp.src(paths.images.src, {
+    cwd: paths.rootPath
+    })
+    .pipe(cache(imagemin([
+      imagemin.gifsicle({
+        interlaced: true
+      }),
+      imagemin.svgo({
+        plugins: [{
+          removeViewBox: false
+        }]
+      })], {
+        use: [
+          jpegoptim({
+            progressive: true,
+            max: 85,
+            stripAll: true
+          }),
+          pngquant({
+            quality: '65-80',
+            speed: 5
+          })
+        ]
+      })))
+    .pipe(gulp.dest(paths.rootPath + paths.images.dest));
+});
+
+// Clear cache
+gulp.task('clear', function () {
+  return cache.clearAll();
+})
+
+// Watchers
 gulp.task('watch', ['bs', 'less', 'js'], function () {
   watch(paths.css.watch, {
     cwd: paths.rootPath
