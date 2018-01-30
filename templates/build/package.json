@@ -8,15 +8,19 @@
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
+    "gulp-cache": "^1.0.2",
     "gulp-chokidar": "0.0.5",
     "gulp-clean-css": "^3.7.0",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^4.1.0",
     "gulp-less": "^3.3.2",
     "gulp-less-reporter": "0.0.3",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-sourcemaps": "^2.6.1",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "imagemin-jpegoptim": "^5.2.0",
+    "imagemin-pngquant": "^5.0.1"
   },
   "browserslist": [
     "last 5 versions",
