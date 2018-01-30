@@ -5,6 +5,7 @@
   "repository": "https://bitbucket.org/artwist/html-templates",
   "author": "Grigory Zarubin (http://craigy.ru)",
   "devDependencies": {
+    "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-chokidar": "0.0.5",
