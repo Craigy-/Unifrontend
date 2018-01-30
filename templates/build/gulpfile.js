@@ -12,6 +12,8 @@
 // Includes
 var gulp = require('gulp'),
     watch = require('gulp-chokidar')(gulp),
+    browserSync = require('browser-sync'),
+    bsReload = browserSync.reload,
     gp = require('gulp-load-plugins')({
       rename: {
         'gulp-clean-css': 'cleanCSS'
@@ -41,6 +43,10 @@ var paths = {
     ],
     dest: 'js',
     result: 'scripts.js'
+  },
+
+  html: {
+    watch: '*.htm*'
   }
 };
 
@@ -70,6 +76,7 @@ gulp.task('less', function (done) {
     .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
+      bsReload();
       done();
     });
 });
@@ -91,6 +98,7 @@ gulp.task('js', function (done) {
     .pipe(gp.sourcemaps.write('.'))
     .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
+      bsReload();
       done();
     });
 });
@@ -100,11 +108,24 @@ gulp.task('js', function (done) {
 
 
 // Tasks
-gulp.task('watch', ['less', 'js'], function () {
+gulp.task('bs', function () {
+  browserSync({
+    notify: false,
+    server: {
+      baseDir: paths.rootPath,
+      index: 'index.htm'
+    }
+  });
+});
+
+gulp.task('watch', ['bs', 'less', 'js'], function () {
   watch(paths.css.watch, {
     cwd: paths.rootPath
   }, 'less');
   watch(paths.js.watch, {
     cwd: paths.rootPath
   }, 'js');
+  watch(paths.html.watch, {
+    cwd: paths.rootPath
+  }).on('change', bsReload);
 });
