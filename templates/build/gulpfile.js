@@ -11,7 +11,7 @@
 
 // Includes
 var gulp = require('gulp'),
-    chokidar = require('chokidar'),
+    watch = require('gulp-chokidar')(gulp),
     gp = require('gulp-load-plugins')({
       rename: {
         'gulp-clean-css': 'cleanCSS'
@@ -99,19 +99,12 @@ gulp.task('js', function (done) {
 // Optimize images
 
 
-// Live reload
-
-
 // Tasks
-gulp.task('watch', function () {
-  function watcher(pathToWatch, task) {
-    chokidar.watch(pathToWatch, {
-      cwd: paths.rootPath
-    }).on('all', function () {
-      gulp.start(task);
-    });
-  }
-
-  watcher(paths.css.watch, 'less');
-  watcher(paths.js.watch, 'js');
+gulp.task('watch', ['less', 'js'], function () {
+  watch(paths.css.watch, {
+    cwd: paths.rootPath
+  }, 'less');
+  watch(paths.js.watch, {
+    cwd: paths.rootPath
+  }, 'js');
 });
