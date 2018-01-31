@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="viewport" content="width=device-width" />
+<!--meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" /-->
+<link rel="stylesheet" href="css/styles.css" />
+<script data-pack="None">
+//<![CDATA[
+window.GLOBAL = {};
+GLOBAL.isTouchscreen = false;
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+  GLOBAL.isTouchscreen = true;
+}
+
+GLOBAL.$queue = [];
+window.$ = function (f) {
+  GLOBAL.$queue.push(f);
+};
+//]]>
+</script>
+</head>
+
+<body>
+
+<div id="structure">
+  <header>
+    <div class="wrapper">
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrapper">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="content">
+    <div class="wrapper">
+      <aside id="left">
+      </aside>
+
+      <main>
+
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
+          <span class="breadcrumbs-separator">/</span>
+          <a href="galleries-list.htm">Галереи</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span>Встреча на природе</span>
+        </div>
+
+        <section class="galleries-page">
+          <h1>Встреча на природе</h1>
+
+          <div class="text-container">
+            <p>Встреча, где была ещё одна возможность отдохнуть в&nbsp;компании друзей с&nbsp;Икара на&nbsp;природе с&nbsp;шашлыками, спиртными напитками и&nbsp;песнями под гитару.</p>
+          </div>
+
+          <div class="galleries-foto">
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+            <div class="galleries-foto-item"><a href=""><img src="temp/foto.jpg" alt="" /></a></div>
+          </div>
+
+          <hr class="hr1" />
+
+          <ul class="primary-list">
+            <li><a href="galleries-list.htm">Все галереи</a></li>
+          </ul>
+        </section>
+
+      </main>
+
+      <aside id="right">
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrapper">
+    <div class="footer-counters">
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+    </div>
+    <div class="footer-copyright">
+      &copy;&nbsp;2017. My company.
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+<script data-pack="None">
+//<![CDATA[
+$(function () {
+  $('html').removeClass('no-js').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
+});
+$.each(GLOBAL.$queue, function (index, callback) {
+  $(callback);
+});
+delete GLOBAL.$queue;
+//]]>
+</script>
+
+</body>
+</html>

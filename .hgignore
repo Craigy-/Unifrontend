@@ -1,4 +1,5 @@
 syntax: glob
 
+node_modules
 templates/js/plugins
 utilities/files

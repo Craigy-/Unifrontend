@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="viewport" content="width=device-width" />
+<!--meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" /-->
+<link rel="stylesheet" href="css/styles.css" />
+<script data-pack="None">
+//<![CDATA[
+window.GLOBAL = {};
+GLOBAL.isTouchscreen = false;
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+  GLOBAL.isTouchscreen = true;
+}
+
+GLOBAL.$queue = [];
+window.$ = function (f) {
+  GLOBAL.$queue.push(f);
+};
+//]]>
+</script>
+</head>
+
+<body>
+
+<div id="structure">
+  <header>
+    <div class="wrapper">
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrapper">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="content">
+    <div class="wrapper">
+      <aside id="left">
+      </aside>
+
+      <main>
+
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span>Контакты</span>
+        </div>
+
+        <section class="contacts-page">
+          <h1>Контакты</h1>
+
+          <div class="text-container">
+            <p>Время работы с&nbsp;<b>10-00</b> до&nbsp;<b>18-00</b>.<br />Выходные&nbsp;&mdash; <b>суббота, воскресенье</b>.</p>
+          </div>
+
+          <div class="nofloat">
+            <div class="contacts-map"><a href="temp/map.gif"><img src="temp/map.gif" alt="" /></a></div>
+
+            <div class="float-none">
+              <div class="contacts-title">Наименование организации:</div>
+              <p class="contacts-value">МЦ&nbsp;ООО &laquo;ДОКТОР 2000&raquo;</p>
+
+              <div class="contacts-title">Адрес:</div>
+              <p class="contacts-value">1111024, г. Москва, 2-я Кабельная улица, д.&nbsp;15<br />Цокольный этаж, ст. метро &laquo;Авиамоторная&raquo;</p>
+
+              <div class="contacts-title">Телефоны, факсы:</div>
+              <div class="contacts-value contacts-several-values">
+                <p><b>(495) 632-55-88</b>&nbsp;&mdash; многоканальный</p>
+                <p><b>(495) 632-55-89</b></p>
+              </div>
+
+              <div class="contacts-title">URL-адрес:</div>
+              <p class="contacts-value"><a href="http://www.doctor2000.ru/">http://www.doctor2000.ru/</a></p>
+
+              <div class="contacts-title">ICQ:</div>
+              <div class="contacts-value contacts-several-values">
+                <p><img src="images/icq.gif" alt="" /> <a href="http://wwp.icq.com/scripts/contact.dll?msgto=46444569">46-444-569</a></p>
+                <p><img src="images/icq.gif" alt="" /> <a href="http://wwp.icq.com/scripts/contact.dll?msgto=648355492">648-355-492</a></p>
+              </div>
+
+              <div class="contacts-title">E-mail:</div>
+              <p class="contacts-value"><a href="mailto:info@doctor2000.ru">info@doctor2000.ru</a></p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside id="right">
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrapper">
+    <div class="footer-counters">
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+    </div>
+    <div class="footer-copyright">
+      &copy;&nbsp;2017. My company.
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+<script data-pack="None">
+//<![CDATA[
+$(function () {
+  $('html').removeClass('no-js').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
+});
+$.each(GLOBAL.$queue, function (index, callback) {
+  $(callback);
+});
+delete GLOBAL.$queue;
+//]]>
+</script>
+
+</body>
+</html>

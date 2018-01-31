@@ -1,0 +1,102 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="viewport" content="width=device-width" />
+<!--meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" /-->
+<link rel="stylesheet" href="css/styles.css" />
+<script data-pack="None">
+//<![CDATA[
+window.GLOBAL = {};
+GLOBAL.isTouchscreen = false;
+if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+  GLOBAL.isTouchscreen = true;
+}
+
+GLOBAL.$queue = [];
+window.$ = function (f) {
+  GLOBAL.$queue.push(f);
+};
+//]]>
+</script>
+</head>
+
+<body>
+
+<div id="structure">
+  <header>
+    <div class="wrapper">
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrapper">
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="content">
+    <div class="wrapper">
+      <aside id="left">
+      </aside>
+
+      <main>
+
+        <div class="breadcrumbs">
+          <a href="/">Главная</a>
+          <span class="breadcrumbs-separator">/</span>
+          <span>Ошибка 404</span>
+        </div>
+
+        <section class="error-page">
+          <h1>Страница не найдена</h1>
+
+          <div class="text-container">
+            <p class="red"><b>Извините, но&nbsp;запрошенная вами страница не&nbsp;найдена.</b></p>
+            <p>Возможно она была удалена с&nbsp;сервера или вообще никогда не&nbsp;существовала.<br />Возможно вы&nbsp;ошиблись при вводе адреса страницы.</p>
+            <p>Мы&nbsp;рекомендуем вам воспользоваться <a href="map.htm">картой сайта</a> или начать посещение сайта с&nbsp;<a href="/">главной страницы</a>.</p>
+          </div>
+        </section>
+
+      </main>
+
+      <aside id="right">
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrapper">
+    <div class="footer-counters">
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+      <img src="images/hotlog.gif" alt="" />
+    </div>
+    <div class="footer-copyright">
+      &copy;&nbsp;2017. My company.
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+<script data-pack="None">
+//<![CDATA[
+$(function () {
+  $('html').removeClass('no-js').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
+});
+$.each(GLOBAL.$queue, function (index, callback) {
+  $(callback);
+});
+delete GLOBAL.$queue;
+//]]>
+</script>
+
+</body>
+</html>
