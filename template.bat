@@ -1,8 +1,8 @@
 @echo off
 
 if "%1" EQU "" goto error
-xcopy "templates" "%~1" /i /s /e /y /exclude:exclude.txt
-copy "templates\index.htm" "%~1" /y
+xcopy "app" "%~1" /i /s /e /y /exclude:exclude.txt
+copy "app\index.htm" "%~1" /y
 exit
 
 :error
