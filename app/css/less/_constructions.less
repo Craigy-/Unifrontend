@@ -1,0 +1,386 @@
+// Built-in constructions
+
+// Breadcrumbs
+.breadcrumbs {
+  .set-value(margin; @breadcrumbs-margin);
+  line-height: 0;
+  letter-spacing: -1px;
+
+  a,
+  span {
+    display: inline-block;
+    .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
+    color: @breadcrumbs-element-color;
+    letter-spacing: normal;
+    text-decoration: @breadcrumbs-element-text-decoration;
+  }
+  a:hover {
+    text-decoration: @breadcrumbs-element-text-decoration-hover;
+  }
+  span {
+    .set-value(padding; @breadcrumbs-active-padding; font; @breadcrumbs-active-font);
+    color: @breadcrumbs-active-color;
+    text-decoration: none !important;
+
+    &.breadcrumbs-separator {
+      .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
+      color: @breadcrumbs-separator-color;
+    }
+  }
+  img {
+    vertical-align: baseline;
+  }
+}
+
+// Pagination
+.pagination {
+  .set-value(margin; @pagination-margin);
+
+  ul {
+    overflow: hidden;
+
+    > li {
+      float: left;
+      .set-value(padding; @pagination-element-padding);
+      list-style: none;
+
+      * {
+        display: block;
+        .set-value(font; @pagination-element-font);
+        color: @pagination-element-color;
+        text-decoration: @pagination-element-text-decoration;
+
+        &:hover {
+          text-decoration: @pagination-element-text-decoration-hover;
+        }
+      }
+      &.page-selected {
+        .set-value(padding; @pagination-selected-padding);
+
+        * {
+          .set-value(font; @pagination-selected-font);
+          color: @pagination-selected-color;
+
+          & when not (@pagination-selected-text-decoration = @pagination-element-text-decoration) {
+            text-decoration: @pagination-selected-text-decoration !important;
+          }
+        }
+      }
+      &.page-backward,
+      &.page-forward {
+        .set-value(padding; @pagination-navigation-padding);
+
+        * {
+          .set-value(font; @pagination-navigation-font);
+          color: @pagination-navigation-color;
+
+          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
+            text-decoration: @pagination-navigation-text-decoration !important;
+          }
+          & when not (@pagination-navigation-image = none) {
+            background-image: @pagination-navigation-image;
+            background-repeat: no-repeat;
+            .size(@pagination-navigation-width false; @pagination-navigation-height false);
+            .text-hide;
+          }
+        }
+      }
+      &.page-backward when not (@pagination-navigation-image = none) {
+        * {
+          background-position: 0 0;
+
+          &:hover {
+            .set-value(background-position; 0 -@pagination-navigation-height);
+          }
+        }
+      }
+      &.page-forward when not (@pagination-navigation-image = none) {
+        * {
+          .set-value(background-position; -@pagination-navigation-width 0);
+
+          &:hover {
+            .set-value(background-position; -@pagination-navigation-width -@pagination-navigation-height);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Forms
+.form { // apply to <form>
+  box-sizing: border-box;
+  background: @form-background;
+  border: @form-border;
+  box-shadow: @form-box-shadow;
+  .set-value(border-radius; @form-border-radius; width; @form-width; padding; @form-padding; margin; @form-margin);
+
+  .form-header {
+    display: @form-header-display;
+    background: @form-header-background;
+    border: @form-header-border;
+    .set-value(border-radius; @form-header-border-radius; padding; @form-header-padding; font; @form-header-font);
+    color: @form-header-color;
+    text-align: @form-header-text-align;
+  }
+  .form-body {
+    background: @form-body-background;
+    border: @form-body-border;
+    .set-value(border-radius; @form-body-border-radius; padding; @form-body-padding);
+  }
+  .form-title {
+    display: block;
+    float: left;
+    .set-value(width; @form-title-width; padding; @form-title-padding; font; @form-title-font);
+    color: @form-title-color;
+    text-transform: @form-title-text-transform;
+    text-align: @form-title-text-align;
+  }
+  .form-field {
+    float: left;
+    .set-value(width; @form-field-width; padding; @form-field-padding);
+  }
+  .input,
+  select,
+  textarea {
+    width: 100%;
+  }
+  .form-error .input,
+  .form-error select,
+  .form-error textarea {
+    background: @form-error-background @form-error-background-color;
+    border-color: @form-error-border-color;
+    .set-value(padding-left; @form-statuses-padding false; padding-right; @input-padding);
+    color: @form-error-color-text;
+    .placeholder(@form-error-color-text);
+
+    &:focus {
+      background-color: lighten(@form-error-background-color, 5%);
+    }
+  }
+  .form-success .input,
+  .form-success select,
+  .form-success textarea {
+    background: @form-success-background @form-success-background-color;
+    border-color: @form-success-border-color;
+    .set-value(padding-left; @form-statuses-padding false; padding-right; @input-padding);
+    color: @form-success-color-text;
+
+    &:focus {
+      background-color: lighten(@form-success-background-color, 5%);
+    }
+  }
+  .form-error select,
+  .form-success select {
+    .set-value(padding-left; (@form-statuses-padding - @input-padding) false);
+  }
+  .form-error textarea,
+  .form-success textarea {
+    background-position: @input-padding (@input-padding * (unit(@paragraph-line-height) / 100));
+  }
+  span.form-required,
+  .form-required span {
+    font: @form-required-font;
+    color: @form-required-color;
+  }
+}
+.form-size-full {
+  width: 100% !important;
+}
+.form-size-three-quarter {
+  width: 75% !important;
+}
+.form-size-two-thirds {
+  width: 66% !important;
+}
+.form-size-half {
+  width: 48% !important;
+}
+.form-size-third {
+  width: 32% !important;
+}
+.form-size-quarter {
+  width: 24% !important;
+}
+.form-size-auto {
+  width: auto !important;
+}
+.form-separator {
+  display: inline-block;
+  width: 4%;
+  text-align: center;
+}
+.form-hint {
+  .set-value(padding; @form-hint-padding; font; @form-hint-font);
+}
+.form-submit {
+  .set-value(padding; @form-submit-padding);
+  text-align: @form-submit-text-align;
+}
+.form-error-message,
+.form-success-message {
+  box-sizing: border-box;
+  position: relative;
+  background-position: @form-messages-background-position !important;
+  box-shadow: @form-messages-box-shadow;
+  .set-value(border-radius; @form-messages-border-radius; padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
+
+  .form-field & {
+    .set-value(top; -1; margin; 0);
+  }
+}
+.form-error-message {
+  background: @form-messages-error-background;
+  border: @form-messages-error-border;
+  color: @form-messages-error-color-text;
+}
+.form-success-message {
+  background: @form-messages-success-background;
+  border: @form-messages-success-border;
+  color: @form-messages-success-color-text;
+}
+
+// Lists
+.list,
+.list-hr { // apply to <ul> or <ol>
+  .set-value(margin; @list-margin);
+  font: @list-font;
+
+  li {
+    .set-value(margin; @list-element-margin);
+    list-style: none;
+
+    &.list-element-last {
+      .padding-bottom(0);
+      .margin-bottom(0);
+    }
+
+    p:last-child {
+      padding: 0;
+    }
+  }
+}
+.list-hr {
+  li {
+    .set-value(padding; @list-hr-element-padding; margin; @list-hr-element-margin);
+
+    & when (@list-hr-element-divider-position = top) {
+      border-top: @list-hr-element-divider;
+    }
+    & when (@list-hr-element-divider-position = bottom) {
+      border-bottom: @list-hr-element-divider;
+    }
+
+    &.list-element-last {
+      border: 0;
+    }
+  }
+}
+
+// Tables
+table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  .set-value(font; @table-font);
+
+  th,
+  td {
+    .set-value(padding; @table-cells-padding);
+
+    p:last-child {
+      padding: 0;
+    }
+  }
+  th {
+    .set-value(font; @table-th-font);
+    color: @table-th-color;
+    text-align: @table-th-text-align;
+  }
+}
+.table-bordered {
+  border-top: @table-bordered-border;
+  border-left: @table-bordered-border;
+  .set-value(font; @table-bordered-font);
+  color: @table-bordered-text-color;
+
+  th,
+  td {
+    border-right: @table-bordered-border;
+    border-bottom: @table-bordered-border;
+    .set-value(padding; @table-bordered-cells-padding);
+  }
+  th,
+  thead td {
+    background: @table-bordered-th-background;
+    .set-value(padding; @table-bordered-th-padding; font; @table-bordered-th-font);
+    color: @table-bordered-th-text-color;
+    text-align: @table-bordered-th-text-align;
+  }
+  td {
+    background: @table-bordered-background;
+  }
+}
+.table-striped {
+  tr:nth-child(odd) > td {
+    background: @table-striped-highlight-color;
+  }
+}
+
+// Popups and modal windows
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: @popup-zIndex;
+  background: @popup-background;
+  border: @popup-border;
+  box-shadow: @popup-box-shadow;
+  .set-value(border-radius; @popup-border-radius; width; @popup-width false; height; @popup-height false);
+  text-align: left;
+  white-space: normal;
+
+  .popup-header,
+  .popup-body,
+  .popup-footer {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .popup-header {
+    background: @popup-header-background;
+    border: @popup-header-border;
+    .set-value(border-radius; @popup-header-border-radius; height; @popup-header-height false; padding; @popup-header-padding; font; @popup-header-font);
+    color: @popup-header-color;
+    text-align: @popup-header-text-align;
+  }
+  .popup-body {
+    background: @popup-body-background;
+    border: @popup-body-border;
+    .set-value(border-radius; @popup-body-border-radius; height; @popup-body-height false; padding; @popup-body-padding; font; @popup-body-font);
+    color: @popup-body-color;
+    text-align: @popup-body-text-align;
+  }
+  .popup-footer {
+    background: @popup-footer-background;
+    border: @popup-footer-border;
+    .set-value(border-radius; @popup-footer-border-radius; height; @popup-footer-height false; padding; @popup-footer-padding; font; @popup-footer-font);
+    color: @popup-footer-color;
+    text-align: @popup-footer-text-align;
+  }
+  .popup-close {
+    display: inline-block;
+    position: @popup-close-position;
+    top: @popup-close-position-top;
+    right: @popup-close-position-right;
+    z-index: 1;
+    background: @popup-close-background;
+    .size(@popup-close-width false; @popup-close-height false);
+    .set-value(padding; @popup-close-padding; font; @popup-close-font);
+    color: @popup-close-color;
+    text-decoration: @popup-close-text-decoration;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}
