@@ -11,6 +11,9 @@
 
 // Includes
 var gulp = require('gulp'),
+    args = require('yargs').argv,
+    del = require('del'),
+    gulpif = require('gulp-if'),
     watch = require('gulp-chokidar')(gulp),
     cache = require('gulp-cache'),
     gp = require('gulp-load-plugins')({
@@ -50,6 +53,7 @@ var paths = {
   },
 
   images: {
+    watch: 'images/**/*',
     src: 'images/**/*',
     dest: 'images'
   },
@@ -60,6 +64,7 @@ var paths = {
 };
 
 
+
 // Compile LESS
 gulp.task('less', function (done) {
   gulp
@@ -67,13 +72,15 @@ gulp.task('less', function (done) {
       cwd: paths.rootPath
     })
     .pipe(gp.plumber())
-    .pipe(gp.sourcemaps.init())
+    .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
     .pipe(gp.less({
       // All calculations within brackets only
       strictMath: 'on'
     })).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
+      // Formats output in a really nice way or not
+      format: args.dev ? 'beautify' : false,
       // Reorganize different-selector different-rules rulesets
       level: {
         2: {
@@ -82,7 +89,7 @@ gulp.task('less', function (done) {
       }
     }))
     .pipe(gp.concat(paths.css.result))
-    .pipe(gp.sourcemaps.write('.'))
+    .pipe(gulpif(!args.dev, gp.sourcemaps.write('.')))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
       gp.browserSync.reload();
@@ -98,13 +105,13 @@ gulp.task('js', function (done) {
       cwd: paths.rootPath
     })
     .pipe(gp.plumber())
-    .pipe(gp.sourcemaps.init())
+    .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
     .pipe(gp.concat(paths.js.result))
-    .pipe(gp.uglify()
+    .pipe(gulpif(!args.dev, gp.uglify()
       .on('error', function (error) {
         done(error);
-      }))
-    .pipe(gp.sourcemaps.write('.'))
+      })))
+    .pipe(gulpif(!args.dev, gp.sourcemaps.write('.')))
     .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
       gp.browserSync.reload();
@@ -113,20 +120,8 @@ gulp.task('js', function (done) {
 });
 
 
-// Tasks
-// Live reload init
-gulp.task('bs', function () {
-  gp.browserSync({
-    notify: false,
-    server: {
-      baseDir: paths.rootPath,
-      index: 'index.htm'
-    }
-  });
-});
-
 // Optimize images
-gulp.task('imagemin', function () {
+gulp.task('images', function () {
   return gulp.src(paths.images.src, {
     cwd: paths.rootPath
     })
@@ -154,20 +149,57 @@ gulp.task('imagemin', function () {
     .pipe(gulp.dest(paths.rootPath + paths.images.dest));
 });
 
+
+// Live reload
+gulp.task('live', function () {
+  gp.browserSync({
+    notify: false,
+    server: {
+      baseDir: paths.rootPath,
+      index: 'index.htm'
+    }
+  });
+});
+
+
+// Some clean-ups for development mode
+gulp.task('clean--dev', function () {
+  return del([paths.rootPath + '/**/*.map'], {
+    force: true
+  });
+});
+
+
+
+// Public tasks
+
+// Build for production
+gulp.task('build', ['clear', 'less', 'js', 'images']);
+
+// Watch files for change
+gulp.task('watch', args.dev ? ['clean--dev', 'live', 'less', 'js'] : ['clear', 'live', 'less', 'js', 'images'], function () {
+  // Watch CSS
+  watch(paths.css.watch, {
+    cwd: paths.rootPath
+  }, 'less');
+  // Watch JS
+  watch(paths.js.watch, {
+    cwd: paths.rootPath
+  }, 'js');
+  // Watch images
+  gulpif(!args.dev, watch(paths.images.watch, {
+    cwd: paths.rootPath
+  }, 'images'));
+  // Watch HTML
+  watch(paths.html.watch, {
+    cwd: paths.rootPath
+  }).on('change', gp.browserSync.reload);
+});
+
 // Clear cache
 gulp.task('clear', function () {
   return cache.clearAll();
 })
 
-// Watchers
-gulp.task('watch', ['bs', 'less', 'js'], function () {
-  watch(paths.css.watch, {
-    cwd: paths.rootPath
-  }, 'less');
-  watch(paths.js.watch, {
-    cwd: paths.rootPath
-  }, 'js');
-  watch(paths.html.watch, {
-    cwd: paths.rootPath
-  }).on('change', gp.browserSync.reload);
-});
+// Default
+gulp.task('default', ['build']);

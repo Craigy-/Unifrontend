@@ -9,8 +9,8 @@
 "templates/articles-item.htm": {"timestamp": 1517236468.0},
 "templates/articles-list.htm": {"timestamp": 1517236474.0},
 "templates/build/.htaccess": {"timestamp": 1504192064.0},
-"templates/build/gulpfile.js": {"timestamp": 1517349676.0},
-"templates/build/package.json": {"timestamp": 1517276020.0},
+"templates/build/gulpfile.js": {"timestamp": 1517361717.0},
+"templates/build/package.json": {"timestamp": 1517359294.0},
 "templates/contacts.htm": {"timestamp": 1517236480.0},
 "templates/css/less/_classes.less": {"timestamp": 1517265014.0},
 "templates/css/less/_constructions.less": {"timestamp": 1517264909.0},
@@ -49,10 +49,6 @@
 "templates/temp/foto.jpg": {"timestamp": 1497819174.0},
 "templates/temp/map.gif": {"timestamp": 1239601964.44},
 "templates/temp/socials-sample.jpg": {"timestamp": 1466702785.0},
-"utilities/files/.hgignore": {"timestamp": 1368733685.28},
-"utilities/programs/pngcrush.exe": {"timestamp": 1517275342.0},
-"utilities/programs/pngcrush.url": {"timestamp": 1450965368.6},
-"utilities/remove-png-colorspace.bat": {"timestamp": 1369944655.88},
 "TimestampMod_LastRecord": {"timestamp": 0}
 }
 }
