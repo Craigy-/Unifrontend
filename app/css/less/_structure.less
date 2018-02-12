@@ -1,7 +1,8 @@
 // HTML5 structure
 header {
+  box-sizing: border-box;
   background: @header-background;
-  .set-value_(height; @header-height);
+  .set-value(height; @header-height; padding; @header-padding);
 
   > .wrapper when not (@header-wrapper-background = none) {
     background: @header-wrapper-background;
@@ -71,8 +72,9 @@ main {
 }
 footer {
   position: relative;
+  box-sizing: border-box;
   background: @footer-background;
-  margin: 0 auto;
+  .set-value(padding; @footer-padding; margin; 0 auto);
   text-align: @footer-text-align;
 
   & when (@apply-max-width-to-footer) {
