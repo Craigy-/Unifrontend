@@ -163,7 +163,7 @@ gulp.task('live', function () {
 
 
 // Some clean-ups for development mode
-gulp.task('clean--dev', function () {
+gulp.task('clean', function () {
   return del([paths.rootPath + '/**/*.map'], {
     force: true
   });
@@ -174,10 +174,10 @@ gulp.task('clean--dev', function () {
 // Public tasks
 
 // Build for production
-gulp.task('build', ['clear', 'less', 'js', 'images']);
+gulp.task('build', args.dev ? ['clean', 'less', 'js'] : ['clear', 'less', 'js', 'images']);
 
 // Watch files for change
-gulp.task('watch', args.dev ? ['clean--dev', 'live', 'less', 'js'] : ['clear', 'live', 'less', 'js', 'images'], function () {
+gulp.task('watch', args.dev ? ['clean', 'live', 'less', 'js'] : ['clear', 'live', 'less', 'js', 'images'], function () {
   // Watch CSS
   watch(paths.css.watch, {
     cwd: paths.rootPath
