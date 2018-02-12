@@ -22,6 +22,7 @@ GLOBAL.config = {
   modals: {
     /*'.presentation': {
       node: 'presentation',
+      fixedElements: 'header',
       onHide: function () {
         $.overlayLoader(true, {
           node: $('#presentation-success')
