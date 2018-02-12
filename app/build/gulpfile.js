@@ -21,6 +21,7 @@ var gulp = require('gulp'),
       pattern: [
         'browser-*',
         'imagemin-*',
+        'less-*'
       ],
       rename: {
         'gulp-clean-css': 'cleanCSS'
@@ -78,7 +79,12 @@ gulp.task('less', function (done) {
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
     .pipe(gp.less({
       // All calculations within brackets only
-      strictMath: 'on'
+      strictMath: 'on',
+      plugins: [
+        // List/Array manipulation
+        // https://github.com/seven-phases-max/less-plugin-lists
+        new gp.lessPluginLists()
+      ]
     })).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
