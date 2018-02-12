@@ -29,7 +29,7 @@
 
 // Font sizes
 .s {
-  .for(8; 40); .-each(@i) {
+  .for(@i: 8, 40) {
     &@{i} {
       .font-size(@i) !important;
     }
@@ -245,14 +245,14 @@
 
 // Margins
 .m {
-  .for(0; 9); .-each(@i) {
+  .for(@i: 0, 9) {
     &@{i} {
       .margin-bottom(@i) !important;
     }
   }
 }
 .m {
-  .for(10; 50); .-each(@i) {
+  .for(@i: 10, 50) {
     @step: (@i / 5);
     & when (@step = floor(@step)) { // emulate (@i % 5)
       &@{i} {
@@ -264,14 +264,14 @@
 
 // Paddings
 .p {
-  .for(0; 9); .-each(@i) {
+  .for(@i: 0, 9) {
     &@{i} {
       .padding-bottom(@i) !important;
     }
   }
 }
 .p {
-  .for(10; 50); .-each(@i) {
+  .for(@i: 10, 50) {
     @step: (@i / 5);
     & when (@step = floor(@step)) { // emulate (@i % 5)
       &@{i} {
