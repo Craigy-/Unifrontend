@@ -11,7 +11,7 @@
     "gulp-autoprefixer": "^4.1.0",
     "gulp-cache": "^1.0.2",
     "gulp-chokidar": "0.0.5",
-    "gulp-clean-css": "^3.7.0",
+    "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",
     "gulp-if": "^2.0.2",
     "gulp-imagemin": "^4.1.0",
@@ -23,6 +23,7 @@
     "gulp-uglify": "^3.0.0",
     "imagemin-jpegoptim": "^5.2.0",
     "imagemin-pngquant": "^5.0.1",
+    "less-plugin-lists": "^1.1.1",
     "yargs": "^11.0.0"
   },
   "browserslist": [

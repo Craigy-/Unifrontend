@@ -21,6 +21,7 @@ var gulp = require('gulp'),
       pattern: [
         'browser-*',
         'imagemin-*',
+        'less-*'
       ],
       rename: {
         'gulp-clean-css': 'cleanCSS'
@@ -39,7 +40,10 @@ var paths = {
   },
 
   js: {
-    watch: 'js/**/*.js',
+    watch: [
+      'js/**/*.js',
+      '!js/scripts.js',
+    ],
     // Follow a certain order of files
     src: [
       'js/jquery.js',
@@ -75,7 +79,12 @@ gulp.task('less', function (done) {
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
     .pipe(gp.less({
       // All calculations within brackets only
-      strictMath: 'on'
+      strictMath: 'on',
+      plugins: [
+        // List/Array manipulation
+        // https://github.com/seven-phases-max/less-plugin-lists
+        new gp.lessPluginLists()
+      ]
     })).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
@@ -133,19 +142,16 @@ gulp.task('images', function () {
         plugins: [{
           removeViewBox: false
         }]
-      })], {
-        use: [
-          gp.imageminJpegoptim({
-            progressive: true,
-            max: 85,
-            stripAll: true
-          }),
-          gp.imageminPngquant({
-            quality: '65-80',
-            speed: 5
-          })
-        ]
-      })))
+      }),
+      gp.imageminJpegoptim({
+        progressive: true,
+        max: 85,
+        stripAll: true
+      }),
+      gp.imageminPngquant({
+        quality: '65-80',
+        speed: 5
+      })])))
     .pipe(gulp.dest(paths.rootPath + paths.images.dest));
 });
 
@@ -163,7 +169,7 @@ gulp.task('live', function () {
 
 
 // Some clean-ups for development mode
-gulp.task('clean--dev', function () {
+gulp.task('clean', function () {
   return del([paths.rootPath + '/**/*.map'], {
     force: true
   });
@@ -174,10 +180,10 @@ gulp.task('clean--dev', function () {
 // Public tasks
 
 // Build for production
-gulp.task('build', ['clear', 'less', 'js', 'images']);
+gulp.task('build', args.dev ? ['clean', 'less', 'js'] : ['clear', 'less', 'js', 'images']);
 
 // Watch files for change
-gulp.task('watch', args.dev ? ['clean--dev', 'live', 'less', 'js'] : ['clear', 'live', 'less', 'js', 'images'], function () {
+gulp.task('watch', args.dev ? ['clean', 'live', 'less', 'js'] : ['clear', 'live', 'less', 'js', 'images'], function () {
   // Watch CSS
   watch(paths.css.watch, {
     cwd: paths.rootPath
@@ -187,9 +193,11 @@ gulp.task('watch', args.dev ? ['clean--dev', 'live', 'less', 'js'] : ['clear', '
     cwd: paths.rootPath
   }, 'js');
   // Watch images
-  gulpif(!args.dev, watch(paths.images.watch, {
-    cwd: paths.rootPath
-  }, 'images'));
+  if (!args.dev) {
+    watch(paths.images.watch, {
+      cwd: paths.rootPath
+    }, 'images');
+  }
   // Watch HTML
   watch(paths.html.watch, {
     cwd: paths.rootPath
