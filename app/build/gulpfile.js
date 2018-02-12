@@ -39,7 +39,10 @@ var paths = {
   },
 
   js: {
-    watch: 'js/**/*.js',
+    watch: [
+      'js/**/*.js',
+      '!js/scripts.js',
+    ],
     // Follow a certain order of files
     src: [
       'js/jquery.js',
