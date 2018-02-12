@@ -136,19 +136,16 @@ gulp.task('images', function () {
         plugins: [{
           removeViewBox: false
         }]
-      })], {
-        use: [
-          gp.imageminJpegoptim({
-            progressive: true,
-            max: 85,
-            stripAll: true
-          }),
-          gp.imageminPngquant({
-            quality: '65-80',
-            speed: 5
-          })
-        ]
-      })))
+      }),
+      gp.imageminJpegoptim({
+        progressive: true,
+        max: 85,
+        stripAll: true
+      }),
+      gp.imageminPngquant({
+        quality: '65-80',
+        speed: 5
+      })])))
     .pipe(gulp.dest(paths.rootPath + paths.images.dest));
 });
 
@@ -190,9 +187,11 @@ gulp.task('watch', args.dev ? ['clean--dev', 'live', 'less', 'js'] : ['clear', '
     cwd: paths.rootPath
   }, 'js');
   // Watch images
-  gulpif(!args.dev, watch(paths.images.watch, {
-    cwd: paths.rootPath
-  }, 'images'));
+  if (!args.dev) {
+    watch(paths.images.watch, {
+      cwd: paths.rootPath
+    }, 'images');
+  }
   // Watch HTML
   watch(paths.html.watch, {
     cwd: paths.rootPath
