@@ -11,7 +11,7 @@
 
 // Includes
 var gulp = require('gulp'),
-    args = require('yargs').argv,
+    args = require('yargs').alias('only-custom-js', 'onlyCustomJS').argv,
     del = require('del'),
     gulpif = require('gulp-if'),
     watch = require('gulp-chokidar')(gulp),
@@ -41,19 +41,23 @@ var paths = {
 
   js: {
     watch: [
-      'js/**/*.js',
-      '!js/scripts.js',
+      'js/src/**/*.js'
     ],
-    // Follow a certain order of files
-    src: [
-      'js/jquery.js',
-      'js/*/*.js',
-      'js/config.js',
-      'js/!(main|scripts)*.js',
-      'js/main.js'
-    ],
+    src: {
+      vendor: [
+        'js/src/jquery.js',
+        'js/src/plugins/*.js'
+      ],
+      custom: [
+        'js/src/config.js',
+        'js/src/main.js'
+      ]
+    },
     dest: 'js',
-    result: 'scripts.js'
+    result: {
+      vendor: 'vendor.js',
+      custom: 'custom.js'
+    }
   },
 
   images: {
@@ -108,24 +112,33 @@ gulp.task('less', function (done) {
 
 
 // Pack JS
-gulp.task('js', function (done) {
-  gulp
-    .src(paths.js.src, {
+function packJS(done, custom) {
+  return gulp
+    .src(custom ? paths.js.src.custom : paths.js.src.vendor, {
       cwd: paths.rootPath
     })
     .pipe(gp.plumber())
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
-    .pipe(gp.concat(paths.js.result))
+    .pipe(gp.concat(custom ? paths.js.result.custom : paths.js.result.vendor))
     .pipe(gulpif(!args.dev, gp.uglify()
       .on('error', function (error) {
-        done(error);
+        console.log(error);
       })))
     .pipe(gulpif(!args.dev, gp.sourcemaps.write('.')))
     .pipe(gulp.dest(paths.rootPath + paths.js.dest))
     .on('end', function () {
-      gp.browserSync.reload();
-      done();
+      if (done) {
+        gp.browserSync.reload();
+        done();
+      }
     });
+}
+
+gulp.task('js', function (done) {
+  if (!args.onlyCustomJS) {
+    packJS();
+  }
+  packJS(done, true);
 });
 
 
