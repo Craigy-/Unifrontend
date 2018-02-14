@@ -161,10 +161,8 @@ gulp.task('images', function () {
         max: 85,
         stripAll: true
       }),
-      gp.imageminPngquant({
-        quality: '65-80',
-        speed: 5
-      })])))
+      gp.imageminPngquant()
+    ])))
     .pipe(gulp.dest(paths.rootPath + paths.images.dest));
 });
 
