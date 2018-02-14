@@ -1,4 +1,5 @@
 $(function () {
+
   // Responsive
   GLOBAL.actualResizer = 'throttledresize' in jQuery.event.special ? 'throttledresize' : 'resize';
   function responsiveFixes() {
@@ -110,15 +111,11 @@ $(function () {
   // Modal windows
   // Required: /js/plugins/jquery.uniloader.js
   var modalInit = function (activator, options) {
-    var options = options || $(activator).data('modal-options');
-    $.overlayLoader(true, {
-      node: $('#' + ($(activator).data('modal-node') || options.node)),
-      hideSelector: options.hideSelector,
-      effectSpeed: options.effectSpeed,
-      onStart: options.onStart,
-      onShow: options.onShow,
-      onHide: options.onHide
-    });
+    var opts = {};
+    if ($(activator).data('modal-node')) {
+      opts.node = $(activator).data('modal-node');
+    }
+    $.overlayLoader(true, $.extend(true, {}, opts, $(activator).data('modal-options') || options));
   };
 
   for (var i in GLOBAL.config.modals) {

@@ -89,8 +89,8 @@
   }
   .converter(@value);
 
-  // Set non-unit and pixel values
-  .setter(@p; @v) when (isnumber(@v)) and (~'' = get-unit(@v)), (ispixel(@v)) {
+  // Set non-unit and pixel values (except 'font', 'font-weight' and 'z-index')
+  .setter(@p; @v) when (isnumber(@v)) and (~'' = get-unit(@v)) and not (@p = font) and not (@p = font-weight) and not (@p = z-index), (ispixel(@v)) {
     & when (@responsive) {
       @{p}+_: unit((@v / @font-size-base), rem);
     }
@@ -104,7 +104,7 @@
   }
   .setter(@property; @fixed-value);
 
-  // Font support
+  // Font support (duplicates will be deleted by CleanCSS)
   & when (@property = font) {
     @check: ~`function(){var v="@{value}";return !!v.match(/\//)}()`;
     & when (@check) {
@@ -379,13 +379,3 @@
     background-image: linear-gradient(@angle, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
   }
 }
-
-// Loops (by seven-phases-max in less.curious)
-.for(@i; @n) {.-each(@i)}
-.for(@n)     when (isnumber(@n)) {.for(1; @n)}
-.for(@i; @n) when not (@i = @n)  {
-  .for((@i + (@n - @i) / abs(@n - @i)); @n);
-}
-.for(@array)   when (default()) {.for-impl_(length(@array))}
-.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
-.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
