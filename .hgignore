@@ -1,4 +1,4 @@
 syntax: glob
 
 node_modules
-app/js/plugins
+app/js/src/plugins
