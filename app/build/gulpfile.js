@@ -92,6 +92,8 @@ gulp.task('less', function (done) {
     })).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
+      // Don't process '@import' inlining rules
+      inline: false,
       // Formats output in a really nice way or not
       format: args.dev ? 'beautify' : false,
       // Reorganize different-selector different-rules rulesets
