@@ -46,7 +46,7 @@ var paths = {
     src: {
       vendor: [
         'js/src/jquery.js',
-        'js/src/plugins/*.js'
+        'js/src/plugins/**/*.js'
       ],
       custom: [
         'js/src/config.js',
