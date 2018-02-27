@@ -98,7 +98,7 @@ function makeCSS(done, compileLESS) {
     .pipe(gulpif(!compileLESS, rename({
       suffix: paths.css.result.vendor
     })))
-    .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
+    .pipe(gulpif((!args.dev && compileLESS), gp.sourcemaps.init()))
     .pipe(gulpif(compileLESS, gp.less({
       // All calculations within brackets only
       strictMath: 'on',
@@ -111,7 +111,7 @@ function makeCSS(done, compileLESS) {
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
       // Process '@import' inlining rules or not
-      inline: compileLESS ? false : 'inline',
+      inline: compileLESS ? false : 'local',
       // Formats output in a really nice way or not
       format: args.dev ? 'beautify' : false,
       // Reorganize different-selector different-rules rulesets
@@ -122,7 +122,7 @@ function makeCSS(done, compileLESS) {
       }
     }))
     .pipe(gulpif(compileLESS, gp.concat(paths.css.result.custom)))
-    .pipe(gulpif(!args.dev, gp.sourcemaps.write('.')))
+    .pipe(gulpif((!args.dev && compileLESS), gp.sourcemaps.write('.')))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
       if (done) {
