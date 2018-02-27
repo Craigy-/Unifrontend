@@ -11,7 +11,7 @@
 
 // Includes
 var gulp = require('gulp'),
-    args = require('yargs').alias('only-custom-js', 'onlyCustomJS').argv,
+    args = require('yargs').argv,
     del = require('del'),
     gulpif = require('gulp-if'),
     watch = require('gulp-chokidar')(gulp),
@@ -40,9 +40,7 @@ var paths = {
   },
 
   js: {
-    watch: [
-      'js/src/**/*.js'
-    ],
+    watch: 'js/src/**/*.js',
     src: {
       vendor: [
         'js/src/jquery.js',
@@ -137,9 +135,12 @@ function packJS(done, custom) {
 }
 
 gulp.task('js', function (done) {
-  if (!args.onlyCustomJS) {
+  // Pack vendor JS (will not be executed with '--custom' flag)
+  if (!args.custom) {
     packJS();
   }
+
+  // Pack custom JS
   packJS(done, true);
 });
 
