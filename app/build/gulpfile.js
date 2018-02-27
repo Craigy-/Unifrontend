@@ -77,9 +77,8 @@ var paths = {
   },
 
   images: {
-    watch: 'images/**/*',
-    src: 'images/**/*',
-    dest: 'images'
+    watch: '+(images|temp)/**/*',
+    src: '+(images|temp)/**/*'
   },
 
   html: {
@@ -206,7 +205,7 @@ gulp.task('images', function () {
       }),
       gp.imageminPngquant(pngConfig)
     ])))
-    .pipe(gulp.dest(paths.rootPath + paths.images.dest));
+    .pipe(gulp.dest(paths.rootPath));
 });
 
 
