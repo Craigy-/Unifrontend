@@ -58,8 +58,10 @@ var paths = {
   js: {
     watch: 'js/src/**/*.js',
     src: {
+      // Follow a certain order of files
       vendor: [
         'js/src/jquery.js',
+        'js/src/plugins/*.js',
         'js/src/plugins/**/*.js'
       ],
       custom: [
