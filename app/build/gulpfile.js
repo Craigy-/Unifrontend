@@ -236,7 +236,7 @@ gulp.task('clean', function () {
 gulp.task('build', args.dev ? ['clean', 'css', 'js'] : ['clear', 'css', 'js', 'images']);
 
 // Watch files for change
-gulp.task('watch', args.dev ? ['clean', 'live', 'css', 'js'] : ['clear', 'css', 'js', 'images'], function () {
+gulp.task('watch', args.dev ? ['clean', 'live', 'css', 'js'] : ['clear', 'css', 'js'], function () {
   // Watch LESS and vendor CSS
   watch(paths.css.watch, {
     cwd: paths.rootPath
