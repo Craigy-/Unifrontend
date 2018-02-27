@@ -12,6 +12,7 @@
 // Includes
 var gulp = require('gulp'),
     args = require('yargs').argv,
+    rename = require('gulp-rename'),
     del = require('del'),
     gulpif = require('gulp-if'),
     watch = require('gulp-chokidar')(gulp),
@@ -33,10 +34,25 @@ var paths = {
   rootPath: '../',
 
   css: {
-    watch: 'css/**/*.less',
-    src: 'css/less/_styles.less',
+    watch: [
+      'css/**/*.less',
+      'css/**/*.css',
+      '!css/**/*.min.css',
+      '!css/styles.css'
+    ],
+    src: {
+      vendor: [
+        'css/**/*.css',
+        '!css/**/*.min.css',
+        '!css/styles.css'
+      ],
+      custom: 'css/less/_styles.less'
+    },
     dest: 'css',
-    result: 'styles.css'
+    result: {
+      vendor: '.min', // just a suffix
+      custom: 'styles.css'
+    }
   },
 
   js: {
@@ -71,15 +87,17 @@ var paths = {
 
 
 
-// Compile LESS
-gulp.task('less', function (done) {
-  gulp
-    .src(paths.css.src, {
-      cwd: paths.rootPath
+// Make CSS
+function makeCSS(done, compileLESS) {
+  return gulp.src(compileLESS ? paths.css.src.custom : paths.css.src.vendor, {
+    cwd: paths.rootPath
     })
     .pipe(gp.plumber())
+    .pipe(gulpif(!compileLESS, rename({
+      suffix: paths.css.result.vendor
+    })))
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
-    .pipe(gp.less({
+    .pipe(gulpif(compileLESS, gp.less({
       // All calculations within brackets only
       strictMath: 'on',
       plugins: [
@@ -87,11 +105,11 @@ gulp.task('less', function (done) {
         // https://github.com/seven-phases-max/less-plugin-lists
         new gp.lessPluginLists()
       ]
-    })).on('error', gp.lessReporter)
+    }))).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
-      // Don't process '@import' inlining rules
-      inline: false,
+      // Process '@import' inlining rules or not
+      inline: compileLESS ? false : 'inline',
       // Formats output in a really nice way or not
       format: args.dev ? 'beautify' : false,
       // Reorganize different-selector different-rules rulesets
@@ -101,13 +119,23 @@ gulp.task('less', function (done) {
         }
       }
     }))
-    .pipe(gp.concat(paths.css.result))
+    .pipe(gulpif(compileLESS, gp.concat(paths.css.result.custom)))
     .pipe(gulpif(!args.dev, gp.sourcemaps.write('.')))
     .pipe(gulp.dest(paths.rootPath + paths.css.dest))
     .on('end', function () {
-      gp.browserSync.reload();
-      done();
+      if (done) {
+        gp.browserSync.reload();
+        done();
+      }
     });
+}
+
+gulp.task('css', function (done) {
+  // Pack all vendor CSS
+  makeCSS();
+
+  // Compile LESS and pack the resulting CSS
+  makeCSS(done, true);
 });
 
 
@@ -194,14 +222,14 @@ gulp.task('clean', function () {
 // Public tasks
 
 // Build for production
-gulp.task('build', args.dev ? ['clean', 'less', 'js'] : ['clear', 'less', 'js', 'images']);
+gulp.task('build', args.dev ? ['clean', 'css', 'js'] : ['clear', 'css', 'js', 'images']);
 
 // Watch files for change
-gulp.task('watch', args.dev ? ['clean', 'live', 'less', 'js'] : ['clear', 'less', 'js', 'images'], function () {
-  // Watch CSS
+gulp.task('watch', args.dev ? ['clean', 'live', 'css', 'js'] : ['clear', 'css', 'js', 'images'], function () {
+  // Watch LESS and vendor CSS
   watch(paths.css.watch, {
     cwd: paths.rootPath
-  }, 'less');
+  }, 'css');
   // Watch JS
   watch(paths.js.watch, {
     cwd: paths.rootPath
