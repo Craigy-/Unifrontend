@@ -177,7 +177,17 @@ gulp.task('js', function (done) {
 
 // Optimize images
 gulp.task('images', function () {
-  return gulp.src(paths.images.src, {
+  var pngConfig = {};
+
+  // The best PNG images optimization will be enabled with '--extreme' flag
+  if (args.extreme) {
+    pngConfig = {
+      quality: '60-85',
+      speed: 1
+    };
+  }
+
+  gulp.src(paths.images.src, {
     cwd: paths.rootPath
     })
     .pipe(cache(gp.imagemin([
@@ -194,7 +204,7 @@ gulp.task('images', function () {
         max: 85,
         stripAll: true
       }),
-      gp.imageminPngquant()
+      gp.imageminPngquant(pngConfig)
     ])))
     .pipe(gulp.dest(paths.rootPath + paths.images.dest));
 });
