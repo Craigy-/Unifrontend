@@ -323,7 +323,7 @@ table {
   }
 }
 .table-striped {
-  tr:nth-child(odd) > td {
+  tbody tr:nth-child(even) > td {
     background: @table-striped-highlight-color;
   }
 }
@@ -331,6 +331,7 @@ table {
 // Popups and modal windows
 .popup {
   display: none;
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
