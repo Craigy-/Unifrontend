@@ -11,6 +11,8 @@ GLOBAL.config = {
   carousels: {
     /*'#main': {
       wrap: false,
+      vertical: false,
+      method: 'scroll',
       scrollableItems: 1,
       autoscrollInterval: 0, // ms
       pagination: true,
@@ -21,7 +23,7 @@ GLOBAL.config = {
   // Modal windows
   modals: {
     /*'.presentation': {
-      node: 'presentation',
+      node: '#presentation',
       fixedElements: 'header',
       onHide: function () {
         $.overlayLoader(true, {

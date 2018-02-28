@@ -39,28 +39,36 @@ $(function () {
 
 
   // Replace checkboxes and radio buttons
-  // Required: /js/plugins/jquery.inputs.js
+  // Required: /js/src/plugins/jquery.inputs.js
   if (GLOBAL.config.inputs.length) {
     GLOBAL.config.inputs.inputs();
   }
 
 
   // Replace selectors
-  // Required: /js/plugins/jquery.stylish-select.js
+  // Required: /js/src/plugins/jquery.stylish-select.js
   if (GLOBAL.config.selectors.length) {
     GLOBAL.config.selectors.sSelect();
   }
 
 
   // Carousels
-  // Required: /js/plugins/jquery.jcarousel.js, /js/plugins/jquery.jcarousel-swipe.js
+  // Required: /js/src/plugins/jquery.jcarousel.js
+  // Optional: /js/src/plugins/jcarousel-plugins/jquery.jcarousel-swipe.js, /js/src/plugins/jcarousel-plugins/jquery.jcarousel-fade.js
   var carouselInit = function (container, options) {
-    var $carousel = $('.jcarousel-wrapper', container).jcarousel({
-      wrap: options.wrap
-    }).jcarouselAutoscroll({
+    var
+      $carousel = $('.jcarousel-wrapper', container).jcarousel({
+        wrap: options.wrap,
+        vertical: options.vertical
+      }),
+      isFadeSupported = $.isFunction($.jcarousel.fn.fade),
+      method = isFadeSupported && options.method == 'fade' ? 'fade' : 'scroll';
+
+    $carousel.jcarouselAutoscroll({
       interval: options.autoscrollInterval,
       target: '+=' + options.scrollableItems,
-      autostart: !!options.autoscrollInterval
+      autostart: !!options.autoscrollInterval,
+      method: method // 'fade' not supported here (https://github.com/jsor/jcarousel/issues/806)
     });
 
     $('.jcarousel-prev', container).on('jcarouselcontrol:active', function () {
@@ -68,14 +76,16 @@ $(function () {
     }).on('jcarouselcontrol:inactive', function () {
       $(this).addClass('jcarousel-controls-inactive');
     }).jcarouselControl({
-      target: '-=' + options.scrollableItems
+      target: '-=' + options.scrollableItems,
+      method: method
     });
     $('.jcarousel-next', container).on('jcarouselcontrol:active', function () {
       $(this).removeClass('jcarousel-controls-inactive');
     }).on('jcarouselcontrol:inactive', function () {
       $(this).addClass('jcarousel-controls-inactive');
     }).jcarouselControl({
-      target: '+=' + options.scrollableItems
+      target: '+=' + options.scrollableItems,
+      method: method
     });
 
     if (options.pagination && $carousel.jcarousel('items').length > options.scrollableItems) {
@@ -88,12 +98,20 @@ $(function () {
       }).jcarouselPagination({
         'item': function (page, carouselItems) {
           return '<a href="">' + page + '</a>';
-        }
+        },
+        method: method
       });
     }
 
-    if (options.touchable) {
-      $carousel.jcarouselSwipe();
+    if ('jcarouselSwipe' in $carousel && options.touchable) {
+      var touchConfig = {};
+      if (isFadeSupported) {
+        touchConfig = {
+          draggable: false,
+          method: method
+        };
+      }
+      $carousel.jcarouselSwipe(touchConfig);
     }
   };
 
@@ -109,7 +127,7 @@ $(function () {
 
 
   // Modal windows
-  // Required: /js/plugins/jquery.uniloader.js
+  // Required: /js/src/plugins/jquery.uniloader.js
   var modalInit = function (activator, options) {
     var opts = {};
     if ($(activator).data('modal-node')) {
@@ -127,7 +145,7 @@ $(function () {
 
 
   // Popups
-  // Required: /js/plugins/jquery.unifloat.js
+  // Required: /js/src/plugins/jquery.unifloat.js
   var popupHandler = function (activator, options) {
     var options = options || $(activator).data('popup-options');
     var target = options.rel || '#' + $(activator).attr('id') + '-content',
@@ -180,7 +198,7 @@ $(function () {
 
 
   // Tabs
-  // Required: /js/plugins/jquery.easytabs.js
+  // Required: /js/src/plugins/jquery.easytabs.js
   $.each(GLOBAL.config.tabs, function (selector, options) {
     $(selector).easytabs(options);
   });
