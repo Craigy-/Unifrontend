@@ -252,7 +252,7 @@
   }
 }
 .m {
-  .for(@i: 10, 50) {
+  .for(@i: 10, 70) {
     @step: (@i / 5);
     & when (@step = floor(@step)) { // emulate (@i % 5)
       &@{i} {
@@ -271,7 +271,7 @@
   }
 }
 .p {
-  .for(@i: 10, 50) {
+  .for(@i: 10, 70) {
     @step: (@i / 5);
     & when (@step = floor(@step)) { // emulate (@i % 5)
       &@{i} {
