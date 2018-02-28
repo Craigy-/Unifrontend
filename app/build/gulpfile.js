@@ -181,7 +181,7 @@ gulp.task('images', function () {
   // The best PNG images optimization will be enabled with '--extreme' flag
   if (args.extreme) {
     pngConfig = {
-      quality: '60-85',
+      quality: '60-80',
       speed: 1
     };
   }
