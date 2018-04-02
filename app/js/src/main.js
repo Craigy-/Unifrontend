@@ -200,9 +200,14 @@ $(function () {
   // Tabs
   // Required: /js/src/plugins/jquery.easytabs.js
   $.each(GLOBAL.config.tabs, function (selector, options) {
-    $(selector).easytabs(options);
+    if ($(selector).length > 1) {
+      $(selector).each(function () {
+        $(this).easytabs(options);
+      });
+    } else {
+      $(selector).easytabs(options);
+    }
   });
-
 
   // Forms errors processing
   var inputs = '.input, select, textarea, .SSContainerDivWrapper',

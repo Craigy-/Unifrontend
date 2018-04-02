@@ -1,5 +1,5 @@
 {
-"Version": "0.3.0",
+"Version": "0.3.1",
 "FileData":{
 ".hgignore": {"timestamp": 1518567003.0},
 ".hgtags": {"timestamp": 1430839795.04},
@@ -32,11 +32,11 @@
 "app/images/stop-round.png": {"timestamp": 1518446554.0},
 "app/index.htm": {"timestamp": 1518564444.0},
 "app/info.htm": {"timestamp": 1518564449.0},
-"app/js/custom.js": {"timestamp": 1519825605.0},
-"app/js/custom.js.map": {"timestamp": 1519825604.0},
+"app/js/custom.js": {"timestamp": 1522703712.0},
+"app/js/custom.js.map": {"timestamp": 1522703711.0},
 "app/js/src/config.js": {"timestamp": 1519825509.0},
 "app/js/src/jquery.js": {"timestamp": 1353442163.0},
-"app/js/src/main.js": {"timestamp": 1519825575.0},
+"app/js/src/main.js": {"timestamp": 1522703590.0},
 "app/js/src/plugins/.hgignore": {"timestamp": 1368733685.0},
 "app/js/vendor.js": {"timestamp": 1519825605.0},
 "app/js/vendor.js.map": {"timestamp": 1519825603.0},
