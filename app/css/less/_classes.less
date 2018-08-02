@@ -237,8 +237,11 @@
 .primary-list {
   .set-value(margin; @primary-list-margin);
 
-  li {
-    .set-value(margin; @primary-list-element-margin);
+  > li {
+    & when not (@primary-list-element-background = none) {
+      background: @primary-list-element-background;
+    }
+    .set-value(padding; @primary-list-element-padding; margin; @primary-list-element-margin);
     list-style: @primary-list-element-list-style;
   }
 }
