@@ -176,13 +176,25 @@ gulp.task('js', function (done) {
 
 // Optimize images
 gulp.task('images', function () {
-  var pngConfig = {};
+  var ioConfig = {
+    jpg: {
+      progressive: true,
+      stripAll: true
+    }
+  };
 
-  // The best PNG images optimization will be enabled with '--extreme' flag
+  // The best images optimization will be enabled with '--extreme' flag
   if (args.extreme) {
-    pngConfig = {
-      quality: '60-80',
-      speed: 1
+    ioConfig = {
+      png: {
+        quality: '60-80',
+        speed: 1
+      },
+      jpg: {
+        progressive: true,
+        max: 85,
+        stripAll: true
+      }
     };
   }
 
@@ -198,12 +210,8 @@ gulp.task('images', function () {
           removeViewBox: false
         }]
       }),
-      gp.imageminJpegoptim({
-        progressive: true,
-        max: 85,
-        stripAll: true
-      }),
-      gp.imageminPngquant(pngConfig)
+      gp.imageminJpegoptim(ioConfig.jpg),
+      gp.imageminPngquant(ioConfig.png)
     ])))
     .pipe(gulp.dest(paths.rootPath));
 });
