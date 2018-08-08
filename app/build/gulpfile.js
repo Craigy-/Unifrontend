@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     watch = require('gulp-chokidar')(gulp),
     cache = require('gulp-cache'),
+    stable = require('stable'),
     gp = require('gulp-load-plugins')({
       overridePattern: false,
       pattern: [
@@ -58,10 +59,7 @@ var paths = {
   js: {
     watch: 'js/src/**/*.js',
     src: {
-      // Follow a certain order of files
       vendor: [
-        'js/src/jquery.js',
-        'js/src/plugins/*.js',
         'js/src/plugins/**/*.js'
       ],
       custom: [
@@ -109,6 +107,8 @@ function makeCSS(done, compileLESS) {
     }))).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
+      // Rebase URLs or not
+      rebase: !!compileLESS,
       // Process '@import' inlining rules or not
       inline: compileLESS ? false : 'local',
       // Formats output in a really nice way or not
@@ -148,6 +148,18 @@ function packJS(done, custom) {
     })
     .pipe(gp.plumber())
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
+    .pipe(gulpif(!custom, gp.sort({
+      // Follow a certain order (files in subdirectories must be in the end)
+      customSortFn: function (files, comparator) {
+        var hasSubDir = function (path) {
+          var arr = path.split(/\\|\//);
+          return (arr[arr.length - 2] != 'plugins') ? 1 : -1;
+        }, comparator = function (file1, file2) {
+          return (hasSubDir(file1.path) > hasSubDir(file2.path)) ? 1 : (hasSubDir(file1.path) < hasSubDir(file2.path) ? -1 : file1.path.localeCompare(file2.path));
+        };
+        return stable(files, comparator);
+      }
+    })))
     .pipe(gp.concat(custom ? paths.js.result.custom : paths.js.result.vendor))
     .pipe(gulpif(!args.dev, gp.uglify()
       .on('error', function (error) {

@@ -20,11 +20,13 @@
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sort": "^2.0.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "imagemin-jpegoptim": "^5.2.0",
     "imagemin-pngquant": "^5.0.1",
     "less-plugin-lists": "^1.1.1",
+    "stable": "^0.1.8",
     "yargs": "^11.0.0"
   },
   "browserslist": [
