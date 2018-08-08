@@ -109,6 +109,8 @@ function makeCSS(done, compileLESS) {
     }))).on('error', gp.lessReporter)
     .pipe(gp.autoprefixer())
     .pipe(gp.cleanCSS({
+      // Rebase URLs or not
+      rebase: !!compileLESS,
       // Process '@import' inlining rules or not
       inline: compileLESS ? false : 'local',
       // Formats output in a really nice way or not
