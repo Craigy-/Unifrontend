@@ -87,7 +87,7 @@ footer {
   > .wrapper when not (@footer-wrapper-background = none) {
     background: @footer-wrapper-background;
   }
-  > .wrapper {
+  > .wrapper when not (@footer-height = auto) {
     & when (@footer-to-bottom) {
       .set-value_(height; @footer-height);
     }
