@@ -55,6 +55,18 @@ GLOBAL.config = {
     /*'#product-functions': {
       updateHash: false
     }*/
+  },
+
+  // Scrollings
+  scrollings: {
+    /*'#up': {
+      target: 0
+    },
+
+    '#more-filters': {
+      target: '#filters'
+    },
+    'a.dotted': {}*/
   }
 
 };

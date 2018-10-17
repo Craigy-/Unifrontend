@@ -219,6 +219,26 @@ $(function () {
     }
   });
 
+
+  // Scroll links
+  // Required: /js/src/plugins/jquery.scrollTo.js
+  var scrollingInit = function (activator, options) {
+    var options = options || $(activator).data('scrolling-options');
+    var target = options.target || $(activator).data('scrolling-target') || '#' + $(activator).attr('href').split('#')[1],
+        duration = options.duration || $(activator).data('scrolling-duration') || 200;
+    delete options.target;
+    delete options.duration;
+    $.scrollTo(target, duration, options);
+  };
+
+  for (var i in GLOBAL.config.scrollings) {
+    $(i).data('scrolling-options', GLOBAL.config.scrollings[i]).on('click', function (e) {
+      e.preventDefault();
+      scrollingInit(this);
+    });
+  }
+
+
   // Forms errors processing
   var inputs = '.input, select, textarea, .SSContainerDivWrapper',
       defaultValues = ['', 0];
