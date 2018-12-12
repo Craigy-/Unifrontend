@@ -46,7 +46,12 @@ GLOBAL.config = {
         auto: false
       },
       manipulation: true,
-      effect: false
+      effect: false,
+      onShow: function (source, target) {
+        if (!GLOBAL.isTouchscreen) {
+          $(target).find('input:first').focus();
+        }
+      }
     }*/
   },
 
@@ -62,7 +67,6 @@ GLOBAL.config = {
     /*'#up': {
       target: 0
     },
-
     '#more-filters': {
       target: '#filters'
     },

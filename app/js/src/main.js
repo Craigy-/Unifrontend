@@ -147,6 +147,9 @@ $(function () {
   // Popups
   // Required: /js/src/plugins/jquery.unifloat.js
   var popupHandler = function (activator, options) {
+    if (!$(activator).length) {
+      return;
+    }
     var options = options || $(activator).data('popup-options');
     var target = options.rel || '#' + $(activator).attr('id') + '-content',
         self = activator;
@@ -158,9 +161,6 @@ $(function () {
       $(target).unifloat('show', $.extend(true, {}, options, {
         rel: self
       })).data('unifloat-source', activator);
-      if (!GLOBAL.isTouchscreen) {
-        $(target).find('input:first').focus();
-      }
     } else {
       $(target).hide();
       if (options.onHide) {
