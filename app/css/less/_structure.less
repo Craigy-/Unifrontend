@@ -23,7 +23,7 @@ header {
 #content {
   background: @content-background;
 
-  & when (@footer-to-bottom) {
+  & when (@footer-to-bottom) and not (@footer-height = auto) {
     .set-value_(padding-bottom; (@footer-height + @content-padding-bottom));
   }
   & when not (@footer-to-bottom) {
@@ -80,16 +80,13 @@ footer {
   & when (@apply-max-width-to-footer) {
     max-width: @max-width-base;
   }
-  & when (@footer-to-bottom) {
-    .set-value(margin-top; (@footer-height * -1));
-  }
 
   > .wrapper when not (@footer-wrapper-background = none) {
     background: @footer-wrapper-background;
   }
   > .wrapper when not (@footer-height = auto) {
     & when (@footer-to-bottom) {
-      .set-value_(height; @footer-height);
+      .set-value(height; @footer-height; margin-top; (@footer-height * -1));
     }
     & when not (@footer-to-bottom) {
       .set-value_(min-height; @footer-height);
