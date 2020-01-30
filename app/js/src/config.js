@@ -30,7 +30,8 @@ GLOBAL.config = {
           node: $('#presentation-success')
         });
       }
-    }*/
+    },*/
+    '.modal-activator': {}
   },
 
   // Popups
@@ -52,7 +53,8 @@ GLOBAL.config = {
           $(target).find('input:first').focus();
         }
       }
-    }*/
+    },*/
+    '.popup-activator': {}
   },
 
   // Tabs
@@ -65,12 +67,12 @@ GLOBAL.config = {
   // Scrollings
   scrollings: {
     /*'#up': {
-      target: 0
-    },
-    '#more-filters': {
-      target: '#filters'
-    },
-    'a.dotted': {}*/
+      target: 0,
+      duration: 200
+    },*/
+    '.scroll-to': {
+      duration: 200
+    }
   }
 
 };

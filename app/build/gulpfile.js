@@ -64,6 +64,7 @@ var paths = {
       ],
       custom: [
         'js/src/config.js',
+        'js/src/_common.js',
         'js/src/main.js'
       ]
     },
