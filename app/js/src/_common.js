@@ -248,6 +248,9 @@ $(function () {
       var options = makeOptions(this, selector, 'scrollings');
       $(this).on('click', function (e) {
         e.preventDefault();
+        if ($.isFunction(options.onBefore)) {
+          options.onBefore();
+        }
         scrollingInit(this);
       });
     });
