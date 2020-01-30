@@ -1,8 +1,9 @@
 // Site responsive stylesheets
 
 // Local variables
-@mobile-menu-link-lines-width: 15px;
+@mobile-menu-link-lines-width: 20px;
 @mobile-menu-link-lines-height: 2px;
+@mobile-menu-link-lines-color: @text-color;
 
 // Built-in responsiveness
 & when (@isresponsive) {
@@ -114,40 +115,46 @@
   }
   // Mobile menu link
   .mobile-menu-link {
+    display: none;
+    overflow: hidden;
     position: absolute;
     top: 50%;
-    left: -10px;
+    right: @wrapper-padding-one;
+    z-index: 2;
     .translate(0, -50%);
-    .square((@mobile-menu-link-lines-width * 2) false);
+    .square(@mobile-menu-link-lines-width false);
+    margin: @mobile-menu-link-lines-width 0;
+    text-decoration: none;
 
-    a {
-      display: block;
-      .square(100%);
-      text-decoration: none;
-    }
-    .bars {
-      .set-value(top; 50%; left; 50%);
-      .translate(-50%, -50%);
+    span {
+      position: absolute;
+      top: (@mobile-menu-link-lines-height * 4);
+      left: 0;
+      background: @mobile-menu-link-lines-color;
+      width: 100%;
+      height: @mobile-menu-link-lines-height;
+      transition: all .3s;
 
-      &,
-      &:after,
-      &:before {
-        display: block;
-        position: absolute;
-        background: @text-color;
-        .size(@mobile-menu-link-lines-width false; @mobile-menu-link-lines-height false);
-      }
-      &:after,
-      &:before {
-        position: absolute;
-        left: 0;
-        content: "";
-      }
-      &:before {
+      &:first-child {
         top: (@mobile-menu-link-lines-height * 2);
       }
-      &:after {
-        bottom: (@mobile-menu-link-lines-height * 2);
+      &:last-child {
+        top: (@mobile-menu-link-lines-height * 6);
+      }
+
+      .nav-opened & {
+        &:first-child,
+        &:last-child {
+          top: @mobile-menu-link-lines-width;
+          left: 50%;
+          width: 0;
+        }
+        &:nth-child(2) {
+          .rotate(45deg);
+        }
+        &:nth-child(3) {
+          .rotate(-45deg);
+        }
       }
     }
   }
@@ -198,6 +205,20 @@ only screen and (min-resolution: 2dppx) {
 
 // <768px
 @media only all and (max-width: (767px * @reduction-ratio)) {
+  .mobile-menu-link {
+    display: block;
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: 1;
+    transition: right .3s;
+
+    .nav-opened & {
+      right: 0;
+    }
+  }
 }
 
 // <=600px
