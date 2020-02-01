@@ -201,10 +201,7 @@ only screen and (min-resolution: 2dppx) {
   html {
     font-size: (@font-size-base * @reduction-ratio);
   }
-}
 
-// <768px
-@media only all and (max-width: (767px * @reduction-ratio)) {
   .mobile-menu-link {
     display: block;
   }
@@ -219,6 +216,10 @@ only screen and (min-resolution: 2dppx) {
       right: 0;
     }
   }
+}
+
+// <768px
+@media only all and (max-width: (767px * @reduction-ratio)) {
 }
 
 // <=600px
