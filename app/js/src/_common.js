@@ -192,12 +192,12 @@ $(function () {
   // By clicking on an empty area of the window
   $(document.body).on('click', function (e) {
     var isPopup = false;
-    $('.popup-activator, .popup, #overlay, .modal').each(function () {
+    $('.popup-activator, .open-popup, .popup, #overlay, .modal').each(function () {
       if ($(e.target).is(this) || $(e.target).parents().is(this)) {
         isPopup = true;
       }
     });
-    if ($(e.target).is('.popup-activator') && $(e.target).parents().is('.popup')) {
+    if ($(e.target).is('.popup-activator, .open-popup') && $(e.target).parents().is('.popup')) {
       $('.popup:visible').each(function () {
         popupInit($(this).data('unifloat-source'));
       });
@@ -215,7 +215,7 @@ $(function () {
   // By close button
   $('.popup-close').not('.modal-close').on('click', function (e) {
     e.preventDefault();
-    $(document.body).trigger('click');
+    popupInit($(this).parents('.popup').data('unifloat-source'));
   });
 
 

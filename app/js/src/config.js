@@ -31,7 +31,7 @@ GLOBAL.config = {
         });
       }
     },*/
-    '.modal-activator': {}
+    '.open-modal': {}
   },
 
   // Popups
@@ -54,7 +54,7 @@ GLOBAL.config = {
         }
       }
     },*/
-    '.popup-activator': {}
+    '.open-popup': {}
   },
 
   // Tabs
