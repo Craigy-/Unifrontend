@@ -1,7 +1,7 @@
 // Site responsive stylesheets
 
 // Local variables
-@mobile-menu-link-lines-width: 20px;
+@mobile-menu-link-lines-width: 30px;
 @mobile-menu-link-lines-height: 2px;
 @mobile-menu-link-lines-color: @text-color;
 
@@ -120,10 +120,9 @@
     position: absolute;
     top: 50%;
     right: @wrapper-padding-one;
-    z-index: 2;
+    z-index: 3;
     .translate(0, -50%);
     .square(@mobile-menu-link-lines-width false);
-    margin: @mobile-menu-link-lines-width 0;
     text-decoration: none;
 
     span {
@@ -156,6 +155,19 @@
           .rotate(-45deg);
         }
       }
+    }
+  }
+  // Mobile menu overlay
+  #mobile-menu-overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    .square(100%);
+    z-index: 1;
+
+    .nav-opened & {
+      display: block;
     }
   }
   // Devices display
@@ -208,12 +220,13 @@ only screen and (min-resolution: 2dppx) {
   nav {
     position: absolute;
     top: 0;
-    right: -100%;
-    z-index: 1;
-    transition: right .3s;
+    right: 0;
+    z-index: 2;
+    .translate(100%, 0);
+    transition: all .5s;
 
     .nav-opened & {
-      right: 0;
+      .translate(0, 0);
     }
   }
 }

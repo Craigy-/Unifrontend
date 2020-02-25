@@ -16,8 +16,7 @@ $(function () {
 
     // Responsive menu
     // Optional: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
-    $('.mobile-menu-link').off('click.ht');
-    $('nav').off('.ht');
+    $('.mobile-menu-link, nav, #mobile-menu-overlay').off('.ht');
     if (ww < 768) {
       $('.mobile-menu-link').on('click.ht', function (e) {
         e.preventDefault();
@@ -30,9 +29,14 @@ $(function () {
           e.preventDefault();
         }
       });
+      $('#mobile-menu-overlay').on('click.ht', function () {
+        $(document.body).removeClass('nav-opened');
+      });
     }
+
+    // Responsive manipulations
   }
   responsiveFixes();
-  $(window).on(GLOBAL.actualResizer, responsiveFixes);
+  $(window).on('load ' + GLOBAL.actualResizer, responsiveFixes);
 
 });
