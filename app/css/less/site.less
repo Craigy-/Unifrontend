@@ -50,6 +50,10 @@ footer {
   .articles-title {
     .h4;
   }
+  .articles-announce {
+    .text-container;
+    margin-bottom: 0;
+  }
 }
 
 .contacts-title {
@@ -126,6 +130,7 @@ footer {
   }
   .info-announce {
     .text-container;
+    margin-bottom: 0;
   }
 }
 
@@ -141,6 +146,7 @@ footer {
   }
   .news-announce {
     .text-container;
+    margin-bottom: 0;
   }
 }
 
@@ -152,16 +158,11 @@ footer {
     .bold;
   }
   .resources-announce {
+    .text-container;
     .set-value(margin-bottom; 5);
-    line-height: @paragraph-line-height;
 
     p {
       .padding-bottom(5);
-      line-height: inherit;
-
-      &:last-child {
-        padding-bottom: 0;
-      }
     }
   }
   .resources-link {
@@ -185,16 +186,11 @@ footer {
     .bold;
   }
   .search-results-announce {
+    .text-container;
     .set-value(margin-bottom; 5);
-    line-height: @paragraph-line-height;
 
     p {
       .padding-bottom(5);
-      line-height: inherit;
-
-      &:last-child {
-        padding-bottom: 0;
-      }
     }
   }
   .search-results-link {
