@@ -1,5 +1,5 @@
 {
-"Version": "0.3.1",
+"Version": "0.3.2",
 "FileData":{
 ".hgignore": {"timestamp": 1518567003.0},
 ".hgtags": {"timestamp": 1430839795.04},
@@ -8,7 +8,7 @@
 "app/articles-list.htm": {"timestamp": 1533738836.56},
 "app/build/.htaccess": {"timestamp": 1504192064.0},
 "app/build/gulpfile.js": {"timestamp": 1533737351.86},
-"app/build/package-lock.json": {"timestamp": 1533752549.93},
+"app/build/package-lock.json": {"timestamp": 1580408897.92},
 "app/build/package.json": {"timestamp": 1533737487.28},
 "app/contacts.htm": {"timestamp": 1533738832.97},
 "app/css/less/_classes.less": {"timestamp": 1526905086.0},
