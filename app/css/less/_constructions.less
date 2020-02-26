@@ -75,8 +75,9 @@
             text-decoration: @pagination-navigation-text-decoration !important;
           }
           & when not (@pagination-navigation-image = none) {
-            background-image: @pagination-navigation-image;
-            background-repeat: no-repeat;
+            background-image: @pagination-navigation-image !important;
+            background-repeat: no-repeat !important;
+            background-color: transparent !important;
             .size(@pagination-navigation-width false; @pagination-navigation-height false);
             .text-hide;
           }

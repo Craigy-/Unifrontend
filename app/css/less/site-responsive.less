@@ -34,12 +34,13 @@
       }
     }
   }
-  @media only all and (max-width: ((@max-width-base - 1) * @reduction-ratio)) {
-    .wrapper {
-      width: 100%;
-      min-width: @min-width-base;
-      padding-left: @wrapper-padding-one;
-      padding-right: @wrapper-padding-one;
+  & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
+    @media only all and (max-width: (767px * @reduction-ratio)) {
+      .wrapper {
+        width: 100% !important;
+        padding-left: @wrapper-padding-one;
+        padding-right: @wrapper-padding-one;
+      }
     }
   }
 
@@ -55,13 +56,13 @@
   }
   @media only all and (max-width: (767px * @reduction-ratio)) {
     .form {
-      .form-title {
-        float: none;
-        .set-value(width; 100%; padding; @paragraph-padding);
-      }
+      .form-title,
       .form-field {
         float: none;
         width: 100%;
+      }
+      .form-title {
+        .set-value(padding; @paragraph-padding);
       }
     }
   }
@@ -76,6 +77,11 @@
         float: none;
         .set-value(width; 100%; padding; 0; margin; @paragraph-padding);
       }
+    }
+    .pull-left,
+    .pull-right {
+      float: none;
+      margin: @paragraph-padding;
     }
   }
 
@@ -204,14 +210,21 @@ only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
 }
 
-// >=@{max-width-base}px
-@media only all and (min-width: @max-width-base) {
+// >=@{min-width-base}px
+@media only all and (min-width: @min-width-base) {
 }
 
-// <@{max-width-base}px
-@media only all and (max-width: (@max-width-base - 1)) {
+// <@{min-width-base}px
+@media only all and (max-width: (@min-width-base - 1)) {
   html {
     font-size: (@font-size-base * @reduction-ratio);
+  }
+}
+
+// <768px
+@media only all and (max-width: (767px * @reduction-ratio)) {
+  body {
+    min-width: 320px;
   }
 
   .mobile-menu-link {
@@ -231,18 +244,14 @@ only screen and (min-resolution: 2dppx) {
   }
 }
 
-// <768px
-@media only all and (max-width: (767px * @reduction-ratio)) {
+// <600px
+@media only all and (max-width: (599px * @reduction-ratio)) {
 }
 
-// <=600px
-@media only all and (max-width: (600px * @reduction-ratio)) {
+// <480px
+@media only all and (max-width: (479px * @reduction-ratio)) {
 }
 
-// <=480px
-@media only all and (max-width: (480px * @reduction-ratio)) {
-}
-
-// <=380px
-@media only all and (max-width: (380px * @reduction-ratio)) {
+// <380px
+@media only all and (max-width: (379px * @reduction-ratio)) {
 }

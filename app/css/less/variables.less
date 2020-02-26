@@ -11,7 +11,7 @@
 @wrapper-fixed: true;
 @move-max-width-to-structure: false;
 @apply-max-width-to-footer: false;
-@wrapper-padding-one: 10px;
+@wrapper-padding-one: 15px;
 @wrapper-padding: 0 @wrapper-padding-one;
 @header-height: 90px;
 @header-padding: 0;
@@ -66,6 +66,7 @@
 @white: #FFFFFF;
 @red: #950000;
 @green: #5E9010;
+@grey: #CCCCCC;
 
 // Links
 @link-text-decoration: underline;
@@ -121,7 +122,8 @@
 @h6-text-transform: none;
 
 // Paragraphs
-@paragraph-padding: 0 0 20px 0;
+@paragraph-padding-one: 20px;
+@paragraph-padding: 0 0 @paragraph-padding-one 0;
 @paragraph-line-height: 140%;
 
 // Primary ULs and OLs
@@ -149,7 +151,7 @@
 @table-bordered-th-text-color: @white;
 @table-bordered-th-text-align: @table-th-text-align;
 
-@table-striped-highlight-color: #CCCCCC;
+@table-striped-highlight-color: @grey;
 
 // Images
 @image-bordered-border: 1px solid @hr-color-base;
@@ -159,13 +161,13 @@
 @input-background: @body-background;
 @input-background-focus: @input-background;
 @input-background-disabled: @input-background;
-@input-border: 1px solid @hr-color-base;
+@input-border: 1px solid @text-color;
 @input-border-radius: 0;
-@input-border-color-focus: @input-color-focus;
+@input-border-color-focus: @input-color-placeholder;
 @input-border-color-disabled: @input-color-disabled;
 @input-height: 30px;
 @input-box-shadow: none;
-@input-padding: 5px;
+@input-padding: 10px;
 @input-font-family: @font-family-base;
 @input-font-size: @font-size-base;
 @input-font-weight: normal;
@@ -174,10 +176,10 @@
 @input-font-size-placeholder: @input-font-size;
 @input-font-weight-placeholder: @input-font-weight;
 @input-font-style-placeholder: @input-font-style;
-@input-color-text: @hr-color-base;
+@input-color-text: @text-color;
 @input-color-focus: @input-color-text;
-@input-color-disabled: #999999;
-@input-color-placeholder: #CCCCCC;
+@input-color-disabled: @black-30;
+@input-color-placeholder: @grey;
 @input-text-shadow: none;
 
 // Forms
@@ -304,8 +306,8 @@
 @popup-header-background: none;
 @popup-header-border: 0;
 @popup-header-border-radius: 0;
-@popup-header-height: 70px;
-@popup-header-padding: 20px 0;
+@popup-header-height: 60px;
+@popup-header-padding: @paragraph-padding-one 0;
 @popup-header-font: @popup-body-font;
 @popup-header-color: @popup-body-color;
 @popup-header-text-align: center;
@@ -322,15 +324,15 @@
 @popup-footer-background: none;
 @popup-footer-border: 0;
 @popup-footer-border-radius: 0;
-@popup-footer-height: 70px;
-@popup-footer-padding: 20px 0;
+@popup-footer-height: 60px;
+@popup-footer-padding: @paragraph-padding-one 0;
 @popup-footer-font: @popup-body-font;
 @popup-footer-color: @popup-body-color;
 @popup-footer-text-align: center;
 
 @popup-close-position: absolute;
-@popup-close-position-top: 0;
-@popup-close-position-right: 0;
+@popup-close-position-top: @wrapper-padding-one;
+@popup-close-position-right: @wrapper-padding-one;
 @popup-close-background: url(../images/button-close.png) no-repeat 0 0;
 @popup-close-width: 35px;
 @popup-close-height: @popup-close-width;
