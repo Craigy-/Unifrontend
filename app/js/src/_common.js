@@ -137,7 +137,7 @@ $(function () {
     var options = $.extend(true, {}, $(activator).data('modal-options'));
     // Backward compatibility
     if ($(activator).data('modal-node')) {
-      options.node = $.extend(true, {}, $(activator).data('modal-node'));
+      options.node = $(activator).data('modal-node');
     }
     $.overlayLoader(true, options);
   };
