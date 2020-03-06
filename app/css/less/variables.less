@@ -159,11 +159,11 @@
 
 // Inputs
 @input-background: @body-background;
-@input-background-focus: @input-background;
-@input-background-disabled: @input-background;
-@input-border: 1px solid @text-color;
+@input-background-focus: fade(@input-background, 75%);
+@input-background-disabled: fade(@input-background, 45%);
+@input-border: 1px solid @input-color-text;
 @input-border-radius: 0;
-@input-border-color-focus: @input-color-placeholder;
+@input-border-color-focus: @input-color-focus;
 @input-border-color-disabled: @input-color-disabled;
 @input-height: 30px;
 @input-box-shadow: none;

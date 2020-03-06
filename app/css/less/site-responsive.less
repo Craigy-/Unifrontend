@@ -1,7 +1,9 @@
 // Site responsive stylesheets
 
 // Local variables
-@mobile-menu-link-lines-width: 30px;
+@min-width-mobile: 320px;
+@mobile-menu-link-width: 30px;
+@mobile-menu-link-height: 30px;
 @mobile-menu-link-lines-height: 2px;
 @mobile-menu-link-lines-color: @text-color;
 
@@ -128,12 +130,12 @@
     right: @wrapper-padding-one;
     z-index: 3;
     .translate(0, -50%);
-    .square(@mobile-menu-link-lines-width false);
+    .square(@mobile-menu-link-width false);
     text-decoration: none;
 
     span {
       position: absolute;
-      top: (@mobile-menu-link-lines-height * 4);
+      top: calc(50% - (@mobile-menu-link-lines-height / 2));
       left: 0;
       background: @mobile-menu-link-lines-color;
       width: 100%;
@@ -141,16 +143,16 @@
       transition: all .3s;
 
       &:first-child {
-        top: (@mobile-menu-link-lines-height * 2);
+        margin-top: (@mobile-menu-link-height / -2 + @mobile-menu-link-lines-height / 2);
       }
       &:last-child {
-        top: (@mobile-menu-link-lines-height * 6);
+        margin-top: (@mobile-menu-link-height / 2 - @mobile-menu-link-lines-height / 2);
       }
 
       .nav-opened & {
         &:first-child,
         &:last-child {
-          top: @mobile-menu-link-lines-width;
+          top: @mobile-menu-link-width;
           left: 50%;
           width: 0;
         }
@@ -166,14 +168,18 @@
   // Mobile menu overlay
   #mobile-menu-overlay {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     .square(100%);
     z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s;
 
     .nav-opened & {
-      display: block;
+      opacity: 1;
+      pointer-events: auto;
     }
   }
   // Devices display
@@ -224,7 +230,7 @@ only screen and (min-resolution: 2dppx) {
 // <768px
 @media only all and (max-width: (767px * @reduction-ratio)) {
   body {
-    min-width: 320px;
+    min-width: @min-width-mobile;
   }
 
   .mobile-menu-link {

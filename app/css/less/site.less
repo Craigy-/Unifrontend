@@ -30,12 +30,12 @@ footer {
 
 // Blocks
 .footer-counters {
-  float: left;
-  .set-value(padding; 0 90 0 20);
+  float: right;
+  .set-value(padding; 0 0 0 90);
 
   img {
     float: left;
-    .set-value(margin-right; 10);
+    .set-value(margin-left; 10);
   }
 }
 .footer-copyright {
@@ -213,6 +213,26 @@ footer {
 // Tables
 
 // Buttons
+button,
+.button {
+  display: inline-block;
+  background: @input-background;
+  border: @input-border;
+  .set-value(height; @input-height; padding; 0 @input-padding; line-height; @input-height true);
+  font-size: @input-font-size;
+  color: @input-color-text;
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: lowercase;
+  transition: all .3s;
+
+  &:hover {
+    background: @input-background-focus;
+  }
+  &[disabled] {
+    background: @input-background-disabled;
+  }
+}
 
 // Forms
 
