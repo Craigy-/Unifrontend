@@ -210,7 +210,7 @@
 }
 .pull-left {
   .left;
-  .set-value(margin; 0 15 10 0);
+  .set-value(margin; 0 @wrapper-padding-one @paragraph-padding-one 0);
 
   table&,
   th&,
@@ -222,7 +222,7 @@
 }
 .pull-right {
   .right;
-  .set-value(margin; 0 0 10 15);
+  .set-value(margin; 0 0 @paragraph-padding-one @wrapper-padding-one);
 
   table&,
   th&,
@@ -286,8 +286,7 @@
 
 // Clearfixes
 .clearfix,
-.nofloat,
-.text-container {
+.nofloat {
   .clearfix;
 }
 .clear {

@@ -30,7 +30,8 @@ GLOBAL.config = {
           node: $('#presentation-success')
         });
       }
-    }*/
+    },*/
+    '.open-modal': {}
   },
 
   // Popups
@@ -46,8 +47,14 @@ GLOBAL.config = {
         auto: false
       },
       manipulation: true,
-      effect: false
-    }*/
+      effect: false,
+      onShow: function (source, target) {
+        if (!GLOBAL.isTouchscreen) {
+          $(target).find('input:first').focus();
+        }
+      }
+    },*/
+    '.open-popup': {}
   },
 
   // Tabs
@@ -55,6 +62,17 @@ GLOBAL.config = {
     /*'#product-functions': {
       updateHash: false
     }*/
+  },
+
+  // Scrollings
+  scrollings: {
+    /*'#up': {
+      target: 0,
+      duration: 200
+    },*/
+    '.scroll-to': {
+      duration: 200
+    }
   }
 
 };

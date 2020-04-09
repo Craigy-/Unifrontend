@@ -11,14 +11,14 @@
 @wrapper-fixed: true;
 @move-max-width-to-structure: false;
 @apply-max-width-to-footer: false;
-@wrapper-padding-one: 10px;
+@wrapper-padding-one: 15px;
 @wrapper-padding: 0 @wrapper-padding-one;
 @header-height: 90px;
 @header-padding: 0;
 @content-padding-bottom: 30px;
-@sidebar-left-width: 0px;
+@sidebar-left-width: 0px; // must be with 'px'
 @sidebar-left-padding: 0;
-@sidebar-right-width: 0px;
+@sidebar-right-width: 0px; // must be with 'px'
 @sidebar-right-padding: 0;
 @main-padding: 0;
 @footer-to-bottom: true;
@@ -27,6 +27,7 @@
 @footer-text-align: left;
 
 // Fonts
+// @import 'fonts/fonts.min.css';
 @font-family-base: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 @font-family-monospace: Courier, 'Courier New', monospace;
 @font-size-base: 12px;
@@ -65,6 +66,7 @@
 @white: #FFFFFF;
 @red: #950000;
 @green: #5E9010;
+@grey: #CCCCCC;
 
 // Links
 @link-text-decoration: underline;
@@ -75,35 +77,40 @@
 @h1-background: none;
 @h1-padding: 0;
 @h1-margin: @paragraph-padding;
-@h1-font: bold (@font-size-base + 5)/@line-height-base @font-family-base;
+@h1-fs: (@font-size-base + 5);
+@h1-font: bold @h1-fs/@line-height-base @font-family-base;
 @h1-color-text: @text-color;
 @h1-text-transform: none;
 
 @h2-background: none;
 @h2-padding: 0;
 @h2-margin: @paragraph-padding;
-@h2-font: bold (@font-size-base + 4)/@line-height-base @font-family-base;
+@h2-fs: (@font-size-base + 4);
+@h2-font: bold @h2-fs/@line-height-base @font-family-base;
 @h2-color-text: @text-color;
 @h2-text-transform: none;
 
 @h3-background: none;
 @h3-padding: 0;
 @h3-margin: @paragraph-padding;
-@h3-font: bold (@font-size-base + 3)/@line-height-base @font-family-base;
+@h3-fs: (@font-size-base + 3);
+@h3-font: bold @h3-fs/@line-height-base @font-family-base;
 @h3-color-text: @text-color;
 @h3-text-transform: none;
 
 @h4-background: none;
 @h4-padding: 0;
 @h4-margin: @paragraph-padding;
-@h4-font: bold (@font-size-base + 2)/@line-height-base @font-family-base;
+@h4-fs: (@font-size-base + 2);
+@h4-font: bold @h4-fs/@line-height-base @font-family-base;
 @h4-color-text: @text-color;
 @h4-text-transform: none;
 
 @h5-background: none;
 @h5-padding: 0;
 @h5-margin: @paragraph-padding;
-@h5-font: bold (@font-size-base + 1)/@line-height-base @font-family-base;
+@h5-fs: (@font-size-base + 1);
+@h5-font: bold @h5-fs/@line-height-base @font-family-base;
 @h5-color-text: @text-color;
 @h5-text-transform: none;
 
@@ -115,7 +122,8 @@
 @h6-text-transform: none;
 
 // Paragraphs
-@paragraph-padding: 0 0 20px 0;
+@paragraph-padding-one: 20px;
+@paragraph-padding: 0 0 @paragraph-padding-one 0;
 @paragraph-line-height: 140%;
 
 // Primary ULs and OLs
@@ -143,7 +151,7 @@
 @table-bordered-th-text-color: @white;
 @table-bordered-th-text-align: @table-th-text-align;
 
-@table-striped-highlight-color: #CCCCCC;
+@table-striped-highlight-color: @grey;
 
 // Images
 @image-bordered-border: 1px solid @hr-color-base;
@@ -151,15 +159,15 @@
 
 // Inputs
 @input-background: @body-background;
-@input-background-focus: @input-background;
-@input-background-disabled: @input-background;
-@input-border: 1px solid @hr-color-base;
+@input-background-focus: fade(@input-background, 75%);
+@input-background-disabled: fade(@input-background, 45%);
+@input-border: 1px solid @input-color-text;
 @input-border-radius: 0;
 @input-border-color-focus: @input-color-focus;
 @input-border-color-disabled: @input-color-disabled;
 @input-height: 30px;
 @input-box-shadow: none;
-@input-padding: 5px;
+@input-padding: 10px;
 @input-font-family: @font-family-base;
 @input-font-size: @font-size-base;
 @input-font-weight: normal;
@@ -168,10 +176,10 @@
 @input-font-size-placeholder: @input-font-size;
 @input-font-weight-placeholder: @input-font-weight;
 @input-font-style-placeholder: @input-font-style;
-@input-color-text: @hr-color-base;
+@input-color-text: @text-color;
 @input-color-focus: @input-color-text;
-@input-color-disabled: #999999;
-@input-color-placeholder: #CCCCCC;
+@input-color-disabled: @black-30;
+@input-color-placeholder: @grey;
 @input-text-shadow: none;
 
 // Forms
@@ -298,8 +306,8 @@
 @popup-header-background: none;
 @popup-header-border: 0;
 @popup-header-border-radius: 0;
-@popup-header-height: 70px;
-@popup-header-padding: 20px 0;
+@popup-header-height: 60px;
+@popup-header-padding: @paragraph-padding-one 0;
 @popup-header-font: @popup-body-font;
 @popup-header-color: @popup-body-color;
 @popup-header-text-align: center;
@@ -316,15 +324,15 @@
 @popup-footer-background: none;
 @popup-footer-border: 0;
 @popup-footer-border-radius: 0;
-@popup-footer-height: 70px;
-@popup-footer-padding: 20px 0;
+@popup-footer-height: 60px;
+@popup-footer-padding: @paragraph-padding-one 0;
 @popup-footer-font: @popup-body-font;
 @popup-footer-color: @popup-body-color;
 @popup-footer-text-align: center;
 
 @popup-close-position: absolute;
-@popup-close-position-top: 0;
-@popup-close-position-right: 0;
+@popup-close-position-top: @wrapper-padding-one;
+@popup-close-position-right: @wrapper-padding-one;
 @popup-close-background: url(../images/button-close.png) no-repeat 0 0;
 @popup-close-width: 35px;
 @popup-close-height: @popup-close-width;

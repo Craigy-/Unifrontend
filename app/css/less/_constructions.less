@@ -75,8 +75,9 @@
             text-decoration: @pagination-navigation-text-decoration !important;
           }
           & when not (@pagination-navigation-image = none) {
-            background-image: @pagination-navigation-image;
-            background-repeat: no-repeat;
+            background-image: @pagination-navigation-image !important;
+            background-repeat: no-repeat !important;
+            background-color: transparent !important;
             .size(@pagination-navigation-width false; @pagination-navigation-height false);
             .text-hide;
           }
@@ -150,10 +151,6 @@
     .set-value(padding-left; @form-statuses-padding false; padding-right; @input-padding);
     color: @form-error-color-text;
     .placeholder(@form-error-color-text);
-
-    &:focus {
-      background-color: lighten(@form-error-background-color, 5%);
-    }
   }
   .form-success .input,
   .form-success select,
@@ -244,6 +241,7 @@
   font: @list-font;
 
   > li {
+    .clearfix;
     .set-value(margin; @list-element-margin);
     list-style: none;
 
@@ -290,7 +288,7 @@ table {
   border: 0;
   border-spacing: 0;
   border-collapse: collapse;
-  .set-value(font; @table-font);
+  .set-value(margin; @paragraph-padding; font; @table-font);
 
   th,
   td {
@@ -390,5 +388,9 @@ table {
     text-decoration: @popup-close-text-decoration;
     vertical-align: top;
     cursor: pointer;
+
+    &:active {
+      .translate(0, 1px);
+    }
   }
 }
