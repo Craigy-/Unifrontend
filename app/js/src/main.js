@@ -39,4 +39,5 @@ $(function () {
   responsiveFixes();
   $(window).on('load ' + GLOBAL.actualResizer, responsiveFixes);
 
+
 });
