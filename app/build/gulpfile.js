@@ -64,6 +64,7 @@ var paths = {
       ],
       custom: [
         'js/src/config.js',
+        'js/src/_common.js',
         'js/src/main.js'
       ]
     },
@@ -265,12 +266,6 @@ gulp.task('watch', args.dev ? ['clean', 'live', 'css', 'js'] : ['clear', 'css', 
   watch(paths.js.watch, {
     cwd: paths.rootPath
   }, 'js');
-  // Watch images
-  if (!args.dev) {
-    watch(paths.images.watch, {
-      cwd: paths.rootPath
-    }, 'images');
-  }
   // Watch HTML
   watch(paths.html.watch, {
     cwd: paths.rootPath
