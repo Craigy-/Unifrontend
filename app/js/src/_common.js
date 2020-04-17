@@ -12,12 +12,14 @@ $(function () {
             val = $(this).hasClass('SSContainerDivWrapper') ? $(this).parent().prev().val() : $(this).val(),
             activeState = $(this).hasClass('SSContainerDivWrapper') ? $(this).is(':visible') : $(this).is(':focus');
         if (activeState) {
-          $par.data('wasError', true);
+          if (!$par.data('wasError')) {
+            $par.data('wasError', val);
+          }
           $par.removeClass('form-error');
         } else {
           if ($par.data('wasError')) {
             $par.removeClass('form-error');
-            if ($.inArray(val, defaultValues) != -1) {
+            if ($.inArray(val, defaultValues.concat($par.data('wasError'))) != -1) {
               $par.addClass('form-error');
             }
           }

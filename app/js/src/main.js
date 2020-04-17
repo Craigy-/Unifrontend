@@ -9,7 +9,9 @@ $(function () {
     GLOBAL.windowSize = [ww, wh];
 
     // Prevent fixes if changed only window height
+    GLOBAL.onlyWindowHeightChanged = false;
     if ($(document.body).data('originalWW') && $(document.body).data('originalWW') == ww) {
+      GLOBAL.onlyWindowHeightChanged = true;
       return;
     }
     $(document.body).data('originalWW', ww);
