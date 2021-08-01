@@ -7,6 +7,11 @@
 // Local variables
 
 // Local mixins
+.clear-list() {
+  li {
+    list-style: none;
+  }
+}
 
 // Customized global styles
 
@@ -18,9 +23,7 @@ header {
 
 // Main navigation
 nav {
-  li {
-    list-style: none;
-  }
+  .clear-list;
 }
 
 // Footer
@@ -245,6 +248,10 @@ button,
 }
 
 // Colors
+.main,
+.main a {
+  color: @text-color;
+}
 .black,
 .black a {
   color: @black;
@@ -264,10 +271,6 @@ button,
 .grey,
 .grey a {
   color: @grey;
-}
-.main,
-.main a {
-  color: @text-color;
 }
 
 // Markers
