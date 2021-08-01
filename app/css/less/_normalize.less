@@ -8,7 +8,7 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 
-  & when (@footer-to-bottom) {
+  & when (@footer-to-bottom) and not (@footer-height = auto) {
     height: 100%;
   }
 }
@@ -18,7 +18,7 @@ body {
   max-width: 1920px;
   margin: 0 auto;
 
-  & when (@footer-to-bottom) {
+  & when (@footer-to-bottom) and not (@footer-height = auto) {
     height: 100%;
   }
 }

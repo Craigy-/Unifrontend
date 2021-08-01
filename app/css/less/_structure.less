@@ -16,7 +16,7 @@ header {
   & when (@move-max-width-to-structure) {
     max-width: @max-width-base;
   }
-  & when (@footer-to-bottom) {
+  & when (@footer-to-bottom) and not (@footer-height = auto) {
     min-height: 100%;
   }
 }
