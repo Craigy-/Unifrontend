@@ -48,6 +48,8 @@
         display: block;
         .set-value(font; @pagination-element-font);
         color: @pagination-element-color;
+      }
+      a {
         text-decoration: @pagination-element-text-decoration;
 
         &:hover {
@@ -60,6 +62,8 @@
         * {
           .set-value(font; @pagination-selected-font);
           color: @pagination-selected-color;
+        }
+        a {
           text-decoration: @pagination-selected-text-decoration !important;
         }
       }
@@ -71,15 +75,17 @@
           .set-value(font; @pagination-navigation-font);
           color: @pagination-navigation-color;
 
-          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
-            text-decoration: @pagination-navigation-text-decoration !important;
-          }
           & when not (@pagination-navigation-image = none) {
             background-image: @pagination-navigation-image !important;
             background-repeat: no-repeat !important;
             background-color: transparent !important;
             .size(@pagination-navigation-width false; @pagination-navigation-height false);
             .text-hide;
+          }
+        }
+        a {
+          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
+            text-decoration: @pagination-navigation-text-decoration !important;
           }
         }
       }

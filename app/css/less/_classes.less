@@ -7,16 +7,16 @@
 
   p {
     line-height: inherit;
-
-    &:last-child {
-      padding-bottom: 0;
-    }
   }
-  ul {
-    .primary-list;
+  > p:last-child {
+    padding-bottom: 0;
   }
   ul,
   ol {
+    .primary-list;
+  }
+  > ul,
+  > ol {
     &:last-child {
       margin-bottom: 0;
 
@@ -156,8 +156,8 @@
   overflow: hidden;
   overflow-x: auto;
 
-  table {
-    margin-bottom: 0;
+  table:last-child {
+    margin-bottom: 0 !important;
   }
 }
 .nowrap {
@@ -172,7 +172,7 @@
   position: relative;
 }
 .fixed {
-  position: fixed;
+  position: fixed !important;
 }
 .block {
   display: block !important;
