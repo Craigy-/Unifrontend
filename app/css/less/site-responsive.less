@@ -45,6 +45,13 @@
       }
     }
   }
+  & when not (@wrapper-fixed) {
+    @media only all and (max-width: (767px * @reduction-ratio)) {
+      .wrapper {
+        min-width: @min-width-mobile;
+      }
+    }
+  }
 
   // Constructions
   & when (@modal-width > 0) {
@@ -229,6 +236,7 @@ only screen and (min-resolution: 2dppx) {
 // <768px
 @media only all and (max-width: (767px * @reduction-ratio)) {
   body {
+    overflow-x: hidden;
     min-width: @min-width-mobile;
   }
 
