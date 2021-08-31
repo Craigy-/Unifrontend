@@ -227,11 +227,30 @@
   text-shadow: 1px 0 @color, 1px 1px @color, 0 1px @color, -1px 1px @color, -1px 0 @color, -1px -1px @color, 0 -1px @color, 1px -1px @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color, 0 0 @s @color;
 }
 
-// Text overflow (requires inline-block or block for proper styling)
-.text-overflow() {
+// Text overflow
+.text-overflow(@lines: 1; @display: block; @font-size: @font-size-base; @line-height: @line-height-base; @responsive: @isfontsresponsive) {
+  .set-text-overflow(@lines) when (@lines > 1) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @lines;
+    & when (ispercentage(@line-height)) {
+      .set-value_(max-height; (@font-size * (@line-height / 100) * @lines); @responsive);
+    }
+    & when (ispixel(@line-height)) {
+      .set-value_(max-height; (@line-height * @lines); @responsive);
+    }
+    & when (isnumber(@line-height)) and not (ispercentage(@line-height)) and not (ispixel(@line-height)) {
+      .set-value_(max-height; (@font-size * @line-height * @lines); @responsive);
+    }
+  }
+  .set-text-overflow(@lines) when (default()) {
+    display: @display;
+    white-space: nowrap;
+  }
+
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  .set-text-overflow(@lines);
 }
 
 // CSS image replacement
