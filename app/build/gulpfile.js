@@ -1,6 +1,7 @@
 /*!
- * HTML Templates
- * CSS Adaptive Framework and HTML5 Basic Templates
+ * Unifrontend
+ * Responsive CSS Framework and Sample HTML Templates
+ * https://github.com/Craigy-/Unifrontend
  *
  * Dual licensed under the MIT or GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php

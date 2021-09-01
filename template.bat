@@ -6,4 +6,4 @@ copy "app\index.htm" "%~1" /y
 exit
 
 :error
-echo ERROR: You must specify the folder in which you want to create new HTML Templates.
+echo ERROR: You must specify the folder in which you want to create new Unifrontend kit.

@@ -1,8 +1,8 @@
 {
-  "name": "html-templates",
+  "name": "Unifrontend",
   "version": "3.0.0",
-  "description": "CSS Adaptive Framework and HTML5 Basic Templates",
-  "repository": "https://bitbucket.org/artwist/html-templates",
+  "description": "Responsive CSS Framework and Sample HTML Templates",
+  "repository": "https://github.com/Craigy-/Unifrontend",
   "author": "Grigory Zarubin (http://craigy.ru)",
   "devDependencies": {
     "browser-sync": "^2.23.6",

@@ -1,9 +1,9 @@
-# HTML Templates
+# Unifrontend
 
-CSS3 Adaptive Framework and Sample HTML5 Templates.
+Responsive CSS Framework and Sample HTML Templates.
 
-Yeah, it's yet another but a little strange CSS framework with HTML boilerplate for comfortable web development.
-It supports *the latest 5 versions of all browsers* and many devices, including smartphones and tablets. This is not to say that HTML Templates cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the above.
+Yeah, it's yet another but a little strange CSS *less*-based framework with HTML boilerplate for comfortable web development.
+It supports *the latest 5 versions of all browsers* and many devices, including smartphones and tablets. This is not to say that Unifrontend kit cannot be used in browsers older than those reflected, but merely that our focus will be on ensuring our layouts work great in the above.
 
 
 ## Sample HTML Templates
@@ -27,7 +27,7 @@ There are some HTML templates that can help you to fast create typical pages of 
 
 ## Installation
 
-To take advantage of HTML Templates you need to perform a few simple steps.
+To take advantage of Unifrontend you need to perform a few simple steps.
 
 1. Install the dependencies if you don't already have them:
    - Download and install [Node.js](http://nodejs.org)
@@ -35,11 +35,12 @@ To take advantage of HTML Templates you need to perform a few simple steps.
 ```
 npm install --global gulp-cli
 ```
-2. Clone this repo and create a new HTML Template anywhere you want to start a new project, e.g.:
+2. Clone this repo and create a new Unifrontend kit anywhere you want to start a new project, e.g.:
 ```
 template c:\dummy.ru
 ```
-3. Go to the folder of a new project and run:
+Unfortunately, it's just for Windows OS users only, but instead you can to copy all necessary files manually.
+3. Go to the folder with a new project and run:
 ```
 cd build
 npm install
@@ -65,7 +66,7 @@ gulp watch
 
 This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
-Faster version of the same command that disables all minifying tasks:
+Faster version of the same command that disables all minifying tasks and processing the images:
 ```
 gulp watch --dev
 ```
