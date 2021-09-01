@@ -72,6 +72,7 @@ Faster version of the same command that disables all minifying tasks and process
 gulp watch --dev
 ```
 
+
 ### Build project for production
 ```
 gulp build
@@ -80,6 +81,7 @@ or just:
 ```
 gulp
 ```
+
 
 ### Other commands (no description yet)
 ```
