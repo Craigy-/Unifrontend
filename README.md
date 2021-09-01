@@ -80,3 +80,13 @@ or just:
 ```
 gulp
 ```
+
+### Other commands (no description yet)
+```
+gulp build --dev
+gulp css
+gulp js
+gulp js --custom
+gulp images
+gulp images --extreme
+```
