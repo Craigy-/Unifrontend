@@ -40,6 +40,7 @@ npm install --global gulp-cli
 template c:\dummy.ru
 ```
 Unfortunately, it's just for Windows OS users only, but instead you can to copy all necessary files manually.
+
 3. Go to the folder with a new project and run:
 ```
 cd build
