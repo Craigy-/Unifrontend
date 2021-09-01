@@ -228,29 +228,22 @@
 }
 
 // Text overflow
-.text-overflow(@lines: 1; @display: block; @font-size: @font-size-base; @line-height: @line-height-base; @responsive: @isfontsresponsive) {
-  .set-text-overflow(@lines) when (@lines > 1) {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: @lines;
-    & when (ispercentage(@line-height)) {
-      .set-value_(max-height; (@font-size * (@line-height / 100) * @lines); @responsive);
-    }
-    & when (ispixel(@line-height)) {
-      .set-value_(max-height; (@line-height * @lines); @responsive);
-    }
-    & when (isnumber(@line-height)) and not (ispercentage(@line-height)) and not (ispixel(@line-height)) {
-      .set-value_(max-height; (@font-size * @line-height * @lines); @responsive);
-    }
-  }
-  .set-text-overflow(@lines) when (default()) {
-    display: @display;
-    white-space: nowrap;
-  }
-
+.text-overflow(@lines: 1; @font-size: @font-size-base; @line-height: @line-height-base; @responsive: @isfontsresponsive) {
+  display: -webkit-box;
   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @lines;
   text-overflow: ellipsis;
-  .set-text-overflow(@lines);
+
+  & when (ispercentage(@line-height)) {
+    .set-value_(max-height; (@font-size * (@line-height / 100) * @lines); @responsive);
+  }
+  & when (ispixel(@line-height)) {
+    .set-value_(max-height; (@line-height * @lines); @responsive);
+  }
+  & when (isnumber(@line-height)) and not (ispercentage(@line-height)) and not (ispixel(@line-height)) {
+    .set-value_(max-height; (@font-size * @line-height * @lines); @responsive);
+  }
 }
 
 // CSS image replacement
