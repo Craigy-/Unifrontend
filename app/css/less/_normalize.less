@@ -5,20 +5,9 @@ html {
   line-height: @line-height-base;
   color: @text-color;
   -webkit-text-size-adjust: 100%;
-
-  & when (@footer-to-bottom) and not (@footer-height = auto) {
-    height: 100%;
-  }
 }
 body {
   background: @body-background;
-  min-width: @min-width-base;
-  max-width: 1920px;
-  margin: 0 auto;
-
-  & when (@footer-to-bottom) and not (@footer-height = auto) {
-    height: 100%;
-  }
 }
 
 * {

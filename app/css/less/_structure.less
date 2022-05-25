@@ -1,4 +1,16 @@
 // HTML structure
+& when (@footer-to-bottom) and not (@footer-height = auto) {
+  html,
+  body {
+    height: 100%;
+  }
+}
+body {
+  min-width: @min-width-base;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
 header {
   box-sizing: border-box;
   background: @header-background;
