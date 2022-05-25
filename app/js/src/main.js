@@ -20,6 +20,7 @@ $(function () {
     // Optional: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
     $('.mobile-menu-link, nav, #mobile-menu-overlay').off('.ht');
     if (ww < 768) {
+
       $('.mobile-menu-link').on('click.ht', function (e) {
         e.preventDefault();
         $(document.body).toggleClass('nav-opened');
@@ -34,6 +35,7 @@ $(function () {
       $('#mobile-menu-overlay').on('click.ht', function () {
         $(document.body).removeClass('nav-opened');
       });
+
     }
 
     // Responsive manipulations
