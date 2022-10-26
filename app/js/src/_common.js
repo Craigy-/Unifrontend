@@ -17,7 +17,7 @@ $(function () {
           }
           $par.removeClass('form-error');
         } else {
-          if ($par.data('wasError')) {
+          if ($par.data('wasError') || $par.data('wasError') == '') {
             $par.removeClass('form-error');
             if ($.inArray(val, defaultValues.concat($par.data('wasError'))) != -1) {
               $par.addClass('form-error');
