@@ -10,7 +10,7 @@
 //<![CDATA[
 window.GLOBAL = {};
 GLOBAL.isTouchscreen = false;
-if ('ontouchend' in document || !!navigator.msMaxTouchPoints || !!navigator.maxTouchPoints) {
+if ('ontouchend' in document || !!navigator.maxTouchPoints) {
   GLOBAL.isTouchscreen = true;
 }
 
