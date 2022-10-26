@@ -219,8 +219,8 @@
 }
 .form-error-message,
 .form-success-message {
-  box-sizing: border-box;
   position: relative;
+  box-sizing: border-box;
   background-position: @form-messages-background-position !important;
   box-shadow: @form-messages-box-shadow;
   .set-value(border-radius; @form-messages-border-radius; padding; @form-messages-padding false; margin; @form-messages-margin; font; @form-messages-font);
@@ -341,12 +341,12 @@ table {
 
 // Popups and modal windows
 .popup {
-  display: none;
-  box-sizing: border-box;
   position: absolute;
   top: 0;
   left: 0;
   z-index: @popup-zIndex;
+  display: none;
+  box-sizing: border-box;
   background: @popup-background;
   border: @popup-border;
   box-shadow: @popup-box-shadow;
@@ -382,11 +382,11 @@ table {
     text-align: @popup-footer-text-align;
   }
   .popup-close {
-    display: inline-block;
     position: @popup-close-position;
     top: @popup-close-position-top;
     right: @popup-close-position-right;
     z-index: 1;
+    display: inline-block;
     background: @popup-close-background;
     .size(@popup-close-width false; @popup-close-height false);
     .set-value(padding; @popup-close-padding; font; @popup-close-font);

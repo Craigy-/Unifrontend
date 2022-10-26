@@ -98,7 +98,7 @@ footer {
   }
   > .wrapper when not (@footer-height = auto) {
     & when (@footer-to-bottom) {
-      .set-value(height; @footer-height; margin-top; (@footer-height * -1));
+      .set-value(height; @footer-height; margin-top; -@footer-height);
     }
     & when not (@footer-to-bottom) {
       .set-value_(min-height; @footer-height);

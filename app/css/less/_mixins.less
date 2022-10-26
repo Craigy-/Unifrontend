@@ -22,20 +22,20 @@
 
 // Center-align a block level content
 .center-block-content(@display: block) when (default()) {
+  position: relative;
   display: @display;
   overflow: hidden;
-  position: relative;
   width: 100%;
 
   > div {
-    display: @display;
     position: relative;
+    display: @display;
     float: left;
     left: 50%;
 
     > div {
-      display: @display;
       position: relative;
+      display: @display;
       float: left;
       right: 50%;
     }
@@ -66,14 +66,14 @@
 
 // Vertical center-align a block level content
 .middle-block-content(@display: block) when (default()) {
-  display: @display;
   position: relative;
+  display: @display;
 
   > * {
-    display: @display;
     position: absolute;
     top: 50%;
     left: 0;
+    display: @display;
     .translate(0, -50%);
   }
 }
@@ -166,8 +166,8 @@
   .set-value(margin; 0 (@col-padding / -2) @responsive);
 
   .col {
-    box-sizing: border-box;
     position: relative;
+    box-sizing: border-box;
     float: left;
     min-height: 1px;
     .set-value(width; (@row-width / @col-number) @responsive; padding; 0 (@col-padding / 2) @responsive);
@@ -197,9 +197,9 @@
 
 // Responsive embeds (by Nicolas Gallagher in SUIT CSS)
 .embed-responsive(@display: block) when (default()) {
+  position: relative;
   display: @display;
   overflow: hidden;
-  position: relative;
   height: 0;
 
   .embed-responsive-item,

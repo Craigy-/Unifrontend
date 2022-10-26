@@ -25,32 +25,38 @@ header {
   position: relative;
 }
 
+
 // Main navigation
 nav {
   .clear-list;
 }
 
+
 // Footer
 footer {
 }
 
+.footer {
+  &-counters { // .footer-counters
+    float: right;
+    .set-value(padding-left; 90);
+
+    img {
+      float: left;
+      .set-value(margin-left; 10);
+    }
+  }
+  &-copyright { // .footer-copyright
+    a {
+    }
+  }
+}
+
 
 // Blocks
-.footer-counters {
-  float: right;
-  .set-value(padding-left; 90);
-
-  img {
-    float: left;
-    .set-value(margin-left; 10);
-  }
-}
-.footer-copyright {
-  a {
-  }
-}
 
 
+// Pages
 .articles-list {
   .list-hr;
 
@@ -219,11 +225,15 @@ footer {
 
 // Tables
 
+
+// Forms
+
+
 // Buttons
 button,
 .button {
   display: inline-block;
-  background: @input-background;
+  background-color: @input-background;
   border: @input-border;
   border-radius: 0;
   .set-value(height; @input-height; padding; 0 @input-padding; line-height; @input-height true);
@@ -235,14 +245,13 @@ button,
   transition: all .3s;
 
   &:hover {
-    background: @input-background-focus;
+    background-color: @input-background-focus;
   }
   &[disabled] {
-    background: @input-background-disabled;
+    background-color: @input-background-disabled;
   }
 }
 
-// Forms
 
 // Popups and modal windows
 .modal {
@@ -251,9 +260,10 @@ button,
   width: @modal-width;
 }
 
+
 // Colors
-.main,
-.main a {
+.base,
+.base a {
   color: @text-color;
 }
 .black,
@@ -277,12 +287,14 @@ button,
   color: @grey;
 }
 
+
 // Markers
 .marker {
   .marker('../images/marker.gif'; 0 0 0 12; 0 4px);
 }
 
+
 // Horizontal lines
 .hr {
-  .hr(@hr-color-base; 20 0);
+  .hr(@hr-color-base; @paragraph-padding-one 0);
 }

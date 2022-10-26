@@ -2,6 +2,7 @@
 
 // Local variables
 @min-width-mobile: 320px;
+
 @mobile-menu-link-width: 30px;
 @mobile-menu-link-height: 30px;
 @mobile-menu-link-lines-height: 2px;
@@ -128,16 +129,17 @@
       }
     }
   }
+
   // Mobile menu link
   .mobile-menu-link {
-    display: none;
-    overflow: hidden;
     position: absolute;
     top: 50%;
     right: @wrapper-padding-one;
     z-index: 3;
-    .translate(0, -50%);
+    display: none;
+    overflow: hidden;
     .square(@mobile-menu-link-width false);
+    .translate(0, -50%);
     text-decoration: none;
 
     span {
@@ -172,6 +174,7 @@
       }
     }
   }
+
   // Mobile menu overlay
   #mobile-menu-overlay {
     position: fixed;
@@ -188,6 +191,7 @@
       pointer-events: auto;
     }
   }
+
   // Devices display
   .only-touch {
     .isDesktop & {
@@ -215,6 +219,7 @@
 
 
 // Responsive rules for...
+
 // Retina
 @media
 only screen and (min-device-pixel-ratio: 2),
@@ -222,9 +227,11 @@ only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
 }
 
+
 // >=@{min-width-base}px
 @media only all and (min-width: @min-width-base) {
 }
+
 
 // <@{min-width-base}px
 @media only all and (max-width: (@min-width-base - 1)) {
@@ -232,6 +239,7 @@ only screen and (min-resolution: 2dppx) {
     font-size: (@font-size-base * @reduction-ratio);
   }*/
 }
+
 
 // <768px
 @media only all and (max-width: (767px * @reduction-ratio)) {
@@ -257,14 +265,17 @@ only screen and (min-resolution: 2dppx) {
   }
 }
 
+
 // <600px
 @media only all and (max-width: (599px * @reduction-ratio)) {
 }
 
-// <480px
-@media only all and (max-width: (479px * @reduction-ratio)) {
+
+// <460px
+@media only all and (max-width: (459px * @reduction-ratio)) {
 }
 
-// <380px
-@media only all and (max-width: (379px * @reduction-ratio)) {
+
+// <400px
+@media only all and (max-width: (399px * @reduction-ratio)) {
 }
