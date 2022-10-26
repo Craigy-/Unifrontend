@@ -5,7 +5,9 @@ GLOBAL.config = {
   inputs: $(),
 
   // Replace selectors
-  selectors: $(),
+  selectors: {
+    //'select': {}
+  },
 
   // Carousels
   carousels: {

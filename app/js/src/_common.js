@@ -54,9 +54,9 @@ $(function () {
 
   // Replace selectors
   // Required: /js/src/plugins/jquery.stylish-select.js
-  if (GLOBAL.config.selectors.length) {
-    GLOBAL.config.selectors.sSelect();
-  }
+  $.each(GLOBAL.config.selectors, function (selector, options) {
+    $(selector).sSelect(options);
+  });
 
 
   // Carousels
