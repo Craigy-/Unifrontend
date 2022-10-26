@@ -160,12 +160,14 @@
 
 // Inputs
 @input-background: @body-background;
+@input-background-placeholder: @input-background;
 @input-background-focus: fade(@input-background, 75%);
 @input-background-disabled: fade(@input-background, 45%);
 @input-border: 1px solid @input-color-text;
-@input-border-radius: 0;
+@input-border-color-placeholder: @input-color-placeholder;
 @input-border-color-focus: @input-color-focus;
 @input-border-color-disabled: @input-color-disabled;
+@input-border-radius: 0;
 @input-height: 30px;
 @input-box-shadow: none;
 @input-padding: 10px;
@@ -178,9 +180,9 @@
 @input-font-weight-placeholder: @input-font-weight;
 @input-font-style-placeholder: @input-font-style;
 @input-color-text: @text-color;
+@input-color-placeholder: @grey;
 @input-color-focus: @input-color-text;
 @input-color-disabled: @black-30;
-@input-color-placeholder: @grey;
 @input-text-shadow: none;
 
 // Forms
