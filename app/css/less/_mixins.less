@@ -79,7 +79,7 @@
 }
 
 // Universal value setter
-.set-value_(@property; @value; @responsive: @isresponsive) when not (@value = true) and not (@value = false) {
+.set-value_(@property; @value; @responsive: @makerems) when not (@value = true) and not (@value = false) {
   // Convert some absolute values (pt, pc, in) to pixels
   .converter(@v) when (isunit(@value, pt)), (isunit(@value, pc)), (isunit(@value, in)) {
     @fixed-value: convert(@v, px);
@@ -122,10 +122,10 @@
   }
   .set-responsive(@p; @v) when (default()) {
     .set-responsive-default(@p) when (@p = font), (@p = font-size), (@p = line-height), (@p = letter-spacing) {
-      @responsive: @isfontsresponsive;
+      @responsive: @fonts-makerems;
     }
     .set-responsive-default(@p) when (default()) {
-      @responsive: @isresponsive;
+      @responsive: @makerems;
     }
     .set-responsive-default(@p);
   }
@@ -160,7 +160,7 @@
 }
 
 // Simple equal grid system
-.equal-grid(@row-width; @col-number; @col-padding; @responsive: @isresponsive) {
+.equal-grid(@row-width; @col-number; @col-padding; @responsive: @makerems) {
   .clearfix;
   box-sizing: border-box;
   .set-value(margin; 0 (@col-padding / -2) @responsive);
@@ -228,7 +228,7 @@
 }
 
 // Text overflow
-.text-overflow(@lines: 1; @font-size: @font-size-base; @line-height: @line-height-base; @fixed-height: false; @responsive: @isfontsresponsive) {
+.text-overflow(@lines: 1; @font-size: @font-size-base; @line-height: @line-height-base; @fixed-height: false; @responsive: @fonts-makerems) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
