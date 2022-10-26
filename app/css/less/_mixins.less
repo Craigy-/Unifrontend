@@ -228,21 +228,29 @@
 }
 
 // Text overflow
-.text-overflow(@lines: 1; @font-size: @font-size-base; @line-height: @line-height-base; @responsive: @isfontsresponsive) {
+.text-overflow(@lines: 1; @font-size: @font-size-base; @line-height: @line-height-base; @fixed-height: false; @responsive: @isfontsresponsive) {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: @lines;
   text-overflow: ellipsis;
 
-  & when (ispercentage(@line-height)) {
-    .set-value_(max-height; (@font-size * (@line-height / 100) * @lines); @responsive);
+  .get-height(@l; @fs; @lh) when (ispercentage(@lh)) {
+    @height: (@fs * (@lh / 100) * @l);
   }
-  & when (ispixel(@line-height)) {
-    .set-value_(max-height; (@line-height * @lines); @responsive);
+  .get-height(@l; @fs; @lh) when (ispixel(@lh)) {
+    @height: (@lh * @l);
   }
-  & when (isnumber(@line-height)) and not (ispercentage(@line-height)) and not (ispixel(@line-height)) {
-    .set-value_(max-height; (@font-size * @line-height * @lines); @responsive);
+  .get-height(@l; @fs; @lh) when (isnumber(@lh)) and not (ispercentage(@lh)) and not (ispixel(@lh)) {
+    @height: (@fs * @lh * @l);
+  }
+  .get-height(@lines; @font-size; @line-height);
+
+  & when (@fixed-height) {
+    .set-value_(height; @height; @responsive);
+  }
+  & when not (@fixed-height) {
+    .set-value_(max-height; @height; @responsive);
   }
 }
 
