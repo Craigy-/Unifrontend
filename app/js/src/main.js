@@ -15,6 +15,10 @@ $(function () {
       return;
     }
     $(document.body).data('originalWW', ww);
+    
+    // Set --vh custom property to correct window height calculation for mobile browsers
+    var vh = wh * .01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 
     // Responsive menu
     // Optional: /js/plugins/jquery.event.move.js, /js/plugins/jquery.event.swipe.js
