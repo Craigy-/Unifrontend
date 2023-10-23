@@ -60,32 +60,34 @@ cd build
 ```
 
 
-### Watch and compile files with browser's live reload
+### Watch for changes and build project with browser's live reload
 ```
-gulp watch
+gulp
 ```
 
 This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
 
 Faster version of the same command that disables all minifying tasks and processing the images:
 ```
+gulp --dev
+```
+
+If you don't need for browser's live reload, just use this:
+```
+gulp watch
 gulp watch --dev
 ```
 
 
-### Build project for production
+### Build project
 ```
 gulp build
-```
-or just:
-```
-gulp
+gulp build --dev
 ```
 
 
 ### Other commands (no description yet)
 ```
-gulp build --dev
 gulp css
 gulp js
 gulp js --custom

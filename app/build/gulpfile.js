@@ -13,12 +13,10 @@
 // Includes
 var gulp = require('gulp'),
     args = require('yargs').argv,
-    rename = require('gulp-rename'),
+    cache = require('gulp-cache'),
     del = require('del'),
     gulpif = require('gulp-if'),
-    watch = require('gulp-chokidar')(gulp),
-    cache = require('gulp-cache'),
-    stable = require('stable'),
+    rename = require('gulp-rename'),
     gp = require('gulp-load-plugins')({
       overridePattern: false,
       pattern: [
@@ -93,7 +91,6 @@ function makeCSS(done, compileLESS) {
   return gulp.src(compileLESS ? paths.css.src.custom : paths.css.src.vendor, {
     cwd: paths.rootPath
     })
-    .pipe(gp.plumber())
     .pipe(gulpif(!compileLESS, rename({
       suffix: paths.css.result.vendor
     })))
@@ -148,18 +145,15 @@ function packJS(done, custom) {
     .src(custom ? paths.js.src.custom : paths.js.src.vendor, {
       cwd: paths.rootPath
     })
-    .pipe(gp.plumber())
     .pipe(gulpif(!args.dev, gp.sourcemaps.init()))
     .pipe(gulpif(!custom, gp.sort({
       // Follow a certain order (files in subdirectories must be in the end)
-      customSortFn: function (files, comparator) {
-        var hasSubDir = function (path) {
+      comparator: function (file1, file2) {
+        var isInSubDir = function (path) {
           var arr = path.split(/\\|\//);
           return (arr[arr.length - 2] != 'plugins') ? 1 : -1;
-        }, comparator = function (file1, file2) {
-          return (hasSubDir(file1.path) > hasSubDir(file2.path)) ? 1 : (hasSubDir(file1.path) < hasSubDir(file2.path) ? -1 : file1.path.localeCompare(file2.path));
         };
-        return stable(files, comparator);
+        return (isInSubDir(file1.path) > isInSubDir(file2.path)) ? 1 : (isInSubDir(file1.path) < isInSubDir(file2.path) ? -1 : file1.path.localeCompare(file2.path));
       }
     })))
     .pipe(gp.concat(custom ? paths.js.result.custom : paths.js.result.vendor))
@@ -212,7 +206,7 @@ gulp.task('images', function () {
     };
   }
 
-  gulp.src(paths.images.src, {
+  return gulp.src(paths.images.src, {
     cwd: paths.rootPath
     })
     .pipe(cache(gp.imagemin([
@@ -251,32 +245,33 @@ gulp.task('clean', function () {
 });
 
 
-
-// Public tasks
-
-// Build for production
-gulp.task('build', args.dev ? ['clean', 'css', 'js'] : ['clear', 'css', 'js', 'images']);
-
-// Watch files for change
-gulp.task('watch', args.dev ? ['clean', 'live', 'css', 'js'] : ['clear', 'css', 'js'], function () {
-  // Watch LESS and vendor CSS
-  watch(paths.css.watch, {
-    cwd: paths.rootPath
-  }, 'css');
-  // Watch JS
-  watch(paths.js.watch, {
-    cwd: paths.rootPath
-  }, 'js');
-  // Watch HTML
-  watch(paths.html.watch, {
-    cwd: paths.rootPath
-  }).on('change', gp.browserSync.reload);
-});
-
 // Clear cache
 gulp.task('clear', function () {
   return cache.clearAll();
 })
 
+
+
+// Public tasks
+
+// Build
+gulp.task('build', args.dev ? gulp.series('clean', gulp.parallel('css', 'js')) : gulp.series('clear', gulp.parallel('css', 'js', 'images')));
+
+// Watch
+gulp.task('watch', function () {
+  // Watch LESS and vendor CSS
+  gulp.watch(paths.css.watch, {
+    cwd: paths.rootPath
+  }, gulp.parallel('css'));
+  // Watch JS
+  gulp.watch(paths.js.watch, {
+    cwd: paths.rootPath
+  }, gulp.parallel('js'));
+  // Watch HTML
+  gulp.watch(paths.html.watch, {
+    cwd: paths.rootPath
+  }).on('change', gp.browserSync.reload);
+});
+
 // Default
-gulp.task('default', ['build']);
+gulp.task('default', gulp.series('build', gulp.parallel('live', 'watch')));
