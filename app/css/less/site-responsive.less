@@ -1,8 +1,6 @@
 // Site responsive stylesheets
 
 // Local variables
-@min-width-mobile: 320px;
-
 @mobile-menu-link-width: 30px;
 @mobile-menu-link-height: 30px;
 @mobile-menu-link-lines-height: 2px;
@@ -11,7 +9,17 @@
 // Built-in responsiveness
 & when (@isresponsive) {
   // Structure
-  @media only all and (max-width: (767px * @reduction-ratio)) {
+  @media only all and (max-width: (@min-width-wrapper - 1)) {
+    & when (@makerems) {
+      html {
+        font-size: (@font-size-base * @reduction-ratio);
+      }
+    }
+    body {
+      overflow-x: hidden;
+      min-width: @min-width-base;
+    }
+
     main {
       float: none;
       width: 100% !important;
@@ -36,21 +44,11 @@
         padding-right: 0;
       }
     }
-  }
-  & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
-    @media only all and (max-width: (767px * @reduction-ratio)) {
-      .wrapper {
-        width: 100% !important;
-        padding-left: @wrapper-padding-one;
-        padding-right: @wrapper-padding-one;
-      }
-    }
-  }
-  & when not (@wrapper-fixed) {
-    @media only all and (max-width: (767px * @reduction-ratio)) {
-      .wrapper {
-        min-width: @min-width-mobile;
-      }
+
+    .wrapper {
+      min-width: @min-width-base;
+      padding-left: @wrapper-padding-one;
+      padding-right: @wrapper-padding-one;
     }
   }
 
@@ -174,6 +172,23 @@
       }
     }
   }
+  @media only all and (max-width: (@min-width-wrapper - 1)) {
+    .mobile-menu-link {
+      display: block;
+    }
+    nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      .translate(100%, 0);
+      transition: all .5s;
+
+      .nav-opened & {
+        .translate(0, 0);
+      }
+    }
+  }
 
   // Mobile menu overlay
   #mobile-menu-overlay {
@@ -228,41 +243,18 @@ only screen and (min-resolution: 2dppx) {
 }
 
 
-// >=@{min-width-base}px
-@media only all and (min-width: @min-width-base) {
+// >=@{@min-width-wrapper}px
+@media only all and (min-width: @min-width-wrapper) {
 }
 
 
-// <@{min-width-base}px
-@media only all and (max-width: (@min-width-base - 1)) {
-  /*html {
-    font-size: (@font-size-base * @reduction-ratio);
-  }*/
+// <@{@min-width-wrapper}px
+@media only all and (max-width: (@min-width-wrapper - 1)) {
 }
 
 
 // <768px
 @media only all and (max-width: (767px * @reduction-ratio)) {
-  body {
-    overflow-x: hidden;
-    min-width: @min-width-mobile;
-  }
-
-  .mobile-menu-link {
-    display: block;
-  }
-  nav {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-    .translate(100%, 0);
-    transition: all .5s;
-
-    .nav-opened & {
-      .translate(0, 0);
-    }
-  }
 }
 
 

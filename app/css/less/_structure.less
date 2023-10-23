@@ -6,9 +6,12 @@
   }
 }
 body {
-  min-width: @min-width-base;
-  max-width: 1920px;
-  margin: 0 auto;
+  min-width: @min-width-wrapper;
+  max-width: @max-width-base;
+
+  & when (@body-centered) {
+    margin: 0 auto;
+  }
 }
 
 header {
@@ -25,9 +28,6 @@ header {
   background: @structure-background;
   margin: 0 auto;
 
-  & when (@move-max-width-to-structure) {
-    max-width: @max-width-base;
-  }
   & when (@footer-to-bottom) and not (@footer-height = auto) {
     min-height: 100%;
   }
@@ -86,11 +86,11 @@ footer {
   position: relative;
   box-sizing: border-box;
   background: @footer-background;
-  .set-value(padding; @footer-padding; margin; 0 auto);
+  .set-value_(padding; @footer-padding);
   text-align: @footer-text-align;
 
-  & when (@apply-max-width-to-footer) {
-    max-width: @max-width-base;
+  & when (@footer-centered) {
+    margin: 0 auto;
   }
 
   > .wrapper when not (@footer-wrapper-background = none) {
@@ -108,16 +108,11 @@ footer {
 
 .wrapper {
   box-sizing: border-box;
-  .set-value(padding; @wrapper-padding; margin; 0 auto);
+  min-width: @min-width-wrapper;
+  max-width: @max-width-wrapper;
+  .set-value_(padding; @wrapper-padding);
 
-  & when (@wrapper-fixed) and not (@move-max-width-to-structure) {
-    .set-value_(width; @max-width-base);
-  }
-  & when (@wrapper-fixed) and (@move-max-width-to-structure) {
-    .set-value_(width; @min-width-base);
-  }
-  & when not (@wrapper-fixed) {
-    min-width: @min-width-base;
-    max-width: @max-width-base;
+  & when (@wrapper-centered) {
+    margin: 0 auto;
   }
 }
