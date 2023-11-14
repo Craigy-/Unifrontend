@@ -1,5 +1,5 @@
 // HTML structure
-& when (@footer-to-bottom) and not (@footer-height = auto) {
+& when (@body-full-height) {
   html,
   body {
     height: 100%;
@@ -17,7 +17,11 @@ body {
 header {
   box-sizing: border-box;
   background: @header-background;
-  .set-value(height; @header-height; padding; @header-padding);
+  .set-value_(padding; @header-padding);
+
+  & when not (@header-height = auto) {
+    .set-value_(height; @header-height);
+  }
 
   > .wrapper when not (@header-wrapper-background = none) {
     background: @header-wrapper-background;
@@ -28,7 +32,7 @@ header {
   background: @structure-background;
   margin: 0 auto;
 
-  & when (@footer-to-bottom) and not (@footer-height = auto) {
+  & when (@body-full-height) {
     min-height: 100%;
   }
 }
