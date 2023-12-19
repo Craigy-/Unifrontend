@@ -7,6 +7,25 @@
 // Local variables
 
 // Local mixins
+.link(@color: @link-color) {
+  border-bottom: 1px solid @color;
+  transition: border .3s;
+
+  &:hover,
+  &.active {
+    border-color: transparent;
+  }
+}
+.flip-link(@color: @link-color) {
+  border-bottom: 1px solid transparent;
+  transition: border .3s;
+
+  &:hover,
+  &.active {
+    border-color: @color;
+  }
+}
+
 .clear-list() {
   li {
     list-style: none;
@@ -285,12 +304,6 @@ button,
 .grey,
 .grey a {
   color: @grey;
-}
-
-
-// Markers
-.marker {
-  .marker('../images/marker.gif'; 0 0 0 12; 0 4px);
 }
 
 
