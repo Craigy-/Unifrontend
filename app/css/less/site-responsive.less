@@ -237,9 +237,14 @@
 
 // Retina
 @media
-only screen and (min-device-pixel-ratio: 2),
-only screen and (min-resolution: 192dpi),
-only screen and (min-resolution: 2dppx) {
+  only screen and (-webkit-min-device-pixel-ratio: 1.25),
+  only screen and (min-resolution: 1.25dppx),
+  only screen and (min-resolution: 120dpi) {
+}
+
+
+// Portrait
+@media only all and (orientation: portrait) {
 }
 
 
