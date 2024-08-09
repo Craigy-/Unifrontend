@@ -88,8 +88,9 @@ var paths = {
 
 // Make CSS
 function makeCSS(done, compileLESS) {
-  return gulp.src(compileLESS ? paths.css.src.custom : paths.css.src.vendor, {
-    cwd: paths.rootPath
+  return gulp
+    .src(compileLESS ? paths.css.src.custom : paths.css.src.vendor, {
+      cwd: paths.rootPath
     })
     .pipe(gulpif(!compileLESS, rename({
       suffix: paths.css.result.vendor
@@ -248,7 +249,7 @@ gulp.task('clean', function () {
 // Clear cache
 gulp.task('clear', function () {
   return cache.clearAll();
-})
+});
 
 
 
