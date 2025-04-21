@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="ru">
+<htm lang="ru">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
@@ -136,7 +136,7 @@ window.$ = function (f) {
 <script data-pack="None">
 //<![CDATA[
 $(function () {
-  $('html').removeClass('no-js').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
+  $('html').addClass(GLOBAL.isTouchscreen ? 'isTouchscreen' : 'isDesktop');
 });
 $.each(GLOBAL.$queue, function (index, callback) {
   $(callback);
