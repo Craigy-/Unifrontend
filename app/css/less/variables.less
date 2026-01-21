@@ -137,6 +137,16 @@
 @primary-list-element-padding: 0;
 @primary-list-element-margin: 0 0 10px 10px;
 
+// Lists
+@list-margin: 0;
+@list-font: @font-size-base/@line-height-base @font-family-base;
+@list-element-margin: @paragraph-padding;
+
+@list-hr-element-divider-position: bottom;
+@list-hr-element-divider: 1px solid @hr-color-base;
+@list-hr-element-padding: @list-element-margin;
+@list-hr-element-margin: @list-element-margin;
+
 // Tables
 @table-cells-padding: 0 10px 10px 10px;
 @table-font: @font-size-base/@line-height-base @font-family-base;
@@ -156,10 +166,6 @@
 @table-bordered-th-text-align: @table-th-text-align;
 
 @table-striped-highlight-color: @grey;
-
-// Images
-@image-bordered-border: 1px solid @hr-color-base;
-@image-bordered-padding: 2px;
 
 // Inputs
 @input-background: @body-background;
@@ -290,15 +296,9 @@
 @pagination-navigation-color: @pagination-element-color;
 @pagination-navigation-text-decoration: @pagination-element-text-decoration;
 
-// Lists
-@list-margin: 0;
-@list-font: @font-size-base/@line-height-base @font-family-base;
-@list-element-margin: @paragraph-padding;
-
-@list-hr-element-divider-position: bottom;
-@list-hr-element-divider: 1px solid @hr-color-base;
-@list-hr-element-padding: @list-element-margin;
-@list-hr-element-margin: @list-element-margin;
+// Images
+@image-bordered-border: 1px solid @hr-color-base;
+@image-bordered-padding: 2px;
 
 // Popups
 @popup-zIndex: 1002;

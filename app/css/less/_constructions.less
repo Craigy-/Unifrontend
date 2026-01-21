@@ -1,118 +1,106 @@
 // Built-in constructions
 
-// Breadcrumbs
-.breadcrumbs {
-  .set-value(margin; @breadcrumbs-margin);
-  line-height: 0;
-  letter-spacing: -1px;
+// Lists
+.list,
+.list-hr { // must be applied to <ul> or <ol>
+  .set-value(margin; @list-margin);
+  font: @list-font;
 
-  a,
-  span {
-    display: inline-block;
-    .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
-    color: @breadcrumbs-element-color;
-    letter-spacing: normal;
-    text-decoration: @breadcrumbs-element-text-decoration;
-  }
-  a:hover {
-    text-decoration: @breadcrumbs-element-text-decoration-hover;
-  }
-  span {
-    .set-value(padding; @breadcrumbs-active-padding; font; @breadcrumbs-active-font);
-    color: @breadcrumbs-active-color;
-    text-decoration: none !important;
+  > li {
+    .clearfix;
+    .set-value(margin; @list-element-margin);
+    list-style: none;
 
-    &.breadcrumbs-separator {
-      .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
-      color: @breadcrumbs-separator-color;
+    &.list-element-last {
+      .padding-bottom(0);
+      .margin-bottom(0);
+    }
+
+    p:last-child {
+      padding: 0;
+    }
+    ul,
+    ol {
+      &:last-child {
+        margin-bottom: 0;
+
+        li:last-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
-  img {
-    vertical-align: baseline;
+}
+.list-hr {
+  > li {
+    .set-value(padding; @list-hr-element-padding; margin; @list-hr-element-margin);
+
+    & when (@list-hr-element-divider-position = top) {
+      border-top: @list-hr-element-divider;
+    }
+    & when (@list-hr-element-divider-position = bottom) {
+      border-bottom: @list-hr-element-divider;
+    }
+
+    &.list-element-last {
+      border: 0;
+    }
   }
 }
 
-// Pagination
-.pagination {
-  .set-value(margin; @pagination-margin);
+// Tables
+table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse;
+  .set-value(margin; @paragraph-padding; font; @table-font);
 
-  ul {
-    overflow: hidden;
+  th,
+  td {
+    .set-value(padding; @table-cells-padding);
 
-    > li {
-      float: left;
-      .set-value(padding; @pagination-element-padding);
-      list-style: none;
-
-      * {
-        display: block;
-        .set-value(font; @pagination-element-font);
-        color: @pagination-element-color;
-      }
-      a {
-        text-decoration: @pagination-element-text-decoration;
-
-        &:hover {
-          text-decoration: @pagination-element-text-decoration-hover;
-        }
-      }
-      &.page-selected {
-        .set-value(padding; @pagination-selected-padding);
-
-        * {
-          .set-value(font; @pagination-selected-font);
-          color: @pagination-selected-color;
-        }
-        a {
-          text-decoration: @pagination-selected-text-decoration !important;
-        }
-      }
-      &.page-backward,
-      &.page-forward {
-        .set-value(padding; @pagination-navigation-padding);
-
-        * {
-          .set-value(font; @pagination-navigation-font);
-          color: @pagination-navigation-color;
-
-          & when not (@pagination-navigation-image = none) {
-            background-image: @pagination-navigation-image !important;
-            background-repeat: no-repeat !important;
-            background-color: transparent !important;
-            .size(@pagination-navigation-width false; @pagination-navigation-height false);
-            .text-hide;
-          }
-        }
-        a {
-          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
-            text-decoration: @pagination-navigation-text-decoration !important;
-          }
-        }
-      }
-      &.page-backward when not (@pagination-navigation-image = none) {
-        * {
-          background-position: 0 0;
-
-          &:hover {
-            .set-value(background-position; 0 -@pagination-navigation-height);
-          }
-        }
-      }
-      &.page-forward when not (@pagination-navigation-image = none) {
-        * {
-          .set-value(background-position; -@pagination-navigation-width 0);
-
-          &:hover {
-            .set-value(background-position; -@pagination-navigation-width -@pagination-navigation-height);
-          }
-        }
-      }
+    p:last-child {
+      padding: 0;
     }
+  }
+  th {
+    .set-value(font; @table-th-font);
+    color: @table-th-color;
+    text-align: @table-th-text-align;
+  }
+}
+.table-bordered {
+  border-top: @table-bordered-border;
+  border-left: @table-bordered-border;
+  .set-value(font; @table-bordered-font);
+  color: @table-bordered-text-color;
+
+  th,
+  td {
+    border-right: @table-bordered-border;
+    border-bottom: @table-bordered-border;
+    .set-value(padding; @table-bordered-cells-padding);
+  }
+  th,
+  thead td {
+    background: @table-bordered-th-background;
+    .set-value(padding; @table-bordered-th-padding; font; @table-bordered-th-font);
+    color: @table-bordered-th-text-color;
+    text-align: @table-bordered-th-text-align;
+  }
+  td {
+    background: @table-bordered-background;
+  }
+}
+.table-striped {
+  tbody tr:nth-child(even) > td {
+    background: @table-striped-highlight-color;
   }
 }
 
 // Forms
-.form { // apply to <form>
+.form { // must be applied to <form>
   box-sizing: border-box;
   background: @form-background;
   border: @form-border;
@@ -240,102 +228,114 @@
   color: @form-messages-success-color-text;
 }
 
-// Lists
-.list,
-.list-hr { // apply to <ul> or <ol>
-  .set-value(margin; @list-margin);
-  font: @list-font;
+// Breadcrumbs
+.breadcrumbs {
+  .set-value(margin; @breadcrumbs-margin);
+  line-height: 0;
+  letter-spacing: -1px;
 
-  > li {
-    .clearfix;
-    .set-value(margin; @list-element-margin);
-    list-style: none;
+  a,
+  span {
+    display: inline-block;
+    .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
+    color: @breadcrumbs-element-color;
+    letter-spacing: normal;
+    text-decoration: @breadcrumbs-element-text-decoration;
+  }
+  a:hover {
+    text-decoration: @breadcrumbs-element-text-decoration-hover;
+  }
+  span {
+    .set-value(padding; @breadcrumbs-active-padding; font; @breadcrumbs-active-font);
+    color: @breadcrumbs-active-color;
+    text-decoration: none !important;
 
-    &.list-element-last {
-      .padding-bottom(0);
-      .margin-bottom(0);
+    &.breadcrumbs-separator {
+      .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
+      color: @breadcrumbs-separator-color;
     }
+  }
+  img {
+    vertical-align: baseline;
+  }
+}
 
-    p:last-child {
-      padding: 0;
-    }
-    ul,
-    ol {
-      &:last-child {
-        margin-bottom: 0;
+// Pagination
+.pagination {
+  .set-value(margin; @pagination-margin);
 
-        li:last-child {
-          margin-bottom: 0;
+  ul {
+    overflow: hidden;
+
+    > li {
+      float: left;
+      .set-value(padding; @pagination-element-padding);
+      list-style: none;
+
+      * {
+        display: block;
+        .set-value(font; @pagination-element-font);
+        color: @pagination-element-color;
+      }
+      a {
+        text-decoration: @pagination-element-text-decoration;
+
+        &:hover {
+          text-decoration: @pagination-element-text-decoration-hover;
+        }
+      }
+      &.page-selected {
+        .set-value(padding; @pagination-selected-padding);
+
+        * {
+          .set-value(font; @pagination-selected-font);
+          color: @pagination-selected-color;
+        }
+        a {
+          text-decoration: @pagination-selected-text-decoration !important;
+        }
+      }
+      &.page-backward,
+      &.page-forward {
+        .set-value(padding; @pagination-navigation-padding);
+
+        * {
+          .set-value(font; @pagination-navigation-font);
+          color: @pagination-navigation-color;
+
+          & when not (@pagination-navigation-image = none) {
+            background-image: @pagination-navigation-image !important;
+            background-repeat: no-repeat !important;
+            background-color: transparent !important;
+            .size(@pagination-navigation-width false; @pagination-navigation-height false);
+            .text-hide;
+          }
+        }
+        a {
+          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
+            text-decoration: @pagination-navigation-text-decoration !important;
+          }
+        }
+      }
+      &.page-backward when not (@pagination-navigation-image = none) {
+        * {
+          background-position: 0 0;
+
+          &:hover {
+            .set-value(background-position; 0 -@pagination-navigation-height);
+          }
+        }
+      }
+      &.page-forward when not (@pagination-navigation-image = none) {
+        * {
+          .set-value(background-position; -@pagination-navigation-width 0);
+
+          &:hover {
+            .set-value(background-position; -@pagination-navigation-width -@pagination-navigation-height);
+          }
         }
       }
     }
-  }
-}
-.list-hr {
-  > li {
-    .set-value(padding; @list-hr-element-padding; margin; @list-hr-element-margin);
-
-    & when (@list-hr-element-divider-position = top) {
-      border-top: @list-hr-element-divider;
-    }
-    & when (@list-hr-element-divider-position = bottom) {
-      border-bottom: @list-hr-element-divider;
-    }
-
-    &.list-element-last {
-      border: 0;
-    }
-  }
-}
-
-// Tables
-table {
-  width: 100%;
-  border: 0;
-  border-spacing: 0;
-  border-collapse: collapse;
-  .set-value(margin; @paragraph-padding; font; @table-font);
-
-  th,
-  td {
-    .set-value(padding; @table-cells-padding);
-
-    p:last-child {
-      padding: 0;
-    }
-  }
-  th {
-    .set-value(font; @table-th-font);
-    color: @table-th-color;
-    text-align: @table-th-text-align;
-  }
-}
-.table-bordered {
-  border-top: @table-bordered-border;
-  border-left: @table-bordered-border;
-  .set-value(font; @table-bordered-font);
-  color: @table-bordered-text-color;
-
-  th,
-  td {
-    border-right: @table-bordered-border;
-    border-bottom: @table-bordered-border;
-    .set-value(padding; @table-bordered-cells-padding);
-  }
-  th,
-  thead td {
-    background: @table-bordered-th-background;
-    .set-value(padding; @table-bordered-th-padding; font; @table-bordered-th-font);
-    color: @table-bordered-th-text-color;
-    text-align: @table-bordered-th-text-align;
-  }
-  td {
-    background: @table-bordered-background;
-  }
-}
-.table-striped {
-  tbody tr:nth-child(even) > td {
-    background: @table-striped-highlight-color;
   }
 }
 
