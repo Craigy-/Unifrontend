@@ -48,34 +48,32 @@
 }
 
 // Links
-.hover,
-.hover a {
-  text-decoration: none !important;
-
-  &:hover {
-    text-decoration: underline !important;
-  }
+.underline {
+  border-bottom: 1px solid !important;
 }
-.unhover,
-.unhover a {
-  text-decoration: underline !important;
-
-  &:hover {
-    text-decoration: none !important;
-  }
+.dotted {
+  border-bottom: 1px dotted !important;
 }
-.none,
-.none a {
+.dashed {
+  border-bottom: 1px dashed !important;
+}
+.none {
   border-bottom: 0 !important;
-  text-decoration: none !important;
 }
-.underline,
-.underline a {
-  border-bottom: 1px solid;
-  text-decoration: none !important;
+.hover {
+  border-bottom-color: transparent !important;
 
-  &:hover {
-    border-color: transparent;
+  &:hover,
+  &.active {
+    border-bottom-color: initial !important;
+  }
+}
+.unhover {
+  border-bottom-color: inherit !important;
+
+  &:hover,
+  &.active {
+    border-bottom-color: transparent !important;
   }
 }
 

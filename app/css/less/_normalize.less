@@ -46,22 +46,33 @@ progress {
 }
 
 a {
-  background-color: transparent;
+  border-bottom: 1px solid;
   color: @link-color;
-  text-decoration: @link-text-decoration;
-  transition: color .3s, border .3s, background-color .3s;
+  text-decoration: none;
+  transition: color .3s, border .3s;
 
-  &:hover when not (@link-color-hover = @link-color) {
-    color: @link-color-hover;
+  & when not (@link-color-hover = @link-color) {
+    &:hover,
+    &.active {
+      color: @link-color-hover;
+    }
   }
-  &:hover when not (@link-text-decoration-hover = @link-text-decoration) {
-    text-decoration: @link-text-decoration-hover;
+
+  & when (@link-text-decoration-hover = none) {
+    &:hover,
+    &.active {
+      border-bottom-color: transparent;
+    }
   }
-  &:visited when not (@link-color-visited = @link-color) {
-    color: @link-color-visited;
-  }
-  &:visited when not (@link-text-decoration-visited = @link-text-decoration) {
-    text-decoration: @link-text-decoration-visited;
+  & when (@link-text-decoration = none) {
+    border-bottom-color: transparent;
+
+    & when (@link-text-decoration-hover = underline) {
+      &:hover,
+      &.active {
+        border-bottom-color: initial;
+      }
+    }
   }
 }
 a:active,
@@ -83,26 +94,6 @@ button:focus {
   text-shadow: none;
 }
 
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  a {
-    text-decoration: @link-text-decoration;
-
-    &:hover when not (@link-text-decoration-hover = @link-text-decoration) {
-      text-decoration: @link-text-decoration-hover;
-    }
-  }
-}
 h1,
 .h1 {
   background: @h1-background;

@@ -37,7 +37,7 @@
 @font-size-base: 12px;
 @line-height-base: 120%;
 
-// Colors and structure backgrounds
+// Backgrounds
 @body-background: @white;
 @header-background: none;
 @header-wrapper-background: none;
@@ -50,11 +50,11 @@
 @footer-background: @body-background;
 @footer-wrapper-background: none;
 
+// Colors
 @text-color: @black;
 @selection-color: #B3D4FC;
 @link-color: #02A3AA;
 @link-color-hover: @link-color;
-@link-color-visited: @link-color;
 @hr-color-base: #7D7D7D;
 
 @black: #000000;
@@ -72,10 +72,9 @@
 @green: #5E9010;
 @grey: #CCCCCC;
 
-// Links
-@link-text-decoration: underline;
-@link-text-decoration-hover: @link-text-decoration;
-@link-text-decoration-visited: @link-text-decoration;
+// Link states (supports 'underline/none' only)
+@link-text-decoration: none;
+@link-text-decoration-hover: underline;
 
 // Headings
 @h1-background: none;
@@ -261,17 +260,15 @@
 
 // Breadcrumbs
 @breadcrumbs-margin: @paragraph-padding;
-@breadcrumbs-element-padding: 0 5px 0 0;
+@breadcrumbs-element-margin: 0 5px 0 0;
 @breadcrumbs-element-font: @font-size-base/@line-height-base @font-family-base;
 @breadcrumbs-element-color: @link-color;
-@breadcrumbs-element-text-decoration: underline;
-@breadcrumbs-element-text-decoration-hover: none;
 
-@breadcrumbs-active-padding: @breadcrumbs-element-padding;
+@breadcrumbs-active-margin: @breadcrumbs-element-margin;
 @breadcrumbs-active-font: @breadcrumbs-element-font;
 @breadcrumbs-active-color: @text-color;
 
-@breadcrumbs-separator-padding: @breadcrumbs-element-padding;
+@breadcrumbs-separator-margin: @breadcrumbs-element-margin;
 @breadcrumbs-separator-font: @breadcrumbs-element-font;
 @breadcrumbs-separator-color: @text-color;
 
@@ -280,13 +277,10 @@
 @pagination-element-padding: 0 5px;
 @pagination-element-font: @font-size-base/@line-height-base @font-family-base;
 @pagination-element-color: @link-color;
-@pagination-element-text-decoration: underline;
-@pagination-element-text-decoration-hover: none;
 
 @pagination-selected-padding: @pagination-element-padding;
 @pagination-selected-font: @pagination-element-font;
 @pagination-selected-color: @text-color;
-@pagination-selected-text-decoration: none;
 
 @pagination-navigation-image: none;
 @pagination-navigation-width: 13px;
@@ -294,7 +288,6 @@
 @pagination-navigation-padding: @pagination-element-padding;
 @pagination-navigation-font: @pagination-element-font;
 @pagination-navigation-color: @pagination-element-color;
-@pagination-navigation-text-decoration: @pagination-element-text-decoration;
 
 // Images
 @image-bordered-border: 1px solid @hr-color-base;
@@ -345,7 +338,6 @@
 @popup-close-padding: 0;
 @popup-close-font: @popup-close-height/100% @font-family-base;
 @popup-close-color: @link-color;
-@popup-close-text-decoration: none;
 
 // Modals
 @modal-zIndex: (@popup-zIndex - 1);

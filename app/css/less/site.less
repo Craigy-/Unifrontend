@@ -7,25 +7,6 @@
 // Local variables
 
 // Local mixins
-.link(@color: @link-color) {
-  border-bottom: 1px solid @color;
-  transition: border .3s;
-
-  &:hover,
-  &.active {
-    border-color: transparent;
-  }
-}
-.flip-link(@color: @link-color) {
-  border-bottom: 1px solid transparent;
-  transition: border .3s;
-
-  &:hover,
-  &.active {
-    border-color: @color;
-  }
-}
-
 .clear-list() {
   li {
     list-style: none;
@@ -258,7 +239,6 @@ footer {
   .set-value(height; @input-height; padding; 0 @input-padding; line-height; @input-height true);
   font-size: @input-font-size;
   color: @input-color-text;
-  text-decoration: none;
   white-space: nowrap;
   text-transform: lowercase;
   transition: all .3s;

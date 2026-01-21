@@ -237,21 +237,16 @@ table {
   a,
   span {
     display: inline-block;
-    .set-value(padding; @breadcrumbs-element-padding; font; @breadcrumbs-element-font);
+    .set-value(margin; @breadcrumbs-element-margin; font; @breadcrumbs-element-font);
     color: @breadcrumbs-element-color;
     letter-spacing: normal;
-    text-decoration: @breadcrumbs-element-text-decoration;
-  }
-  a:hover {
-    text-decoration: @breadcrumbs-element-text-decoration-hover;
   }
   span {
-    .set-value(padding; @breadcrumbs-active-padding; font; @breadcrumbs-active-font);
+    .set-value(margin; @breadcrumbs-active-margin; font; @breadcrumbs-active-font);
     color: @breadcrumbs-active-color;
-    text-decoration: none !important;
 
     &.breadcrumbs-separator {
-      .set-value(padding; @breadcrumbs-separator-padding; font; @breadcrumbs-separator-font);
+      .set-value(margin; @breadcrumbs-separator-margin; font; @breadcrumbs-separator-font);
       color: @breadcrumbs-separator-color;
     }
   }
@@ -277,13 +272,6 @@ table {
         .set-value(font; @pagination-element-font);
         color: @pagination-element-color;
       }
-      a {
-        text-decoration: @pagination-element-text-decoration;
-
-        &:hover {
-          text-decoration: @pagination-element-text-decoration-hover;
-        }
-      }
       &.page-selected {
         .set-value(padding; @pagination-selected-padding);
 
@@ -291,15 +279,13 @@ table {
           .set-value(font; @pagination-selected-font);
           color: @pagination-selected-color;
         }
-        a {
-          text-decoration: @pagination-selected-text-decoration !important;
-        }
       }
       &.page-backward,
       &.page-forward {
         .set-value(padding; @pagination-navigation-padding);
 
         * {
+          border: 0;
           .set-value(font; @pagination-navigation-font);
           color: @pagination-navigation-color;
 
@@ -309,11 +295,6 @@ table {
             background-color: transparent !important;
             .size(@pagination-navigation-width false; @pagination-navigation-height false);
             .text-hide;
-          }
-        }
-        a {
-          & when not (@pagination-navigation-text-decoration = @pagination-element-text-decoration) {
-            text-decoration: @pagination-navigation-text-decoration !important;
           }
         }
       }
@@ -392,7 +373,6 @@ table {
     border: 0;
     .set-value(padding; @popup-close-padding; font; @popup-close-font);
     color: @popup-close-color;
-    text-decoration: @popup-close-text-decoration;
     vertical-align: top;
     cursor: pointer;
 
